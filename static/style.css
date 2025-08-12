@@ -1,0 +1,36 @@
+body {
+  font-family: sans-serif;
+  padding: 2rem;
+  max-width: 800px;
+  margin: auto;
+}
+
+form {
+  margin-bottom: 20px;
+}
+
+input[type="text"] {
+  width: 70%;
+  padding: 10px;
+  font-size: 16px;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+}
+
+.mindmap-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.node {
+  background-color: #e3f2fd;
+  border: 1px solid #90caf9;
+  padding: 15px;
+  border-radius: 8px;
+  min-width: 200px;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1);
+}

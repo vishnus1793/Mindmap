@@ -1,0 +1,34 @@
+
+                        ╔═════════════════════════════════════╗
+                        ║  OVERVIEW - UBICLOUD DOCUMENTATION  ║
+                        ╚═════════════════════════════════════╝
+
+                                        │
+                                   ┌─────┴─────┐
+                                   │           │
+├── 📌 Infrastructure-as-a-Service (IaaS)│             📌 Managed Services ──┤
+├── 📌 Cost Reduction               │           📌 Managed PostgreSQL ──┤
+├── 📌 Open Source                  │       📌 Virtual Machines (VMs) ──┤
+├── 📌 Portability                  │                     📌 Security ──┤
+├── 📌 Vendor Lock-in               │   📌 GitHub Actions Integration ──┤
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│                                   SUMMARY                                    │
+├──────────────────────────────────────────────────────────────────────────────┤
+│ Ubicloud is an open-source, portable cloud alternative to proprietary       │
+│ services like AWS, Azure, and Google Cloud. It offers                       │
+│ Infrastructure-as-a-Service (IaaS) features at significantly reduced costs  │
+│ (3x-10x) by leveraging bare metal instances from providers such as Hetzner  │
+│ and Leaseweb. Ubicloud prioritizes cost reduction, vendor lock-in           │
+│ avoidance, and user control over infrastructure, focusing initially on      │
+│ high-demand services like managed PostgreSQL and GitHub Actions runners.    │
+│ Its open-source nature and AGPL v3 license allow for transparency and       │
+│ community contribution. It provides core cloud services including compute,  │
+│ storage, networking, load balancing, and managed database solutions, all    │
+│ accessible through a user-friendly cloud console. The platform aims to      │
+│ offer a subset of the most commonly used cloud services with a strong       │
+│ emphasis on cost-effectiveness and user control. Key Concepts: Open-source  │
+│ cloud, IaaS, Cost reduction, Vendor lock-in avoidance, Managed services     │
+│ (PostgreSQL, GitHub Actions runners), Bare metal instances, Portability,    │
+│ Security (encryption), Control plane, Cloud console.                        │
+└──────────────────────────────────────────────────────────────────────────────┘

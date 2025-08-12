@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mind Map Generator</title>
+</head>
+<body>
+    <h1>Mind Map Generator</h1>
+    <input type="text" id="urlInput" placeholder="Enter a URL" style="width: 300px;">
+    <button onclick="fetchMindMap()">Generate</button>
+
+    <div id="mindmap"></div>
+
+    <script>
+        async function fetchMindMap() {
+            const url = document.getElementById("urlInput").value;
+            const res = await fetch("/generate", {
+                method: "POST",
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ url })
+            });
+
+            const data = await res.json();
+            const container = document.getElementById("mindmap");
+
+            if (data.error) {
+                container.innerHTML = `<p style="color:red;">Error: ${data.error}</p>`;
+                return;
+            }
+
+            let html = `<h2>${data.title}</h2><ul>`;
+            data.children.forEach(child => {
+                html += `<li><strong>${child.title}:</strong> ${child.text}<br><em>Summary:</em> ${child.summary}</li>`;
+            });
+            html += `</ul>`;
+            container.innerHTML = html;
+        }
+    </script>
+</body>
+</html>
