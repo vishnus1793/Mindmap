@@ -622,6 +622,75 @@ async def get_job_mindmaps(job_id: str):
         )
     
     return job.result.get('mind_maps', {})
+import os
+import json
+import re
+from datetime import datetime
+
+# Ensure a folder exists to store JSON files
+STORAGE_DIR = "scraped_data"
+os.makedirs(STORAGE_DIR, exist_ok=True)
+
+def sanitize_filename(url: str) -> str:
+    """Convert URL into a safe filename"""
+    # Replace all non-alphanumeric characters with underscore
+    return re.sub(r'[^0-9a-zA-Z]+', '_', url)
+
+async def process_scrape_job(job_id: str, url: str, api_key: str, summary_length: int):
+    """Background task to process scraping job and save result locally"""
+    try:
+        job = scrape_jobs[job_id]
+        job.status = "processing"
+        job.progress = 10
+        
+        # Initialize components
+        scraper = WebScraper()
+        summarizer = ContentSummarizer(api_key)
+        mind_map_gen = MindMapGenerator()
+        
+        # Scrape content
+        logger.info(f"Scraping content from: {url}")
+        job.progress = 30
+        content = scraper.scrape_content(url)
+        
+        # Generate summary
+        logger.info("Generating summary...")
+        job.progress = 60
+        summary_data = summarizer.summarize_content(content, summary_length)
+        
+        # Generate mind maps
+        logger.info("Creating mind maps...")
+        job.progress = 80
+        mind_maps = mind_map_gen.create_mind_maps(
+            content['title'],
+            summary_data['summary'],
+            summary_data['key_concepts']
+        )
+        
+        # Prepare final result
+        result = {
+            'scraped_content': content,
+            'summary': summary_data,
+            'mind_maps': mind_maps
+        }
+        
+        # Save result to local JSON file using sanitized URL as filename
+        safe_filename = sanitize_filename(url)
+        file_path = os.path.join(STORAGE_DIR, f"{safe_filename}.json")
+        with open(file_path, "w", encoding="utf-8") as f:
+            json.dump(result, f, ensure_ascii=False, indent=2)
+        
+        job.result = result
+        job.status = "completed"
+        job.progress = 100
+        job.completed_at = datetime.now().isoformat()
+        logger.info(f"Job {job_id} completed successfully and saved to {file_path}")
+        
+    except Exception as e:
+        logger.error(f"Job {job_id} failed: {str(e)}")
+        job.status = "failed"
+        job.error = str(e)
+        job.completed_at = datetime.now().isoformat()
 
 if __name__ == "__main__":
     import uvicorn
