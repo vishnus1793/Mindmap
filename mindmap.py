@@ -1,29 +1,106 @@
 #!/usr/bin/env python3
 """
-Website Content Scraper and Mind Map Generator
+Website Content Scraper and Mind Map Generator API Backend
 
-This script scrapes content from a specified website, generates a summary,
-and creates a mind map visualization of the key concepts.
+FastAPI backend that provides endpoints for scraping website content,
+generating summaries, and creating mind maps.
 """
 
+from fastapi import FastAPI, HTTPException, BackgroundTasks
+from fastapi.middleware.cors import CORSMiddleware
+from pydantic import BaseModel, HttpUrl
+from typing import Dict, List, Optional
 import requests
 from bs4 import BeautifulSoup
 import re
-from urllib.parse import urljoin, urlparse
 import json
-from typing import Dict, List, Tuple
 import google.generativeai as genai
 import os
-from dataclasses import dataclass
-import argparse
-import sys
+from dataclasses import dataclass, asdict
+import uuid
+import asyncio
+from datetime import datetime
+import logging
 
-@dataclass
-class ContentSection:
-    """Represents a section of content with title and text"""
+# Configure logging
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
+
+# Initialize FastAPI app
+app = FastAPI(
+    title="Website Scraper & Mind Map API",
+    description="API for scraping website content and generating mind maps",
+    version="1.0.0"
+)
+
+# Add CORS middleware
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Configure this properly for production
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+# In-memory storage for demo purposes (use a database in production)
+scrape_jobs = {}
+
+# Pydantic models for API requests/responses
+class ScrapeRequest(BaseModel):
+    url: HttpUrl
+    api_key: Optional[str] = "AIzaSyDwfaxEP-Ji9CA6eXwptj9wyjBuS6AhDLE"
+    summary_length: Optional[int] = 300
+
+class ScrapeResponse(BaseModel):
+    job_id: str
+    status: str
+    message: str
+
+class JobStatus(BaseModel):
+    job_id: str
+    status: str
+    progress: int
+    result: Optional[Dict] = None
+    error: Optional[str] = None
+    created_at: str
+    completed_at: Optional[str] = None
+
+class ContentSection(BaseModel):
     title: str
     content: str
-    keywords: List[str]
+    keywords: List[str] = []
+
+class ScrapedContent(BaseModel):
+    url: str
+    title: str
+    sections: List[ContentSection]
+    full_text: str
+    word_count: int
+
+class SummaryData(BaseModel):
+    summary: str
+    key_concepts: List[str]
+    method: str
+
+class MindMapData(BaseModel):
+    visual: str
+    network: str
+    hierarchical: str
+
+class CompleteResult(BaseModel):
+    scraped_content: ScrapedContent
+    summary: SummaryData
+    mind_maps: MindMapData
+
+@dataclass
+class JobData:
+    job_id: str
+    status: str
+    progress: int
+    result: Optional[Dict] = None
+    error: Optional[str] = None
+    created_at: str = ""
+    completed_at: Optional[str] = None
 
 class WebScraper:
     """Handles web scraping functionality"""
@@ -36,17 +113,9 @@ class WebScraper:
         self.session.headers.update(self.headers)
     
     def scrape_content(self, url: str) -> Dict[str, any]:
-        """
-        Scrape content from the specified URL
-        
-        Args:
-            url: The website URL to scrape
-            
-        Returns:
-            Dictionary containing scraped content
-        """
+        """Scrape content from the specified URL"""
         try:
-            response = self.session.get(url, timeout=10)
+            response = self.session.get(str(url), timeout=10)
             response.raise_for_status()
             
             soup = BeautifulSoup(response.content, 'html.parser')
@@ -77,11 +146,7 @@ class WebScraper:
             # Extract headings and paragraphs
             sections = []
             if main_content:
-                headings = main_content.find_all(['h1', 'h2', 'h3', 'h4', 'h5', 'h6'])
-                paragraphs = main_content.find_all('p')
-                
-                # Group content by sections
-                current_section = {"title": title_text, "content": ""}
+                current_section = {"title": title_text, "content": "", "keywords": []}
                 
                 for element in main_content.find_all(['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p']):
                     if element.name.startswith('h'):
@@ -89,7 +154,8 @@ class WebScraper:
                             sections.append(current_section)
                         current_section = {
                             "title": element.get_text().strip(),
-                            "content": ""
+                            "content": "",
+                            "keywords": []
                         }
                     elif element.name == 'p':
                         text = element.get_text().strip()
@@ -104,7 +170,7 @@ class WebScraper:
             clean_text = re.sub(r'\s+', ' ', all_text).strip()
             
             return {
-                'url': url,
+                'url': str(url),
                 'title': title_text,
                 'sections': sections,
                 'full_text': clean_text,
@@ -120,19 +186,12 @@ class ContentSummarizer:
     """Handles content summarization using AI"""
     
     def __init__(self, api_key: str = None):
-        """
-        Initialize summarizer
-        
-        Args:
-            api_key: Google API key (can also be set via GOOGLE_API_KEY env var)
-        """
-        self.api_key = api_key or os.getenv('GOOGLE_API_KEY') or 'AIzaSyDwfaxEP-Ji9CA6eXwptj9wyjBuS6AhDLE'
+        self.api_key = api_key or os.getenv('GOOGLE_API_KEY')
         self.model = None
         
         if self.api_key:
             try:
                 genai.configure(api_key=self.api_key)
-                # Try different model names
                 try:
                     self.model = genai.GenerativeModel('gemini-1.5-flash')
                 except:
@@ -141,30 +200,19 @@ class ContentSummarizer:
                     except:
                         self.model = genai.GenerativeModel('models/gemini-pro')
                 
-                print("✅ Google Gemini AI initialized successfully")
+                logger.info("Google Gemini AI initialized successfully")
             except Exception as e:
-                print(f"❌ Failed to initialize Google Gemini: {e}")
+                logger.error(f"Failed to initialize Google Gemini: {e}")
                 self.model = None
     
     def summarize_content(self, content: Dict[str, any], max_length: int = 500) -> Dict[str, any]:
-        """
-        Generate a summary of the scraped content
-        
-        Args:
-            content: Dictionary containing scraped content
-            max_length: Maximum length of summary in words
-            
-        Returns:
-            Dictionary containing summary and key points
-        """
+        """Generate a summary of the scraped content"""
         full_text = content['full_text']
         
-        # Fallback summarization if no API key or model failed to initialize
         if not self.api_key or not self.model:
             return self._extractive_summary(content, max_length)
         
         try:
-            # Use Google Gemini for summarization
             prompt = f"""You are a helpful assistant that creates concise summaries and identifies key concepts. 
             Summarize the following content in {max_length} words or less, and identify 5-10 key concepts or topics.
 
@@ -180,7 +228,6 @@ class ContentSummarizer:
             response = self.model.generate_content(prompt)
             summary_text = response.text
             
-            # Extract key concepts using a separate call
             key_concepts = self._extract_key_concepts_ai(full_text)
             
             return {
@@ -190,7 +237,7 @@ class ContentSummarizer:
             }
             
         except Exception as e:
-            print(f"Google AI summarization failed: {e}. Falling back to extractive method.")
+            logger.error(f"Google AI summarization failed: {e}")
             return self._extractive_summary(content, max_length)
     
     def _extractive_summary(self, content: Dict[str, any], max_length: int) -> Dict[str, any]:
@@ -198,48 +245,39 @@ class ContentSummarizer:
         sections = content['sections']
         full_text = content['full_text']
         
-        # Simple extractive approach: take first sentences from each section
         summary_parts = []
         key_concepts = set()
         
-        # Extract from sections
-        for section in sections[:5]:  # Limit to first 5 sections
+        for section in sections[:5]:
             section_text = section['content'].strip()
             if section_text:
-                # Take first sentence
                 sentences = re.split(r'[.!?]+', section_text)
                 if sentences:
                     first_sentence = sentences[0].strip()
-                    if len(first_sentence) > 20:  # Avoid very short fragments
+                    if len(first_sentence) > 20:
                         summary_parts.append(first_sentence)
                 
-                # Extract potential key concepts from both title and content
                 title_words = re.findall(r'\b[A-Z][a-zA-Z]+\b', section['title'])
                 content_words = re.findall(r'\b[A-Z][a-zA-Z]+\b', section_text)
                 key_concepts.update(title_words[:2])
                 key_concepts.update(content_words[:2])
         
-        # Also extract concepts from the main title
         title_concepts = re.findall(r'\b[A-Z][a-zA-Z]+\b', content['title'])
         key_concepts.update(title_concepts)
         
-        # Extract common nouns and technical terms
         tech_terms = re.findall(r'\b(?:cloud|platform|service|API|infrastructure|computing|data|security|network|database|server|application|software|technology|development|deployment|management|system)\w*\b', full_text.lower())
         key_concepts.update([term.title() for term in tech_terms[:5]])
         
-        # If still no concepts, extract from full text
         if not key_concepts:
             important_words = re.findall(r'\b[A-Z][a-zA-Z]{3,}\b', full_text)
             key_concepts.update(important_words[:8])
         
         summary = '. '.join(summary_parts) if summary_parts else "Content overview available in full text."
         
-        # Trim to max length
         words = summary.split()
         if len(words) > max_length:
             summary = ' '.join(words[:max_length]) + '...'
         
-        # Clean and limit key concepts
         filtered_concepts = []
         for concept in key_concepts:
             if len(concept) > 2 and concept.lower() not in ['the', 'and', 'for', 'are', 'with']:
@@ -247,7 +285,7 @@ class ContentSummarizer:
         
         return {
             'summary': summary,
-            'key_concepts': list(set(filtered_concepts))[:10],  # Remove duplicates and limit
+            'key_concepts': list(set(filtered_concepts))[:10],
             'method': 'extractive'
         }
     
@@ -263,53 +301,29 @@ class ContentSummarizer:
             response = self.model.generate_content(prompt)
             concepts_text = response.text.strip()
             
-            # Clean and parse the response
             concepts = [concept.strip() for concept in concepts_text.split(',')]
-            # Filter out empty strings and limit to 12 concepts
             concepts = [c for c in concepts if c and len(c) > 2][:12]
             return concepts
             
         except Exception as e:
-            print(f"Key concept extraction failed: {e}")
+            logger.error(f"Key concept extraction failed: {e}")
             return []
 
 class MindMapGenerator:
     """Generates text-based mind maps from content summaries"""
     
-    def __init__(self):
-        pass
-    
-    def create_mind_map(self, title: str, summary: str, key_concepts: List[str], output_path: str = 'mindmap.txt'):
-        """
-        Create a text-based visual mind map
-        
-        Args:
-            title: Central topic/title
-            summary: Summary text
-            key_concepts: List of key concepts
-            output_path: Output file path for the mind map
-        """
-        # Create text-based mind map
-        mind_map_text = self._generate_text_mindmap(title, summary, key_concepts)
-        
-        # Print to console
-        print("\n" + "="*80)
-        print("📋 TEXT MIND MAP")
-        print("="*80)
-        print(mind_map_text)
-        print("="*80)
-        
-        # Save to file
-        with open(output_path, 'w', encoding='utf-8') as f:
-            f.write(mind_map_text)
-        
-        print(f"\n💾 Mind map saved as {output_path}")
+    def create_mind_maps(self, title: str, summary: str, key_concepts: List[str]) -> Dict[str, str]:
+        """Create all three types of mind maps and return as dictionary"""
+        return {
+            'visual': self._generate_text_mindmap(title, summary, key_concepts),
+            'network': self._create_network_mind_map(title, key_concepts),
+            'hierarchical': self._create_hierarchical_mindmap(title, key_concepts)
+        }
     
     def _generate_text_mindmap(self, title: str, summary: str, key_concepts: List[str]) -> str:
         """Generate a text-based mind map representation"""
         lines = []
         
-        # Title section
         title_box = f"╔{'═' * (len(title) + 4)}╗"
         title_content = f"║  {title.upper()}  ║"
         title_bottom = f"╚{'═' * (len(title) + 4)}╝"
@@ -322,13 +336,11 @@ class MindMapGenerator:
             ""
         ])
         
-        # Concepts branching out
         if key_concepts:
             lines.append(" " * 40 + "│")
             lines.append(" " * 35 + "┌─────┴─────┐")
             lines.append(" " * 35 + "│           │")
             
-            # Split concepts into left and right branches
             left_concepts = key_concepts[:len(key_concepts)//2]
             right_concepts = key_concepts[len(key_concepts)//2:]
             
@@ -346,7 +358,6 @@ class MindMapGenerator:
                     concept = right_concepts[i]
                     right_text = f"📌 {concept} ──┤"
                 
-                # Format the line
                 if left_text and right_text:
                     line = f"{left_text:<35}│{right_text:>35}"
                 elif left_text:
@@ -358,7 +369,6 @@ class MindMapGenerator:
                 
                 lines.append(line)
         
-        # Add summary section
         lines.extend([
             "",
             "┌" + "─" * 78 + "┐",
@@ -366,7 +376,6 @@ class MindMapGenerator:
             "├" + "─" * 78 + "┤"
         ])
         
-        # Wrap summary text
         summary_words = summary.split()
         current_line = "│ "
         
@@ -384,11 +393,10 @@ class MindMapGenerator:
         
         return "\n".join(lines)
     
-    def create_network_mind_map(self, title: str, key_concepts: List[str], output_path: str = 'network_mindmap.txt'):
+    def _create_network_mind_map(self, title: str, key_concepts: List[str]) -> str:
         """Create a network-style text mind map"""
         lines = []
         
-        # Header
         lines.extend([
             "",
             "╔" + "═" * 60 + "╗",
@@ -399,13 +407,11 @@ class MindMapGenerator:
             ""
         ])
         
-        # Network representation
         lines.append("        🔵 " + title)
         lines.append("        │")
         lines.append("   ┌────┴────┐")
         
-        # Create branches for concepts
-        for i, concept in enumerate(key_concepts[:8]):  # Limit to 8 for better formatting
+        for i, concept in enumerate(key_concepts[:8]):
             if i % 2 == 0:
                 lines.append(f"   │         │")
                 branch_line = f"   ├─ 🔸 {concept}"
@@ -414,38 +420,22 @@ class MindMapGenerator:
             
             lines.append(branch_line)
         
-        # Add remaining concepts if any
         if len(key_concepts) > 8:
             lines.append("   │")
             lines.append("   └─ 🔸 ... and more concepts")
         
-        network_text = "\n".join(lines)
-        
-        # Print to console
-        print("\n" + "="*65)
-        print("🕸️  NETWORK MIND MAP")
-        print("="*65)
-        print(network_text)
-        print("="*65)
-        
-        # Save to file
-        with open(output_path, 'w', encoding='utf-8') as f:
-            f.write(network_text)
-        
-        print(f"\n💾 Network mind map saved as {output_path}")
+        return "\n".join(lines)
     
-    def create_hierarchical_mindmap(self, title: str, key_concepts: List[str], output_path: str = 'hierarchical_mindmap.txt'):
+    def _create_hierarchical_mindmap(self, title: str, key_concepts: List[str]) -> str:
         """Create a hierarchical tree-style mind map"""
         lines = []
         
-        # Root
         lines.extend([
             "",
             f"🌳 {title.upper()}",
             "│"
         ])
         
-        # Main branches
         for i, concept in enumerate(key_concepts):
             is_last = (i == len(key_concepts) - 1)
             
@@ -454,90 +444,185 @@ class MindMapGenerator:
             else:
                 lines.append(f"├── 🌿 {concept}")
         
-        tree_text = "\n".join(lines)
-        
-        # Print to console  
-        print("\n" + "="*50)
-        print("🌳 HIERARCHICAL MIND MAP")
-        print("="*50)
-        print(tree_text)
-        print("="*50)
-        
-        # Save to file
-        with open(output_path, 'w', encoding='utf-8') as f:
-            f.write(tree_text)
-        
-        print(f"\n💾 Hierarchical mind map saved as {output_path}")
+        return "\n".join(lines)
 
-def main():
-    """Main function to orchestrate the scraping and mind map generation"""
-    parser = argparse.ArgumentParser(description="Scrape website content and generate mind maps")
-    parser.add_argument("url", help="URL of the website to scrape")
-    parser.add_argument("--api-key", default="AIzaSyDwfaxEP-Ji9CA6eXwptj9wyjBuS6AhDLE", 
-                       help="Google API key (default provided)")
-    parser.add_argument("--output", default="mindmap", help="Output filename prefix")
-    parser.add_argument("--summary-length", type=int, default=300, help="Maximum summary length in words")
-    
-    args = parser.parse_args()
-    
+async def process_scrape_job(job_id: str, url: str, api_key: str, summary_length: int):
+    """Background task to process scraping job"""
     try:
-        print(f"🌐 Scraping content from: {args.url}")
+        job = scrape_jobs[job_id]
+        job.status = "processing"
+        job.progress = 10
         
         # Initialize components
         scraper = WebScraper()
-        summarizer = ContentSummarizer(args.api_key)
+        summarizer = ContentSummarizer(api_key)
         mind_map_gen = MindMapGenerator()
         
         # Scrape content
-        content = scraper.scrape_content(args.url)
-        print(f"✅ Successfully scraped {content['word_count']} words")
-        print(f"📄 Title: {content['title']}")
+        logger.info(f"Scraping content from: {url}")
+        job.progress = 30
+        content = scraper.scrape_content(url)
         
         # Generate summary
-        print("🤖 Generating summary...")
-        summary_data = summarizer.summarize_content(content, args.summary_length)
-        
-        print(f"📝 Summary ({summary_data['method']}):")
-        print(summary_data['summary'])
-        print(f"\n🔑 Key concepts: {', '.join(summary_data['key_concepts'])}")
+        logger.info("Generating summary...")
+        job.progress = 60
+        summary_data = summarizer.summarize_content(content, summary_length)
         
         # Generate mind maps
-        print("🎨 Creating text-based mind maps...")
-        mind_map_gen.create_mind_map(
+        logger.info("Creating mind maps...")
+        job.progress = 80
+        mind_maps = mind_map_gen.create_mind_maps(
             content['title'],
             summary_data['summary'],
-            summary_data['key_concepts'],
-            f"{args.output}_visual.txt"
+            summary_data['key_concepts']
         )
         
-        mind_map_gen.create_network_mind_map(
-            content['title'],
-            summary_data['key_concepts'],
-            f"{args.output}_network.txt"
-        )
-        
-        mind_map_gen.create_hierarchical_mindmap(
-            content['title'],
-            summary_data['key_concepts'],
-            f"{args.output}_hierarchical.txt"
-        )
-        
-        # Save data as JSON
-        output_data = {
-            'url': args.url,
+        # Prepare final result
+        result = {
             'scraped_content': content,
-            'summary': summary_data
+            'summary': summary_data,
+            'mind_maps': mind_maps
         }
         
-        with open(f"{args.output}_data.json", 'w', encoding='utf-8') as f:
-            json.dump(output_data, f, indent=2, ensure_ascii=False)
+        job.result = result
+        job.status = "completed"
+        job.progress = 100
+        job.completed_at = datetime.now().isoformat()
         
-        print(f"💾 Data saved as {args.output}_data.json")
-        print("✨ Process completed successfully!")
+        logger.info(f"Job {job_id} completed successfully")
         
     except Exception as e:
-        print(f"❌ Error: {str(e)}")
-        sys.exit(1)
+        logger.error(f"Job {job_id} failed: {str(e)}")
+        job.status = "failed"
+        job.error = str(e)
+        job.completed_at = datetime.now().isoformat()
+
+# API Endpoints
+
+@app.get("/")
+async def root():
+    """Root endpoint with API information"""
+    return {
+        "message": "Website Scraper & Mind Map Generator API",
+        "version": "1.0.0",
+        "endpoints": [
+            "POST /scrape - Start scraping job",
+            "GET /job/{job_id} - Get job status",
+            "GET /jobs - List all jobs",
+            "GET /health - Health check"
+        ]
+    }
+
+@app.get("/health")
+async def health_check():
+    """Health check endpoint"""
+    return {"status": "healthy", "timestamp": datetime.now().isoformat()}
+
+@app.post("/scrape", response_model=ScrapeResponse)
+async def create_scrape_job(request: ScrapeRequest, background_tasks: BackgroundTasks):
+    """Start a new scraping job"""
+    job_id = str(uuid.uuid4())
+    
+    # Create job entry
+    job = JobData(
+        job_id=job_id,
+        status="queued",
+        progress=0,
+        created_at=datetime.now().isoformat()
+    )
+    
+    scrape_jobs[job_id] = job
+    
+    # Start background processing
+    background_tasks.add_task(
+        process_scrape_job, 
+        job_id, 
+        str(request.url), 
+        request.api_key, 
+        request.summary_length
+    )
+    
+    return ScrapeResponse(
+        job_id=job_id,
+        status="queued",
+        message="Scraping job started successfully"
+    )
+
+@app.get("/job/{job_id}", response_model=JobStatus)
+async def get_job_status(job_id: str):
+    """Get the status of a specific job"""
+    if job_id not in scrape_jobs:
+        raise HTTPException(status_code=404, detail="Job not found")
+    
+    job = scrape_jobs[job_id]
+    return JobStatus(
+        job_id=job.job_id,
+        status=job.status,
+        progress=job.progress,
+        result=job.result,
+        error=job.error,
+        created_at=job.created_at,
+        completed_at=job.completed_at
+    )
+
+@app.get("/jobs")
+async def list_jobs():
+    """List all jobs"""
+    return {
+        "total": len(scrape_jobs),
+        "jobs": [
+            {
+                "job_id": job.job_id,
+                "status": job.status,
+                "progress": job.progress,
+                "created_at": job.created_at,
+                "completed_at": job.completed_at
+            }
+            for job in scrape_jobs.values()
+        ]
+    }
+
+@app.delete("/job/{job_id}")
+async def delete_job(job_id: str):
+    """Delete a specific job"""
+    if job_id not in scrape_jobs:
+        raise HTTPException(status_code=404, detail="Job not found")
+    
+    del scrape_jobs[job_id]
+    return {"message": f"Job {job_id} deleted successfully"}
+
+@app.get("/job/{job_id}/result")
+async def get_job_result(job_id: str):
+    """Get the complete result of a completed job"""
+    if job_id not in scrape_jobs:
+        raise HTTPException(status_code=404, detail="Job not found")
+    
+    job = scrape_jobs[job_id]
+    
+    if job.status != "completed":
+        raise HTTPException(
+            status_code=400, 
+            detail=f"Job is not completed. Current status: {job.status}"
+        )
+    
+    return job.result
+
+@app.get("/job/{job_id}/mindmaps")
+async def get_job_mindmaps(job_id: str):
+    """Get only the mind maps from a completed job"""
+    if job_id not in scrape_jobs:
+        raise HTTPException(status_code=404, detail="Job not found")
+    
+    job = scrape_jobs[job_id]
+    
+    if job.status != "completed":
+        raise HTTPException(
+            status_code=400, 
+            detail=f"Job is not completed. Current status: {job.status}"
+        )
+    
+    return job.result.get('mind_maps', {})
 
 if __name__ == "__main__":
-    main()
+    import uvicorn
+    uvicorn.run(app, host="0.0.0.0", port=8000)
