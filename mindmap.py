@@ -3,24 +3,44 @@
 Website Content Scraper and Mind Map Generator API Backend
 
 FastAPI backend that provides endpoints for scraping website content,
-generating summaries, and creating mind maps.
+generating summaries, and creating mind maps without external AI APIs.
 """
 
 from fastapi import FastAPI, HTTPException, BackgroundTasks
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, HttpUrl
-from typing import Dict, List, Optional
+from typing import Dict, List, Optional, Set
 import requests
 from bs4 import BeautifulSoup
 import re
 import json
-import google.generativeai as genai
 import os
 from dataclasses import dataclass, asdict
 import uuid
 import asyncio
 from datetime import datetime
 import logging
+from collections import Counter
+import nltk
+from nltk.corpus import stopwords
+from nltk.tokenize import word_tokenize, sent_tokenize
+from nltk.tag import pos_tag
+
+# Download required NLTK data (run once)
+try:
+    nltk.data.find('tokenizers/punkt')
+except LookupError:
+    nltk.download('punkt')
+
+try:
+    nltk.data.find('corpora/stopwords')
+except LookupError:
+    nltk.download('stopwords')
+
+try:
+    nltk.data.find('taggers/averaged_perceptron_tagger')
+except LookupError:
+    nltk.download('averaged_perceptron_tagger')
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -48,7 +68,6 @@ scrape_jobs = {}
 # Pydantic models for API requests/responses
 class ScrapeRequest(BaseModel):
     url: HttpUrl
-    api_key: Optional[str] = "AIzaSyDwfaxEP-Ji9CA6eXwptj9wyjBuS6AhDLE"
     summary_length: Optional[int] = 300
 
 class ScrapeResponse(BaseModel):
@@ -183,131 +202,189 @@ class WebScraper:
             raise Exception(f"Error processing content from {url}: {str(e)}")
 
 class ContentSummarizer:
-    """Handles content summarization using AI"""
+    """Handles content summarization using NLP techniques"""
     
-    def __init__(self, api_key: str = None):
-        self.api_key = api_key or os.getenv('GOOGLE_API_KEY')
-        self.model = None
-        
-        if self.api_key:
-            try:
-                genai.configure(api_key=self.api_key)
-                try:
-                    self.model = genai.GenerativeModel('gemini-1.5-flash')
-                except:
-                    try:
-                        self.model = genai.GenerativeModel('gemini-pro')
-                    except:
-                        self.model = genai.GenerativeModel('models/gemini-pro')
-                
-                logger.info("Google Gemini AI initialized successfully")
-            except Exception as e:
-                logger.error(f"Failed to initialize Google Gemini: {e}")
-                self.model = None
+    def __init__(self):
+        """Initialize the summarizer with NLTK components"""
+        try:
+            self.stop_words = set(stopwords.words('english'))
+        except LookupError:
+            # Fallback if NLTK data not available
+            self.stop_words = {
+                'i', 'me', 'my', 'myself', 'we', 'our', 'ours', 'ourselves', 'you', 
+                'your', 'yours', 'yourself', 'yourselves', 'he', 'him', 'his', 'himself', 
+                'she', 'her', 'hers', 'herself', 'it', 'its', 'itself', 'they', 'them', 
+                'their', 'theirs', 'themselves', 'what', 'which', 'who', 'whom', 'this', 
+                'that', 'these', 'those', 'am', 'is', 'are', 'was', 'were', 'be', 'been', 
+                'being', 'have', 'has', 'had', 'having', 'do', 'does', 'did', 'doing', 
+                'a', 'an', 'the', 'and', 'but', 'if', 'or', 'because', 'as', 'until', 
+                'while', 'of', 'at', 'by', 'for', 'with', 'through', 'during', 'before', 
+                'after', 'above', 'below', 'up', 'down', 'in', 'out', 'on', 'off', 'over', 
+                'under', 'again', 'further', 'then', 'once'
+            }
     
     def summarize_content(self, content: Dict[str, any], max_length: int = 500) -> Dict[str, any]:
-        """Generate a summary of the scraped content"""
+        """Generate a summary of the scraped content using extractive methods"""
         full_text = content['full_text']
+        title = content['title']
         
-        if not self.api_key or not self.model:
-            return self._extractive_summary(content, max_length)
+        # Extract key sentences for summary
+        summary = self._extractive_summary(content, max_length)
         
-        try:
-            prompt = f"""You are a helpful assistant that creates concise summaries and identifies key concepts. 
-            Summarize the following content in {max_length} words or less, and identify 5-10 key concepts or topics.
-
-            Title: {content['title']}
-            
-            Content: {full_text[:8000]}
-            
-            Please provide:
-            1. A concise summary
-            2. Key concepts (comma-separated list)
-            """
-            
-            response = self.model.generate_content(prompt)
-            summary_text = response.text
-            
-            key_concepts = self._extract_key_concepts_ai(full_text)
-            
-            return {
-                'summary': summary_text,
-                'key_concepts': key_concepts,
-                'method': 'ai_powered_gemini'
-            }
-            
-        except Exception as e:
-            logger.error(f"Google AI summarization failed: {e}")
-            return self._extractive_summary(content, max_length)
-    
-    def _extractive_summary(self, content: Dict[str, any], max_length: int) -> Dict[str, any]:
-        """Fallback extractive summarization method"""
-        sections = content['sections']
-        full_text = content['full_text']
-        
-        summary_parts = []
-        key_concepts = set()
-        
-        for section in sections[:5]:
-            section_text = section['content'].strip()
-            if section_text:
-                sentences = re.split(r'[.!?]+', section_text)
-                if sentences:
-                    first_sentence = sentences[0].strip()
-                    if len(first_sentence) > 20:
-                        summary_parts.append(first_sentence)
-                
-                title_words = re.findall(r'\b[A-Z][a-zA-Z]+\b', section['title'])
-                content_words = re.findall(r'\b[A-Z][a-zA-Z]+\b', section_text)
-                key_concepts.update(title_words[:2])
-                key_concepts.update(content_words[:2])
-        
-        title_concepts = re.findall(r'\b[A-Z][a-zA-Z]+\b', content['title'])
-        key_concepts.update(title_concepts)
-        
-        tech_terms = re.findall(r'\b(?:cloud|platform|service|API|infrastructure|computing|data|security|network|database|server|application|software|technology|development|deployment|management|system)\w*\b', full_text.lower())
-        key_concepts.update([term.title() for term in tech_terms[:5]])
-        
-        if not key_concepts:
-            important_words = re.findall(r'\b[A-Z][a-zA-Z]{3,}\b', full_text)
-            key_concepts.update(important_words[:8])
-        
-        summary = '. '.join(summary_parts) if summary_parts else "Content overview available in full text."
-        
-        words = summary.split()
-        if len(words) > max_length:
-            summary = ' '.join(words[:max_length]) + '...'
-        
-        filtered_concepts = []
-        for concept in key_concepts:
-            if len(concept) > 2 and concept.lower() not in ['the', 'and', 'for', 'are', 'with']:
-                filtered_concepts.append(concept)
+        # Extract key concepts
+        key_concepts = self._extract_key_concepts(full_text, title)
         
         return {
             'summary': summary,
-            'key_concepts': list(set(filtered_concepts))[:10],
-            'method': 'extractive'
+            'key_concepts': key_concepts,
+            'method': 'nltk_extractive'
         }
     
-    def _extract_key_concepts_ai(self, text: str) -> List[str]:
-        """Extract key concepts using Google Gemini AI"""
+    def _extractive_summary(self, content: Dict[str, any], max_length: int) -> str:
+        """Create extractive summary using sentence scoring"""
+        full_text = content['full_text']
+        title = content['title']
+        
+        if not full_text or len(full_text.split()) < 10:
+            return "Content too short to summarize effectively."
+        
+        # Tokenize into sentences
         try:
-            prompt = f"""Extract 8-12 key concepts or topics from the following text. 
-            Return only a comma-separated list of concepts, no other text.
+            sentences = sent_tokenize(full_text)
+        except:
+            # Fallback sentence splitting
+            sentences = re.split(r'[.!?]+', full_text)
+            sentences = [s.strip() for s in sentences if s.strip()]
+        
+        if len(sentences) <= 2:
+            return full_text[:max_length * 5] + "..." if len(full_text) > max_length * 5 else full_text
+        
+        # Score sentences
+        sentence_scores = {}
+        
+        # Word frequency scoring
+        try:
+            words = word_tokenize(full_text.lower())
+        except:
+            words = re.findall(r'\b\w+\b', full_text.lower())
+        
+        words = [word for word in words if word not in self.stop_words and len(word) > 2]
+        word_freq = Counter(words)
+        
+        # Title word boost
+        try:
+            title_words = word_tokenize(title.lower())
+        except:
+            title_words = re.findall(r'\b\w+\b', title.lower())
+        
+        title_words = [word for word in title_words if word not in self.stop_words]
+        
+        for sentence in sentences:
+            if len(sentence.split()) < 5:  # Skip very short sentences
+                continue
+                
+            score = 0
+            try:
+                sentence_words = word_tokenize(sentence.lower())
+            except:
+                sentence_words = re.findall(r'\b\w+\b', sentence.lower())
             
-            Text: {text[:6000]}
-            """
+            sentence_words = [word for word in sentence_words if word not in self.stop_words]
             
-            response = self.model.generate_content(prompt)
-            concepts_text = response.text.strip()
+            # Frequency-based scoring
+            for word in sentence_words:
+                if word in word_freq:
+                    score += word_freq[word]
             
-            concepts = [concept.strip() for concept in concepts_text.split(',')]
-            concepts = [c for c in concepts if c and len(c) > 2][:12]
-            return concepts
+            # Title relevance boost
+            for word in sentence_words:
+                if word in title_words:
+                    score += 10
             
-        except Exception as e:
-            logger.error(f"Key concept extraction failed: {e}")
-            return []
+            # Position boost (first few sentences often important)
+            sentence_index = sentences.index(sentence)
+            if sentence_index < 3:
+                score += 5
+            
+            # Length normalization
+            sentence_scores[sentence] = score / len(sentence_words) if sentence_words else 0
+        
+        # Select top sentences
+        top_sentences = sorted(sentence_scores.items(), key=lambda x: x[1], reverse=True)
+        
+        # Build summary maintaining original order
+        summary_sentences = []
+        summary_length = 0
+        
+        for sentence, score in top_sentences:
+            sentence_words = len(sentence.split())
+            if summary_length + sentence_words <= max_length:
+                summary_sentences.append((sentence, sentences.index(sentence)))
+                summary_length += sentence_words
+            
+            if summary_length >= max_length * 0.8:  # Allow some flexibility
+                break
+        
+        # Sort by original order
+        summary_sentences.sort(key=lambda x: x[1])
+        summary = ' '.join([sentence for sentence, _ in summary_sentences])
+        
+        return summary if summary else sentences[0][:max_length * 5] + "..."
+    
+    def _extract_key_concepts(self, text: str, title: str) -> List[str]:
+        """Extract key concepts using NLP techniques"""
+        key_concepts = set()
+        
+        # Extract from title
+        try:
+            title_words = word_tokenize(title)
+            title_pos = pos_tag(title_words)
+        except:
+            title_words = re.findall(r'\b[A-Z][a-zA-Z]+\b', title)
+            title_pos = [(word, 'NN') for word in title_words]
+        
+        for word, pos in title_pos:
+            if pos.startswith('NN') and len(word) > 2 and word.lower() not in self.stop_words:
+                key_concepts.add(word.title())
+        
+        # Extract named entities and important nouns
+        try:
+            words = word_tokenize(text)
+            pos_tags = pos_tag(words)
+        except:
+            # Fallback: extract capitalized words and common technical terms
+            words = re.findall(r'\b[A-Z][a-zA-Z]+\b', text)
+            pos_tags = [(word, 'NN') for word in words]
+        
+        # Extract proper nouns and regular nouns
+        for word, pos in pos_tags:
+            if pos in ['NNP', 'NNPS', 'NN', 'NNS'] and len(word) > 2:
+                if word.lower() not in self.stop_words:
+                    key_concepts.add(word.title())
+        
+        # Extract technical terms and domain-specific words
+        tech_patterns = [
+            r'\b(?:API|SDK|framework|platform|service|application|system|database|server|network|cloud|data|security|algorithm|software|technology|development|infrastructure|architecture|protocol|interface|module|component|library|tool|solution)\b',
+            r'\b[A-Z]{2,}\b',  # Acronyms
+            r'\b\w*(?:ing|tion|ment|ness|ship|able|ible)\b'  # Common suffixes
+        ]
+        
+        for pattern in tech_patterns:
+            matches = re.findall(pattern, text, re.IGNORECASE)
+            for match in matches:
+                if len(match) > 2 and match.lower() not in self.stop_words:
+                    key_concepts.add(match.title())
+        
+        # Filter and rank concepts
+        concept_freq = Counter()
+        text_lower = text.lower()
+        
+        for concept in key_concepts:
+            concept_freq[concept] = text_lower.count(concept.lower())
+        
+        # Return top concepts
+        top_concepts = [concept for concept, freq in concept_freq.most_common(15)]
+        return top_concepts[:12]
 
 class MindMapGenerator:
     """Generates text-based mind maps from content summaries"""
@@ -446,8 +523,17 @@ class MindMapGenerator:
         
         return "\n".join(lines)
 
-async def process_scrape_job(job_id: str, url: str, api_key: str, summary_length: int):
-    """Background task to process scraping job"""
+# Ensure a folder exists to store JSON files
+STORAGE_DIR = "scraped_data"
+os.makedirs(STORAGE_DIR, exist_ok=True)
+
+def sanitize_filename(url: str) -> str:
+    """Convert URL into a safe filename"""
+    # Replace all non-alphanumeric characters with underscore
+    return re.sub(r'[^0-9a-zA-Z]+', '_', url)
+
+async def process_scrape_job(job_id: str, url: str, summary_length: int):
+    """Background task to process scraping job and save result locally"""
     try:
         job = scrape_jobs[job_id]
         job.status = "processing"
@@ -455,7 +541,7 @@ async def process_scrape_job(job_id: str, url: str, api_key: str, summary_length
         
         # Initialize components
         scraper = WebScraper()
-        summarizer = ContentSummarizer(api_key)
+        summarizer = ContentSummarizer()
         mind_map_gen = MindMapGenerator()
         
         # Scrape content
@@ -484,12 +570,17 @@ async def process_scrape_job(job_id: str, url: str, api_key: str, summary_length
             'mind_maps': mind_maps
         }
         
+        # Save result to local JSON file using sanitized URL as filename
+        safe_filename = sanitize_filename(url)
+        file_path = os.path.join(STORAGE_DIR, f"{safe_filename}.json")
+        with open(file_path, "w", encoding="utf-8") as f:
+            json.dump(result, f, ensure_ascii=False, indent=2)
+        
         job.result = result
         job.status = "completed"
         job.progress = 100
         job.completed_at = datetime.now().isoformat()
-        
-        logger.info(f"Job {job_id} completed successfully")
+        logger.info(f"Job {job_id} completed successfully and saved to {file_path}")
         
     except Exception as e:
         logger.error(f"Job {job_id} failed: {str(e)}")
@@ -538,7 +629,6 @@ async def create_scrape_job(request: ScrapeRequest, background_tasks: Background
         process_scrape_job, 
         job_id, 
         str(request.url), 
-        request.api_key, 
         request.summary_length
     )
     
@@ -622,75 +712,6 @@ async def get_job_mindmaps(job_id: str):
         )
     
     return job.result.get('mind_maps', {})
-import os
-import json
-import re
-from datetime import datetime
-
-# Ensure a folder exists to store JSON files
-STORAGE_DIR = "scraped_data"
-os.makedirs(STORAGE_DIR, exist_ok=True)
-
-def sanitize_filename(url: str) -> str:
-    """Convert URL into a safe filename"""
-    # Replace all non-alphanumeric characters with underscore
-    return re.sub(r'[^0-9a-zA-Z]+', '_', url)
-
-async def process_scrape_job(job_id: str, url: str, api_key: str, summary_length: int):
-    """Background task to process scraping job and save result locally"""
-    try:
-        job = scrape_jobs[job_id]
-        job.status = "processing"
-        job.progress = 10
-        
-        # Initialize components
-        scraper = WebScraper()
-        summarizer = ContentSummarizer(api_key)
-        mind_map_gen = MindMapGenerator()
-        
-        # Scrape content
-        logger.info(f"Scraping content from: {url}")
-        job.progress = 30
-        content = scraper.scrape_content(url)
-        
-        # Generate summary
-        logger.info("Generating summary...")
-        job.progress = 60
-        summary_data = summarizer.summarize_content(content, summary_length)
-        
-        # Generate mind maps
-        logger.info("Creating mind maps...")
-        job.progress = 80
-        mind_maps = mind_map_gen.create_mind_maps(
-            content['title'],
-            summary_data['summary'],
-            summary_data['key_concepts']
-        )
-        
-        # Prepare final result
-        result = {
-            'scraped_content': content,
-            'summary': summary_data,
-            'mind_maps': mind_maps
-        }
-        
-        # Save result to local JSON file using sanitized URL as filename
-        safe_filename = sanitize_filename(url)
-        file_path = os.path.join(STORAGE_DIR, f"{safe_filename}.json")
-        with open(file_path, "w", encoding="utf-8") as f:
-            json.dump(result, f, ensure_ascii=False, indent=2)
-        
-        job.result = result
-        job.status = "completed"
-        job.progress = 100
-        job.completed_at = datetime.now().isoformat()
-        logger.info(f"Job {job_id} completed successfully and saved to {file_path}")
-        
-    except Exception as e:
-        logger.error(f"Job {job_id} failed: {str(e)}")
-        job.status = "failed"
-        job.error = str(e)
-        job.completed_at = datetime.now().isoformat()
 
 if __name__ == "__main__":
     import uvicorn

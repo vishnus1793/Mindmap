@@ -1,0 +1,61 @@
+{
+  "scraped_content": {
+    "url": "https://github.com/nwtnni/tock?tab=readme-ov-file",
+    "title": "GitHub - nwtnni/tock: Digital clock for the terminal",
+    "sections": [
+      {
+        "title": "GitHub - nwtnni/tock: Digital clock for the terminal",
+        "content": "Digital clock for the terminal ",
+        "keywords": []
+      },
+      {
+        "title": "tock",
+        "content": "A digital clock for the terminal, inspired by tty-clock.\nUnfortunately only works on UNIX systems due to the use of\nthe termios and sigaction related function calls. Note: emulating all features of tty-clock is not a goal of this project. ",
+        "keywords": []
+      },
+      {
+        "title": "Installation",
+        "content": "Currently requires a Rust installation with version >= 1.70.0\n(due to the IsTerminal trait,\nand is only available from either: ",
+        "keywords": []
+      },
+      {
+        "title": "Usage",
+        "content": "Currently compiles with the interactive feature flag set by default, which\npolls stdin for user input once per second. Available commands with this\nfeature flag set are: ",
+        "keywords": []
+      },
+      {
+        "title": "About",
+        "content": "Digital clock for the terminal ",
+        "keywords": []
+      },
+      {
+        "title": "Uh oh!",
+        "content": "There was an error while loading. Please reload this page. There was an error while loading. Please reload this page. ",
+        "keywords": []
+      }
+    ],
+    "full_text": "GitHub - nwtnni/tock: Digital clock for the terminal Skip to content You signed in with another tab or window. Reload to refresh your session. You signed out in another tab or window. Reload to refresh your session. You switched accounts on another tab or window. Reload to refresh your session. Dismiss alert nwtnni / tock Public Notifications You must be signed in to change notification settings Fork 5 Star 152 Digital clock for the terminal License MIT license 152 stars 5 forks Branches Tags Activity Star Notifications You must be signed in to change notification settings nwtnni/tock masterBranchesTagsGo to fileCodeOpen more actions menuFolders and filesNameNameLast commit messageLast commit dateLatest commit History89 Commitsresourcesresources srcsrc .gitignore.gitignore CHANGELOG.mdCHANGELOG.md Cargo.lockCargo.lock Cargo.tomlCargo.toml LICENSELICENSE README.mdREADME.md View all filesRepository files navigationtock A digital clock for the terminal, inspired by tty-clock. Unfortunately only works on UNIX systems due to the use of the termios and sigaction related function calls. Note: emulating all features of tty-clock is not a goal of this project. Features Efficient bitmap and diff-based drawing Timezone support via the TZ environment variable and tzselect utility Military time and second display toggling Color customization using ANSI, 8-bit, or 24-bit color values Arbitrary date formatting Positioned or centered clock Adjustable display size Synchronization with system clock seconds Minimal syscalls (about one read, write, nanosleep per second) Screenshots Installation Currently requires a Rust installation with version >= 1.70.0 (due to the IsTerminal trait, and is only available from either: crates.io using cargo-install cargo install tock Building from source git clone https://github.com/nwtnni/tock.git cargo build --release ./target/release/tock Usage A digital clock for the terminal. Usage: tock [OPTIONS] Options: -x, --x <X> Horizontal 0-indexed position of top-left corner [default: 0] -y, --y <Y> Vertical 0-indexed position of top-left corner [default: 0] -W, --width <WIDTH> Font width in characters per tile [default: 2] -H, --height <HEIGHT> Font height in characters per tile [default: 1] -s, --second Display seconds -m, --military Display military (24-hour) time -c, --center Center the clock in the terminal. Overrides manual positioning -C, --color <COLOR> Change the color of the time [default: 2] -f, --format <FORMAT> Change the date format [default: \"%F | %Z\"] -h, --help Print help (see more with '--help') Currently compiles with the interactive feature flag set by default, which polls stdin for user input once per second. Available commands with this feature flag set are: q or Q or <ESC>: Exit. s: Toggle second display. m: Toggle military (24H) time. 0..=7: Change to corresponding ANSI color. References How Not to Write a Signal Handler What is the difference between sigaction and signal? A Brief Introduction to termios: termios(3) and stty Understanding UNIX termios VMIN and VTIME Specifying the Time Zone with TZ min-sized-rust About Digital clock for the terminal Topics cli clock terminal-based Resources Readme License MIT license Uh oh! There was an error while loading. Please reload this page. Activity Stars 152 stars Watchers 2 watching Forks 5 forks Report repository Releases No releases published Packages 0 No packages published Used by 149 + 141 Contributors 2 nwtnni Newton Ni nix6839 Han Yeong-woo Languages Rust 100.0% You can’t perform that action at this time.",
+    "word_count": 520
+  },
+  "summary": {
+    "summary": "1. **Concise Summary:**\n\nTock is a terminal-based digital clock written in Rust.  Inspired by `tty-clock`, it offers features like timezone support (via `TZ` environment variable), military time and seconds display toggling, customizable colors (ANSI, 8-bit, 24-bit), adjustable size and position, and minimal system calls.  It utilizes the `termios` and `sigaction` functions, limiting its functionality to UNIX-like systems.  The clock can be installed via `cargo install tock` and offers command-line options for customization and interactive controls (toggling seconds, time format, color).  The project's README details installation, usage, features, and relevant technical background on signal handling and terminal I/O.\n\n\n2. **Key Concepts:**\n\nTerminal clock, Rust programming language, UNIX system calls (termios, sigaction),  command-line interface (CLI),  timezone support,  color customization,  configurable display,  minimal system resource usage,  signal handling,  interactive controls.\n",
+    "key_concepts": [
+      "Digital clock",
+      "terminal-based",
+      "command-line interface (CLI)",
+      "Rust programming language",
+      "timezone support",
+      "color customization",
+      "military time",
+      "date formatting",
+      "installation",
+      "usage"
+    ],
+    "method": "ai_powered_gemini"
+  },
+  "mind_maps": {
+    "visual": "\n              ╔════════════════════════════════════════════════════════╗\n              ║  GITHUB - NWTNNI/TOCK: DIGITAL CLOCK FOR THE TERMINAL  ║\n              ╚════════════════════════════════════════════════════════╝\n\n                                        │\n                                   ┌─────┴─────┐\n                                   │           │\n├── 📌 Digital clock                │          📌 color customization ──┤\n├── 📌 terminal-based               │                📌 military time ──┤\n├── 📌 command-line interface (CLI) │              📌 date formatting ──┤\n├── 📌 Rust programming language    │                 📌 installation ──┤\n├── 📌 timezone support             │                        📌 usage ──┤\n\n┌──────────────────────────────────────────────────────────────────────────────┐\n│                                   SUMMARY                                    │\n├──────────────────────────────────────────────────────────────────────────────┤\n│ 1. **Concise Summary:** Tock is a terminal-based digital clock written in   │\n│ Rust. Inspired by `tty-clock`, it offers features like timezone support     │\n│ (via `TZ` environment variable), military time and seconds display          │\n│ toggling, customizable colors (ANSI, 8-bit, 24-bit), adjustable size and    │\n│ position, and minimal system calls. It utilizes the `termios` and           │\n│ `sigaction` functions, limiting its functionality to UNIX-like systems.     │\n│ The clock can be installed via `cargo install tock` and offers              │\n│ command-line options for customization and interactive controls (toggling   │\n│ seconds, time format, color). The project's README details installation,    │\n│ usage, features, and relevant technical background on signal handling and   │\n│ terminal I/O. 2. **Key Concepts:** Terminal clock, Rust programming         │\n│ language, UNIX system calls (termios, sigaction), command-line interface    │\n│ (CLI), timezone support, color customization, configurable display,         │\n│ minimal system resource usage, signal handling, interactive controls.       │\n└──────────────────────────────────────────────────────────────────────────────┘",
+    "network": "\n╔════════════════════════════════════════════════════════════╗\n║                      NETWORK MIND MAP                      ║\n╠════════════════════════════════════════════════════════════╣\n║    GitHub - nwtnni/tock: Digital clock for the terminal    ║\n╚════════════════════════════════════════════════════════════╝\n\n        🔵 GitHub - nwtnni/tock: Digital clock for the terminal\n        │\n   ┌────┴────┐\n   │         │\n   ├─ 🔸 Digital clock\n   │         └─ 🔸 terminal-based\n   │         │\n   ├─ 🔸 command-line interface (CLI)\n   │         └─ 🔸 Rust programming language\n   │         │\n   ├─ 🔸 timezone support\n   │         └─ 🔸 color customization\n   │         │\n   ├─ 🔸 military time\n   │         └─ 🔸 date formatting\n   │\n   └─ 🔸 ... and more concepts",
+    "hierarchical": "\n🌳 GITHUB - NWTNNI/TOCK: DIGITAL CLOCK FOR THE TERMINAL\n│\n├── 🌿 Digital clock\n├── 🌿 terminal-based\n├── 🌿 command-line interface (CLI)\n├── 🌿 Rust programming language\n├── 🌿 timezone support\n├── 🌿 color customization\n├── 🌿 military time\n├── 🌿 date formatting\n├── 🌿 installation\n└── 🌿 usage"
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "scraped_content": {
+    "url": "https://github.com/bytebot-ai",
+    "title": "bytebot · GitHub",
+    "sections": [
+      {
+        "title": "Popular repositories\n\n    \n\n\n\n Loading",
+        "content": "Bytebot is a self-hosted AI desktop agent that automates computer tasks through natural language commands, operating within a containerized Linux desktop environment. TypeScript\n\n\n\n\n\n                1.1k\n              \n\n\n\n\n                104 Forked from ryvn-mango/aws-bedrock HCL Forked from ryvn-mango/aws-rds-postgres HCL ",
+        "keywords": []
+      },
+      {
+        "title": "Repositories",
+        "content": "Bytebot is a self-hosted AI desktop agent that automates computer tasks through natural language commands, operating within a containerized Linux desktop environment. ",
+        "keywords": []
+      },
+      {
+        "title": "Uh oh!",
+        "content": "There was an error while loading. Please reload this page. There was an error while loading. Please reload this page. ",
+        "keywords": []
+      },
+      {
+        "title": "People",
+        "content": "This organization has no public members. You must be a member to see who’s a part of this organization. ",
+        "keywords": []
+      },
+      {
+        "title": "Top languages",
+        "content": "Loading… ",
+        "keywords": []
+      },
+      {
+        "title": "Uh oh!",
+        "content": "There was an error while loading. Please reload this page. There was an error while loading. Please reload this page. ",
+        "keywords": []
+      },
+      {
+        "title": "Most used topics",
+        "content": "Loading… ",
+        "keywords": []
+      },
+      {
+        "title": "Uh oh!",
+        "content": "There was an error while loading. Please reload this page. There was an error while loading. Please reload this page. ",
+        "keywords": []
+      }
+    ],
+    "full_text": "bytebot · GitHub Skip to content You signed in with another tab or window. Reload to refresh your session. You signed out in another tab or window. Reload to refresh your session. You switched accounts on another tab or window. Reload to refresh your session. Dismiss alert Popular repositories Loading bytebot bytebot Public Bytebot is a self-hosted AI desktop agent that automates computer tasks through natural language commands, operating within a containerized Linux desktop environment. TypeScript 1.1k 104 aws-bedrock aws-bedrock Public Forked from ryvn-mango/aws-bedrock HCL aws-rds-postgres aws-rds-postgres Public Forked from ryvn-mango/aws-rds-postgres HCL Repositories Loading Type All Public Sources Forks Archived Mirrors Templates Language All HCL TypeScript Sort Last updated Name Stars Showing 3 of 3 repositories bytebot Public Bytebot is a self-hosted AI desktop agent that automates computer tasks through natural language commands, operating within a containerized Linux desktop environment. Uh oh! There was an error while loading. Please reload this page. bytebot-ai/bytebot’s past year of commit activity TypeScript 1,145 Apache-2.0 104 0 2 Updated Aug 13, 2025 aws-rds-postgres Public Forked from ryvn-mango/aws-rds-postgres bytebot-ai/aws-rds-postgres’s past year of commit activity HCL 0 1 0 1 Updated Aug 10, 2025 aws-bedrock Public Forked from ryvn-mango/aws-bedrock bytebot-ai/aws-bedrock’s past year of commit activity HCL 0 1 0 0 Updated Aug 9, 2025 People This organization has no public members. You must be a member to see who’s a part of this organization. Top languages Loading… Uh oh! There was an error while loading. Please reload this page. Most used topics Loading… Uh oh! There was an error while loading. Please reload this page. You can’t perform that action at this time.",
+    "word_count": 267
+  },
+  "summary": {
+    "summary": "Bytebot is a self-hosted AI desktop agent designed to automate computer tasks using natural language commands.  It runs within a containerized Linux desktop environment and is written primarily in TypeScript.  The GitHub page showcases the project, along with forks of other repositories (related to AWS Bedrock and RDS Postgres).  The information presented is somewhat limited due to loading errors on the page.\n\n\nKey Concepts: AI, Desktop Automation, Natural Language Processing (NLP), Containerization, Linux, TypeScript, Self-Hosted,  AWS Bedrock (forked project), AWS RDS Postgres (forked project).\n",
+    "key_concepts": [],
+    "method": "ai_powered_gemini"
+  },
+  "mind_maps": {
+    "visual": "\n                                ╔════════════════════╗\n                                ║  BYTEBOT · GITHUB  ║\n                                ╚════════════════════╝\n\n\n┌──────────────────────────────────────────────────────────────────────────────┐\n│                                   SUMMARY                                    │\n├──────────────────────────────────────────────────────────────────────────────┤\n│ Bytebot is a self-hosted AI desktop agent designed to automate computer     │\n│ tasks using natural language commands. It runs within a containerized       │\n│ Linux desktop environment and is written primarily in TypeScript. The       │\n│ GitHub page showcases the project, along with forks of other repositories   │\n│ (related to AWS Bedrock and RDS Postgres). The information presented is     │\n│ somewhat limited due to loading errors on the page. Key Concepts: AI,       │\n│ Desktop Automation, Natural Language Processing (NLP), Containerization,    │\n│ Linux, TypeScript, Self-Hosted, AWS Bedrock (forked project), AWS RDS       │\n│ Postgres (forked project).                                                  │\n└──────────────────────────────────────────────────────────────────────────────┘",
+    "network": "\n╔════════════════════════════════════════════════════════════╗\n║                      NETWORK MIND MAP                      ║\n╠════════════════════════════════════════════════════════════╣\n║                      bytebot · GitHub                      ║\n╚════════════════════════════════════════════════════════════╝\n\n        🔵 bytebot · GitHub\n        │\n   ┌────┴────┐",
+    "hierarchical": "\n🌳 BYTEBOT · GITHUB\n│"
+  }
+}
