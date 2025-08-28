@@ -1,0 +1,482 @@
+{
+  "scraped_content": {
+    "url": "https://maps.app.goo.gl/Q2FHxNkuSFi26RKV8",
+    "title": "Google Maps",
+    "full_text": "Google Maps When you have eliminated the JavaScript, whatever remains must be an empty page. Enable JavaScript to see Google Maps.",
+    "word_count": 21,
+    "sections": [],
+    "hierarchy_root": {
+      "title": "Google Maps",
+      "level": 0,
+      "content": "",
+      "subsections": [],
+      "links": [
+        {
+          "url": "https://support.google.com/maps/?hl=en&authuser=0&p=no_javascript",
+          "text": "Enable JavaScript to see Google Maps.",
+          "type": "general"
+        }
+      ],
+      "children": []
+    },
+    "links": [],
+    "images": []
+  },
+  "summary": {
+    "summary": "- Google Maps When you have eliminated the JavaScript, whatever remains must be an empty page.\n- Enable JavaScript to see Google Maps.",
+    "summary_bullets": [
+      "Google Maps When you have eliminated the JavaScript, whatever remains must be an empty page.",
+      "Enable JavaScript to see Google Maps."
+    ],
+    "key_concepts": [
+      "Google",
+      "Maps",
+      "Javascript",
+      "Must",
+      "Empty",
+      "Remains",
+      "Page",
+      "Whatever",
+      "Enable",
+      "Eliminated"
+    ],
+    "method": "nltk_extractive_bullets"
+  },
+  "mind_maps": {
+    "visual": "\n                                   ╔═══════════════╗\n                                   ║ GOOGLE MAPS ║\n                                   ╚═══════════════╝\n\n                                        │\n                                   ┌─────┴─────┐\n├── 🔹 Google                        │\n│                                   ├── 🔹 Maps\n├── 🔹 Javascript                    │\n│                                   ├── 🔹 Must\n├── 🔹 Empty                         │\n│                                   ├── 🔹 Remains\n├── 🔹 Page                          │\n│                                   ├── 🔹 Whatever",
+    "network": "🌐 Google Maps\n│\n├── 📊 Key Concepts\n│ ├── 🔸 Google\n│ ├── 🔸 Maps\n│ ├── 🔸 Javascript\n│ ├── 🔸 Must\n│ ├── 🔸 Empty\n│ ├── 🔸 Remains",
+    "hierarchical": "🌳 Google Maps\n│\n├── 🍃 Google\n├── 🍃 Maps\n├── 🍃 Javascript\n├── 🍃 Must\n├── 🍃 Empty\n├── 🍃 Remains\n├── 🍃 Page\n├── 🍃 Whatever\n├── 🍃 Enable\n└── 🍃 Eliminated"
+  },
+  "interactive_mindmap": {
+    "root_node": {
+      "id": "node_1_a0d7807d",
+      "title": "Google Maps",
+      "content": "- Google Maps When you have eliminated the JavaScript, whatever remains must be an empty page.\n- Enable JavaScript to see Google Maps.",
+      "url": "https://maps.app.goo.gl/Q2FHxNkuSFi26RKV8",
+      "parent_id": null,
+      "children": [
+        "node_2_da69ebd0",
+        "node_3_4b440360",
+        "node_4_d5b29fa3",
+        "node_5_30274386",
+        "node_6_b9efaedd",
+        "node_7_dac3402d",
+        "node_8_91bf383e",
+        "node_9_add0851b",
+        "node_10_63508a63",
+        "node_11_c5dbbf00"
+      ],
+      "expanded": false,
+      "node_type": "root",
+      "metadata": {
+        "word_count": 21,
+        "section_count": 0,
+        "link_count": 0,
+        "expandable": false
+      }
+    },
+    "nodes": {
+      "node_1_a0d7807d": {
+        "id": "node_1_a0d7807d",
+        "title": "Google Maps",
+        "content": "- Google Maps When you have eliminated the JavaScript, whatever remains must be an empty page.\n- Enable JavaScript to see Google Maps.",
+        "url": "https://maps.app.goo.gl/Q2FHxNkuSFi26RKV8",
+        "parent_id": null,
+        "children": [
+          "node_2_da69ebd0",
+          "node_3_4b440360",
+          "node_4_d5b29fa3",
+          "node_5_30274386",
+          "node_6_b9efaedd",
+          "node_7_dac3402d",
+          "node_8_91bf383e",
+          "node_9_add0851b",
+          "node_10_63508a63",
+          "node_11_c5dbbf00"
+        ],
+        "expanded": false,
+        "node_type": "root",
+        "metadata": {
+          "word_count": 21,
+          "section_count": 0,
+          "link_count": 0,
+          "expandable": false
+        }
+      },
+      "node_2_da69ebd0": {
+        "id": "node_2_da69ebd0",
+        "title": "Google",
+        "content": "Key concept: Google",
+        "url": "https://duckduckgo.com/?q=Google",
+        "parent_id": "node_1_a0d7807d",
+        "children": [],
+        "expanded": false,
+        "node_type": "concept",
+        "metadata": {
+          "expandable": true,
+          "concept_type": "key_term",
+          "clickable": true
+        }
+      },
+      "node_3_4b440360": {
+        "id": "node_3_4b440360",
+        "title": "Maps",
+        "content": "Key concept: Maps",
+        "url": "https://duckduckgo.com/?q=Maps",
+        "parent_id": "node_1_a0d7807d",
+        "children": [],
+        "expanded": false,
+        "node_type": "concept",
+        "metadata": {
+          "expandable": true,
+          "concept_type": "key_term",
+          "clickable": true
+        }
+      },
+      "node_4_d5b29fa3": {
+        "id": "node_4_d5b29fa3",
+        "title": "Javascript",
+        "content": "Key concept: Javascript",
+        "url": "https://duckduckgo.com/?q=Javascript",
+        "parent_id": "node_1_a0d7807d",
+        "children": [],
+        "expanded": false,
+        "node_type": "concept",
+        "metadata": {
+          "expandable": true,
+          "concept_type": "key_term",
+          "clickable": true
+        }
+      },
+      "node_5_30274386": {
+        "id": "node_5_30274386",
+        "title": "Must",
+        "content": "Key concept: Must",
+        "url": "https://duckduckgo.com/?q=Must",
+        "parent_id": "node_1_a0d7807d",
+        "children": [],
+        "expanded": false,
+        "node_type": "concept",
+        "metadata": {
+          "expandable": true,
+          "concept_type": "key_term",
+          "clickable": true
+        }
+      },
+      "node_6_b9efaedd": {
+        "id": "node_6_b9efaedd",
+        "title": "Empty",
+        "content": "Key concept: Empty",
+        "url": "https://duckduckgo.com/?q=Empty",
+        "parent_id": "node_1_a0d7807d",
+        "children": [],
+        "expanded": false,
+        "node_type": "concept",
+        "metadata": {
+          "expandable": true,
+          "concept_type": "key_term",
+          "clickable": true
+        }
+      },
+      "node_7_dac3402d": {
+        "id": "node_7_dac3402d",
+        "title": "Remains",
+        "content": "Key concept: Remains",
+        "url": "https://duckduckgo.com/?q=Remains",
+        "parent_id": "node_1_a0d7807d",
+        "children": [],
+        "expanded": false,
+        "node_type": "concept",
+        "metadata": {
+          "expandable": true,
+          "concept_type": "key_term",
+          "clickable": true
+        }
+      },
+      "node_8_91bf383e": {
+        "id": "node_8_91bf383e",
+        "title": "Page",
+        "content": "Key concept: Page",
+        "url": "https://duckduckgo.com/?q=Page",
+        "parent_id": "node_1_a0d7807d",
+        "children": [],
+        "expanded": false,
+        "node_type": "concept",
+        "metadata": {
+          "expandable": true,
+          "concept_type": "key_term",
+          "clickable": true
+        }
+      },
+      "node_9_add0851b": {
+        "id": "node_9_add0851b",
+        "title": "Whatever",
+        "content": "Key concept: Whatever",
+        "url": "https://duckduckgo.com/?q=Whatever",
+        "parent_id": "node_1_a0d7807d",
+        "children": [],
+        "expanded": false,
+        "node_type": "concept",
+        "metadata": {
+          "expandable": true,
+          "concept_type": "key_term",
+          "clickable": true
+        }
+      },
+      "node_10_63508a63": {
+        "id": "node_10_63508a63",
+        "title": "Enable",
+        "content": "Key concept: Enable",
+        "url": "https://duckduckgo.com/?q=Enable",
+        "parent_id": "node_1_a0d7807d",
+        "children": [],
+        "expanded": false,
+        "node_type": "concept",
+        "metadata": {
+          "expandable": true,
+          "concept_type": "key_term",
+          "clickable": true
+        }
+      },
+      "node_11_c5dbbf00": {
+        "id": "node_11_c5dbbf00",
+        "title": "Eliminated",
+        "content": "Key concept: Eliminated",
+        "url": "https://duckduckgo.com/?q=Eliminated",
+        "parent_id": "node_1_a0d7807d",
+        "children": [],
+        "expanded": false,
+        "node_type": "concept",
+        "metadata": {
+          "expandable": true,
+          "concept_type": "key_term",
+          "clickable": true
+        }
+      }
+    },
+    "visualization_data": {
+      "nodes": [
+        {
+          "id": "node_1_a0d7807d",
+          "label": "Google Maps",
+          "type": "root",
+          "expandable": false,
+          "expanded": false,
+          "url": "https://maps.app.goo.gl/Q2FHxNkuSFi26RKV8",
+          "size": 48,
+          "color": "#FF6B6B",
+          "shape": "circle"
+        },
+        {
+          "id": "node_2_da69ebd0",
+          "label": "Google",
+          "type": "concept",
+          "expandable": true,
+          "expanded": false,
+          "url": "https://duckduckgo.com/?q=Google",
+          "size": 34,
+          "color": "#4ECDC4",
+          "shape": "box"
+        },
+        {
+          "id": "node_3_4b440360",
+          "label": "Maps",
+          "type": "concept",
+          "expandable": true,
+          "expanded": false,
+          "url": "https://duckduckgo.com/?q=Maps",
+          "size": 34,
+          "color": "#4ECDC4",
+          "shape": "box"
+        },
+        {
+          "id": "node_4_d5b29fa3",
+          "label": "Javascript",
+          "type": "concept",
+          "expandable": true,
+          "expanded": false,
+          "url": "https://duckduckgo.com/?q=Javascript",
+          "size": 34,
+          "color": "#4ECDC4",
+          "shape": "box"
+        },
+        {
+          "id": "node_5_30274386",
+          "label": "Must",
+          "type": "concept",
+          "expandable": true,
+          "expanded": false,
+          "url": "https://duckduckgo.com/?q=Must",
+          "size": 34,
+          "color": "#4ECDC4",
+          "shape": "box"
+        },
+        {
+          "id": "node_6_b9efaedd",
+          "label": "Empty",
+          "type": "concept",
+          "expandable": true,
+          "expanded": false,
+          "url": "https://duckduckgo.com/?q=Empty",
+          "size": 34,
+          "color": "#4ECDC4",
+          "shape": "box"
+        },
+        {
+          "id": "node_7_dac3402d",
+          "label": "Remains",
+          "type": "concept",
+          "expandable": true,
+          "expanded": false,
+          "url": "https://duckduckgo.com/?q=Remains",
+          "size": 34,
+          "color": "#4ECDC4",
+          "shape": "box"
+        },
+        {
+          "id": "node_8_91bf383e",
+          "label": "Page",
+          "type": "concept",
+          "expandable": true,
+          "expanded": false,
+          "url": "https://duckduckgo.com/?q=Page",
+          "size": 34,
+          "color": "#4ECDC4",
+          "shape": "box"
+        },
+        {
+          "id": "node_9_add0851b",
+          "label": "Whatever",
+          "type": "concept",
+          "expandable": true,
+          "expanded": false,
+          "url": "https://duckduckgo.com/?q=Whatever",
+          "size": 34,
+          "color": "#4ECDC4",
+          "shape": "box"
+        },
+        {
+          "id": "node_10_63508a63",
+          "label": "Enable",
+          "type": "concept",
+          "expandable": true,
+          "expanded": false,
+          "url": "https://duckduckgo.com/?q=Enable",
+          "size": 34,
+          "color": "#4ECDC4",
+          "shape": "box"
+        },
+        {
+          "id": "node_11_c5dbbf00",
+          "label": "Eliminated",
+          "type": "concept",
+          "expandable": true,
+          "expanded": false,
+          "url": "https://duckduckgo.com/?q=Eliminated",
+          "size": 34,
+          "color": "#4ECDC4",
+          "shape": "box"
+        }
+      ],
+      "edges": [
+        {
+          "from": "node_1_a0d7807d",
+          "to": "node_2_da69ebd0",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_1_a0d7807d",
+          "to": "node_3_4b440360",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_1_a0d7807d",
+          "to": "node_4_d5b29fa3",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_1_a0d7807d",
+          "to": "node_5_30274386",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_1_a0d7807d",
+          "to": "node_6_b9efaedd",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_1_a0d7807d",
+          "to": "node_7_dac3402d",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_1_a0d7807d",
+          "to": "node_8_91bf383e",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_1_a0d7807d",
+          "to": "node_9_add0851b",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_1_a0d7807d",
+          "to": "node_10_63508a63",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_1_a0d7807d",
+          "to": "node_11_c5dbbf00",
+          "type": "hierarchy"
+        }
+      ],
+      "layout": "hierarchical",
+      "center_node": "node_1_a0d7807d"
+    },
+    "style_config": {
+      "layout": {
+        "hierarchical": {
+          "enabled": true,
+          "direction": "UD",
+          "sortMethod": "directed"
+        }
+      },
+      "interaction": {
+        "dragNodes": true,
+        "dragView": true,
+        "zoomView": true,
+        "selectConnectedEdges": false
+      },
+      "physics": {
+        "enabled": true,
+        "hierarchicalRepulsion": {
+          "nodeDistance": 140,
+          "centralGravity": 0.0,
+          "springLength": 120,
+          "springConstant": 0.01,
+          "damping": 0.09
+        }
+      },
+      "nodes": {
+        "borderWidth": 2,
+        "shadow": true,
+        "font": {
+          "size": 14,
+          "color": "#333333"
+        }
+      },
+      "edges": {
+        "width": 2,
+        "shadow": true,
+        "smooth": {
+          "type": "continuous"
+        }
+      }
+    }
+  },
+  "metadata": {
+    "total_links": 0,
+    "total_sections": 0,
+    "expandable_nodes": 10
+  }
+}

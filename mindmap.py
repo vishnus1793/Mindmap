@@ -1,14 +1,19 @@
 #!/usr/bin/env python3
 """
-Enhanced Website Content Scraper and Interactive Mind Map Generator API
-FastAPI backend that provides endpoints for scraping website content,
-generating summaries, and creating interactive mind maps with expandable subtopics.
+Interactive Website Scraper & Mind Map API
+- Scrapes a URL and extracts a hierarchical content tree from H1–H6 headings
+- Summarizes content as bullet points
+- Extracts clean key concepts (filters stopwords/noise)
+- Builds a multi-level interactive mind map reflecting page structure
+- Includes expandable nodes (subsections, links, related)
+- Removes 'Source:' and 'Word Count:' lines from outputs
+- Optional hyperlinking for key concepts (web search)
 """
 
 from fastapi import FastAPI, HTTPException, BackgroundTasks
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, HttpUrl
-from typing import Dict, List, Optional, Any
+from typing import Dict, List, Optional, Any, Tuple
 import requests
 from bs4 import BeautifulSoup
 import re
@@ -23,7 +28,7 @@ import nltk
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize, sent_tokenize
 from nltk.tag import pos_tag
-from urllib.parse import urljoin, urlparse
+from urllib.parse import urljoin, urlparse, quote_plus
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -32,8 +37,8 @@ logger = logging.getLogger(__name__)
 # Initialize FastAPI app
 app = FastAPI(
     title="Interactive Website Scraper & Mind Map API",
-    description="API for scraping website content and generating interactive mind maps",
-    version="2.0.0",
+    description="Scrape content, summarize, and build a multi-level interactive mind map",
+    version="3.0.0",
 )
 
 # Add CORS middleware
@@ -53,12 +58,16 @@ mindmap_nodes: Dict[str, "InteractiveMindMap"] = {}  # Store expandable node dat
 STORAGE_DIR = "scraped_data"
 os.makedirs(STORAGE_DIR, exist_ok=True)
 
+# --------- Configuration ---------
+# Concept link mode: "web_search" | "none"
+CONCEPT_LINK_MODE = "web_search"  # Creates clickable concept nodes using DuckDuckGo links
+
 # --------- Pydantic models ---------
 class ScrapeRequest(BaseModel):
     url: HttpUrl
     summary_length: Optional[int] = 300
     extract_links: Optional[bool] = True
-    max_depth: Optional[int] = 2
+    max_depth: Optional[int] = 4  # for hierarchical export if needed later
 
 class MindMapNode(BaseModel):
     id: str
@@ -68,7 +77,7 @@ class MindMapNode(BaseModel):
     parent_id: Optional[str] = None
     children: List[str] = []
     expanded: bool = False
-    node_type: str = "concept"  # concept, link, section, keyword, root, link_category, related, subsection
+    node_type: str = "concept"  # concept, link, section, subsection, link_category, related, root
     metadata: Dict[str, Any] = {}
 
 class InteractiveMindMap(BaseModel):
@@ -127,7 +136,6 @@ def strip_metadata_lines(text: str) -> str:
     cleaned = []
     for line in lines:
         l = line.strip()
-        # Normalize markdown bold markers
         l_norm = re.sub(r'^\*+\s*', '', re.sub(r'\s*\*+$', '', l))
         if re.match(r'^(source|word\s*count)\s*[:：]', l_norm, flags=re.IGNORECASE):
             continue
@@ -152,9 +160,19 @@ def _is_noise_token(token: str) -> bool:
         return True
     return False
 
+def make_concept_url(concept: str, page_url: str) -> Optional[str]:
+    """Generate a hyperlink URL for concept nodes based on CONCEPT_LINK_MODE."""
+    if not concept:
+        return None
+    if CONCEPT_LINK_MODE == "web_search":
+        # Safe web search link (DuckDuckGo)
+        return f"https://duckduckgo.com/?q={quote_plus(concept)}"
+    # "none" or any other => no URL
+    return None
+
 # --------- Scraper ---------
 class EnhancedWebScraper:
-    """Enhanced web scraper with link extraction and content analysis"""
+    """Enhanced web scraper with link extraction and hierarchical content analysis"""
     def __init__(self, headers=None):
         self.session = requests.Session()
         self.headers = headers or {
@@ -165,113 +183,139 @@ class EnhancedWebScraper:
         self.session.headers.update(self.headers)
 
     def scrape_content(self, url: str, extract_links: bool = True) -> Dict[str, Any]:
-        """Enhanced scraping with link extraction and content structure analysis"""
+        """
+        Scrape and build a hierarchical section tree based on H1–H6 headings.
+        Each heading starts a new section; nesting is determined by heading level.
+        Paragraphs, lists, and anchors are attached to the current section.
+        """
         try:
-            response = self.session.get(str(url), timeout=15)
+            response = self.session.get(str(url), timeout=20)
             response.raise_for_status()
             soup = BeautifulSoup(response.content, 'html.parser')
-            base_domain = urlparse(url).netloc
 
-            # Remove script and style elements and common non-content areas
-            for script in soup(["script", "style", "nav", "footer", "header", "aside"]):
-                script.decompose()
+            # Remove script/style/nav/common chrome
+            for el in soup(["script", "style", "nav", "footer", "header", "aside"]):
+                el.decompose()
 
-            # Extract title
-            title = soup.find('title')
-            title_text = title.get_text().strip() if title else "No Title"
+            title_el = soup.find('title')
+            title_text = title_el.get_text().strip() if title_el else "No Title"
 
-            # Extract main content
-            content_selectors = [
-                'main', 'article', '[role="main"]', '.content',
-                '.main-content', '#content', '.post-content'
-            ]
-
-            main_content = None
-            for selector in content_selectors:
-                main_content = soup.select_one(selector)
-                if main_content:
+            # Choose main content area
+            selectors = ['main', 'article', '[role="main"]', '.content', '.main-content', '#content', '.post-content', 'body']
+            main = None
+            for sel in selectors:
+                main = soup.select_one(sel)
+                if main:
                     break
-            if not main_content:
-                main_content = soup.find('body')
+            if not main:
+                main = soup
 
-            # Extract structured sections with metadata
-            sections: List[Dict[str, Any]] = []
-            links: List[Dict[str, Any]] = []
-            images: List[Dict[str, Any]] = []
+            # Build hierarchical sections using a stack of (level, section_dict)
+            root_section = {
+                "title": title_text,
+                "level": 0,
+                "content": "",
+                "subsections": [],
+                "links": [],
+                "children": [],  # nested sections
+            }
+            stack: List[Tuple[int, Dict[str, Any]]] = [(0, root_section)]
 
-            if main_content:
-                current_section: Dict[str, Any] = {
-                    "title": title_text,
-                    "content": "",
-                    "keywords": [],
-                    "subsections": [],
-                    "links": [],
-                    "level": 0,
-                }
+            def push_section(sec: Dict[str, Any]):
+                # Append to parent based on current stack top
+                stack[-1][1]["children"].append(sec)
+                stack.append((sec["level"], sec))
 
-                for element in main_content.find_all(['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'ul', 'ol', 'a', 'img']):
-                    if element.name and element.name.startswith('h'):
-                        if current_section["content"].strip():
-                            # sanitize before appending
-                            current_section["content"] = strip_metadata_lines(current_section["content"])
-                            sections.append(current_section)
-                        level = int(element.name[1])
-                        current_section = {
-                            "title": element.get_text().strip(),
-                            "content": "",
-                            "keywords": [],
-                            "subsections": [],
-                            "links": [],
-                            "level": level,
-                        }
-                    elif element.name == 'p':
-                        text = element.get_text().strip()
-                        if text:
-                            current_section["content"] += text + " "
-                    elif element.name in ['ul', 'ol']:
-                        list_items = [li.get_text().strip() for li in element.find_all('li')]
-                        current_section["subsections"].extend(list_items)
-                    elif element.name == 'a' and extract_links:
-                        href = element.get('href')
+            def close_sections_to(level: int):
+                while stack and stack[-1][0] >= level:
+                    stack.pop()
+                if not stack:
+                    stack.append((0, root_section))
+
+
+            # Iterate DOM and build structure
+            for el in main.find_all(['h1','h2','h3','h4','h5','h6','p','ul','ol','a','img'], recursive=True):
+                name = el.name.lower()
+                if name in ['h1','h2','h3','h4','h5','h6']:
+                    level = int(name[1])
+                    sec = {
+                        "title": el.get_text().strip(),
+                        "level": level,
+                        "content": "",
+                        "subsections": [],
+                        "links": [],
+                        "children": [],
+                    }
+                    close_sections_to(level)
+                    push_section(sec)
+                elif name == 'p':
+                    txt = el.get_text().strip()
+                    if txt:
+                        stack[-1][1]["content"] += txt + " "
+                elif name in ['ul','ol']:
+                    items = [li.get_text().strip() for li in el.find_all('li')]
+                    # Attach as subsections (leaf bullets) to current section
+                    stack[-1][1]["subsections"].extend(items)
+                elif name == 'a':
+                    if extract_links:
+                        href = el.get('href')
                         if href:
                             link_url = urljoin(str(url), href)
-                            link_text = element.get_text().strip()
-                            if link_text and self._is_valid_link(link_url, base_domain):
+                            link_text = el.get_text().strip()
+                            if link_text and self._is_valid_link(link_url):
                                 link_data = {
                                     "url": link_url,
                                     "text": link_text,
                                     "type": self._categorize_link(link_url, link_text),
                                 }
-                                links.append(link_data)
-                                current_section["links"].append(link_data)
-                    elif element.name == 'img':
-                        img_src = element.get('src')
-                        img_alt = element.get('alt', '')
-                        if img_src:
-                            img_url = urljoin(str(url), img_src)
-                            images.append({
-                                "url": img_url,
-                                "alt": img_alt,
-                                "caption": img_alt
-                            })
+                                stack[-1][1]["links"].append(link_data)
+                elif name == 'img':
+                    # Images can be ignored or added to metadata; skipping deep handling for brevity
+                    pass
 
-                if current_section["content"].strip():
-                    current_section["content"] = strip_metadata_lines(current_section["content"])
-                    sections.append(current_section)
+            # Flatten a list of all sections (preorder) for summary/key concepts
+            def walk_sections(sec: Dict[str, Any], acc: List[Dict[str, Any]]):
+                acc.append(sec)
+                for ch in sec.get("children", []):
+                    walk_sections(ch, acc)
+                return acc
+
+            hierarchical_sections = walk_sections(root_section, [])[1:]  # exclude artificial root at 0
+            # Sanitize content strings
+            for sec in hierarchical_sections:
+                sec["content"] = strip_metadata_lines(sec.get("content",""))
+                sec["subsections"] = [strip_metadata_lines(s) for s in sec.get("subsections",[])]
+                for ln in sec.get("links", []):
+                    ln["text"] = strip_metadata_lines(ln.get("text",""))
 
             all_text = soup.get_text()
-            clean_text = re.sub(r'\s+', ' ', all_text).strip()
-            clean_text = strip_metadata_lines(clean_text)
+            clean_text = strip_metadata_lines(re.sub(r'\s+', ' ', all_text).strip())
+
+            # Also keep a flat "sections" summary for compatibility
+            flat_sections: List[Dict[str, Any]] = []
+            for sec in hierarchical_sections:
+                flat_sections.append({
+                    "title": sec.get("title", ""),
+                    "content": sec.get("content",""),
+                    "level": sec.get("level",1),
+                    "subsections": sec.get("subsections", []),
+                    "links": sec.get("links", []),
+                })
+
+            # Collect all links globally (optional)
+            all_links: List[Dict[str, Any]] = []
+            for sec in hierarchical_sections:
+                all_links.extend(sec.get("links", []))
 
             return {
-                'url': str(url),
-                'title': title_text,
-                'sections': sections,
-                'full_text': clean_text,
-                'word_count': len(clean_text.split()),
-                'links': links,
-                'images': images,
-                'structure': self._analyze_content_structure(sections),
+                "url": str(url),
+                "title": title_text,
+                "full_text": clean_text,
+                "word_count": len(clean_text.split()),
+                "sections": flat_sections,                # backward compatibility
+                "hierarchy_root": root_section,           # full tree with children
+                "links": all_links,
+                "images": [],
             }
 
         except requests.RequestException as e:
@@ -279,8 +323,7 @@ class EnhancedWebScraper:
         except Exception as e:
             raise Exception(f"Error processing content from {url}: {str(e)}")
 
-    def _is_valid_link(self, url: str, base_domain: str) -> bool:
-        """Check if link is valid and relevant"""
+    def _is_valid_link(self, url: str) -> bool:
         try:
             parsed = urlparse(url)
             if not parsed.scheme or not parsed.netloc:
@@ -292,7 +335,6 @@ class EnhancedWebScraper:
             return False
 
     def _categorize_link(self, url: str, text: str) -> str:
-        """Categorize links by type"""
         url_lower = url.lower()
         text_lower = text.lower()
         if any(ext in url_lower for ext in ['.pdf', '.doc', '.docx', '.ppt', '.xls', '.xlsx']):
@@ -308,46 +350,23 @@ class EnhancedWebScraper:
         else:
             return 'general'
 
-    def _analyze_content_structure(self, sections: List[Dict[str, Any]]) -> Dict[str, Any]:
-        """Analyze the hierarchical structure of content"""
-        structure: Dict[str, Any] = {
-            'total_sections': len(sections),
-            'hierarchy': defaultdict(int),
-            'topics': [],
-            'relationships': [],
-        }
-        for section in sections:
-            level = section.get('level', 0)
-            structure['hierarchy'][f'h{level}'] += 1
-            if section.get('title') and section['title'] != "No Title":
-                topic = {
-                    'title': section['title'],
-                    'level': level,
-                    'content_length': len(section.get('content', "")),
-                    'has_subsections': len(section.get('subsections', [])) > 0,
-                    'link_count': len(section.get('links', [])),
-                }
-                structure['topics'].append(topic)
-        structure['hierarchy'] = dict(structure['hierarchy'])
-        return structure
-
-# --------- Mind map generator ---------
+# --------- Mind map generator (multi-level) ---------
 class InteractiveMindMapGenerator:
-    """Enhanced mind map generator with interactive features"""
+    """Generates a multi-level mind map mirroring the page's hierarchical sections."""
     def __init__(self):
         self.node_counter = 0
 
     def create_interactive_mindmap(self, content: Dict[str, Any], summary_data: Dict[str, Any]) -> InteractiveMindMap:
-        """Create an interactive mind map with expandable nodes"""
         root_node_id = self._generate_node_id()
 
         # Root node content uses bullet summary; sanitize metadata lines
-        summary_bullets = summary_data.get('summary_bullets', [])
-        summary_text = "\n".join(f"- {strip_metadata_lines(b)}" for b in summary_bullets) if summary_bullets else strip_metadata_lines(summary_data.get('summary', "") or "")
+        bullets = summary_data.get('summary_bullets', [])
+        summary_text = "\n".join(f"- {strip_metadata_lines(b)}" for b in bullets) if bullets else strip_metadata_lines(summary_data.get('summary', "") or "")
+
         root_node = MindMapNode(
             id=root_node_id,
             title=content.get('title', 'Root'),
-            content=(summary_text[:200] + "...") if len(summary_text) > 200 else summary_text,
+            content=(summary_text[:300] + "...") if len(summary_text) > 300 else summary_text,
             url=content.get('url'),
             node_type="root",
             metadata={
@@ -360,93 +379,123 @@ class InteractiveMindMapGenerator:
 
         nodes: Dict[str, MindMapNode] = {root_node_id: root_node}
 
-        concept_nodes = self._create_concept_nodes(summary_data.get('key_concepts', []), root_node_id)
+        # 1) Build section tree from hierarchy_root
+        hierarchy_root = content.get("hierarchy_root", None)
+        if hierarchy_root:
+            self._build_section_nodes(hierarchy_root, parent_id=root_node_id, nodes=nodes)
+
+        # 2) Add concept nodes (still useful; hang them directly off the root)
+        concept_nodes = self._create_concept_nodes(summary_data.get('key_concepts', []), root_node_id, page_url=content.get("url",""))
         nodes.update(concept_nodes)
 
-        section_nodes = self._create_section_nodes(content.get('sections', []), root_node_id)
-        nodes.update(section_nodes)
+        # Root children: first-level section nodes + concept nodes already set inside builder
+        # Ensure root children contain both sets
+        # The builder already appended section children to root; now also append concepts
+        root_node.children.extend(list(concept_nodes.keys()))
 
-        link_nodes = self._create_link_nodes(content.get('links', []), root_node_id)
-        nodes.update(link_nodes)
-
-        root_node.children = list(concept_nodes.keys()) + list(section_nodes.keys()) + list(link_nodes.keys())
-
-        viz_data = self._generate_visualization_data(nodes, root_node_id)
-        style_config = self._get_style_config()
+        viz = self._generate_visualization_data(nodes, root_node_id)
+        style = self._get_style_config()
 
         return InteractiveMindMap(
             root_node=root_node,
             nodes=nodes,
-            visualization_data=viz_data,
-            style_config=style_config,
+            visualization_data=viz,
+            style_config=style,
         )
+
+    def _build_section_nodes(self, section: Dict[str, Any], parent_id: str, nodes: Dict[str, MindMapNode]):
+        """
+        Recursively convert hierarchical sections (with children) into MindMapNode tree.
+        For each section:
+          - Create a section node under parent
+          - Add subsections (bullets) as child nodes
+          - Add links as child nodes
+          - Recurse into child sections
+        """
+        # Skip the artificial level-0 root section (the page title), attach its children to parent
+        if section.get("level", 0) == 0:
+            for child in section.get("children", []):
+                self._build_section_nodes(child, parent_id, nodes)
+            return
+
+        node_id = self._generate_node_id()
+        title = strip_metadata_lines(section.get("title", ""))
+        content_text = strip_metadata_lines(section.get("content",""))
+        content_preview = (content_text[:200] + "...") if len(content_text) > 200 else content_text
+
+        sec_node = MindMapNode(
+            id=node_id,
+            title=title if title else f"Section (H{section.get('level',1)})",
+            content=content_preview,
+            parent_id=parent_id,
+            node_type="section",
+            metadata={
+                "expandable": True,
+                "level": section.get("level",1),
+                "full_content": content_text,
+                "subsections": section.get("subsections", []),
+                "links": section.get("links", []),
+            },
+        )
+        nodes[node_id] = sec_node
+        # Attach to parent
+        if parent_id in nodes:
+            nodes[parent_id].children.append(node_id)
+
+        # Add subsections (bulleted items) as child nodes
+        for i, sub in enumerate(section.get("subsections", [])):
+            sub_id = f"subsection_{node_id}_{i}"
+            sub_node = MindMapNode(
+                id=sub_id,
+                title=(sub[:60]+"...") if len(sub)>60 else sub,
+                content=sub,
+                parent_id=node_id,
+                node_type="subsection",
+                metadata={"subsection_index": i},
+            )
+            nodes[sub_id] = sub_node
+            sec_node.children.append(sub_id)
+
+        # Add section links as child link nodes
+        for i, l in enumerate(section.get("links", [])[:10]):  # limit per section to avoid clutter
+            link_id = f"link_{node_id}_{i}"
+            title_text = l.get("text","") or l.get("url","")
+            link_node = MindMapNode(
+                id=link_id,
+                title=(title_text[:70]+"...") if len(title_text)>70 else title_text,
+                content=f"Link to: {title_text}",
+                url=l.get("url"),
+                parent_id=node_id,
+                node_type="link",
+                metadata={"link_data": l, "clickable": True},
+            )
+            nodes[link_id] = link_node
+            sec_node.children.append(link_id)
+
+        # Recurse into child sections
+        for child in section.get("children", []):
+            self._build_section_nodes(child, node_id, nodes)
 
     def _generate_node_id(self) -> str:
         self.node_counter += 1
         return f"node_{self.node_counter}_{uuid.uuid4().hex[:8]}"
 
-    def _create_concept_nodes(self, concepts: List[str], parent_id: str) -> Dict[str, MindMapNode]:
+    def _create_concept_nodes(self, concepts: List[str], parent_id: str, page_url: str) -> Dict[str, MindMapNode]:
         nodes: Dict[str, MindMapNode] = {}
-        for concept in concepts[:8]:
+        for concept in concepts[:10]:
             node_id = self._generate_node_id()
-            clean_concept = strip_metadata_lines(concept)
+            c = strip_metadata_lines(concept)
+            url = make_concept_url(c, page_url)
             node = MindMapNode(
                 id=node_id,
-                title=clean_concept,
-                content=f"Key concept: {clean_concept}",
+                title=c,
+                content=f"Key concept: {c}",
                 parent_id=parent_id,
                 node_type="concept",
-                metadata={'expandable': True, 'concept_type': 'key_term'},
+                url=url,
+                metadata={'expandable': True, 'concept_type': 'key_term', 'clickable': bool(url)},
             )
             nodes[node_id] = node
-        return nodes
-
-    def _create_section_nodes(self, sections: List[Dict[str, Any]], parent_id: str) -> Dict[str, MindMapNode]:
-        nodes: Dict[str, MindMapNode] = {}
-        for section in sections[:6]:
-            title = section.get('title')
-            if title and title != "No Title":
-                node_id = self._generate_node_id()
-                content_text = strip_metadata_lines(section.get('content', ''))
-                content_preview = (content_text[:150] + "...") if len(content_text) > 150 else content_text
-                node = MindMapNode(
-                    id=node_id,
-                    title=strip_metadata_lines(title),
-                    content=content_preview,
-                    parent_id=parent_id,
-                    node_type="section",
-                    metadata={
-                        'expandable': True,
-                        'level': section.get('level', 1),
-                        'full_content': content_text,
-                        'subsections': [strip_metadata_lines(s) for s in section.get('subsections', [])],
-                        'links': section.get('links', []),
-                    },
-                )
-                nodes[node_id] = node
-        return nodes
-
-    def _create_link_nodes(self, links: List[Dict[str, Any]], parent_id: str) -> Dict[str, MindMapNode]:
-        nodes: Dict[str, MindMapNode] = {}
-        link_types: Dict[str, List[Dict[str, Any]]] = defaultdict(list)
-        for link in links or []:
-            link_types[link.get('type', 'general')].append(link)
-        for link_type, type_links in link_types.items():
-            if len(type_links) >= 2:
-                category_id = self._generate_node_id()
-                category_node = MindMapNode(
-                    id=category_id,
-                    title=f"{link_type.title()} Links",
-                    content=f"{len(type_links)} {link_type} resources",
-                    parent_id=parent_id,
-                    node_type="link_category",
-                    metadata={
-                        'expandable': True,
-                        'link_type': link_type,
-                        'links': type_links[:5],
-                    },
-                )
-                nodes[category_id] = category_node
         return nodes
 
     def _generate_visualization_data(self, nodes: Dict[str, MindMapNode], root_id: str) -> Dict[str, Any]:
@@ -467,23 +516,21 @@ class InteractiveMindMapGenerator:
             viz_nodes.append(viz_node)
         for node in nodes.values():
             for child_id in node.children:
-                viz_edges.append({
-                    'from': node.id,
-                    'to': child_id,
-                    'type': 'hierarchy',
-                })
+                viz_edges.append({'from': node.id, 'to': child_id, 'type': 'hierarchy'})
         return {'nodes': viz_nodes, 'edges': viz_edges, 'layout': 'hierarchical', 'center_node': root_id}
 
     def _calculate_node_size(self, node: MindMapNode) -> int:
-        base_size = 30
+        base = 28
         if node.node_type == "root":
-            return base_size + 20
-        elif node.node_type == "section":
-            return base_size + 10
-        elif node.node_type == "concept":
-            return base_size + 5
-        else:
-            return base_size
+            return base + 20
+        if node.node_type == "section":
+            lvl = node.metadata.get("level", 1)
+            return base + max(0, 12 - 2*min(lvl,5))  # higher-level headings slightly larger
+        if node.node_type == "concept":
+            return base + 6
+        if node.node_type == "subsection":
+            return base - 2
+        return base
 
     def _get_node_color(self, node_type: str) -> str:
         colors = {
@@ -514,7 +561,7 @@ class InteractiveMindMapGenerator:
             'layout': {'hierarchical': {'enabled': True, 'direction': 'UD', 'sortMethod': 'directed'}},
             'interaction': {'dragNodes': True, 'dragView': True, 'zoomView': True, 'selectConnectedEdges': False},
             'physics': {'enabled': True, 'hierarchicalRepulsion': {
-                'nodeDistance': 120, 'centralGravity': 0.0, 'springLength': 100, 'springConstant': 0.01, 'damping': 0.09}},
+                'nodeDistance': 140, 'centralGravity': 0.0, 'springLength': 120, 'springConstant': 0.01, 'damping': 0.09}},
             'nodes': {'borderWidth': 2, 'shadow': True, 'font': {'size': 14, 'color': '#333333'}},
             'edges': {'width': 2, 'shadow': True, 'smooth': {'type': 'continuous'}},
         }
@@ -530,53 +577,56 @@ class NodeExpansionService:
         node = mindmap.nodes[node_id]
         new_nodes: List[MindMapNode] = []
         if expand_type == "subsections" and node.node_type == "section":
-            new_nodes = await self._expand_section_subsections(node, mindmap)
+            new_nodes = await self._expand_section_subsections(node)
         elif expand_type == "links" and "links" in node.metadata:
-            new_nodes = await self._expand_node_links(node, mindmap)
+            new_nodes = await self._expand_node_links(node)
         elif expand_type == "related":
-            new_nodes = await self._expand_related_concepts(node, mindmap)
-        for new_node in new_nodes:
-            mindmap.nodes[new_node.id] = new_node
-            node.children.append(new_node.id)
+            new_nodes = await self._expand_related_concepts(node)
+
+        for n in new_nodes:
+            mindmap.nodes[n.id] = n
+            node.children.append(n.id)
         node.expanded = True
+
         updated_viz = self._update_visualization_for_expansion(mindmap, node_id, new_nodes)
         return NodeExpansionResult(node_id=node_id, new_nodes=new_nodes, updated_visualization=updated_viz)
 
-    async def _expand_section_subsections(self, node: MindMapNode, mindmap: InteractiveMindMap) -> List[MindMapNode]:
+    async def _expand_section_subsections(self, node: MindMapNode) -> List[MindMapNode]:
         new_nodes: List[MindMapNode] = []
-        subsections = node.metadata.get('subsections', []) or []
-        for i, subsection in enumerate(subsections[:5]):
+        subs = node.metadata.get('subsections', []) or []
+        start = len([c for c in subs])  # index baseline not necessary but kept for clarity
+        for i, sub in enumerate(subs[:10]):
             sub_id = f"subsection_{node.id}_{i}"
-            subsection_node = MindMapNode(
+            sub_node = MindMapNode(
                 id=sub_id,
-                title=(subsection[:50] + "...") if len(subsection) > 50 else subsection,
-                content=subsection,
+                title=(sub[:60]+"...") if len(sub)>60 else sub,
+                content=sub,
                 parent_id=node.id,
                 node_type="subsection",
                 metadata={'subsection_index': i},
             )
-            new_nodes.append(subsection_node)
+            new_nodes.append(sub_node)
         return new_nodes
 
-    async def _expand_node_links(self, node: MindMapNode, mindmap: InteractiveMindMap) -> List[MindMapNode]:
+    async def _expand_node_links(self, node: MindMapNode) -> List[MindMapNode]:
         new_nodes: List[MindMapNode] = []
         links = node.metadata.get('links', []) or []
-        for i, link in enumerate(links[:3]):
+        for i, link in enumerate(links[:8]):
             link_id = f"link_{node.id}_{i}"
-            title_text = link.get('text', '') or link.get('url', '')
-            link_node = MindMapNode(
+            t = link.get('text','') or link.get('url','')
+            ln = MindMapNode(
                 id=link_id,
-                title=(title_text[:40] + "...") if len(title_text) > 40 else title_text,
-                content=f"Link to: {title_text}",
+                title=(t[:70]+"...") if len(t)>70 else t,
+                content=f"Link to: {t}",
                 url=link.get('url'),
                 parent_id=node.id,
                 node_type="link",
                 metadata={'link_data': link, 'clickable': True},
             )
-            new_nodes.append(link_node)
+            new_nodes.append(ln)
         return new_nodes
 
-    async def _expand_related_concepts(self, node: MindMapNode, mindmap: InteractiveMindMap) -> List[MindMapNode]:
+    async def _expand_related_concepts(self, node: MindMapNode) -> List[MindMapNode]:
         new_nodes: List[MindMapNode] = []
         content = node.metadata.get('full_content', node.content or "")
         try:
@@ -587,18 +637,18 @@ class NodeExpansionService:
             sw = set(stopwords.words('english'))
         except LookupError:
             sw = set()
-        important_words = [w for w in words if len(w) > 4 and w not in sw]
-        word_freq = Counter(important_words)
-        for word, freq in word_freq.most_common(3):
-            if freq > 1:
+        important = [w for w in words if len(w) > 4 and w not in sw]
+        freq = Counter(important)
+        for word, count in freq.most_common(5):
+            if count > 1:
                 rel_id = f"related_{node.id}_{word}"
                 related_node = MindMapNode(
                     id=rel_id,
                     title=word.title(),
-                    content=f"Related concept appearing {freq} times in {node.title}",
+                    content=f"Related concept appearing {count} times in {node.title}",
                     parent_id=node.id,
                     node_type="related",
-                    metadata={'frequency': freq, 'source_node': node.id},
+                    metadata={'frequency': count, 'source_node': node.id},
                 )
                 new_nodes.append(related_node)
         return new_nodes
@@ -613,7 +663,7 @@ class NodeExpansionService:
                 'expandable': n.metadata.get('expandable', False),
                 'expanded': n.expanded,
                 'url': n.url,
-                'size': 25,
+                'size': 24,
                 'color': self._get_node_color(n.node_type),
                 'shape': self._get_node_shape(n.node_type),
             }
@@ -645,29 +695,21 @@ class ContentSummarizer:
             self.stop_words = set(stopwords.words('english'))
         except LookupError:
             self.stop_words = {
-                'i', 'me', 'my', 'myself', 'we', 'our', 'ours', 'ourselves', 'you',
-                'your', 'yours', 'yourself', 'yourselves', 'he', 'him', 'his', 'himself',
-                'she', 'her', 'hers', 'herself', 'it', 'its', 'itself', 'they', 'them',
-                'their', 'theirs', 'themselves', 'what', 'which', 'who', 'whom', 'this',
-                'that', 'these', 'those', 'am', 'is', 'are', 'was', 'were', 'be', 'been',
-                'being', 'have', 'has', 'had', 'having', 'do', 'does', 'did', 'doing',
-                'a', 'an', 'the', 'and', 'but', 'if', 'or', 'because', 'as', 'until',
-                'while', 'of', 'at', 'by', 'for', 'with', 'through', 'during', 'before',
-                'after', 'above', 'below', 'up', 'down', 'in', 'out', 'on', 'off', 'over',
-                'under', 'again', 'further', 'then', 'once'
+                'i','me','my','myself','we','our','ours','ourselves','you','your','yours','yourself','yourselves','he','him','his','himself',
+                'she','her','hers','herself','it','its','itself','they','them','their','theirs','themselves','what','which','who','whom','this',
+                'that','these','those','am','is','are','was','were','be','been','being','have','has','had','having','do','does','did','doing',
+                'a','an','the','and','but','if','or','because','as','until','while','of','at','by','for','with','through','during','before',
+                'after','above','below','up','down','in','out','on','off','over','under','again','further','then','once'
             }
-        # Extra domain stop words and common fillers to filter out from concepts
         self.extra_stop = {
-            'all', 'and', 'the', 'med', 'int', 'lin', 'inc', 'etc',
-            'introduction', 'background', 'methods', 'results', 'discussion',
-            'conclusion', 'overview', 'table', 'figure', 'supplement', 'appendix'
+            'all','and','the','med','int','lin','inc','etc',
+            'introduction','background','methods','results','discussion',
+            'conclusion','overview','table','figure','supplement','appendix'
         }
 
     def summarize_content(self, content: Dict[str, Any], max_length: int = 500) -> Dict[str, Any]:
-        """Generate a bullet-point summary and cleaned key concepts"""
         sentences, scores = self._rank_sentences(content)
-        bullets = self._make_bullets(sentences, scores, max_length=max_length, max_bullets=8)
-        # Sanitize bullets to remove metadata lines
+        bullets = self._make_bullets(sentences, scores, max_length=max_length, max_bullets=10)
         bullets = [strip_metadata_lines(b) for b in bullets if strip_metadata_lines(b).strip()]
         key_concepts = self._extract_key_concepts_clean(content)
         return {
@@ -682,14 +724,12 @@ class ContentSummarizer:
         sections = content.get('sections', [])
         if not full_text or len(full_text.split()) < 10:
             return [full_text], {full_text: 1.0}
-
         important_text = ""
-        for section in sections:
-            if section.get('content') and section.get('level', 0) <= 3:
-                important_text += section['content'] + " "
+        for s in sections:
+            if s.get('content') and s.get('level', 0) <= 3:
+                important_text += s['content'] + " "
         if not important_text:
             important_text = full_text
-
         try:
             sentences = sent_tokenize(important_text)
         except Exception:
@@ -698,7 +738,7 @@ class ContentSummarizer:
         scores = self._score_sentences_enhanced(sentences, content)
         return sentences, scores
 
-    def _make_bullets(self, sentences: List[str], scores: Dict[str, float], max_length: int = 500, max_bullets: int = 8) -> List[str]:
+    def _make_bullets(self, sentences: List[str], scores: Dict[str, float], max_length: int = 500, max_bullets: int = 10) -> List[str]:
         ranked = sorted(scores.items(), key=lambda x: x[1], reverse=True)
         bullets: List[str] = []
         words_so_far = 0
@@ -723,22 +763,20 @@ class ContentSummarizer:
         sections = content.get('sections', [])
         links = content.get('links', [])
         important_words: List[str] = []
-        for section in sections:
-            if section.get('level', 0) <= 2:
-                raw = section.get('content', '')
+        for s in sections:
+            if s.get('level', 0) <= 2:
+                raw = s.get('content', '')
                 try:
                     words = word_tokenize(raw.lower())
                 except Exception:
                     words = re.findall(r'\b\w+\b', raw.lower())
                 important_words.extend([w for w in words if w not in self.stop_words and len(w) > 2])
         word_freq = Counter(important_words)
-
         try:
             title_words = word_tokenize(title.lower())
         except Exception:
             title_words = re.findall(r'\b\w+\b', title.lower())
         title_words = [w for w in title_words if w not in self.stop_words]
-
         link_words: List[str] = []
         for link in links:
             try:
@@ -752,23 +790,21 @@ class ContentSummarizer:
                 continue
             score = 0.0
             try:
-                sentence_words = word_tokenize(sentence.lower())
+                sw = word_tokenize(sentence.lower())
             except Exception:
-                sentence_words = re.findall(r'\b\w+\b', sentence.lower())
-            sentence_words = [w for w in sentence_words if w not in self.stop_words]
-            for word in sentence_words:
-                if word in word_freq:
-                    score += float(word_freq[word])
-            title_overlap = len(set(sentence_words) & set(title_words))
-            score += title_overlap * 10.0
-            link_overlap = len(set(sentence_words) & set(link_words))
-            score += link_overlap * 5.0
+                sw = re.findall(r'\b\w+\b', sentence.lower())
+            sw = [w for w in sw if w not in self.stop_words]
+            for w in sw:
+                if w in word_freq:
+                    score += float(word_freq[w])
+            score += 10.0 * len(set(sw) & set(title_words))
+            score += 5.0 * len(set(sw) & set(link_words))
             idx = sentences.index(sentence)
             if idx < 3:
                 score += 8.0
-            elif idx < max(1, int(len(sentences) * 0.1)):
+            elif idx < max(1, int(len(sentences)*0.1)):
                 score += 5.0
-            sentence_scores[sentence] = score / max(1, len(sentence_words))
+            sentence_scores[sentence] = score / max(1, len(sw))
         return sentence_scores
 
     def _normalize_concept(self, s: str) -> str:
@@ -797,7 +833,6 @@ class ContentSummarizer:
         title = content.get('title', '') or ''
         sections = content.get('sections', []) or []
         links = content.get('links', []) or []
-
         candidates: set = set()
 
         # Title
@@ -812,8 +847,8 @@ class ContentSummarizer:
             candidates.add(self._normalize_concept(w))
 
         # Section titles
-        for section in sections:
-            st = section.get('title', '')
+        for s in sections:
+            st = s.get('title', '')
             if st and st != title:
                 try:
                     words = word_tokenize(st)
@@ -845,7 +880,7 @@ class ContentSummarizer:
         except Exception:
             words = re.findall(r'\b[A-Za-z][A-Za-z0-9\-]+\b', text)
             pos_tags = [(w, 'NN') for w in words]
-        main_tokens = self._clean_tokens([w for w, p in pos_tags if p in ['NNP', 'NNPS', 'NN', 'NNS']])
+        main_tokens = self._clean_tokens([w for w, p in pos_tags if p in ['NNP','NNPS','NN','NNS']])
         for w in main_tokens:
             candidates.add(self._normalize_concept(w))
 
@@ -869,26 +904,25 @@ class ContentSummarizer:
         for concept in candidates:
             if not concept:
                 continue
-            base_freq = text_lower.count(concept.lower())
-            title_boost = 5 if concept.lower() in title.lower() else 0
-            for section in sections:
-                if concept.lower() in (section.get('title', '') or '').lower():
-                    title_boost += 4 * (4 - min(section.get('level', 1), 3))
-            score = base_freq + title_boost
+            base = text_lower.count(concept.lower())
+            boost = 5 if concept.lower() in title.lower() else 0
+            for s in sections:
+                if concept.lower() in (s.get('title','') or '').lower():
+                    boost += 4 * (4 - min(s.get('level',1), 3))
+            score = base + boost
             if score > 0:
                 concept_freq[concept] = score
 
         final_concepts = []
         for c, _ in concept_freq.most_common(20):
-            c_low = c.lower()
-            if c_low in self.stop_words or c_low in self.extra_stop:
+            cl = c.lower()
+            if cl in self.stop_words or cl in self.extra_stop:
                 continue
             if _is_noise_token(c):
                 continue
-            if len(c) <= 3 and c.isalpha() and c_low not in {'h1', 'h2', 'h3'}:
+            if len(c) <= 3 and c.isalpha() and cl not in {'h1','h2','h3'}:
                 continue
             final_concepts.append(strip_metadata_lines(c))
-
         return final_concepts[:15]
 
 # --------- Background job ---------
@@ -906,17 +940,16 @@ async def process_scrape_job(job_id: str, url: str, summary_length: int, extract
         job.progress = 30
         content = scraper.scrape_content(url, extract_links)
 
-        logger.info("Generating enhanced summary...")
-        job.progress = 50
+        logger.info("Generating summary and concepts...")
+        job.progress = 55
         summary_data = summarizer.summarize_content(content, summary_length or 300)
 
-        logger.info("Creating interactive mind map...")
-        job.progress = 70
+        logger.info("Building multi-level mind map...")
+        job.progress = 75
         interactive_mindmap = mindmap_gen.create_interactive_mindmap(content, summary_data)
-
         mindmap_nodes[job_id] = interactive_mindmap
 
-        job.progress = 85
+        job.progress = 90
         text_mindmaps = {
             'visual': generate_text_mindmap(content['title'], summary_data['summary'], summary_data['key_concepts']),
             'network': generate_network_mindmap(content['title'], summary_data['key_concepts']),
@@ -949,7 +982,7 @@ async def process_scrape_job(job_id: str, url: str, summary_length: int, extract
         job.status = "completed"
         job.progress = 100
         job.completed_at = datetime.now().isoformat()
-        logger.info(f"Job {job_id} completed successfully with interactive features")
+        logger.info(f"Job {job_id} completed successfully.")
     except Exception as e:
         logger.exception(f"Job {job_id} failed: {str(e)}")
         job = scrape_jobs.get(job_id)
@@ -958,7 +991,7 @@ async def process_scrape_job(job_id: str, url: str, summary_length: int, extract
             job.error = str(e)
             job.completed_at = datetime.now().isoformat()
 
-# --------- Text mindmap helpers ---------
+# --------- Text mindmap helpers (compat) ---------
 def generate_text_mindmap(title: str, summary: str, concepts: List[str]) -> str:
     title = strip_metadata_lines(title)
     summary = strip_metadata_lines(summary)
@@ -1012,16 +1045,16 @@ def get_expansion_service() -> NodeExpansionService:
 async def root():
     return {
         "message": "Interactive Website Scraper & Mind Map Generator API",
-        "version": "2.0.0",
+        "version": "3.0.0",
         "features": [
-            "Enhanced web scraping with link extraction",
-            "Interactive mind maps with expandable nodes",
-            "Multiple visualization formats",
-            "Real-time node expansion",
-            "Hierarchical content analysis",
+            "Hierarchical web scraping (H1–H6) with multi-level mind map",
+            "Bullet-point summary",
+            "Clean key concepts without stopwords",
+            "Clickable concept nodes (web search)",
+            "Expandable subsections, links, related concepts",
         ],
         "endpoints": [
-            "POST /scrape - Start enhanced scraping job",
+            "POST /scrape - Start scraping job",
             "GET /job/{job_id} - Get job status",
             "GET /job/{job_id}/mindmap - Get interactive mindmap",
             "POST /expand-node - Expand mindmap node",
@@ -1040,7 +1073,7 @@ async def health_check():
             "interactive_mindmaps": True,
             "node_expansion": True,
             "link_extraction": True,
-            "multi_format_export": True,
+            "multi_level_sections": True,
         },
     }
 
@@ -1056,7 +1089,7 @@ async def create_enhanced_scrape_job(request: ScrapeRequest, background_tasks: B
         request.summary_length or 300,
         bool(request.extract_links),
     )
-    return ScrapeResponse(job_id=job_id, status="queued", message="Enhanced scraping job with interactive mindmap features started")
+    return ScrapeResponse(job_id=job_id, status="queued", message="Scraping job started")
 
 @app.get("/job/{job_id}/mindmap")
 async def get_interactive_mindmap(job_id: str):
@@ -1081,17 +1114,17 @@ async def get_interactive_mindmap(job_id: str):
 @app.post("/expand-node", response_model=NodeExpansionResult)
 async def expand_mindmap_node(request: ExpandNodeRequest):
     target_job_id: Optional[str] = None
-    for job_id, mindmap in mindmap_nodes.items():
-        if request.node_id in mindmap.nodes:
+    for job_id, mm in mindmap_nodes.items():
+        if request.node_id in mm.nodes:
             target_job_id = job_id
             break
     if not target_job_id:
         raise HTTPException(status_code=404, detail="Node not found in any mindmap")
-    mindmap = mindmap_nodes[target_job_id]
+    mm = mindmap_nodes[target_job_id]
     expansion_svc = get_expansion_service()
     try:
-        result = await expansion_svc.expand_node(request.node_id, request.expand_type, mindmap)
-        mindmap.visualization_data = result.updated_visualization
+        result = await expansion_svc.expand_node(request.node_id, request.expand_type, mm)
+        mm.visualization_data = result.updated_visualization
         return result
     except ValueError as e:
         raise HTTPException(status_code=400, detail=str(e))
@@ -1109,13 +1142,12 @@ async def export_mindmap_data(job_id: str, format: str = "json"):
         return job.result
     elif format == "nodes":
         if job_id in mindmap_nodes:
-            mindmap = mindmap_nodes[job_id]
+            mm = mindmap_nodes[job_id]
             return {
-                "nodes": [node.dict() for node in mindmap.nodes.values()],
+                "nodes": [node.dict() for node in mm.nodes.values()],
                 "relationships": [
                     {"parent": node.id, "children": node.children}
-                    for node in mindmap.nodes.values()
-                    if node.children
+                    for node in mm.nodes.values() if node.children
                 ],
             }
         else:
@@ -1141,11 +1173,11 @@ async def get_job_status(job_id: str):
     job = scrape_jobs[job_id]
     extra_metadata: Dict[str, Any] = {}
     if job.status == "completed" and job_id in mindmap_nodes:
-        mindmap = mindmap_nodes[job_id]
+        mm = mindmap_nodes[job_id]
         extra_metadata = {
-            "total_nodes": len(mindmap.nodes),
-            "expandable_nodes": sum(1 for node in mindmap.nodes.values() if node.metadata.get('expandable', False)),
-            "node_types": list({node.node_type for node in mindmap.nodes.values()}),
+            "total_nodes": len(mm.nodes),
+            "expandable_nodes": sum(1 for node in mm.nodes.values() if node.metadata.get('expandable', False)),
+            "node_types": list({node.node_type for node in mm.nodes.values()}),
         }
     return JobStatus(
         job_id=job.job_id,
@@ -1161,7 +1193,7 @@ async def get_job_status(job_id: str):
 async def list_jobs_enhanced():
     jobs_data: List[Dict[str, Any]] = []
     for job in scrape_jobs.values():
-        job_info: Dict[str, Any] = {
+        info: Dict[str, Any] = {
             "job_id": job.job_id,
             "status": job.status,
             "progress": job.progress,
@@ -1169,13 +1201,13 @@ async def list_jobs_enhanced():
             "completed_at": job.completed_at,
         }
         if job.status == "completed" and job.job_id in mindmap_nodes:
-            mindmap = mindmap_nodes[job.job_id]
-            job_info["mindmap_features"] = {
-                "total_nodes": len(mindmap.nodes),
-                "expandable_nodes": sum(1 for node in mindmap.nodes.values() if node.metadata.get('expandable', False)),
-                "has_links": any(node.url for node in mindmap.nodes.values()),
+            mm = mindmap_nodes[job.job_id]
+            info["mindmap_features"] = {
+                "total_nodes": len(mm.nodes),
+                "expandable_nodes": sum(1 for n in mm.nodes.values() if n.metadata.get('expandable', False)),
+                "has_links": any(n.url for n in mm.nodes.values()),
             }
-        jobs_data.append(job_info)
+        jobs_data.append(info)
     return {"total": len(scrape_jobs), "jobs": jobs_data}
 
 @app.delete("/job/{job_id}")
