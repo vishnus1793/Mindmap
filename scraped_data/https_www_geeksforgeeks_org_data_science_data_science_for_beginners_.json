@@ -1,0 +1,4663 @@
+{
+  "scraped_content": {
+    "url": "https://www.geeksforgeeks.org/data-science/data-science-for-beginners/",
+    "title": "Data Science Tutorial - GeeksforGeeks",
+    "full_text": "Data Science Tutorial - GeeksforGeeks PythonRPython for Data ScienceNumPyPandasOpenCVData AnalysisML MathMachine LearningNLPNLP Interview QuestionDeep LearningComputer VisionComputer Vision ProjectDeep Learning Interview QuestionsML ProjectsML Interview Questions Sign In ▲ Open In App Nation SkillUpShare Your ExperiencesIntroduction to Machine LearningWhat is Data Science?Top 25 Python Libraries for Data Science in 2025Difference between Structured, Semi-structured and Unstructured dataTypes of Machine LearningWhat's Data Science Pipeline?Applications of Data SciencePython for Machine LearningLearn Data Science Tutorial With PythonPandas TutorialNumPy Tutorial - Python LibraryML | Data Preprocessing in PythonEDA - Exploratory Data Analysis in PythonIntroduction to StatisticsStatistics For Data ScienceDescriptive StatisticWhat is Inferential Statistics?Bayes' TheoremProbability Data Distributions in Data ScienceParametric Methods in StatisticsHypothesis TestingANOVA for Data Science and Data AnalyticsBayesian Statistics & ProbabilityFeature EngineeringWhat is Feature Engineering?Introduction to Dimensionality ReductionFeature Selection Techniques in Machine LearningFeature Engineering: Scaling, Normalization, and StandardizationPrincipal Component Analysis(PCA)Model Evaluation and TuningEvaluation Metrics in Machine LearningRegularization in Machine LearningCross Validation in Machine LearningHyperparameter TuningML | Underfitting and OverfittingBias and Variance in Machine LearningData Science PracticeData Science Interview Questions and AnswersData Science Coding Interview QuestionsTop 65+ Data Science Projects with Source Code Machine Learning & Data Science Course Data Science Tutorial Last Updated : 06 Aug, 2025 Comments Improve Suggest changes Like Article Like Report Data Science is a field that combines statistics, machine learning and data visualization to extract meaningful insights from vast amounts of raw data and make informed decisions, helping businesses and industries to optimize their operations and predict future trends.This Data Science tutorial offers a comprehensive guide to all major concepts and techniques used in data science with real-world projects.Do you wish to learn Data Science in scheduled manner ? Try our ongoing free course Data Science Skillup with weekly topic coverage, notes, daily quizzes and coding problems.Tools for Data Science To gain expertise in data science, you need to have a strong foundation in the following languages: Python for Data Science R for Data Science SQL for Data Science Mathematics for Data ScienceA solid understanding of mathematical concepts like statistics, linear algebra and calculus is important for building data science models.Mathematics for Data Science Statistics for Data Science Linear Algebra for Data Science Calculus for Data Science Data PreprocessingData preprocessing involves cleaning and transforming raw data into a usable format for accurate and reliable analysis.What is Data Preprocessing? What is Data Cleaning? Handling Missing Data Handling outliers Feature Selection Feature Engineering Splitting Data into Training and Testing Sets Data AnalysisData analysis is the process of inspecting data to discover meaningful insights and trends to make informed decision.What is Data Analysis?Data Analysis Process What is Exploratory Data Analysis?Identifying correlations between featuresStatistical AnalysisData Visualization Data visualization uses graphical representations such as charts and graphs to understand and interpret complex data.What is Data Visualization?Visualization with MatplotlibVisualization using Seaborn Visualization using PlotlyPowerBITableauMachine LearningMachine learning focuses on developing algorithms that helps computers to learn from data and make predictions or decisions without explicit programming.Machine Learning TutorialDeep Learning TutorialYou are now ready to explore real-world projects. For detailed guidance and project ideas refer to below article: Data Science Projects [With Source code]Careers in Data Science Data Science has been considered one of the most desirable jobs in IT field today. Growth opportunities in data science jobs are comparatively high than in any other job. Some of the most notable jobs in data science are:- Data Scientist Data Architect Data Administrator Data Analyst Business Analyst Introduction To Data Science Introduction To Data Science Introduction to Linear Regression - Machine Learning Naive Bayes Classifiers Decision Tree in Machine Learning Random Forest Algorithm in Machine Learning K-Nearest Neighbor(KNN) Algorithm in Machine Learning Comment More infoCampus Training Program A abhishek1 Follow Improve Article Tags : Data Science AI-ML-DS Like 17k+ interested Geeks CBSE Class 12 Computer Science Explore 66k+ interested Geeks Data Science Training Program Explore 771 interested Geeks GATE DA 2028 Online Course [Live Classes] Explore We use cookies to ensure you have the best browsing experience on our website. By using our site, you acknowledge that you have read and understood our Cookie Policy & Privacy Policy Got It ! Improvement Suggest changes Suggest Changes Help us improve. Share your suggestions to enhance the article. Contribute your expertise and make a difference in the GeeksforGeeks portal. Create Improvement Enhance the article with your expertise. Contribute to the GeeksforGeeks community and help create better learning resources for all. Suggest Changes min 4 words, max Words Limit:1000 Thank You! Your suggestions are valuable to us. What kind of Experience do you want to share? Interview Experiences Admission Experiences Career Journeys Work Experiences Campus Experiences Competitive Exam Experiences",
+    "word_count": 756,
+    "sections": [
+      {
+        "title": "Data Science Tutorial",
+        "content": "Data Science is a field that combines statistics, machine learning and data visualization to extract meaningful insights from vast amounts of raw data and make informed decisions, helping businesses and industries to optimize their operations and predict future trends. This Data Science tutorial offers a comprehensive guide to all major concepts and techniques used in data science with real-world projects. Do you wish to learn Data Science in scheduled manner ? Try our ongoing free course Data Science Skillup with weekly topic coverage, notes, daily quizzes and coding problems. ",
+        "level": 1,
+        "subsections": [
+          "",
+          "",
+          ""
+        ],
+        "links": [
+          {
+            "url": "https://www.geeksforgeeks.org/courses/ds-16",
+            "text": "Data Science Skillup",
+            "type": "general"
+          }
+        ]
+      },
+      {
+        "title": "Tools for Data Science",
+        "content": "To gain expertise in data science, you need to have a strong foundation in the following languages: ",
+        "level": 2,
+        "subsections": [
+          "Python for Data Science",
+          "R for Data Science",
+          "SQL for Data Science"
+        ],
+        "links": [
+          {
+            "url": "https://www.geeksforgeeks.org/data-science/data-science-with-python-tutorial/",
+            "text": "Python for Data Science",
+            "type": "general"
+          },
+          {
+            "url": "https://www.geeksforgeeks.org/r-language/r-programming-for-data-science/",
+            "text": "R for Data Science",
+            "type": "general"
+          },
+          {
+            "url": "https://www.geeksforgeeks.org/data-science/sql-for-data-science/",
+            "text": "SQL for Data Science",
+            "type": "general"
+          }
+        ]
+      },
+      {
+        "title": "Mathematics for Data Science",
+        "content": "A solid understanding of mathematical concepts like statistics, linear algebra and calculus is important for building data science models. ",
+        "level": 2,
+        "subsections": [
+          "Mathematics for Data Science",
+          "Statistics for Data Science",
+          "Linear Algebra for Data Science",
+          "Calculus for Data Science"
+        ],
+        "links": [
+          {
+            "url": "https://www.geeksforgeeks.org/blogs/maths-for-data-science/",
+            "text": "Mathematics for Data Science",
+            "type": "general"
+          },
+          {
+            "url": "https://www.geeksforgeeks.org/data-science/statistics-for-data-science/",
+            "text": "Statistics for Data Science",
+            "type": "general"
+          },
+          {
+            "url": "https://www.geeksforgeeks.org/data-science/linear-algebra-required-for-data-science/",
+            "text": "Linear Algebra for Data Science",
+            "type": "general"
+          },
+          {
+            "url": "https://www.geeksforgeeks.org/machine-learning/role-of-differential-calculus-in-machine-learning/",
+            "text": "Calculus for Data Science",
+            "type": "general"
+          }
+        ]
+      },
+      {
+        "title": "Data Preprocessing",
+        "content": "Data preprocessing involves cleaning and transforming raw data into a usable format for accurate and reliable analysis. ",
+        "level": 2,
+        "subsections": [
+          "What is Data Preprocessing?",
+          "What is Data Cleaning?",
+          "Handling Missing Data",
+          "Handling outliers",
+          "Feature Selection",
+          "Feature Engineering",
+          "Splitting Data into Training and Testing Sets"
+        ],
+        "links": [
+          {
+            "url": "https://www.geeksforgeeks.org/dbms/data-preprocessing-in-data-mining/",
+            "text": "What is Data Preprocessing?",
+            "type": "general"
+          },
+          {
+            "url": "https://www.geeksforgeeks.org/data-analysis/data-cleansing-introduction/",
+            "text": "What is Data Cleaning?",
+            "type": "general"
+          },
+          {
+            "url": "https://www.geeksforgeeks.org/machine-learning/ml-handling-missing-values/",
+            "text": "Handling Missing Data",
+            "type": "general"
+          },
+          {
+            "url": "https://www.geeksforgeeks.org/data-science/detect-and-remove-the-outliers-using-python/",
+            "text": "Handling outliers",
+            "type": "general"
+          },
+          {
+            "url": "https://www.geeksforgeeks.org/machine-learning/feature-selection-techniques-in-machine-learning/",
+            "text": "Feature Selection",
+            "type": "general"
+          },
+          {
+            "url": "https://www.geeksforgeeks.org/machine-learning/ml-feature-scaling-part-2/",
+            "text": "Feature Engineering",
+            "type": "general"
+          },
+          {
+            "url": "https://www.geeksforgeeks.org/machine-learning/how-to-split-a-dataset-into-train-and-test-sets-using-python/",
+            "text": "Splitting Data into Training and Testing Sets",
+            "type": "general"
+          }
+        ]
+      },
+      {
+        "title": "Data Analysis",
+        "content": "Data analysis is the process of inspecting data to discover meaningful insights and trends to make informed decision. ",
+        "level": 2,
+        "subsections": [
+          "What is Data Analysis?",
+          "Data Analysis Process",
+          "What is Exploratory Data Analysis?",
+          "Identifying correlations between features",
+          "Statistical Analysis"
+        ],
+        "links": [
+          {
+            "url": "https://www.geeksforgeeks.org/data-analysis/what-is-data-analysis/",
+            "text": "What is Data Analysis?",
+            "type": "general"
+          },
+          {
+            "url": "https://www.geeksforgeeks.org/data-science/six-steps-of-data-analysis-process/",
+            "text": "Data Analysis Process",
+            "type": "general"
+          },
+          {
+            "url": "https://www.geeksforgeeks.org/data-analysis/what-is-exploratory-data-analysis/",
+            "text": "What is Exploratory Data Analysis?",
+            "type": "general"
+          },
+          {
+            "url": "https://www.geeksforgeeks.org/data-analysis/exploring-correlation-in-python/",
+            "text": "Identifying correlations between features",
+            "type": "general"
+          },
+          {
+            "url": "https://www.geeksforgeeks.org/data-analysis/what-is-statistical-analysis/",
+            "text": "Statistical Analysis",
+            "type": "general"
+          }
+        ]
+      },
+      {
+        "title": "Data Visualization",
+        "content": "Data visualization uses graphical representations such as charts and graphs to understand and interpret complex data. ",
+        "level": 2,
+        "subsections": [
+          "What is Data Visualization?",
+          "Visualization with Matplotlib",
+          "Visualization using Seaborn",
+          "Visualization using Plotly",
+          "PowerBI",
+          "Tableau"
+        ],
+        "links": [
+          {
+            "url": "https://www.geeksforgeeks.org/data-visualization/data-visualization-and-its-importance/",
+            "text": "What is Data Visualization?",
+            "type": "general"
+          },
+          {
+            "url": "https://www.geeksforgeeks.org/data-visualization/data-visualization-using-matplotlib/",
+            "text": "Visualization with Matplotlib",
+            "type": "general"
+          },
+          {
+            "url": "https://www.geeksforgeeks.org/data-visualization/data-visualization-with-python-seaborn/",
+            "text": "Visualization using Seaborn",
+            "type": "general"
+          },
+          {
+            "url": "https://www.geeksforgeeks.org/data-visualization/using-plotly-for-interactive-data-visualization-in-python/",
+            "text": "Visualization using Plotly",
+            "type": "general"
+          },
+          {
+            "url": "https://www.geeksforgeeks.org/power-bi/power-bi-tutorial/",
+            "text": "PowerBI",
+            "type": "general"
+          },
+          {
+            "url": "https://www.geeksforgeeks.org/tableau/tableau-tutorial/",
+            "text": "Tableau",
+            "type": "general"
+          }
+        ]
+      },
+      {
+        "title": "Machine Learning",
+        "content": "Machine learning focuses on developing algorithms that helps computers to learn from data and make predictions or decisions without explicit programming. You are now ready to explore real-world projects. For detailed guidance and project ideas refer to below article: ",
+        "level": 2,
+        "subsections": [
+          "Machine Learning Tutorial",
+          "Deep Learning Tutorial"
+        ],
+        "links": [
+          {
+            "url": "https://www.geeksforgeeks.org/machine-learning/machine-learning/",
+            "text": "Machine Learning Tutorial",
+            "type": "tutorial"
+          },
+          {
+            "url": "https://www.geeksforgeeks.org/deep-learning/deep-learning-tutorial/",
+            "text": "Deep Learning Tutorial",
+            "type": "tutorial"
+          }
+        ]
+      },
+      {
+        "title": "Data Science Projects [With Source code]",
+        "content": "",
+        "level": 3,
+        "subsections": [],
+        "links": [
+          {
+            "url": "https://www.geeksforgeeks.org/data-science/top-data-science-projects/",
+            "text": "Data Science Projects [With Source code]",
+            "type": "general"
+          }
+        ]
+      },
+      {
+        "title": "Careers in Data Science",
+        "content": "Data Science has been considered one of the most desirable jobs in IT field today. Growth opportunities in data science jobs are comparatively high than in any other job. Some of the most notable jobs in data science are:- ",
+        "level": 2,
+        "subsections": [
+          "Data Scientist",
+          "Data Architect",
+          "Data Administrator",
+          "Data Analyst",
+          "Business Analyst"
+        ],
+        "links": [
+          {
+            "url": "https://www.geeksforgeeks.org/blogs/data-scientist-roadmap/",
+            "text": "Data Scientist",
+            "type": "general"
+          },
+          {
+            "url": "https://www.geeksforgeeks.org/gfg-academy/data-architect-roles-skills-and-how-to-become-one-in-2024/",
+            "text": "Data Architect",
+            "type": "general"
+          },
+          {
+            "url": "https://www.geeksforgeeks.org/dbms/dba-full-form/",
+            "text": "Data Administrator",
+            "type": "general"
+          },
+          {
+            "url": "https://www.geeksforgeeks.org/blogs/data-analyst-roadmap/",
+            "text": "Data Analyst",
+            "type": "general"
+          },
+          {
+            "url": "https://www.geeksforgeeks.org/gfg-academy/how-to-become-a-business-analyst/",
+            "text": "Business Analyst",
+            "type": "general"
+          }
+        ]
+      },
+      {
+        "title": "Introduction To Data Science",
+        "content": "",
+        "level": 2,
+        "subsections": [],
+        "links": []
+      },
+      {
+        "title": "Introduction to Linear Regression - Machine Learning",
+        "content": "",
+        "level": 2,
+        "subsections": [],
+        "links": []
+      },
+      {
+        "title": "Naive Bayes Classifiers",
+        "content": "",
+        "level": 2,
+        "subsections": [],
+        "links": []
+      },
+      {
+        "title": "Decision Tree in Machine Learning",
+        "content": "",
+        "level": 2,
+        "subsections": [],
+        "links": []
+      },
+      {
+        "title": "Random Forest Algorithm in Machine Learning",
+        "content": "",
+        "level": 2,
+        "subsections": [],
+        "links": []
+      },
+      {
+        "title": "K-Nearest Neighbor(KNN) Algorithm in Machine Learning",
+        "content": "A ",
+        "level": 2,
+        "subsections": [
+          "Data Science",
+          "AI-ML-DS"
+        ],
+        "links": [
+          {
+            "url": "https://www.geeksforgeeks.org/campus-training-program/",
+            "text": "Campus Training Program",
+            "type": "general"
+          },
+          {
+            "url": "https://www.geeksforgeeks.org/user/abhishek1/",
+            "text": "A",
+            "type": "general"
+          },
+          {
+            "url": "https://www.geeksforgeeks.org/user/abhishek1/",
+            "text": "abhishek1",
+            "type": "general"
+          },
+          {
+            "url": "https://www.geeksforgeeks.org/category/ai-ml-ds/data-science/",
+            "text": "Data Science",
+            "type": "general"
+          },
+          {
+            "url": "https://www.geeksforgeeks.org/category/ai-ml-ds/",
+            "text": "AI-ML-DS",
+            "type": "general"
+          }
+        ]
+      }
+    ],
+    "hierarchy_root": {
+      "title": "Data Science Tutorial - GeeksforGeeks",
+      "level": 0,
+      "content": "",
+      "subsections": [],
+      "links": [],
+      "children": [
+        {
+          "title": "Data Science Tutorial",
+          "level": 1,
+          "content": "Data Science is a field that combines statistics, machine learning and data visualization to extract meaningful insights from vast amounts of raw data and make informed decisions, helping businesses and industries to optimize their operations and predict future trends. This Data Science tutorial offers a comprehensive guide to all major concepts and techniques used in data science with real-world projects. Do you wish to learn Data Science in scheduled manner ? Try our ongoing free course Data Science Skillup with weekly topic coverage, notes, daily quizzes and coding problems. ",
+          "subsections": [
+            "",
+            "",
+            ""
+          ],
+          "links": [
+            {
+              "url": "https://www.geeksforgeeks.org/courses/ds-16",
+              "text": "Data Science Skillup",
+              "type": "general"
+            }
+          ],
+          "children": [
+            {
+              "title": "Tools for Data Science",
+              "level": 2,
+              "content": "To gain expertise in data science, you need to have a strong foundation in the following languages: ",
+              "subsections": [
+                "Python for Data Science",
+                "R for Data Science",
+                "SQL for Data Science"
+              ],
+              "links": [
+                {
+                  "url": "https://www.geeksforgeeks.org/data-science/data-science-with-python-tutorial/",
+                  "text": "Python for Data Science",
+                  "type": "general"
+                },
+                {
+                  "url": "https://www.geeksforgeeks.org/r-language/r-programming-for-data-science/",
+                  "text": "R for Data Science",
+                  "type": "general"
+                },
+                {
+                  "url": "https://www.geeksforgeeks.org/data-science/sql-for-data-science/",
+                  "text": "SQL for Data Science",
+                  "type": "general"
+                }
+              ],
+              "children": []
+            },
+            {
+              "title": "Mathematics for Data Science",
+              "level": 2,
+              "content": "A solid understanding of mathematical concepts like statistics, linear algebra and calculus is important for building data science models. ",
+              "subsections": [
+                "Mathematics for Data Science",
+                "Statistics for Data Science",
+                "Linear Algebra for Data Science",
+                "Calculus for Data Science"
+              ],
+              "links": [
+                {
+                  "url": "https://www.geeksforgeeks.org/blogs/maths-for-data-science/",
+                  "text": "Mathematics for Data Science",
+                  "type": "general"
+                },
+                {
+                  "url": "https://www.geeksforgeeks.org/data-science/statistics-for-data-science/",
+                  "text": "Statistics for Data Science",
+                  "type": "general"
+                },
+                {
+                  "url": "https://www.geeksforgeeks.org/data-science/linear-algebra-required-for-data-science/",
+                  "text": "Linear Algebra for Data Science",
+                  "type": "general"
+                },
+                {
+                  "url": "https://www.geeksforgeeks.org/machine-learning/role-of-differential-calculus-in-machine-learning/",
+                  "text": "Calculus for Data Science",
+                  "type": "general"
+                }
+              ],
+              "children": []
+            },
+            {
+              "title": "Data Preprocessing",
+              "level": 2,
+              "content": "Data preprocessing involves cleaning and transforming raw data into a usable format for accurate and reliable analysis. ",
+              "subsections": [
+                "What is Data Preprocessing?",
+                "What is Data Cleaning?",
+                "Handling Missing Data",
+                "Handling outliers",
+                "Feature Selection",
+                "Feature Engineering",
+                "Splitting Data into Training and Testing Sets"
+              ],
+              "links": [
+                {
+                  "url": "https://www.geeksforgeeks.org/dbms/data-preprocessing-in-data-mining/",
+                  "text": "What is Data Preprocessing?",
+                  "type": "general"
+                },
+                {
+                  "url": "https://www.geeksforgeeks.org/data-analysis/data-cleansing-introduction/",
+                  "text": "What is Data Cleaning?",
+                  "type": "general"
+                },
+                {
+                  "url": "https://www.geeksforgeeks.org/machine-learning/ml-handling-missing-values/",
+                  "text": "Handling Missing Data",
+                  "type": "general"
+                },
+                {
+                  "url": "https://www.geeksforgeeks.org/data-science/detect-and-remove-the-outliers-using-python/",
+                  "text": "Handling outliers",
+                  "type": "general"
+                },
+                {
+                  "url": "https://www.geeksforgeeks.org/machine-learning/feature-selection-techniques-in-machine-learning/",
+                  "text": "Feature Selection",
+                  "type": "general"
+                },
+                {
+                  "url": "https://www.geeksforgeeks.org/machine-learning/ml-feature-scaling-part-2/",
+                  "text": "Feature Engineering",
+                  "type": "general"
+                },
+                {
+                  "url": "https://www.geeksforgeeks.org/machine-learning/how-to-split-a-dataset-into-train-and-test-sets-using-python/",
+                  "text": "Splitting Data into Training and Testing Sets",
+                  "type": "general"
+                }
+              ],
+              "children": []
+            },
+            {
+              "title": "Data Analysis",
+              "level": 2,
+              "content": "Data analysis is the process of inspecting data to discover meaningful insights and trends to make informed decision. ",
+              "subsections": [
+                "What is Data Analysis?",
+                "Data Analysis Process",
+                "What is Exploratory Data Analysis?",
+                "Identifying correlations between features",
+                "Statistical Analysis"
+              ],
+              "links": [
+                {
+                  "url": "https://www.geeksforgeeks.org/data-analysis/what-is-data-analysis/",
+                  "text": "What is Data Analysis?",
+                  "type": "general"
+                },
+                {
+                  "url": "https://www.geeksforgeeks.org/data-science/six-steps-of-data-analysis-process/",
+                  "text": "Data Analysis Process",
+                  "type": "general"
+                },
+                {
+                  "url": "https://www.geeksforgeeks.org/data-analysis/what-is-exploratory-data-analysis/",
+                  "text": "What is Exploratory Data Analysis?",
+                  "type": "general"
+                },
+                {
+                  "url": "https://www.geeksforgeeks.org/data-analysis/exploring-correlation-in-python/",
+                  "text": "Identifying correlations between features",
+                  "type": "general"
+                },
+                {
+                  "url": "https://www.geeksforgeeks.org/data-analysis/what-is-statistical-analysis/",
+                  "text": "Statistical Analysis",
+                  "type": "general"
+                }
+              ],
+              "children": []
+            },
+            {
+              "title": "Data Visualization",
+              "level": 2,
+              "content": "Data visualization uses graphical representations such as charts and graphs to understand and interpret complex data. ",
+              "subsections": [
+                "What is Data Visualization?",
+                "Visualization with Matplotlib",
+                "Visualization using Seaborn",
+                "Visualization using Plotly",
+                "PowerBI",
+                "Tableau"
+              ],
+              "links": [
+                {
+                  "url": "https://www.geeksforgeeks.org/data-visualization/data-visualization-and-its-importance/",
+                  "text": "What is Data Visualization?",
+                  "type": "general"
+                },
+                {
+                  "url": "https://www.geeksforgeeks.org/data-visualization/data-visualization-using-matplotlib/",
+                  "text": "Visualization with Matplotlib",
+                  "type": "general"
+                },
+                {
+                  "url": "https://www.geeksforgeeks.org/data-visualization/data-visualization-with-python-seaborn/",
+                  "text": "Visualization using Seaborn",
+                  "type": "general"
+                },
+                {
+                  "url": "https://www.geeksforgeeks.org/data-visualization/using-plotly-for-interactive-data-visualization-in-python/",
+                  "text": "Visualization using Plotly",
+                  "type": "general"
+                },
+                {
+                  "url": "https://www.geeksforgeeks.org/power-bi/power-bi-tutorial/",
+                  "text": "PowerBI",
+                  "type": "general"
+                },
+                {
+                  "url": "https://www.geeksforgeeks.org/tableau/tableau-tutorial/",
+                  "text": "Tableau",
+                  "type": "general"
+                }
+              ],
+              "children": []
+            },
+            {
+              "title": "Machine Learning",
+              "level": 2,
+              "content": "Machine learning focuses on developing algorithms that helps computers to learn from data and make predictions or decisions without explicit programming. You are now ready to explore real-world projects. For detailed guidance and project ideas refer to below article: ",
+              "subsections": [
+                "Machine Learning Tutorial",
+                "Deep Learning Tutorial"
+              ],
+              "links": [
+                {
+                  "url": "https://www.geeksforgeeks.org/machine-learning/machine-learning/",
+                  "text": "Machine Learning Tutorial",
+                  "type": "tutorial"
+                },
+                {
+                  "url": "https://www.geeksforgeeks.org/deep-learning/deep-learning-tutorial/",
+                  "text": "Deep Learning Tutorial",
+                  "type": "tutorial"
+                }
+              ],
+              "children": [
+                {
+                  "title": "Data Science Projects [With Source code]",
+                  "level": 3,
+                  "content": "",
+                  "subsections": [],
+                  "links": [
+                    {
+                      "url": "https://www.geeksforgeeks.org/data-science/top-data-science-projects/",
+                      "text": "Data Science Projects [With Source code]",
+                      "type": "general"
+                    }
+                  ],
+                  "children": []
+                }
+              ]
+            },
+            {
+              "title": "Careers in Data Science",
+              "level": 2,
+              "content": "Data Science has been considered one of the most desirable jobs in IT field today. Growth opportunities in data science jobs are comparatively high than in any other job. Some of the most notable jobs in data science are:- ",
+              "subsections": [
+                "Data Scientist",
+                "Data Architect",
+                "Data Administrator",
+                "Data Analyst",
+                "Business Analyst"
+              ],
+              "links": [
+                {
+                  "url": "https://www.geeksforgeeks.org/blogs/data-scientist-roadmap/",
+                  "text": "Data Scientist",
+                  "type": "general"
+                },
+                {
+                  "url": "https://www.geeksforgeeks.org/gfg-academy/data-architect-roles-skills-and-how-to-become-one-in-2024/",
+                  "text": "Data Architect",
+                  "type": "general"
+                },
+                {
+                  "url": "https://www.geeksforgeeks.org/dbms/dba-full-form/",
+                  "text": "Data Administrator",
+                  "type": "general"
+                },
+                {
+                  "url": "https://www.geeksforgeeks.org/blogs/data-analyst-roadmap/",
+                  "text": "Data Analyst",
+                  "type": "general"
+                },
+                {
+                  "url": "https://www.geeksforgeeks.org/gfg-academy/how-to-become-a-business-analyst/",
+                  "text": "Business Analyst",
+                  "type": "general"
+                }
+              ],
+              "children": []
+            },
+            {
+              "title": "Introduction To Data Science",
+              "level": 2,
+              "content": "",
+              "subsections": [],
+              "links": [],
+              "children": []
+            },
+            {
+              "title": "Introduction to Linear Regression - Machine Learning",
+              "level": 2,
+              "content": "",
+              "subsections": [],
+              "links": [],
+              "children": []
+            },
+            {
+              "title": "Naive Bayes Classifiers",
+              "level": 2,
+              "content": "",
+              "subsections": [],
+              "links": [],
+              "children": []
+            },
+            {
+              "title": "Decision Tree in Machine Learning",
+              "level": 2,
+              "content": "",
+              "subsections": [],
+              "links": [],
+              "children": []
+            },
+            {
+              "title": "Random Forest Algorithm in Machine Learning",
+              "level": 2,
+              "content": "",
+              "subsections": [],
+              "links": [],
+              "children": []
+            },
+            {
+              "title": "K-Nearest Neighbor(KNN) Algorithm in Machine Learning",
+              "level": 2,
+              "content": "A ",
+              "subsections": [
+                "Data Science",
+                "AI-ML-DS"
+              ],
+              "links": [
+                {
+                  "url": "https://www.geeksforgeeks.org/campus-training-program/",
+                  "text": "Campus Training Program",
+                  "type": "general"
+                },
+                {
+                  "url": "https://www.geeksforgeeks.org/user/abhishek1/",
+                  "text": "A",
+                  "type": "general"
+                },
+                {
+                  "url": "https://www.geeksforgeeks.org/user/abhishek1/",
+                  "text": "abhishek1",
+                  "type": "general"
+                },
+                {
+                  "url": "https://www.geeksforgeeks.org/category/ai-ml-ds/data-science/",
+                  "text": "Data Science",
+                  "type": "general"
+                },
+                {
+                  "url": "https://www.geeksforgeeks.org/category/ai-ml-ds/",
+                  "text": "AI-ML-DS",
+                  "type": "general"
+                }
+              ],
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    "links": [
+      {
+        "url": "https://www.geeksforgeeks.org/courses/ds-16",
+        "text": "Data Science Skillup",
+        "type": "general"
+      },
+      {
+        "url": "https://www.geeksforgeeks.org/data-science/data-science-with-python-tutorial/",
+        "text": "Python for Data Science",
+        "type": "general"
+      },
+      {
+        "url": "https://www.geeksforgeeks.org/r-language/r-programming-for-data-science/",
+        "text": "R for Data Science",
+        "type": "general"
+      },
+      {
+        "url": "https://www.geeksforgeeks.org/data-science/sql-for-data-science/",
+        "text": "SQL for Data Science",
+        "type": "general"
+      },
+      {
+        "url": "https://www.geeksforgeeks.org/blogs/maths-for-data-science/",
+        "text": "Mathematics for Data Science",
+        "type": "general"
+      },
+      {
+        "url": "https://www.geeksforgeeks.org/data-science/statistics-for-data-science/",
+        "text": "Statistics for Data Science",
+        "type": "general"
+      },
+      {
+        "url": "https://www.geeksforgeeks.org/data-science/linear-algebra-required-for-data-science/",
+        "text": "Linear Algebra for Data Science",
+        "type": "general"
+      },
+      {
+        "url": "https://www.geeksforgeeks.org/machine-learning/role-of-differential-calculus-in-machine-learning/",
+        "text": "Calculus for Data Science",
+        "type": "general"
+      },
+      {
+        "url": "https://www.geeksforgeeks.org/dbms/data-preprocessing-in-data-mining/",
+        "text": "What is Data Preprocessing?",
+        "type": "general"
+      },
+      {
+        "url": "https://www.geeksforgeeks.org/data-analysis/data-cleansing-introduction/",
+        "text": "What is Data Cleaning?",
+        "type": "general"
+      },
+      {
+        "url": "https://www.geeksforgeeks.org/machine-learning/ml-handling-missing-values/",
+        "text": "Handling Missing Data",
+        "type": "general"
+      },
+      {
+        "url": "https://www.geeksforgeeks.org/data-science/detect-and-remove-the-outliers-using-python/",
+        "text": "Handling outliers",
+        "type": "general"
+      },
+      {
+        "url": "https://www.geeksforgeeks.org/machine-learning/feature-selection-techniques-in-machine-learning/",
+        "text": "Feature Selection",
+        "type": "general"
+      },
+      {
+        "url": "https://www.geeksforgeeks.org/machine-learning/ml-feature-scaling-part-2/",
+        "text": "Feature Engineering",
+        "type": "general"
+      },
+      {
+        "url": "https://www.geeksforgeeks.org/machine-learning/how-to-split-a-dataset-into-train-and-test-sets-using-python/",
+        "text": "Splitting Data into Training and Testing Sets",
+        "type": "general"
+      },
+      {
+        "url": "https://www.geeksforgeeks.org/data-analysis/what-is-data-analysis/",
+        "text": "What is Data Analysis?",
+        "type": "general"
+      },
+      {
+        "url": "https://www.geeksforgeeks.org/data-science/six-steps-of-data-analysis-process/",
+        "text": "Data Analysis Process",
+        "type": "general"
+      },
+      {
+        "url": "https://www.geeksforgeeks.org/data-analysis/what-is-exploratory-data-analysis/",
+        "text": "What is Exploratory Data Analysis?",
+        "type": "general"
+      },
+      {
+        "url": "https://www.geeksforgeeks.org/data-analysis/exploring-correlation-in-python/",
+        "text": "Identifying correlations between features",
+        "type": "general"
+      },
+      {
+        "url": "https://www.geeksforgeeks.org/data-analysis/what-is-statistical-analysis/",
+        "text": "Statistical Analysis",
+        "type": "general"
+      },
+      {
+        "url": "https://www.geeksforgeeks.org/data-visualization/data-visualization-and-its-importance/",
+        "text": "What is Data Visualization?",
+        "type": "general"
+      },
+      {
+        "url": "https://www.geeksforgeeks.org/data-visualization/data-visualization-using-matplotlib/",
+        "text": "Visualization with Matplotlib",
+        "type": "general"
+      },
+      {
+        "url": "https://www.geeksforgeeks.org/data-visualization/data-visualization-with-python-seaborn/",
+        "text": "Visualization using Seaborn",
+        "type": "general"
+      },
+      {
+        "url": "https://www.geeksforgeeks.org/data-visualization/using-plotly-for-interactive-data-visualization-in-python/",
+        "text": "Visualization using Plotly",
+        "type": "general"
+      },
+      {
+        "url": "https://www.geeksforgeeks.org/power-bi/power-bi-tutorial/",
+        "text": "PowerBI",
+        "type": "general"
+      },
+      {
+        "url": "https://www.geeksforgeeks.org/tableau/tableau-tutorial/",
+        "text": "Tableau",
+        "type": "general"
+      },
+      {
+        "url": "https://www.geeksforgeeks.org/machine-learning/machine-learning/",
+        "text": "Machine Learning Tutorial",
+        "type": "tutorial"
+      },
+      {
+        "url": "https://www.geeksforgeeks.org/deep-learning/deep-learning-tutorial/",
+        "text": "Deep Learning Tutorial",
+        "type": "tutorial"
+      },
+      {
+        "url": "https://www.geeksforgeeks.org/data-science/top-data-science-projects/",
+        "text": "Data Science Projects [With Source code]",
+        "type": "general"
+      },
+      {
+        "url": "https://www.geeksforgeeks.org/blogs/data-scientist-roadmap/",
+        "text": "Data Scientist",
+        "type": "general"
+      },
+      {
+        "url": "https://www.geeksforgeeks.org/gfg-academy/data-architect-roles-skills-and-how-to-become-one-in-2024/",
+        "text": "Data Architect",
+        "type": "general"
+      },
+      {
+        "url": "https://www.geeksforgeeks.org/dbms/dba-full-form/",
+        "text": "Data Administrator",
+        "type": "general"
+      },
+      {
+        "url": "https://www.geeksforgeeks.org/blogs/data-analyst-roadmap/",
+        "text": "Data Analyst",
+        "type": "general"
+      },
+      {
+        "url": "https://www.geeksforgeeks.org/gfg-academy/how-to-become-a-business-analyst/",
+        "text": "Business Analyst",
+        "type": "general"
+      },
+      {
+        "url": "https://www.geeksforgeeks.org/campus-training-program/",
+        "text": "Campus Training Program",
+        "type": "general"
+      },
+      {
+        "url": "https://www.geeksforgeeks.org/user/abhishek1/",
+        "text": "A",
+        "type": "general"
+      },
+      {
+        "url": "https://www.geeksforgeeks.org/user/abhishek1/",
+        "text": "abhishek1",
+        "type": "general"
+      },
+      {
+        "url": "https://www.geeksforgeeks.org/category/ai-ml-ds/data-science/",
+        "text": "Data Science",
+        "type": "general"
+      },
+      {
+        "url": "https://www.geeksforgeeks.org/category/ai-ml-ds/",
+        "text": "AI-ML-DS",
+        "type": "general"
+      }
+    ],
+    "images": []
+  },
+  "summary": {
+    "summary": "- This Data Science tutorial offers a comprehensive guide to all major concepts and techniques used in data science with real-world projects.\n- Do you wish to learn Data Science in scheduled manner ?\n- To gain expertise in data science, you need to have a strong foundation in the following languages:  A solid understanding of mathematical concepts like statistics, linear algebra and calculus is important for building data science models.\n- Data preprocessing involves cleaning and transforming raw data into a usable format for accurate and reliable analysis.\n- Data analysis is the process of inspecting data to discover meaningful insights and trends to make informed decision.\n- Data visualization uses graphical representations such as charts and graphs to understand and interpret complex data.\n- For detailed guidance and project ideas refer to below article:  Data Science has been considered one of the most desirable jobs in IT field today.\n- Growth opportunities in data science jobs are comparatively high than in any other job.\n- Some of the most notable jobs in data science are:-  A\n- Data Science is a field that combines statistics, machine learning and data visualization to extract meaningful insights from vast amounts of raw data and make informed decisions, helping businesses and industries to optimize their operatio...",
+    "summary_bullets": [
+      "This Data Science tutorial offers a comprehensive guide to all major concepts and techniques used in data science with real-world projects.",
+      "Do you wish to learn Data Science in scheduled manner ?",
+      "To gain expertise in data science, you need to have a strong foundation in the following languages:  A solid understanding of mathematical concepts like statistics, linear algebra and calculus is important for building data science models.",
+      "Data preprocessing involves cleaning and transforming raw data into a usable format for accurate and reliable analysis.",
+      "Data analysis is the process of inspecting data to discover meaningful insights and trends to make informed decision.",
+      "Data visualization uses graphical representations such as charts and graphs to understand and interpret complex data.",
+      "For detailed guidance and project ideas refer to below article:  Data Science has been considered one of the most desirable jobs in IT field today.",
+      "Growth opportunities in data science jobs are comparatively high than in any other job.",
+      "Some of the most notable jobs in data science are:-  A",
+      "Data Science is a field that combines statistics, machine learning and data visualization to extract meaningful insights from vast amounts of raw data and make informed decisions, helping businesses and industries to optimize their operatio..."
+    ],
+    "key_concepts": [
+      "Data",
+      "Science",
+      "Learn",
+      "Learning",
+      "Machine",
+      "Tutorial",
+      "Algorithm",
+      "Analysis",
+      "Visualization",
+      "Process",
+      "Geeks",
+      "Decision",
+      "Preprocessing",
+      "Bayes",
+      "Linear"
+    ],
+    "method": "nltk_extractive_bullets"
+  },
+  "mind_maps": {
+    "visual": "\n                      ╔═════════════════════════════════════════╗\n                      ║ DATA SCIENCE TUTORIAL - GEEKSFORGEEKS ║\n                      ╚═════════════════════════════════════════╝\n\n                                        │\n                                   ┌─────┴─────┐\n├── 🔹 Data                          │\n│                                   ├── 🔹 Science\n├── 🔹 Learn                         │\n│                                   ├── 🔹 Learning\n├── 🔹 Machine                       │\n│                                   ├── 🔹 Tutorial\n├── 🔹 Algorithm                     │\n│                                   ├── 🔹 Analysis",
+    "network": "🌐 Data Science Tutorial - GeeksforGeeks\n│\n├── 📊 Key Concepts\n│ ├── 🔸 Data\n│ ├── 🔸 Science\n│ ├── 🔸 Learn\n│ ├── 🔸 Learning\n│ ├── 🔸 Machine\n│ ├── 🔸 Tutorial",
+    "hierarchical": "🌳 Data Science Tutorial - GeeksforGeeks\n│\n├── 🍃 Data\n├── 🍃 Science\n├── 🍃 Learn\n├── 🍃 Learning\n├── 🍃 Machine\n├── 🍃 Tutorial\n├── 🍃 Algorithm\n├── 🍃 Analysis\n├── 🍃 Visualization\n├── 🍃 Process\n├── 🍃 Geeks\n├── 🍃 Decision\n├── 🍃 Preprocessing\n├── 🍃 Bayes\n└── 🍃 Linear"
+  },
+  "interactive_mindmap": {
+    "root_node": {
+      "id": "node_1_7c739575",
+      "title": "Data Science Tutorial - GeeksforGeeks",
+      "content": "- This Data Science tutorial offers a comprehensive guide to all major concepts and techniques used in data science with real-world projects.\n- Do you wish to learn Data Science in scheduled manner ?\n- To gain expertise in data science, you need to have a strong foundation in the following languages...",
+      "url": "https://www.geeksforgeeks.org/data-science/data-science-for-beginners/",
+      "parent_id": null,
+      "children": [
+        "node_2_750375b9",
+        "node_17_e7a429ef",
+        "node_18_bb4d7b03",
+        "node_19_cfd143c7",
+        "node_20_39b8515c",
+        "node_21_6549512a",
+        "node_22_841895be",
+        "node_23_f9d24207",
+        "node_24_22fda924",
+        "node_25_25d78c90",
+        "node_26_a7421b2e"
+      ],
+      "expanded": false,
+      "node_type": "root",
+      "metadata": {
+        "word_count": 756,
+        "section_count": 15,
+        "link_count": 39,
+        "expandable": false
+      }
+    },
+    "nodes": {
+      "node_1_7c739575": {
+        "id": "node_1_7c739575",
+        "title": "Data Science Tutorial - GeeksforGeeks",
+        "content": "- This Data Science tutorial offers a comprehensive guide to all major concepts and techniques used in data science with real-world projects.\n- Do you wish to learn Data Science in scheduled manner ?\n- To gain expertise in data science, you need to have a strong foundation in the following languages...",
+        "url": "https://www.geeksforgeeks.org/data-science/data-science-for-beginners/",
+        "parent_id": null,
+        "children": [
+          "node_2_750375b9",
+          "node_17_e7a429ef",
+          "node_18_bb4d7b03",
+          "node_19_cfd143c7",
+          "node_20_39b8515c",
+          "node_21_6549512a",
+          "node_22_841895be",
+          "node_23_f9d24207",
+          "node_24_22fda924",
+          "node_25_25d78c90",
+          "node_26_a7421b2e"
+        ],
+        "expanded": false,
+        "node_type": "root",
+        "metadata": {
+          "word_count": 756,
+          "section_count": 15,
+          "link_count": 39,
+          "expandable": false
+        }
+      },
+      "node_2_750375b9": {
+        "id": "node_2_750375b9",
+        "title": "Data Science Tutorial",
+        "content": "Data Science is a field that combines statistics, machine learning and data visualization to extract meaningful insights from vast amounts of raw data and make informed decisions, helping businesses a...",
+        "url": null,
+        "parent_id": "node_1_7c739575",
+        "children": [
+          "subsection_node_2_750375b9_0",
+          "subsection_node_2_750375b9_1",
+          "subsection_node_2_750375b9_2",
+          "link_node_2_750375b9_0",
+          "node_3_98520d64",
+          "node_4_e4ad6a87",
+          "node_5_0f7fc474",
+          "node_6_e1b8fa6a",
+          "node_7_a23a1b98",
+          "node_8_4f730d3b",
+          "node_10_29e4a643",
+          "node_11_ebb1eaf9",
+          "node_12_3738d3e0",
+          "node_13_daf8b99f",
+          "node_14_d2ad6f94",
+          "node_15_e5ffb64b",
+          "node_16_fc40686f"
+        ],
+        "expanded": false,
+        "node_type": "section",
+        "metadata": {
+          "expandable": true,
+          "level": 1,
+          "full_content": "Data Science is a field that combines statistics, machine learning and data visualization to extract meaningful insights from vast amounts of raw data and make informed decisions, helping businesses and industries to optimize their operations and predict future trends. This Data Science tutorial offers a comprehensive guide to all major concepts and techniques used in data science with real-world projects. Do you wish to learn Data Science in scheduled manner ? Try our ongoing free course Data Science Skillup with weekly topic coverage, notes, daily quizzes and coding problems. ",
+          "subsections": [
+            "",
+            "",
+            ""
+          ],
+          "links": [
+            {
+              "url": "https://www.geeksforgeeks.org/courses/ds-16",
+              "text": "Data Science Skillup",
+              "type": "general"
+            }
+          ]
+        }
+      },
+      "subsection_node_2_750375b9_0": {
+        "id": "subsection_node_2_750375b9_0",
+        "title": "",
+        "content": "",
+        "url": null,
+        "parent_id": "node_2_750375b9",
+        "children": [],
+        "expanded": false,
+        "node_type": "subsection",
+        "metadata": {
+          "subsection_index": 0
+        }
+      },
+      "subsection_node_2_750375b9_1": {
+        "id": "subsection_node_2_750375b9_1",
+        "title": "",
+        "content": "",
+        "url": null,
+        "parent_id": "node_2_750375b9",
+        "children": [],
+        "expanded": false,
+        "node_type": "subsection",
+        "metadata": {
+          "subsection_index": 1
+        }
+      },
+      "subsection_node_2_750375b9_2": {
+        "id": "subsection_node_2_750375b9_2",
+        "title": "",
+        "content": "",
+        "url": null,
+        "parent_id": "node_2_750375b9",
+        "children": [],
+        "expanded": false,
+        "node_type": "subsection",
+        "metadata": {
+          "subsection_index": 2
+        }
+      },
+      "link_node_2_750375b9_0": {
+        "id": "link_node_2_750375b9_0",
+        "title": "Data Science Skillup",
+        "content": "Link to: Data Science Skillup",
+        "url": "https://www.geeksforgeeks.org/courses/ds-16",
+        "parent_id": "node_2_750375b9",
+        "children": [],
+        "expanded": false,
+        "node_type": "link",
+        "metadata": {
+          "link_data": {
+            "url": "https://www.geeksforgeeks.org/courses/ds-16",
+            "text": "Data Science Skillup",
+            "type": "general"
+          },
+          "clickable": true
+        }
+      },
+      "node_3_98520d64": {
+        "id": "node_3_98520d64",
+        "title": "Tools for Data Science",
+        "content": "To gain expertise in data science, you need to have a strong foundation in the following languages: ",
+        "url": null,
+        "parent_id": "node_2_750375b9",
+        "children": [
+          "subsection_node_3_98520d64_0",
+          "subsection_node_3_98520d64_1",
+          "subsection_node_3_98520d64_2",
+          "link_node_3_98520d64_0",
+          "link_node_3_98520d64_1",
+          "link_node_3_98520d64_2"
+        ],
+        "expanded": false,
+        "node_type": "section",
+        "metadata": {
+          "expandable": true,
+          "level": 2,
+          "full_content": "To gain expertise in data science, you need to have a strong foundation in the following languages: ",
+          "subsections": [
+            "Python for Data Science",
+            "R for Data Science",
+            "SQL for Data Science"
+          ],
+          "links": [
+            {
+              "url": "https://www.geeksforgeeks.org/data-science/data-science-with-python-tutorial/",
+              "text": "Python for Data Science",
+              "type": "general"
+            },
+            {
+              "url": "https://www.geeksforgeeks.org/r-language/r-programming-for-data-science/",
+              "text": "R for Data Science",
+              "type": "general"
+            },
+            {
+              "url": "https://www.geeksforgeeks.org/data-science/sql-for-data-science/",
+              "text": "SQL for Data Science",
+              "type": "general"
+            }
+          ]
+        }
+      },
+      "subsection_node_3_98520d64_0": {
+        "id": "subsection_node_3_98520d64_0",
+        "title": "Python for Data Science",
+        "content": "Python for Data Science",
+        "url": null,
+        "parent_id": "node_3_98520d64",
+        "children": [],
+        "expanded": false,
+        "node_type": "subsection",
+        "metadata": {
+          "subsection_index": 0
+        }
+      },
+      "subsection_node_3_98520d64_1": {
+        "id": "subsection_node_3_98520d64_1",
+        "title": "R for Data Science",
+        "content": "R for Data Science",
+        "url": null,
+        "parent_id": "node_3_98520d64",
+        "children": [],
+        "expanded": false,
+        "node_type": "subsection",
+        "metadata": {
+          "subsection_index": 1
+        }
+      },
+      "subsection_node_3_98520d64_2": {
+        "id": "subsection_node_3_98520d64_2",
+        "title": "SQL for Data Science",
+        "content": "SQL for Data Science",
+        "url": null,
+        "parent_id": "node_3_98520d64",
+        "children": [],
+        "expanded": false,
+        "node_type": "subsection",
+        "metadata": {
+          "subsection_index": 2
+        }
+      },
+      "link_node_3_98520d64_0": {
+        "id": "link_node_3_98520d64_0",
+        "title": "Python for Data Science",
+        "content": "Link to: Python for Data Science",
+        "url": "https://www.geeksforgeeks.org/data-science/data-science-with-python-tutorial/",
+        "parent_id": "node_3_98520d64",
+        "children": [],
+        "expanded": false,
+        "node_type": "link",
+        "metadata": {
+          "link_data": {
+            "url": "https://www.geeksforgeeks.org/data-science/data-science-with-python-tutorial/",
+            "text": "Python for Data Science",
+            "type": "general"
+          },
+          "clickable": true
+        }
+      },
+      "link_node_3_98520d64_1": {
+        "id": "link_node_3_98520d64_1",
+        "title": "R for Data Science",
+        "content": "Link to: R for Data Science",
+        "url": "https://www.geeksforgeeks.org/r-language/r-programming-for-data-science/",
+        "parent_id": "node_3_98520d64",
+        "children": [],
+        "expanded": false,
+        "node_type": "link",
+        "metadata": {
+          "link_data": {
+            "url": "https://www.geeksforgeeks.org/r-language/r-programming-for-data-science/",
+            "text": "R for Data Science",
+            "type": "general"
+          },
+          "clickable": true
+        }
+      },
+      "link_node_3_98520d64_2": {
+        "id": "link_node_3_98520d64_2",
+        "title": "SQL for Data Science",
+        "content": "Link to: SQL for Data Science",
+        "url": "https://www.geeksforgeeks.org/data-science/sql-for-data-science/",
+        "parent_id": "node_3_98520d64",
+        "children": [],
+        "expanded": false,
+        "node_type": "link",
+        "metadata": {
+          "link_data": {
+            "url": "https://www.geeksforgeeks.org/data-science/sql-for-data-science/",
+            "text": "SQL for Data Science",
+            "type": "general"
+          },
+          "clickable": true
+        }
+      },
+      "node_4_e4ad6a87": {
+        "id": "node_4_e4ad6a87",
+        "title": "Mathematics for Data Science",
+        "content": "A solid understanding of mathematical concepts like statistics, linear algebra and calculus is important for building data science models. ",
+        "url": null,
+        "parent_id": "node_2_750375b9",
+        "children": [
+          "subsection_node_4_e4ad6a87_0",
+          "subsection_node_4_e4ad6a87_1",
+          "subsection_node_4_e4ad6a87_2",
+          "subsection_node_4_e4ad6a87_3",
+          "link_node_4_e4ad6a87_0",
+          "link_node_4_e4ad6a87_1",
+          "link_node_4_e4ad6a87_2",
+          "link_node_4_e4ad6a87_3"
+        ],
+        "expanded": false,
+        "node_type": "section",
+        "metadata": {
+          "expandable": true,
+          "level": 2,
+          "full_content": "A solid understanding of mathematical concepts like statistics, linear algebra and calculus is important for building data science models. ",
+          "subsections": [
+            "Mathematics for Data Science",
+            "Statistics for Data Science",
+            "Linear Algebra for Data Science",
+            "Calculus for Data Science"
+          ],
+          "links": [
+            {
+              "url": "https://www.geeksforgeeks.org/blogs/maths-for-data-science/",
+              "text": "Mathematics for Data Science",
+              "type": "general"
+            },
+            {
+              "url": "https://www.geeksforgeeks.org/data-science/statistics-for-data-science/",
+              "text": "Statistics for Data Science",
+              "type": "general"
+            },
+            {
+              "url": "https://www.geeksforgeeks.org/data-science/linear-algebra-required-for-data-science/",
+              "text": "Linear Algebra for Data Science",
+              "type": "general"
+            },
+            {
+              "url": "https://www.geeksforgeeks.org/machine-learning/role-of-differential-calculus-in-machine-learning/",
+              "text": "Calculus for Data Science",
+              "type": "general"
+            }
+          ]
+        }
+      },
+      "subsection_node_4_e4ad6a87_0": {
+        "id": "subsection_node_4_e4ad6a87_0",
+        "title": "Mathematics for Data Science",
+        "content": "Mathematics for Data Science",
+        "url": null,
+        "parent_id": "node_4_e4ad6a87",
+        "children": [],
+        "expanded": false,
+        "node_type": "subsection",
+        "metadata": {
+          "subsection_index": 0
+        }
+      },
+      "subsection_node_4_e4ad6a87_1": {
+        "id": "subsection_node_4_e4ad6a87_1",
+        "title": "Statistics for Data Science",
+        "content": "Statistics for Data Science",
+        "url": null,
+        "parent_id": "node_4_e4ad6a87",
+        "children": [],
+        "expanded": false,
+        "node_type": "subsection",
+        "metadata": {
+          "subsection_index": 1
+        }
+      },
+      "subsection_node_4_e4ad6a87_2": {
+        "id": "subsection_node_4_e4ad6a87_2",
+        "title": "Linear Algebra for Data Science",
+        "content": "Linear Algebra for Data Science",
+        "url": null,
+        "parent_id": "node_4_e4ad6a87",
+        "children": [],
+        "expanded": false,
+        "node_type": "subsection",
+        "metadata": {
+          "subsection_index": 2
+        }
+      },
+      "subsection_node_4_e4ad6a87_3": {
+        "id": "subsection_node_4_e4ad6a87_3",
+        "title": "Calculus for Data Science",
+        "content": "Calculus for Data Science",
+        "url": null,
+        "parent_id": "node_4_e4ad6a87",
+        "children": [],
+        "expanded": false,
+        "node_type": "subsection",
+        "metadata": {
+          "subsection_index": 3
+        }
+      },
+      "link_node_4_e4ad6a87_0": {
+        "id": "link_node_4_e4ad6a87_0",
+        "title": "Mathematics for Data Science",
+        "content": "Link to: Mathematics for Data Science",
+        "url": "https://www.geeksforgeeks.org/blogs/maths-for-data-science/",
+        "parent_id": "node_4_e4ad6a87",
+        "children": [],
+        "expanded": false,
+        "node_type": "link",
+        "metadata": {
+          "link_data": {
+            "url": "https://www.geeksforgeeks.org/blogs/maths-for-data-science/",
+            "text": "Mathematics for Data Science",
+            "type": "general"
+          },
+          "clickable": true
+        }
+      },
+      "link_node_4_e4ad6a87_1": {
+        "id": "link_node_4_e4ad6a87_1",
+        "title": "Statistics for Data Science",
+        "content": "Link to: Statistics for Data Science",
+        "url": "https://www.geeksforgeeks.org/data-science/statistics-for-data-science/",
+        "parent_id": "node_4_e4ad6a87",
+        "children": [],
+        "expanded": false,
+        "node_type": "link",
+        "metadata": {
+          "link_data": {
+            "url": "https://www.geeksforgeeks.org/data-science/statistics-for-data-science/",
+            "text": "Statistics for Data Science",
+            "type": "general"
+          },
+          "clickable": true
+        }
+      },
+      "link_node_4_e4ad6a87_2": {
+        "id": "link_node_4_e4ad6a87_2",
+        "title": "Linear Algebra for Data Science",
+        "content": "Link to: Linear Algebra for Data Science",
+        "url": "https://www.geeksforgeeks.org/data-science/linear-algebra-required-for-data-science/",
+        "parent_id": "node_4_e4ad6a87",
+        "children": [],
+        "expanded": false,
+        "node_type": "link",
+        "metadata": {
+          "link_data": {
+            "url": "https://www.geeksforgeeks.org/data-science/linear-algebra-required-for-data-science/",
+            "text": "Linear Algebra for Data Science",
+            "type": "general"
+          },
+          "clickable": true
+        }
+      },
+      "link_node_4_e4ad6a87_3": {
+        "id": "link_node_4_e4ad6a87_3",
+        "title": "Calculus for Data Science",
+        "content": "Link to: Calculus for Data Science",
+        "url": "https://www.geeksforgeeks.org/machine-learning/role-of-differential-calculus-in-machine-learning/",
+        "parent_id": "node_4_e4ad6a87",
+        "children": [],
+        "expanded": false,
+        "node_type": "link",
+        "metadata": {
+          "link_data": {
+            "url": "https://www.geeksforgeeks.org/machine-learning/role-of-differential-calculus-in-machine-learning/",
+            "text": "Calculus for Data Science",
+            "type": "general"
+          },
+          "clickable": true
+        }
+      },
+      "node_5_0f7fc474": {
+        "id": "node_5_0f7fc474",
+        "title": "Data Preprocessing",
+        "content": "Data preprocessing involves cleaning and transforming raw data into a usable format for accurate and reliable analysis. ",
+        "url": null,
+        "parent_id": "node_2_750375b9",
+        "children": [
+          "subsection_node_5_0f7fc474_0",
+          "subsection_node_5_0f7fc474_1",
+          "subsection_node_5_0f7fc474_2",
+          "subsection_node_5_0f7fc474_3",
+          "subsection_node_5_0f7fc474_4",
+          "subsection_node_5_0f7fc474_5",
+          "subsection_node_5_0f7fc474_6",
+          "link_node_5_0f7fc474_0",
+          "link_node_5_0f7fc474_1",
+          "link_node_5_0f7fc474_2",
+          "link_node_5_0f7fc474_3",
+          "link_node_5_0f7fc474_4",
+          "link_node_5_0f7fc474_5",
+          "link_node_5_0f7fc474_6"
+        ],
+        "expanded": false,
+        "node_type": "section",
+        "metadata": {
+          "expandable": true,
+          "level": 2,
+          "full_content": "Data preprocessing involves cleaning and transforming raw data into a usable format for accurate and reliable analysis. ",
+          "subsections": [
+            "What is Data Preprocessing?",
+            "What is Data Cleaning?",
+            "Handling Missing Data",
+            "Handling outliers",
+            "Feature Selection",
+            "Feature Engineering",
+            "Splitting Data into Training and Testing Sets"
+          ],
+          "links": [
+            {
+              "url": "https://www.geeksforgeeks.org/dbms/data-preprocessing-in-data-mining/",
+              "text": "What is Data Preprocessing?",
+              "type": "general"
+            },
+            {
+              "url": "https://www.geeksforgeeks.org/data-analysis/data-cleansing-introduction/",
+              "text": "What is Data Cleaning?",
+              "type": "general"
+            },
+            {
+              "url": "https://www.geeksforgeeks.org/machine-learning/ml-handling-missing-values/",
+              "text": "Handling Missing Data",
+              "type": "general"
+            },
+            {
+              "url": "https://www.geeksforgeeks.org/data-science/detect-and-remove-the-outliers-using-python/",
+              "text": "Handling outliers",
+              "type": "general"
+            },
+            {
+              "url": "https://www.geeksforgeeks.org/machine-learning/feature-selection-techniques-in-machine-learning/",
+              "text": "Feature Selection",
+              "type": "general"
+            },
+            {
+              "url": "https://www.geeksforgeeks.org/machine-learning/ml-feature-scaling-part-2/",
+              "text": "Feature Engineering",
+              "type": "general"
+            },
+            {
+              "url": "https://www.geeksforgeeks.org/machine-learning/how-to-split-a-dataset-into-train-and-test-sets-using-python/",
+              "text": "Splitting Data into Training and Testing Sets",
+              "type": "general"
+            }
+          ]
+        }
+      },
+      "subsection_node_5_0f7fc474_0": {
+        "id": "subsection_node_5_0f7fc474_0",
+        "title": "What is Data Preprocessing?",
+        "content": "What is Data Preprocessing?",
+        "url": null,
+        "parent_id": "node_5_0f7fc474",
+        "children": [],
+        "expanded": false,
+        "node_type": "subsection",
+        "metadata": {
+          "subsection_index": 0
+        }
+      },
+      "subsection_node_5_0f7fc474_1": {
+        "id": "subsection_node_5_0f7fc474_1",
+        "title": "What is Data Cleaning?",
+        "content": "What is Data Cleaning?",
+        "url": null,
+        "parent_id": "node_5_0f7fc474",
+        "children": [],
+        "expanded": false,
+        "node_type": "subsection",
+        "metadata": {
+          "subsection_index": 1
+        }
+      },
+      "subsection_node_5_0f7fc474_2": {
+        "id": "subsection_node_5_0f7fc474_2",
+        "title": "Handling Missing Data",
+        "content": "Handling Missing Data",
+        "url": null,
+        "parent_id": "node_5_0f7fc474",
+        "children": [],
+        "expanded": false,
+        "node_type": "subsection",
+        "metadata": {
+          "subsection_index": 2
+        }
+      },
+      "subsection_node_5_0f7fc474_3": {
+        "id": "subsection_node_5_0f7fc474_3",
+        "title": "Handling outliers",
+        "content": "Handling outliers",
+        "url": null,
+        "parent_id": "node_5_0f7fc474",
+        "children": [],
+        "expanded": false,
+        "node_type": "subsection",
+        "metadata": {
+          "subsection_index": 3
+        }
+      },
+      "subsection_node_5_0f7fc474_4": {
+        "id": "subsection_node_5_0f7fc474_4",
+        "title": "Feature Selection",
+        "content": "Feature Selection",
+        "url": null,
+        "parent_id": "node_5_0f7fc474",
+        "children": [],
+        "expanded": false,
+        "node_type": "subsection",
+        "metadata": {
+          "subsection_index": 4
+        }
+      },
+      "subsection_node_5_0f7fc474_5": {
+        "id": "subsection_node_5_0f7fc474_5",
+        "title": "Feature Engineering",
+        "content": "Feature Engineering",
+        "url": null,
+        "parent_id": "node_5_0f7fc474",
+        "children": [],
+        "expanded": false,
+        "node_type": "subsection",
+        "metadata": {
+          "subsection_index": 5
+        }
+      },
+      "subsection_node_5_0f7fc474_6": {
+        "id": "subsection_node_5_0f7fc474_6",
+        "title": "Splitting Data into Training and Testing Sets",
+        "content": "Splitting Data into Training and Testing Sets",
+        "url": null,
+        "parent_id": "node_5_0f7fc474",
+        "children": [],
+        "expanded": false,
+        "node_type": "subsection",
+        "metadata": {
+          "subsection_index": 6
+        }
+      },
+      "link_node_5_0f7fc474_0": {
+        "id": "link_node_5_0f7fc474_0",
+        "title": "What is Data Preprocessing?",
+        "content": "Link to: What is Data Preprocessing?",
+        "url": "https://www.geeksforgeeks.org/dbms/data-preprocessing-in-data-mining/",
+        "parent_id": "node_5_0f7fc474",
+        "children": [],
+        "expanded": false,
+        "node_type": "link",
+        "metadata": {
+          "link_data": {
+            "url": "https://www.geeksforgeeks.org/dbms/data-preprocessing-in-data-mining/",
+            "text": "What is Data Preprocessing?",
+            "type": "general"
+          },
+          "clickable": true
+        }
+      },
+      "link_node_5_0f7fc474_1": {
+        "id": "link_node_5_0f7fc474_1",
+        "title": "What is Data Cleaning?",
+        "content": "Link to: What is Data Cleaning?",
+        "url": "https://www.geeksforgeeks.org/data-analysis/data-cleansing-introduction/",
+        "parent_id": "node_5_0f7fc474",
+        "children": [],
+        "expanded": false,
+        "node_type": "link",
+        "metadata": {
+          "link_data": {
+            "url": "https://www.geeksforgeeks.org/data-analysis/data-cleansing-introduction/",
+            "text": "What is Data Cleaning?",
+            "type": "general"
+          },
+          "clickable": true
+        }
+      },
+      "link_node_5_0f7fc474_2": {
+        "id": "link_node_5_0f7fc474_2",
+        "title": "Handling Missing Data",
+        "content": "Link to: Handling Missing Data",
+        "url": "https://www.geeksforgeeks.org/machine-learning/ml-handling-missing-values/",
+        "parent_id": "node_5_0f7fc474",
+        "children": [],
+        "expanded": false,
+        "node_type": "link",
+        "metadata": {
+          "link_data": {
+            "url": "https://www.geeksforgeeks.org/machine-learning/ml-handling-missing-values/",
+            "text": "Handling Missing Data",
+            "type": "general"
+          },
+          "clickable": true
+        }
+      },
+      "link_node_5_0f7fc474_3": {
+        "id": "link_node_5_0f7fc474_3",
+        "title": "Handling outliers",
+        "content": "Link to: Handling outliers",
+        "url": "https://www.geeksforgeeks.org/data-science/detect-and-remove-the-outliers-using-python/",
+        "parent_id": "node_5_0f7fc474",
+        "children": [],
+        "expanded": false,
+        "node_type": "link",
+        "metadata": {
+          "link_data": {
+            "url": "https://www.geeksforgeeks.org/data-science/detect-and-remove-the-outliers-using-python/",
+            "text": "Handling outliers",
+            "type": "general"
+          },
+          "clickable": true
+        }
+      },
+      "link_node_5_0f7fc474_4": {
+        "id": "link_node_5_0f7fc474_4",
+        "title": "Feature Selection",
+        "content": "Link to: Feature Selection",
+        "url": "https://www.geeksforgeeks.org/machine-learning/feature-selection-techniques-in-machine-learning/",
+        "parent_id": "node_5_0f7fc474",
+        "children": [],
+        "expanded": false,
+        "node_type": "link",
+        "metadata": {
+          "link_data": {
+            "url": "https://www.geeksforgeeks.org/machine-learning/feature-selection-techniques-in-machine-learning/",
+            "text": "Feature Selection",
+            "type": "general"
+          },
+          "clickable": true
+        }
+      },
+      "link_node_5_0f7fc474_5": {
+        "id": "link_node_5_0f7fc474_5",
+        "title": "Feature Engineering",
+        "content": "Link to: Feature Engineering",
+        "url": "https://www.geeksforgeeks.org/machine-learning/ml-feature-scaling-part-2/",
+        "parent_id": "node_5_0f7fc474",
+        "children": [],
+        "expanded": false,
+        "node_type": "link",
+        "metadata": {
+          "link_data": {
+            "url": "https://www.geeksforgeeks.org/machine-learning/ml-feature-scaling-part-2/",
+            "text": "Feature Engineering",
+            "type": "general"
+          },
+          "clickable": true
+        }
+      },
+      "link_node_5_0f7fc474_6": {
+        "id": "link_node_5_0f7fc474_6",
+        "title": "Splitting Data into Training and Testing Sets",
+        "content": "Link to: Splitting Data into Training and Testing Sets",
+        "url": "https://www.geeksforgeeks.org/machine-learning/how-to-split-a-dataset-into-train-and-test-sets-using-python/",
+        "parent_id": "node_5_0f7fc474",
+        "children": [],
+        "expanded": false,
+        "node_type": "link",
+        "metadata": {
+          "link_data": {
+            "url": "https://www.geeksforgeeks.org/machine-learning/how-to-split-a-dataset-into-train-and-test-sets-using-python/",
+            "text": "Splitting Data into Training and Testing Sets",
+            "type": "general"
+          },
+          "clickable": true
+        }
+      },
+      "node_6_e1b8fa6a": {
+        "id": "node_6_e1b8fa6a",
+        "title": "Data Analysis",
+        "content": "Data analysis is the process of inspecting data to discover meaningful insights and trends to make informed decision. ",
+        "url": null,
+        "parent_id": "node_2_750375b9",
+        "children": [
+          "subsection_node_6_e1b8fa6a_0",
+          "subsection_node_6_e1b8fa6a_1",
+          "subsection_node_6_e1b8fa6a_2",
+          "subsection_node_6_e1b8fa6a_3",
+          "subsection_node_6_e1b8fa6a_4",
+          "link_node_6_e1b8fa6a_0",
+          "link_node_6_e1b8fa6a_1",
+          "link_node_6_e1b8fa6a_2",
+          "link_node_6_e1b8fa6a_3",
+          "link_node_6_e1b8fa6a_4"
+        ],
+        "expanded": false,
+        "node_type": "section",
+        "metadata": {
+          "expandable": true,
+          "level": 2,
+          "full_content": "Data analysis is the process of inspecting data to discover meaningful insights and trends to make informed decision. ",
+          "subsections": [
+            "What is Data Analysis?",
+            "Data Analysis Process",
+            "What is Exploratory Data Analysis?",
+            "Identifying correlations between features",
+            "Statistical Analysis"
+          ],
+          "links": [
+            {
+              "url": "https://www.geeksforgeeks.org/data-analysis/what-is-data-analysis/",
+              "text": "What is Data Analysis?",
+              "type": "general"
+            },
+            {
+              "url": "https://www.geeksforgeeks.org/data-science/six-steps-of-data-analysis-process/",
+              "text": "Data Analysis Process",
+              "type": "general"
+            },
+            {
+              "url": "https://www.geeksforgeeks.org/data-analysis/what-is-exploratory-data-analysis/",
+              "text": "What is Exploratory Data Analysis?",
+              "type": "general"
+            },
+            {
+              "url": "https://www.geeksforgeeks.org/data-analysis/exploring-correlation-in-python/",
+              "text": "Identifying correlations between features",
+              "type": "general"
+            },
+            {
+              "url": "https://www.geeksforgeeks.org/data-analysis/what-is-statistical-analysis/",
+              "text": "Statistical Analysis",
+              "type": "general"
+            }
+          ]
+        }
+      },
+      "subsection_node_6_e1b8fa6a_0": {
+        "id": "subsection_node_6_e1b8fa6a_0",
+        "title": "What is Data Analysis?",
+        "content": "What is Data Analysis?",
+        "url": null,
+        "parent_id": "node_6_e1b8fa6a",
+        "children": [],
+        "expanded": false,
+        "node_type": "subsection",
+        "metadata": {
+          "subsection_index": 0
+        }
+      },
+      "subsection_node_6_e1b8fa6a_1": {
+        "id": "subsection_node_6_e1b8fa6a_1",
+        "title": "Data Analysis Process",
+        "content": "Data Analysis Process",
+        "url": null,
+        "parent_id": "node_6_e1b8fa6a",
+        "children": [],
+        "expanded": false,
+        "node_type": "subsection",
+        "metadata": {
+          "subsection_index": 1
+        }
+      },
+      "subsection_node_6_e1b8fa6a_2": {
+        "id": "subsection_node_6_e1b8fa6a_2",
+        "title": "What is Exploratory Data Analysis?",
+        "content": "What is Exploratory Data Analysis?",
+        "url": null,
+        "parent_id": "node_6_e1b8fa6a",
+        "children": [],
+        "expanded": false,
+        "node_type": "subsection",
+        "metadata": {
+          "subsection_index": 2
+        }
+      },
+      "subsection_node_6_e1b8fa6a_3": {
+        "id": "subsection_node_6_e1b8fa6a_3",
+        "title": "Identifying correlations between features",
+        "content": "Identifying correlations between features",
+        "url": null,
+        "parent_id": "node_6_e1b8fa6a",
+        "children": [],
+        "expanded": false,
+        "node_type": "subsection",
+        "metadata": {
+          "subsection_index": 3
+        }
+      },
+      "subsection_node_6_e1b8fa6a_4": {
+        "id": "subsection_node_6_e1b8fa6a_4",
+        "title": "Statistical Analysis",
+        "content": "Statistical Analysis",
+        "url": null,
+        "parent_id": "node_6_e1b8fa6a",
+        "children": [],
+        "expanded": false,
+        "node_type": "subsection",
+        "metadata": {
+          "subsection_index": 4
+        }
+      },
+      "link_node_6_e1b8fa6a_0": {
+        "id": "link_node_6_e1b8fa6a_0",
+        "title": "What is Data Analysis?",
+        "content": "Link to: What is Data Analysis?",
+        "url": "https://www.geeksforgeeks.org/data-analysis/what-is-data-analysis/",
+        "parent_id": "node_6_e1b8fa6a",
+        "children": [],
+        "expanded": false,
+        "node_type": "link",
+        "metadata": {
+          "link_data": {
+            "url": "https://www.geeksforgeeks.org/data-analysis/what-is-data-analysis/",
+            "text": "What is Data Analysis?",
+            "type": "general"
+          },
+          "clickable": true
+        }
+      },
+      "link_node_6_e1b8fa6a_1": {
+        "id": "link_node_6_e1b8fa6a_1",
+        "title": "Data Analysis Process",
+        "content": "Link to: Data Analysis Process",
+        "url": "https://www.geeksforgeeks.org/data-science/six-steps-of-data-analysis-process/",
+        "parent_id": "node_6_e1b8fa6a",
+        "children": [],
+        "expanded": false,
+        "node_type": "link",
+        "metadata": {
+          "link_data": {
+            "url": "https://www.geeksforgeeks.org/data-science/six-steps-of-data-analysis-process/",
+            "text": "Data Analysis Process",
+            "type": "general"
+          },
+          "clickable": true
+        }
+      },
+      "link_node_6_e1b8fa6a_2": {
+        "id": "link_node_6_e1b8fa6a_2",
+        "title": "What is Exploratory Data Analysis?",
+        "content": "Link to: What is Exploratory Data Analysis?",
+        "url": "https://www.geeksforgeeks.org/data-analysis/what-is-exploratory-data-analysis/",
+        "parent_id": "node_6_e1b8fa6a",
+        "children": [],
+        "expanded": false,
+        "node_type": "link",
+        "metadata": {
+          "link_data": {
+            "url": "https://www.geeksforgeeks.org/data-analysis/what-is-exploratory-data-analysis/",
+            "text": "What is Exploratory Data Analysis?",
+            "type": "general"
+          },
+          "clickable": true
+        }
+      },
+      "link_node_6_e1b8fa6a_3": {
+        "id": "link_node_6_e1b8fa6a_3",
+        "title": "Identifying correlations between features",
+        "content": "Link to: Identifying correlations between features",
+        "url": "https://www.geeksforgeeks.org/data-analysis/exploring-correlation-in-python/",
+        "parent_id": "node_6_e1b8fa6a",
+        "children": [],
+        "expanded": false,
+        "node_type": "link",
+        "metadata": {
+          "link_data": {
+            "url": "https://www.geeksforgeeks.org/data-analysis/exploring-correlation-in-python/",
+            "text": "Identifying correlations between features",
+            "type": "general"
+          },
+          "clickable": true
+        }
+      },
+      "link_node_6_e1b8fa6a_4": {
+        "id": "link_node_6_e1b8fa6a_4",
+        "title": "Statistical Analysis",
+        "content": "Link to: Statistical Analysis",
+        "url": "https://www.geeksforgeeks.org/data-analysis/what-is-statistical-analysis/",
+        "parent_id": "node_6_e1b8fa6a",
+        "children": [],
+        "expanded": false,
+        "node_type": "link",
+        "metadata": {
+          "link_data": {
+            "url": "https://www.geeksforgeeks.org/data-analysis/what-is-statistical-analysis/",
+            "text": "Statistical Analysis",
+            "type": "general"
+          },
+          "clickable": true
+        }
+      },
+      "node_7_a23a1b98": {
+        "id": "node_7_a23a1b98",
+        "title": "Data Visualization",
+        "content": "Data visualization uses graphical representations such as charts and graphs to understand and interpret complex data. ",
+        "url": null,
+        "parent_id": "node_2_750375b9",
+        "children": [
+          "subsection_node_7_a23a1b98_0",
+          "subsection_node_7_a23a1b98_1",
+          "subsection_node_7_a23a1b98_2",
+          "subsection_node_7_a23a1b98_3",
+          "subsection_node_7_a23a1b98_4",
+          "subsection_node_7_a23a1b98_5",
+          "link_node_7_a23a1b98_0",
+          "link_node_7_a23a1b98_1",
+          "link_node_7_a23a1b98_2",
+          "link_node_7_a23a1b98_3",
+          "link_node_7_a23a1b98_4",
+          "link_node_7_a23a1b98_5"
+        ],
+        "expanded": false,
+        "node_type": "section",
+        "metadata": {
+          "expandable": true,
+          "level": 2,
+          "full_content": "Data visualization uses graphical representations such as charts and graphs to understand and interpret complex data. ",
+          "subsections": [
+            "What is Data Visualization?",
+            "Visualization with Matplotlib",
+            "Visualization using Seaborn",
+            "Visualization using Plotly",
+            "PowerBI",
+            "Tableau"
+          ],
+          "links": [
+            {
+              "url": "https://www.geeksforgeeks.org/data-visualization/data-visualization-and-its-importance/",
+              "text": "What is Data Visualization?",
+              "type": "general"
+            },
+            {
+              "url": "https://www.geeksforgeeks.org/data-visualization/data-visualization-using-matplotlib/",
+              "text": "Visualization with Matplotlib",
+              "type": "general"
+            },
+            {
+              "url": "https://www.geeksforgeeks.org/data-visualization/data-visualization-with-python-seaborn/",
+              "text": "Visualization using Seaborn",
+              "type": "general"
+            },
+            {
+              "url": "https://www.geeksforgeeks.org/data-visualization/using-plotly-for-interactive-data-visualization-in-python/",
+              "text": "Visualization using Plotly",
+              "type": "general"
+            },
+            {
+              "url": "https://www.geeksforgeeks.org/power-bi/power-bi-tutorial/",
+              "text": "PowerBI",
+              "type": "general"
+            },
+            {
+              "url": "https://www.geeksforgeeks.org/tableau/tableau-tutorial/",
+              "text": "Tableau",
+              "type": "general"
+            }
+          ]
+        }
+      },
+      "subsection_node_7_a23a1b98_0": {
+        "id": "subsection_node_7_a23a1b98_0",
+        "title": "What is Data Visualization?",
+        "content": "What is Data Visualization?",
+        "url": null,
+        "parent_id": "node_7_a23a1b98",
+        "children": [],
+        "expanded": false,
+        "node_type": "subsection",
+        "metadata": {
+          "subsection_index": 0
+        }
+      },
+      "subsection_node_7_a23a1b98_1": {
+        "id": "subsection_node_7_a23a1b98_1",
+        "title": "Visualization with Matplotlib",
+        "content": "Visualization with Matplotlib",
+        "url": null,
+        "parent_id": "node_7_a23a1b98",
+        "children": [],
+        "expanded": false,
+        "node_type": "subsection",
+        "metadata": {
+          "subsection_index": 1
+        }
+      },
+      "subsection_node_7_a23a1b98_2": {
+        "id": "subsection_node_7_a23a1b98_2",
+        "title": "Visualization using Seaborn",
+        "content": "Visualization using Seaborn",
+        "url": null,
+        "parent_id": "node_7_a23a1b98",
+        "children": [],
+        "expanded": false,
+        "node_type": "subsection",
+        "metadata": {
+          "subsection_index": 2
+        }
+      },
+      "subsection_node_7_a23a1b98_3": {
+        "id": "subsection_node_7_a23a1b98_3",
+        "title": "Visualization using Plotly",
+        "content": "Visualization using Plotly",
+        "url": null,
+        "parent_id": "node_7_a23a1b98",
+        "children": [],
+        "expanded": false,
+        "node_type": "subsection",
+        "metadata": {
+          "subsection_index": 3
+        }
+      },
+      "subsection_node_7_a23a1b98_4": {
+        "id": "subsection_node_7_a23a1b98_4",
+        "title": "PowerBI",
+        "content": "PowerBI",
+        "url": null,
+        "parent_id": "node_7_a23a1b98",
+        "children": [],
+        "expanded": false,
+        "node_type": "subsection",
+        "metadata": {
+          "subsection_index": 4
+        }
+      },
+      "subsection_node_7_a23a1b98_5": {
+        "id": "subsection_node_7_a23a1b98_5",
+        "title": "Tableau",
+        "content": "Tableau",
+        "url": null,
+        "parent_id": "node_7_a23a1b98",
+        "children": [],
+        "expanded": false,
+        "node_type": "subsection",
+        "metadata": {
+          "subsection_index": 5
+        }
+      },
+      "link_node_7_a23a1b98_0": {
+        "id": "link_node_7_a23a1b98_0",
+        "title": "What is Data Visualization?",
+        "content": "Link to: What is Data Visualization?",
+        "url": "https://www.geeksforgeeks.org/data-visualization/data-visualization-and-its-importance/",
+        "parent_id": "node_7_a23a1b98",
+        "children": [],
+        "expanded": false,
+        "node_type": "link",
+        "metadata": {
+          "link_data": {
+            "url": "https://www.geeksforgeeks.org/data-visualization/data-visualization-and-its-importance/",
+            "text": "What is Data Visualization?",
+            "type": "general"
+          },
+          "clickable": true
+        }
+      },
+      "link_node_7_a23a1b98_1": {
+        "id": "link_node_7_a23a1b98_1",
+        "title": "Visualization with Matplotlib",
+        "content": "Link to: Visualization with Matplotlib",
+        "url": "https://www.geeksforgeeks.org/data-visualization/data-visualization-using-matplotlib/",
+        "parent_id": "node_7_a23a1b98",
+        "children": [],
+        "expanded": false,
+        "node_type": "link",
+        "metadata": {
+          "link_data": {
+            "url": "https://www.geeksforgeeks.org/data-visualization/data-visualization-using-matplotlib/",
+            "text": "Visualization with Matplotlib",
+            "type": "general"
+          },
+          "clickable": true
+        }
+      },
+      "link_node_7_a23a1b98_2": {
+        "id": "link_node_7_a23a1b98_2",
+        "title": "Visualization using Seaborn",
+        "content": "Link to: Visualization using Seaborn",
+        "url": "https://www.geeksforgeeks.org/data-visualization/data-visualization-with-python-seaborn/",
+        "parent_id": "node_7_a23a1b98",
+        "children": [],
+        "expanded": false,
+        "node_type": "link",
+        "metadata": {
+          "link_data": {
+            "url": "https://www.geeksforgeeks.org/data-visualization/data-visualization-with-python-seaborn/",
+            "text": "Visualization using Seaborn",
+            "type": "general"
+          },
+          "clickable": true
+        }
+      },
+      "link_node_7_a23a1b98_3": {
+        "id": "link_node_7_a23a1b98_3",
+        "title": "Visualization using Plotly",
+        "content": "Link to: Visualization using Plotly",
+        "url": "https://www.geeksforgeeks.org/data-visualization/using-plotly-for-interactive-data-visualization-in-python/",
+        "parent_id": "node_7_a23a1b98",
+        "children": [],
+        "expanded": false,
+        "node_type": "link",
+        "metadata": {
+          "link_data": {
+            "url": "https://www.geeksforgeeks.org/data-visualization/using-plotly-for-interactive-data-visualization-in-python/",
+            "text": "Visualization using Plotly",
+            "type": "general"
+          },
+          "clickable": true
+        }
+      },
+      "link_node_7_a23a1b98_4": {
+        "id": "link_node_7_a23a1b98_4",
+        "title": "PowerBI",
+        "content": "Link to: PowerBI",
+        "url": "https://www.geeksforgeeks.org/power-bi/power-bi-tutorial/",
+        "parent_id": "node_7_a23a1b98",
+        "children": [],
+        "expanded": false,
+        "node_type": "link",
+        "metadata": {
+          "link_data": {
+            "url": "https://www.geeksforgeeks.org/power-bi/power-bi-tutorial/",
+            "text": "PowerBI",
+            "type": "general"
+          },
+          "clickable": true
+        }
+      },
+      "link_node_7_a23a1b98_5": {
+        "id": "link_node_7_a23a1b98_5",
+        "title": "Tableau",
+        "content": "Link to: Tableau",
+        "url": "https://www.geeksforgeeks.org/tableau/tableau-tutorial/",
+        "parent_id": "node_7_a23a1b98",
+        "children": [],
+        "expanded": false,
+        "node_type": "link",
+        "metadata": {
+          "link_data": {
+            "url": "https://www.geeksforgeeks.org/tableau/tableau-tutorial/",
+            "text": "Tableau",
+            "type": "general"
+          },
+          "clickable": true
+        }
+      },
+      "node_8_4f730d3b": {
+        "id": "node_8_4f730d3b",
+        "title": "Machine Learning",
+        "content": "Machine learning focuses on developing algorithms that helps computers to learn from data and make predictions or decisions without explicit programming. You are now ready to explore real-world projec...",
+        "url": null,
+        "parent_id": "node_2_750375b9",
+        "children": [
+          "subsection_node_8_4f730d3b_0",
+          "subsection_node_8_4f730d3b_1",
+          "link_node_8_4f730d3b_0",
+          "link_node_8_4f730d3b_1",
+          "node_9_259ce20f"
+        ],
+        "expanded": false,
+        "node_type": "section",
+        "metadata": {
+          "expandable": true,
+          "level": 2,
+          "full_content": "Machine learning focuses on developing algorithms that helps computers to learn from data and make predictions or decisions without explicit programming. You are now ready to explore real-world projects. For detailed guidance and project ideas refer to below article: ",
+          "subsections": [
+            "Machine Learning Tutorial",
+            "Deep Learning Tutorial"
+          ],
+          "links": [
+            {
+              "url": "https://www.geeksforgeeks.org/machine-learning/machine-learning/",
+              "text": "Machine Learning Tutorial",
+              "type": "tutorial"
+            },
+            {
+              "url": "https://www.geeksforgeeks.org/deep-learning/deep-learning-tutorial/",
+              "text": "Deep Learning Tutorial",
+              "type": "tutorial"
+            }
+          ]
+        }
+      },
+      "subsection_node_8_4f730d3b_0": {
+        "id": "subsection_node_8_4f730d3b_0",
+        "title": "Machine Learning Tutorial",
+        "content": "Machine Learning Tutorial",
+        "url": null,
+        "parent_id": "node_8_4f730d3b",
+        "children": [],
+        "expanded": false,
+        "node_type": "subsection",
+        "metadata": {
+          "subsection_index": 0
+        }
+      },
+      "subsection_node_8_4f730d3b_1": {
+        "id": "subsection_node_8_4f730d3b_1",
+        "title": "Deep Learning Tutorial",
+        "content": "Deep Learning Tutorial",
+        "url": null,
+        "parent_id": "node_8_4f730d3b",
+        "children": [],
+        "expanded": false,
+        "node_type": "subsection",
+        "metadata": {
+          "subsection_index": 1
+        }
+      },
+      "link_node_8_4f730d3b_0": {
+        "id": "link_node_8_4f730d3b_0",
+        "title": "Machine Learning Tutorial",
+        "content": "Link to: Machine Learning Tutorial",
+        "url": "https://www.geeksforgeeks.org/machine-learning/machine-learning/",
+        "parent_id": "node_8_4f730d3b",
+        "children": [],
+        "expanded": false,
+        "node_type": "link",
+        "metadata": {
+          "link_data": {
+            "url": "https://www.geeksforgeeks.org/machine-learning/machine-learning/",
+            "text": "Machine Learning Tutorial",
+            "type": "tutorial"
+          },
+          "clickable": true
+        }
+      },
+      "link_node_8_4f730d3b_1": {
+        "id": "link_node_8_4f730d3b_1",
+        "title": "Deep Learning Tutorial",
+        "content": "Link to: Deep Learning Tutorial",
+        "url": "https://www.geeksforgeeks.org/deep-learning/deep-learning-tutorial/",
+        "parent_id": "node_8_4f730d3b",
+        "children": [],
+        "expanded": false,
+        "node_type": "link",
+        "metadata": {
+          "link_data": {
+            "url": "https://www.geeksforgeeks.org/deep-learning/deep-learning-tutorial/",
+            "text": "Deep Learning Tutorial",
+            "type": "tutorial"
+          },
+          "clickable": true
+        }
+      },
+      "node_9_259ce20f": {
+        "id": "node_9_259ce20f",
+        "title": "Data Science Projects [With Source code]",
+        "content": "",
+        "url": null,
+        "parent_id": "node_8_4f730d3b",
+        "children": [
+          "link_node_9_259ce20f_0"
+        ],
+        "expanded": false,
+        "node_type": "section",
+        "metadata": {
+          "expandable": true,
+          "level": 3,
+          "full_content": "",
+          "subsections": [],
+          "links": [
+            {
+              "url": "https://www.geeksforgeeks.org/data-science/top-data-science-projects/",
+              "text": "Data Science Projects [With Source code]",
+              "type": "general"
+            }
+          ]
+        }
+      },
+      "link_node_9_259ce20f_0": {
+        "id": "link_node_9_259ce20f_0",
+        "title": "Data Science Projects [With Source code]",
+        "content": "Link to: Data Science Projects [With Source code]",
+        "url": "https://www.geeksforgeeks.org/data-science/top-data-science-projects/",
+        "parent_id": "node_9_259ce20f",
+        "children": [],
+        "expanded": false,
+        "node_type": "link",
+        "metadata": {
+          "link_data": {
+            "url": "https://www.geeksforgeeks.org/data-science/top-data-science-projects/",
+            "text": "Data Science Projects [With Source code]",
+            "type": "general"
+          },
+          "clickable": true
+        }
+      },
+      "node_10_29e4a643": {
+        "id": "node_10_29e4a643",
+        "title": "Careers in Data Science",
+        "content": "Data Science has been considered one of the most desirable jobs in IT field today. Growth opportunities in data science jobs are comparatively high than in any other job. Some of the most notable jobs...",
+        "url": null,
+        "parent_id": "node_2_750375b9",
+        "children": [
+          "subsection_node_10_29e4a643_0",
+          "subsection_node_10_29e4a643_1",
+          "subsection_node_10_29e4a643_2",
+          "subsection_node_10_29e4a643_3",
+          "subsection_node_10_29e4a643_4",
+          "link_node_10_29e4a643_0",
+          "link_node_10_29e4a643_1",
+          "link_node_10_29e4a643_2",
+          "link_node_10_29e4a643_3",
+          "link_node_10_29e4a643_4"
+        ],
+        "expanded": false,
+        "node_type": "section",
+        "metadata": {
+          "expandable": true,
+          "level": 2,
+          "full_content": "Data Science has been considered one of the most desirable jobs in IT field today. Growth opportunities in data science jobs are comparatively high than in any other job. Some of the most notable jobs in data science are:- ",
+          "subsections": [
+            "Data Scientist",
+            "Data Architect",
+            "Data Administrator",
+            "Data Analyst",
+            "Business Analyst"
+          ],
+          "links": [
+            {
+              "url": "https://www.geeksforgeeks.org/blogs/data-scientist-roadmap/",
+              "text": "Data Scientist",
+              "type": "general"
+            },
+            {
+              "url": "https://www.geeksforgeeks.org/gfg-academy/data-architect-roles-skills-and-how-to-become-one-in-2024/",
+              "text": "Data Architect",
+              "type": "general"
+            },
+            {
+              "url": "https://www.geeksforgeeks.org/dbms/dba-full-form/",
+              "text": "Data Administrator",
+              "type": "general"
+            },
+            {
+              "url": "https://www.geeksforgeeks.org/blogs/data-analyst-roadmap/",
+              "text": "Data Analyst",
+              "type": "general"
+            },
+            {
+              "url": "https://www.geeksforgeeks.org/gfg-academy/how-to-become-a-business-analyst/",
+              "text": "Business Analyst",
+              "type": "general"
+            }
+          ]
+        }
+      },
+      "subsection_node_10_29e4a643_0": {
+        "id": "subsection_node_10_29e4a643_0",
+        "title": "Data Scientist",
+        "content": "Data Scientist",
+        "url": null,
+        "parent_id": "node_10_29e4a643",
+        "children": [],
+        "expanded": false,
+        "node_type": "subsection",
+        "metadata": {
+          "subsection_index": 0
+        }
+      },
+      "subsection_node_10_29e4a643_1": {
+        "id": "subsection_node_10_29e4a643_1",
+        "title": "Data Architect",
+        "content": "Data Architect",
+        "url": null,
+        "parent_id": "node_10_29e4a643",
+        "children": [],
+        "expanded": false,
+        "node_type": "subsection",
+        "metadata": {
+          "subsection_index": 1
+        }
+      },
+      "subsection_node_10_29e4a643_2": {
+        "id": "subsection_node_10_29e4a643_2",
+        "title": "Data Administrator",
+        "content": "Data Administrator",
+        "url": null,
+        "parent_id": "node_10_29e4a643",
+        "children": [],
+        "expanded": false,
+        "node_type": "subsection",
+        "metadata": {
+          "subsection_index": 2
+        }
+      },
+      "subsection_node_10_29e4a643_3": {
+        "id": "subsection_node_10_29e4a643_3",
+        "title": "Data Analyst",
+        "content": "Data Analyst",
+        "url": null,
+        "parent_id": "node_10_29e4a643",
+        "children": [],
+        "expanded": false,
+        "node_type": "subsection",
+        "metadata": {
+          "subsection_index": 3
+        }
+      },
+      "subsection_node_10_29e4a643_4": {
+        "id": "subsection_node_10_29e4a643_4",
+        "title": "Business Analyst",
+        "content": "Business Analyst",
+        "url": null,
+        "parent_id": "node_10_29e4a643",
+        "children": [],
+        "expanded": false,
+        "node_type": "subsection",
+        "metadata": {
+          "subsection_index": 4
+        }
+      },
+      "link_node_10_29e4a643_0": {
+        "id": "link_node_10_29e4a643_0",
+        "title": "Data Scientist",
+        "content": "Link to: Data Scientist",
+        "url": "https://www.geeksforgeeks.org/blogs/data-scientist-roadmap/",
+        "parent_id": "node_10_29e4a643",
+        "children": [],
+        "expanded": false,
+        "node_type": "link",
+        "metadata": {
+          "link_data": {
+            "url": "https://www.geeksforgeeks.org/blogs/data-scientist-roadmap/",
+            "text": "Data Scientist",
+            "type": "general"
+          },
+          "clickable": true
+        }
+      },
+      "link_node_10_29e4a643_1": {
+        "id": "link_node_10_29e4a643_1",
+        "title": "Data Architect",
+        "content": "Link to: Data Architect",
+        "url": "https://www.geeksforgeeks.org/gfg-academy/data-architect-roles-skills-and-how-to-become-one-in-2024/",
+        "parent_id": "node_10_29e4a643",
+        "children": [],
+        "expanded": false,
+        "node_type": "link",
+        "metadata": {
+          "link_data": {
+            "url": "https://www.geeksforgeeks.org/gfg-academy/data-architect-roles-skills-and-how-to-become-one-in-2024/",
+            "text": "Data Architect",
+            "type": "general"
+          },
+          "clickable": true
+        }
+      },
+      "link_node_10_29e4a643_2": {
+        "id": "link_node_10_29e4a643_2",
+        "title": "Data Administrator",
+        "content": "Link to: Data Administrator",
+        "url": "https://www.geeksforgeeks.org/dbms/dba-full-form/",
+        "parent_id": "node_10_29e4a643",
+        "children": [],
+        "expanded": false,
+        "node_type": "link",
+        "metadata": {
+          "link_data": {
+            "url": "https://www.geeksforgeeks.org/dbms/dba-full-form/",
+            "text": "Data Administrator",
+            "type": "general"
+          },
+          "clickable": true
+        }
+      },
+      "link_node_10_29e4a643_3": {
+        "id": "link_node_10_29e4a643_3",
+        "title": "Data Analyst",
+        "content": "Link to: Data Analyst",
+        "url": "https://www.geeksforgeeks.org/blogs/data-analyst-roadmap/",
+        "parent_id": "node_10_29e4a643",
+        "children": [],
+        "expanded": false,
+        "node_type": "link",
+        "metadata": {
+          "link_data": {
+            "url": "https://www.geeksforgeeks.org/blogs/data-analyst-roadmap/",
+            "text": "Data Analyst",
+            "type": "general"
+          },
+          "clickable": true
+        }
+      },
+      "link_node_10_29e4a643_4": {
+        "id": "link_node_10_29e4a643_4",
+        "title": "Business Analyst",
+        "content": "Link to: Business Analyst",
+        "url": "https://www.geeksforgeeks.org/gfg-academy/how-to-become-a-business-analyst/",
+        "parent_id": "node_10_29e4a643",
+        "children": [],
+        "expanded": false,
+        "node_type": "link",
+        "metadata": {
+          "link_data": {
+            "url": "https://www.geeksforgeeks.org/gfg-academy/how-to-become-a-business-analyst/",
+            "text": "Business Analyst",
+            "type": "general"
+          },
+          "clickable": true
+        }
+      },
+      "node_11_ebb1eaf9": {
+        "id": "node_11_ebb1eaf9",
+        "title": "Introduction To Data Science",
+        "content": "",
+        "url": null,
+        "parent_id": "node_2_750375b9",
+        "children": [],
+        "expanded": false,
+        "node_type": "section",
+        "metadata": {
+          "expandable": true,
+          "level": 2,
+          "full_content": "",
+          "subsections": [],
+          "links": []
+        }
+      },
+      "node_12_3738d3e0": {
+        "id": "node_12_3738d3e0",
+        "title": "Introduction to Linear Regression - Machine Learning",
+        "content": "",
+        "url": null,
+        "parent_id": "node_2_750375b9",
+        "children": [],
+        "expanded": false,
+        "node_type": "section",
+        "metadata": {
+          "expandable": true,
+          "level": 2,
+          "full_content": "",
+          "subsections": [],
+          "links": []
+        }
+      },
+      "node_13_daf8b99f": {
+        "id": "node_13_daf8b99f",
+        "title": "Naive Bayes Classifiers",
+        "content": "",
+        "url": null,
+        "parent_id": "node_2_750375b9",
+        "children": [],
+        "expanded": false,
+        "node_type": "section",
+        "metadata": {
+          "expandable": true,
+          "level": 2,
+          "full_content": "",
+          "subsections": [],
+          "links": []
+        }
+      },
+      "node_14_d2ad6f94": {
+        "id": "node_14_d2ad6f94",
+        "title": "Decision Tree in Machine Learning",
+        "content": "",
+        "url": null,
+        "parent_id": "node_2_750375b9",
+        "children": [],
+        "expanded": false,
+        "node_type": "section",
+        "metadata": {
+          "expandable": true,
+          "level": 2,
+          "full_content": "",
+          "subsections": [],
+          "links": []
+        }
+      },
+      "node_15_e5ffb64b": {
+        "id": "node_15_e5ffb64b",
+        "title": "Random Forest Algorithm in Machine Learning",
+        "content": "",
+        "url": null,
+        "parent_id": "node_2_750375b9",
+        "children": [],
+        "expanded": false,
+        "node_type": "section",
+        "metadata": {
+          "expandable": true,
+          "level": 2,
+          "full_content": "",
+          "subsections": [],
+          "links": []
+        }
+      },
+      "node_16_fc40686f": {
+        "id": "node_16_fc40686f",
+        "title": "K-Nearest Neighbor(KNN) Algorithm in Machine Learning",
+        "content": "A ",
+        "url": null,
+        "parent_id": "node_2_750375b9",
+        "children": [
+          "subsection_node_16_fc40686f_0",
+          "subsection_node_16_fc40686f_1",
+          "link_node_16_fc40686f_0",
+          "link_node_16_fc40686f_1",
+          "link_node_16_fc40686f_2",
+          "link_node_16_fc40686f_3",
+          "link_node_16_fc40686f_4"
+        ],
+        "expanded": false,
+        "node_type": "section",
+        "metadata": {
+          "expandable": true,
+          "level": 2,
+          "full_content": "A ",
+          "subsections": [
+            "Data Science",
+            "AI-ML-DS"
+          ],
+          "links": [
+            {
+              "url": "https://www.geeksforgeeks.org/campus-training-program/",
+              "text": "Campus Training Program",
+              "type": "general"
+            },
+            {
+              "url": "https://www.geeksforgeeks.org/user/abhishek1/",
+              "text": "A",
+              "type": "general"
+            },
+            {
+              "url": "https://www.geeksforgeeks.org/user/abhishek1/",
+              "text": "abhishek1",
+              "type": "general"
+            },
+            {
+              "url": "https://www.geeksforgeeks.org/category/ai-ml-ds/data-science/",
+              "text": "Data Science",
+              "type": "general"
+            },
+            {
+              "url": "https://www.geeksforgeeks.org/category/ai-ml-ds/",
+              "text": "AI-ML-DS",
+              "type": "general"
+            }
+          ]
+        }
+      },
+      "subsection_node_16_fc40686f_0": {
+        "id": "subsection_node_16_fc40686f_0",
+        "title": "Data Science",
+        "content": "Data Science",
+        "url": null,
+        "parent_id": "node_16_fc40686f",
+        "children": [],
+        "expanded": false,
+        "node_type": "subsection",
+        "metadata": {
+          "subsection_index": 0
+        }
+      },
+      "subsection_node_16_fc40686f_1": {
+        "id": "subsection_node_16_fc40686f_1",
+        "title": "AI-ML-DS",
+        "content": "AI-ML-DS",
+        "url": null,
+        "parent_id": "node_16_fc40686f",
+        "children": [],
+        "expanded": false,
+        "node_type": "subsection",
+        "metadata": {
+          "subsection_index": 1
+        }
+      },
+      "link_node_16_fc40686f_0": {
+        "id": "link_node_16_fc40686f_0",
+        "title": "Campus Training Program",
+        "content": "Link to: Campus Training Program",
+        "url": "https://www.geeksforgeeks.org/campus-training-program/",
+        "parent_id": "node_16_fc40686f",
+        "children": [],
+        "expanded": false,
+        "node_type": "link",
+        "metadata": {
+          "link_data": {
+            "url": "https://www.geeksforgeeks.org/campus-training-program/",
+            "text": "Campus Training Program",
+            "type": "general"
+          },
+          "clickable": true
+        }
+      },
+      "link_node_16_fc40686f_1": {
+        "id": "link_node_16_fc40686f_1",
+        "title": "A",
+        "content": "Link to: A",
+        "url": "https://www.geeksforgeeks.org/user/abhishek1/",
+        "parent_id": "node_16_fc40686f",
+        "children": [],
+        "expanded": false,
+        "node_type": "link",
+        "metadata": {
+          "link_data": {
+            "url": "https://www.geeksforgeeks.org/user/abhishek1/",
+            "text": "A",
+            "type": "general"
+          },
+          "clickable": true
+        }
+      },
+      "link_node_16_fc40686f_2": {
+        "id": "link_node_16_fc40686f_2",
+        "title": "abhishek1",
+        "content": "Link to: abhishek1",
+        "url": "https://www.geeksforgeeks.org/user/abhishek1/",
+        "parent_id": "node_16_fc40686f",
+        "children": [],
+        "expanded": false,
+        "node_type": "link",
+        "metadata": {
+          "link_data": {
+            "url": "https://www.geeksforgeeks.org/user/abhishek1/",
+            "text": "abhishek1",
+            "type": "general"
+          },
+          "clickable": true
+        }
+      },
+      "link_node_16_fc40686f_3": {
+        "id": "link_node_16_fc40686f_3",
+        "title": "Data Science",
+        "content": "Link to: Data Science",
+        "url": "https://www.geeksforgeeks.org/category/ai-ml-ds/data-science/",
+        "parent_id": "node_16_fc40686f",
+        "children": [],
+        "expanded": false,
+        "node_type": "link",
+        "metadata": {
+          "link_data": {
+            "url": "https://www.geeksforgeeks.org/category/ai-ml-ds/data-science/",
+            "text": "Data Science",
+            "type": "general"
+          },
+          "clickable": true
+        }
+      },
+      "link_node_16_fc40686f_4": {
+        "id": "link_node_16_fc40686f_4",
+        "title": "AI-ML-DS",
+        "content": "Link to: AI-ML-DS",
+        "url": "https://www.geeksforgeeks.org/category/ai-ml-ds/",
+        "parent_id": "node_16_fc40686f",
+        "children": [],
+        "expanded": false,
+        "node_type": "link",
+        "metadata": {
+          "link_data": {
+            "url": "https://www.geeksforgeeks.org/category/ai-ml-ds/",
+            "text": "AI-ML-DS",
+            "type": "general"
+          },
+          "clickable": true
+        }
+      },
+      "node_17_e7a429ef": {
+        "id": "node_17_e7a429ef",
+        "title": "Data",
+        "content": "Key concept: Data",
+        "url": "https://duckduckgo.com/?q=Data",
+        "parent_id": "node_1_7c739575",
+        "children": [],
+        "expanded": false,
+        "node_type": "concept",
+        "metadata": {
+          "expandable": true,
+          "concept_type": "key_term",
+          "clickable": true
+        }
+      },
+      "node_18_bb4d7b03": {
+        "id": "node_18_bb4d7b03",
+        "title": "Science",
+        "content": "Key concept: Science",
+        "url": "https://duckduckgo.com/?q=Science",
+        "parent_id": "node_1_7c739575",
+        "children": [],
+        "expanded": false,
+        "node_type": "concept",
+        "metadata": {
+          "expandable": true,
+          "concept_type": "key_term",
+          "clickable": true
+        }
+      },
+      "node_19_cfd143c7": {
+        "id": "node_19_cfd143c7",
+        "title": "Learn",
+        "content": "Key concept: Learn",
+        "url": "https://duckduckgo.com/?q=Learn",
+        "parent_id": "node_1_7c739575",
+        "children": [],
+        "expanded": false,
+        "node_type": "concept",
+        "metadata": {
+          "expandable": true,
+          "concept_type": "key_term",
+          "clickable": true
+        }
+      },
+      "node_20_39b8515c": {
+        "id": "node_20_39b8515c",
+        "title": "Learning",
+        "content": "Key concept: Learning",
+        "url": "https://duckduckgo.com/?q=Learning",
+        "parent_id": "node_1_7c739575",
+        "children": [],
+        "expanded": false,
+        "node_type": "concept",
+        "metadata": {
+          "expandable": true,
+          "concept_type": "key_term",
+          "clickable": true
+        }
+      },
+      "node_21_6549512a": {
+        "id": "node_21_6549512a",
+        "title": "Machine",
+        "content": "Key concept: Machine",
+        "url": "https://duckduckgo.com/?q=Machine",
+        "parent_id": "node_1_7c739575",
+        "children": [],
+        "expanded": false,
+        "node_type": "concept",
+        "metadata": {
+          "expandable": true,
+          "concept_type": "key_term",
+          "clickable": true
+        }
+      },
+      "node_22_841895be": {
+        "id": "node_22_841895be",
+        "title": "Tutorial",
+        "content": "Key concept: Tutorial",
+        "url": "https://duckduckgo.com/?q=Tutorial",
+        "parent_id": "node_1_7c739575",
+        "children": [],
+        "expanded": false,
+        "node_type": "concept",
+        "metadata": {
+          "expandable": true,
+          "concept_type": "key_term",
+          "clickable": true
+        }
+      },
+      "node_23_f9d24207": {
+        "id": "node_23_f9d24207",
+        "title": "Algorithm",
+        "content": "Key concept: Algorithm",
+        "url": "https://duckduckgo.com/?q=Algorithm",
+        "parent_id": "node_1_7c739575",
+        "children": [],
+        "expanded": false,
+        "node_type": "concept",
+        "metadata": {
+          "expandable": true,
+          "concept_type": "key_term",
+          "clickable": true
+        }
+      },
+      "node_24_22fda924": {
+        "id": "node_24_22fda924",
+        "title": "Analysis",
+        "content": "Key concept: Analysis",
+        "url": "https://duckduckgo.com/?q=Analysis",
+        "parent_id": "node_1_7c739575",
+        "children": [],
+        "expanded": false,
+        "node_type": "concept",
+        "metadata": {
+          "expandable": true,
+          "concept_type": "key_term",
+          "clickable": true
+        }
+      },
+      "node_25_25d78c90": {
+        "id": "node_25_25d78c90",
+        "title": "Visualization",
+        "content": "Key concept: Visualization",
+        "url": "https://duckduckgo.com/?q=Visualization",
+        "parent_id": "node_1_7c739575",
+        "children": [],
+        "expanded": false,
+        "node_type": "concept",
+        "metadata": {
+          "expandable": true,
+          "concept_type": "key_term",
+          "clickable": true
+        }
+      },
+      "node_26_a7421b2e": {
+        "id": "node_26_a7421b2e",
+        "title": "Process",
+        "content": "Key concept: Process",
+        "url": "https://duckduckgo.com/?q=Process",
+        "parent_id": "node_1_7c739575",
+        "children": [],
+        "expanded": false,
+        "node_type": "concept",
+        "metadata": {
+          "expandable": true,
+          "concept_type": "key_term",
+          "clickable": true
+        }
+      }
+    },
+    "visualization_data": {
+      "nodes": [
+        {
+          "id": "node_1_7c739575",
+          "label": "Data Science Tutorial - GeeksforGeeks",
+          "type": "root",
+          "expandable": false,
+          "expanded": false,
+          "url": "https://www.geeksforgeeks.org/data-science/data-science-for-beginners/",
+          "size": 48,
+          "color": "#FF6B6B",
+          "shape": "circle"
+        },
+        {
+          "id": "node_2_750375b9",
+          "label": "Data Science Tutorial",
+          "type": "section",
+          "expandable": true,
+          "expanded": false,
+          "url": null,
+          "size": 38,
+          "color": "#45B7D1",
+          "shape": "ellipse"
+        },
+        {
+          "id": "subsection_node_2_750375b9_0",
+          "label": "",
+          "type": "subsection",
+          "expandable": false,
+          "expanded": false,
+          "url": null,
+          "size": 26,
+          "color": "#FFEAA7",
+          "shape": "triangle"
+        },
+        {
+          "id": "subsection_node_2_750375b9_1",
+          "label": "",
+          "type": "subsection",
+          "expandable": false,
+          "expanded": false,
+          "url": null,
+          "size": 26,
+          "color": "#FFEAA7",
+          "shape": "triangle"
+        },
+        {
+          "id": "subsection_node_2_750375b9_2",
+          "label": "",
+          "type": "subsection",
+          "expandable": false,
+          "expanded": false,
+          "url": null,
+          "size": 26,
+          "color": "#FFEAA7",
+          "shape": "triangle"
+        },
+        {
+          "id": "link_node_2_750375b9_0",
+          "label": "Data Science Skillup",
+          "type": "link",
+          "expandable": false,
+          "expanded": false,
+          "url": "https://www.geeksforgeeks.org/courses/ds-16",
+          "size": 28,
+          "color": "#A8E6CF",
+          "shape": "square"
+        },
+        {
+          "id": "node_3_98520d64",
+          "label": "Tools for Data Science",
+          "type": "section",
+          "expandable": true,
+          "expanded": false,
+          "url": null,
+          "size": 36,
+          "color": "#45B7D1",
+          "shape": "ellipse"
+        },
+        {
+          "id": "subsection_node_3_98520d64_0",
+          "label": "Python for Data Science",
+          "type": "subsection",
+          "expandable": false,
+          "expanded": false,
+          "url": null,
+          "size": 26,
+          "color": "#FFEAA7",
+          "shape": "triangle"
+        },
+        {
+          "id": "subsection_node_3_98520d64_1",
+          "label": "R for Data Science",
+          "type": "subsection",
+          "expandable": false,
+          "expanded": false,
+          "url": null,
+          "size": 26,
+          "color": "#FFEAA7",
+          "shape": "triangle"
+        },
+        {
+          "id": "subsection_node_3_98520d64_2",
+          "label": "SQL for Data Science",
+          "type": "subsection",
+          "expandable": false,
+          "expanded": false,
+          "url": null,
+          "size": 26,
+          "color": "#FFEAA7",
+          "shape": "triangle"
+        },
+        {
+          "id": "link_node_3_98520d64_0",
+          "label": "Python for Data Science",
+          "type": "link",
+          "expandable": false,
+          "expanded": false,
+          "url": "https://www.geeksforgeeks.org/data-science/data-science-with-python-tutorial/",
+          "size": 28,
+          "color": "#A8E6CF",
+          "shape": "square"
+        },
+        {
+          "id": "link_node_3_98520d64_1",
+          "label": "R for Data Science",
+          "type": "link",
+          "expandable": false,
+          "expanded": false,
+          "url": "https://www.geeksforgeeks.org/r-language/r-programming-for-data-science/",
+          "size": 28,
+          "color": "#A8E6CF",
+          "shape": "square"
+        },
+        {
+          "id": "link_node_3_98520d64_2",
+          "label": "SQL for Data Science",
+          "type": "link",
+          "expandable": false,
+          "expanded": false,
+          "url": "https://www.geeksforgeeks.org/data-science/sql-for-data-science/",
+          "size": 28,
+          "color": "#A8E6CF",
+          "shape": "square"
+        },
+        {
+          "id": "node_4_e4ad6a87",
+          "label": "Mathematics for Data Science",
+          "type": "section",
+          "expandable": true,
+          "expanded": false,
+          "url": null,
+          "size": 36,
+          "color": "#45B7D1",
+          "shape": "ellipse"
+        },
+        {
+          "id": "subsection_node_4_e4ad6a87_0",
+          "label": "Mathematics for Data Science",
+          "type": "subsection",
+          "expandable": false,
+          "expanded": false,
+          "url": null,
+          "size": 26,
+          "color": "#FFEAA7",
+          "shape": "triangle"
+        },
+        {
+          "id": "subsection_node_4_e4ad6a87_1",
+          "label": "Statistics for Data Science",
+          "type": "subsection",
+          "expandable": false,
+          "expanded": false,
+          "url": null,
+          "size": 26,
+          "color": "#FFEAA7",
+          "shape": "triangle"
+        },
+        {
+          "id": "subsection_node_4_e4ad6a87_2",
+          "label": "Linear Algebra for Data Science",
+          "type": "subsection",
+          "expandable": false,
+          "expanded": false,
+          "url": null,
+          "size": 26,
+          "color": "#FFEAA7",
+          "shape": "triangle"
+        },
+        {
+          "id": "subsection_node_4_e4ad6a87_3",
+          "label": "Calculus for Data Science",
+          "type": "subsection",
+          "expandable": false,
+          "expanded": false,
+          "url": null,
+          "size": 26,
+          "color": "#FFEAA7",
+          "shape": "triangle"
+        },
+        {
+          "id": "link_node_4_e4ad6a87_0",
+          "label": "Mathematics for Data Science",
+          "type": "link",
+          "expandable": false,
+          "expanded": false,
+          "url": "https://www.geeksforgeeks.org/blogs/maths-for-data-science/",
+          "size": 28,
+          "color": "#A8E6CF",
+          "shape": "square"
+        },
+        {
+          "id": "link_node_4_e4ad6a87_1",
+          "label": "Statistics for Data Science",
+          "type": "link",
+          "expandable": false,
+          "expanded": false,
+          "url": "https://www.geeksforgeeks.org/data-science/statistics-for-data-science/",
+          "size": 28,
+          "color": "#A8E6CF",
+          "shape": "square"
+        },
+        {
+          "id": "link_node_4_e4ad6a87_2",
+          "label": "Linear Algebra for Data Science",
+          "type": "link",
+          "expandable": false,
+          "expanded": false,
+          "url": "https://www.geeksforgeeks.org/data-science/linear-algebra-required-for-data-science/",
+          "size": 28,
+          "color": "#A8E6CF",
+          "shape": "square"
+        },
+        {
+          "id": "link_node_4_e4ad6a87_3",
+          "label": "Calculus for Data Science",
+          "type": "link",
+          "expandable": false,
+          "expanded": false,
+          "url": "https://www.geeksforgeeks.org/machine-learning/role-of-differential-calculus-in-machine-learning/",
+          "size": 28,
+          "color": "#A8E6CF",
+          "shape": "square"
+        },
+        {
+          "id": "node_5_0f7fc474",
+          "label": "Data Preprocessing",
+          "type": "section",
+          "expandable": true,
+          "expanded": false,
+          "url": null,
+          "size": 36,
+          "color": "#45B7D1",
+          "shape": "ellipse"
+        },
+        {
+          "id": "subsection_node_5_0f7fc474_0",
+          "label": "What is Data Preprocessing?",
+          "type": "subsection",
+          "expandable": false,
+          "expanded": false,
+          "url": null,
+          "size": 26,
+          "color": "#FFEAA7",
+          "shape": "triangle"
+        },
+        {
+          "id": "subsection_node_5_0f7fc474_1",
+          "label": "What is Data Cleaning?",
+          "type": "subsection",
+          "expandable": false,
+          "expanded": false,
+          "url": null,
+          "size": 26,
+          "color": "#FFEAA7",
+          "shape": "triangle"
+        },
+        {
+          "id": "subsection_node_5_0f7fc474_2",
+          "label": "Handling Missing Data",
+          "type": "subsection",
+          "expandable": false,
+          "expanded": false,
+          "url": null,
+          "size": 26,
+          "color": "#FFEAA7",
+          "shape": "triangle"
+        },
+        {
+          "id": "subsection_node_5_0f7fc474_3",
+          "label": "Handling outliers",
+          "type": "subsection",
+          "expandable": false,
+          "expanded": false,
+          "url": null,
+          "size": 26,
+          "color": "#FFEAA7",
+          "shape": "triangle"
+        },
+        {
+          "id": "subsection_node_5_0f7fc474_4",
+          "label": "Feature Selection",
+          "type": "subsection",
+          "expandable": false,
+          "expanded": false,
+          "url": null,
+          "size": 26,
+          "color": "#FFEAA7",
+          "shape": "triangle"
+        },
+        {
+          "id": "subsection_node_5_0f7fc474_5",
+          "label": "Feature Engineering",
+          "type": "subsection",
+          "expandable": false,
+          "expanded": false,
+          "url": null,
+          "size": 26,
+          "color": "#FFEAA7",
+          "shape": "triangle"
+        },
+        {
+          "id": "subsection_node_5_0f7fc474_6",
+          "label": "Splitting Data into Training and Testing Sets",
+          "type": "subsection",
+          "expandable": false,
+          "expanded": false,
+          "url": null,
+          "size": 26,
+          "color": "#FFEAA7",
+          "shape": "triangle"
+        },
+        {
+          "id": "link_node_5_0f7fc474_0",
+          "label": "What is Data Preprocessing?",
+          "type": "link",
+          "expandable": false,
+          "expanded": false,
+          "url": "https://www.geeksforgeeks.org/dbms/data-preprocessing-in-data-mining/",
+          "size": 28,
+          "color": "#A8E6CF",
+          "shape": "square"
+        },
+        {
+          "id": "link_node_5_0f7fc474_1",
+          "label": "What is Data Cleaning?",
+          "type": "link",
+          "expandable": false,
+          "expanded": false,
+          "url": "https://www.geeksforgeeks.org/data-analysis/data-cleansing-introduction/",
+          "size": 28,
+          "color": "#A8E6CF",
+          "shape": "square"
+        },
+        {
+          "id": "link_node_5_0f7fc474_2",
+          "label": "Handling Missing Data",
+          "type": "link",
+          "expandable": false,
+          "expanded": false,
+          "url": "https://www.geeksforgeeks.org/machine-learning/ml-handling-missing-values/",
+          "size": 28,
+          "color": "#A8E6CF",
+          "shape": "square"
+        },
+        {
+          "id": "link_node_5_0f7fc474_3",
+          "label": "Handling outliers",
+          "type": "link",
+          "expandable": false,
+          "expanded": false,
+          "url": "https://www.geeksforgeeks.org/data-science/detect-and-remove-the-outliers-using-python/",
+          "size": 28,
+          "color": "#A8E6CF",
+          "shape": "square"
+        },
+        {
+          "id": "link_node_5_0f7fc474_4",
+          "label": "Feature Selection",
+          "type": "link",
+          "expandable": false,
+          "expanded": false,
+          "url": "https://www.geeksforgeeks.org/machine-learning/feature-selection-techniques-in-machine-learning/",
+          "size": 28,
+          "color": "#A8E6CF",
+          "shape": "square"
+        },
+        {
+          "id": "link_node_5_0f7fc474_5",
+          "label": "Feature Engineering",
+          "type": "link",
+          "expandable": false,
+          "expanded": false,
+          "url": "https://www.geeksforgeeks.org/machine-learning/ml-feature-scaling-part-2/",
+          "size": 28,
+          "color": "#A8E6CF",
+          "shape": "square"
+        },
+        {
+          "id": "link_node_5_0f7fc474_6",
+          "label": "Splitting Data into Training and Testing Sets",
+          "type": "link",
+          "expandable": false,
+          "expanded": false,
+          "url": "https://www.geeksforgeeks.org/machine-learning/how-to-split-a-dataset-into-train-and-test-sets-using-python/",
+          "size": 28,
+          "color": "#A8E6CF",
+          "shape": "square"
+        },
+        {
+          "id": "node_6_e1b8fa6a",
+          "label": "Data Analysis",
+          "type": "section",
+          "expandable": true,
+          "expanded": false,
+          "url": null,
+          "size": 36,
+          "color": "#45B7D1",
+          "shape": "ellipse"
+        },
+        {
+          "id": "subsection_node_6_e1b8fa6a_0",
+          "label": "What is Data Analysis?",
+          "type": "subsection",
+          "expandable": false,
+          "expanded": false,
+          "url": null,
+          "size": 26,
+          "color": "#FFEAA7",
+          "shape": "triangle"
+        },
+        {
+          "id": "subsection_node_6_e1b8fa6a_1",
+          "label": "Data Analysis Process",
+          "type": "subsection",
+          "expandable": false,
+          "expanded": false,
+          "url": null,
+          "size": 26,
+          "color": "#FFEAA7",
+          "shape": "triangle"
+        },
+        {
+          "id": "subsection_node_6_e1b8fa6a_2",
+          "label": "What is Exploratory Data Analysis?",
+          "type": "subsection",
+          "expandable": false,
+          "expanded": false,
+          "url": null,
+          "size": 26,
+          "color": "#FFEAA7",
+          "shape": "triangle"
+        },
+        {
+          "id": "subsection_node_6_e1b8fa6a_3",
+          "label": "Identifying correlations between features",
+          "type": "subsection",
+          "expandable": false,
+          "expanded": false,
+          "url": null,
+          "size": 26,
+          "color": "#FFEAA7",
+          "shape": "triangle"
+        },
+        {
+          "id": "subsection_node_6_e1b8fa6a_4",
+          "label": "Statistical Analysis",
+          "type": "subsection",
+          "expandable": false,
+          "expanded": false,
+          "url": null,
+          "size": 26,
+          "color": "#FFEAA7",
+          "shape": "triangle"
+        },
+        {
+          "id": "link_node_6_e1b8fa6a_0",
+          "label": "What is Data Analysis?",
+          "type": "link",
+          "expandable": false,
+          "expanded": false,
+          "url": "https://www.geeksforgeeks.org/data-analysis/what-is-data-analysis/",
+          "size": 28,
+          "color": "#A8E6CF",
+          "shape": "square"
+        },
+        {
+          "id": "link_node_6_e1b8fa6a_1",
+          "label": "Data Analysis Process",
+          "type": "link",
+          "expandable": false,
+          "expanded": false,
+          "url": "https://www.geeksforgeeks.org/data-science/six-steps-of-data-analysis-process/",
+          "size": 28,
+          "color": "#A8E6CF",
+          "shape": "square"
+        },
+        {
+          "id": "link_node_6_e1b8fa6a_2",
+          "label": "What is Exploratory Data Analysis?",
+          "type": "link",
+          "expandable": false,
+          "expanded": false,
+          "url": "https://www.geeksforgeeks.org/data-analysis/what-is-exploratory-data-analysis/",
+          "size": 28,
+          "color": "#A8E6CF",
+          "shape": "square"
+        },
+        {
+          "id": "link_node_6_e1b8fa6a_3",
+          "label": "Identifying correlations between features",
+          "type": "link",
+          "expandable": false,
+          "expanded": false,
+          "url": "https://www.geeksforgeeks.org/data-analysis/exploring-correlation-in-python/",
+          "size": 28,
+          "color": "#A8E6CF",
+          "shape": "square"
+        },
+        {
+          "id": "link_node_6_e1b8fa6a_4",
+          "label": "Statistical Analysis",
+          "type": "link",
+          "expandable": false,
+          "expanded": false,
+          "url": "https://www.geeksforgeeks.org/data-analysis/what-is-statistical-analysis/",
+          "size": 28,
+          "color": "#A8E6CF",
+          "shape": "square"
+        },
+        {
+          "id": "node_7_a23a1b98",
+          "label": "Data Visualization",
+          "type": "section",
+          "expandable": true,
+          "expanded": false,
+          "url": null,
+          "size": 36,
+          "color": "#45B7D1",
+          "shape": "ellipse"
+        },
+        {
+          "id": "subsection_node_7_a23a1b98_0",
+          "label": "What is Data Visualization?",
+          "type": "subsection",
+          "expandable": false,
+          "expanded": false,
+          "url": null,
+          "size": 26,
+          "color": "#FFEAA7",
+          "shape": "triangle"
+        },
+        {
+          "id": "subsection_node_7_a23a1b98_1",
+          "label": "Visualization with Matplotlib",
+          "type": "subsection",
+          "expandable": false,
+          "expanded": false,
+          "url": null,
+          "size": 26,
+          "color": "#FFEAA7",
+          "shape": "triangle"
+        },
+        {
+          "id": "subsection_node_7_a23a1b98_2",
+          "label": "Visualization using Seaborn",
+          "type": "subsection",
+          "expandable": false,
+          "expanded": false,
+          "url": null,
+          "size": 26,
+          "color": "#FFEAA7",
+          "shape": "triangle"
+        },
+        {
+          "id": "subsection_node_7_a23a1b98_3",
+          "label": "Visualization using Plotly",
+          "type": "subsection",
+          "expandable": false,
+          "expanded": false,
+          "url": null,
+          "size": 26,
+          "color": "#FFEAA7",
+          "shape": "triangle"
+        },
+        {
+          "id": "subsection_node_7_a23a1b98_4",
+          "label": "PowerBI",
+          "type": "subsection",
+          "expandable": false,
+          "expanded": false,
+          "url": null,
+          "size": 26,
+          "color": "#FFEAA7",
+          "shape": "triangle"
+        },
+        {
+          "id": "subsection_node_7_a23a1b98_5",
+          "label": "Tableau",
+          "type": "subsection",
+          "expandable": false,
+          "expanded": false,
+          "url": null,
+          "size": 26,
+          "color": "#FFEAA7",
+          "shape": "triangle"
+        },
+        {
+          "id": "link_node_7_a23a1b98_0",
+          "label": "What is Data Visualization?",
+          "type": "link",
+          "expandable": false,
+          "expanded": false,
+          "url": "https://www.geeksforgeeks.org/data-visualization/data-visualization-and-its-importance/",
+          "size": 28,
+          "color": "#A8E6CF",
+          "shape": "square"
+        },
+        {
+          "id": "link_node_7_a23a1b98_1",
+          "label": "Visualization with Matplotlib",
+          "type": "link",
+          "expandable": false,
+          "expanded": false,
+          "url": "https://www.geeksforgeeks.org/data-visualization/data-visualization-using-matplotlib/",
+          "size": 28,
+          "color": "#A8E6CF",
+          "shape": "square"
+        },
+        {
+          "id": "link_node_7_a23a1b98_2",
+          "label": "Visualization using Seaborn",
+          "type": "link",
+          "expandable": false,
+          "expanded": false,
+          "url": "https://www.geeksforgeeks.org/data-visualization/data-visualization-with-python-seaborn/",
+          "size": 28,
+          "color": "#A8E6CF",
+          "shape": "square"
+        },
+        {
+          "id": "link_node_7_a23a1b98_3",
+          "label": "Visualization using Plotly",
+          "type": "link",
+          "expandable": false,
+          "expanded": false,
+          "url": "https://www.geeksforgeeks.org/data-visualization/using-plotly-for-interactive-data-visualization-in-python/",
+          "size": 28,
+          "color": "#A8E6CF",
+          "shape": "square"
+        },
+        {
+          "id": "link_node_7_a23a1b98_4",
+          "label": "PowerBI",
+          "type": "link",
+          "expandable": false,
+          "expanded": false,
+          "url": "https://www.geeksforgeeks.org/power-bi/power-bi-tutorial/",
+          "size": 28,
+          "color": "#A8E6CF",
+          "shape": "square"
+        },
+        {
+          "id": "link_node_7_a23a1b98_5",
+          "label": "Tableau",
+          "type": "link",
+          "expandable": false,
+          "expanded": false,
+          "url": "https://www.geeksforgeeks.org/tableau/tableau-tutorial/",
+          "size": 28,
+          "color": "#A8E6CF",
+          "shape": "square"
+        },
+        {
+          "id": "node_8_4f730d3b",
+          "label": "Machine Learning",
+          "type": "section",
+          "expandable": true,
+          "expanded": false,
+          "url": null,
+          "size": 36,
+          "color": "#45B7D1",
+          "shape": "ellipse"
+        },
+        {
+          "id": "subsection_node_8_4f730d3b_0",
+          "label": "Machine Learning Tutorial",
+          "type": "subsection",
+          "expandable": false,
+          "expanded": false,
+          "url": null,
+          "size": 26,
+          "color": "#FFEAA7",
+          "shape": "triangle"
+        },
+        {
+          "id": "subsection_node_8_4f730d3b_1",
+          "label": "Deep Learning Tutorial",
+          "type": "subsection",
+          "expandable": false,
+          "expanded": false,
+          "url": null,
+          "size": 26,
+          "color": "#FFEAA7",
+          "shape": "triangle"
+        },
+        {
+          "id": "link_node_8_4f730d3b_0",
+          "label": "Machine Learning Tutorial",
+          "type": "link",
+          "expandable": false,
+          "expanded": false,
+          "url": "https://www.geeksforgeeks.org/machine-learning/machine-learning/",
+          "size": 28,
+          "color": "#A8E6CF",
+          "shape": "square"
+        },
+        {
+          "id": "link_node_8_4f730d3b_1",
+          "label": "Deep Learning Tutorial",
+          "type": "link",
+          "expandable": false,
+          "expanded": false,
+          "url": "https://www.geeksforgeeks.org/deep-learning/deep-learning-tutorial/",
+          "size": 28,
+          "color": "#A8E6CF",
+          "shape": "square"
+        },
+        {
+          "id": "node_9_259ce20f",
+          "label": "Data Science Projects [With Source code]",
+          "type": "section",
+          "expandable": true,
+          "expanded": false,
+          "url": null,
+          "size": 34,
+          "color": "#45B7D1",
+          "shape": "ellipse"
+        },
+        {
+          "id": "link_node_9_259ce20f_0",
+          "label": "Data Science Projects [With Source code]",
+          "type": "link",
+          "expandable": false,
+          "expanded": false,
+          "url": "https://www.geeksforgeeks.org/data-science/top-data-science-projects/",
+          "size": 28,
+          "color": "#A8E6CF",
+          "shape": "square"
+        },
+        {
+          "id": "node_10_29e4a643",
+          "label": "Careers in Data Science",
+          "type": "section",
+          "expandable": true,
+          "expanded": false,
+          "url": null,
+          "size": 36,
+          "color": "#45B7D1",
+          "shape": "ellipse"
+        },
+        {
+          "id": "subsection_node_10_29e4a643_0",
+          "label": "Data Scientist",
+          "type": "subsection",
+          "expandable": false,
+          "expanded": false,
+          "url": null,
+          "size": 26,
+          "color": "#FFEAA7",
+          "shape": "triangle"
+        },
+        {
+          "id": "subsection_node_10_29e4a643_1",
+          "label": "Data Architect",
+          "type": "subsection",
+          "expandable": false,
+          "expanded": false,
+          "url": null,
+          "size": 26,
+          "color": "#FFEAA7",
+          "shape": "triangle"
+        },
+        {
+          "id": "subsection_node_10_29e4a643_2",
+          "label": "Data Administrator",
+          "type": "subsection",
+          "expandable": false,
+          "expanded": false,
+          "url": null,
+          "size": 26,
+          "color": "#FFEAA7",
+          "shape": "triangle"
+        },
+        {
+          "id": "subsection_node_10_29e4a643_3",
+          "label": "Data Analyst",
+          "type": "subsection",
+          "expandable": false,
+          "expanded": false,
+          "url": null,
+          "size": 26,
+          "color": "#FFEAA7",
+          "shape": "triangle"
+        },
+        {
+          "id": "subsection_node_10_29e4a643_4",
+          "label": "Business Analyst",
+          "type": "subsection",
+          "expandable": false,
+          "expanded": false,
+          "url": null,
+          "size": 26,
+          "color": "#FFEAA7",
+          "shape": "triangle"
+        },
+        {
+          "id": "link_node_10_29e4a643_0",
+          "label": "Data Scientist",
+          "type": "link",
+          "expandable": false,
+          "expanded": false,
+          "url": "https://www.geeksforgeeks.org/blogs/data-scientist-roadmap/",
+          "size": 28,
+          "color": "#A8E6CF",
+          "shape": "square"
+        },
+        {
+          "id": "link_node_10_29e4a643_1",
+          "label": "Data Architect",
+          "type": "link",
+          "expandable": false,
+          "expanded": false,
+          "url": "https://www.geeksforgeeks.org/gfg-academy/data-architect-roles-skills-and-how-to-become-one-in-2024/",
+          "size": 28,
+          "color": "#A8E6CF",
+          "shape": "square"
+        },
+        {
+          "id": "link_node_10_29e4a643_2",
+          "label": "Data Administrator",
+          "type": "link",
+          "expandable": false,
+          "expanded": false,
+          "url": "https://www.geeksforgeeks.org/dbms/dba-full-form/",
+          "size": 28,
+          "color": "#A8E6CF",
+          "shape": "square"
+        },
+        {
+          "id": "link_node_10_29e4a643_3",
+          "label": "Data Analyst",
+          "type": "link",
+          "expandable": false,
+          "expanded": false,
+          "url": "https://www.geeksforgeeks.org/blogs/data-analyst-roadmap/",
+          "size": 28,
+          "color": "#A8E6CF",
+          "shape": "square"
+        },
+        {
+          "id": "link_node_10_29e4a643_4",
+          "label": "Business Analyst",
+          "type": "link",
+          "expandable": false,
+          "expanded": false,
+          "url": "https://www.geeksforgeeks.org/gfg-academy/how-to-become-a-business-analyst/",
+          "size": 28,
+          "color": "#A8E6CF",
+          "shape": "square"
+        },
+        {
+          "id": "node_11_ebb1eaf9",
+          "label": "Introduction To Data Science",
+          "type": "section",
+          "expandable": true,
+          "expanded": false,
+          "url": null,
+          "size": 36,
+          "color": "#45B7D1",
+          "shape": "ellipse"
+        },
+        {
+          "id": "node_12_3738d3e0",
+          "label": "Introduction to Linear Regression - Machine Learning",
+          "type": "section",
+          "expandable": true,
+          "expanded": false,
+          "url": null,
+          "size": 36,
+          "color": "#45B7D1",
+          "shape": "ellipse"
+        },
+        {
+          "id": "node_13_daf8b99f",
+          "label": "Naive Bayes Classifiers",
+          "type": "section",
+          "expandable": true,
+          "expanded": false,
+          "url": null,
+          "size": 36,
+          "color": "#45B7D1",
+          "shape": "ellipse"
+        },
+        {
+          "id": "node_14_d2ad6f94",
+          "label": "Decision Tree in Machine Learning",
+          "type": "section",
+          "expandable": true,
+          "expanded": false,
+          "url": null,
+          "size": 36,
+          "color": "#45B7D1",
+          "shape": "ellipse"
+        },
+        {
+          "id": "node_15_e5ffb64b",
+          "label": "Random Forest Algorithm in Machine Learning",
+          "type": "section",
+          "expandable": true,
+          "expanded": false,
+          "url": null,
+          "size": 36,
+          "color": "#45B7D1",
+          "shape": "ellipse"
+        },
+        {
+          "id": "node_16_fc40686f",
+          "label": "K-Nearest Neighbor(KNN) Algorithm in Machine Learning",
+          "type": "section",
+          "expandable": true,
+          "expanded": false,
+          "url": null,
+          "size": 36,
+          "color": "#45B7D1",
+          "shape": "ellipse"
+        },
+        {
+          "id": "subsection_node_16_fc40686f_0",
+          "label": "Data Science",
+          "type": "subsection",
+          "expandable": false,
+          "expanded": false,
+          "url": null,
+          "size": 26,
+          "color": "#FFEAA7",
+          "shape": "triangle"
+        },
+        {
+          "id": "subsection_node_16_fc40686f_1",
+          "label": "AI-ML-DS",
+          "type": "subsection",
+          "expandable": false,
+          "expanded": false,
+          "url": null,
+          "size": 26,
+          "color": "#FFEAA7",
+          "shape": "triangle"
+        },
+        {
+          "id": "link_node_16_fc40686f_0",
+          "label": "Campus Training Program",
+          "type": "link",
+          "expandable": false,
+          "expanded": false,
+          "url": "https://www.geeksforgeeks.org/campus-training-program/",
+          "size": 28,
+          "color": "#A8E6CF",
+          "shape": "square"
+        },
+        {
+          "id": "link_node_16_fc40686f_1",
+          "label": "A",
+          "type": "link",
+          "expandable": false,
+          "expanded": false,
+          "url": "https://www.geeksforgeeks.org/user/abhishek1/",
+          "size": 28,
+          "color": "#A8E6CF",
+          "shape": "square"
+        },
+        {
+          "id": "link_node_16_fc40686f_2",
+          "label": "abhishek1",
+          "type": "link",
+          "expandable": false,
+          "expanded": false,
+          "url": "https://www.geeksforgeeks.org/user/abhishek1/",
+          "size": 28,
+          "color": "#A8E6CF",
+          "shape": "square"
+        },
+        {
+          "id": "link_node_16_fc40686f_3",
+          "label": "Data Science",
+          "type": "link",
+          "expandable": false,
+          "expanded": false,
+          "url": "https://www.geeksforgeeks.org/category/ai-ml-ds/data-science/",
+          "size": 28,
+          "color": "#A8E6CF",
+          "shape": "square"
+        },
+        {
+          "id": "link_node_16_fc40686f_4",
+          "label": "AI-ML-DS",
+          "type": "link",
+          "expandable": false,
+          "expanded": false,
+          "url": "https://www.geeksforgeeks.org/category/ai-ml-ds/",
+          "size": 28,
+          "color": "#A8E6CF",
+          "shape": "square"
+        },
+        {
+          "id": "node_17_e7a429ef",
+          "label": "Data",
+          "type": "concept",
+          "expandable": true,
+          "expanded": false,
+          "url": "https://duckduckgo.com/?q=Data",
+          "size": 34,
+          "color": "#4ECDC4",
+          "shape": "box"
+        },
+        {
+          "id": "node_18_bb4d7b03",
+          "label": "Science",
+          "type": "concept",
+          "expandable": true,
+          "expanded": false,
+          "url": "https://duckduckgo.com/?q=Science",
+          "size": 34,
+          "color": "#4ECDC4",
+          "shape": "box"
+        },
+        {
+          "id": "node_19_cfd143c7",
+          "label": "Learn",
+          "type": "concept",
+          "expandable": true,
+          "expanded": false,
+          "url": "https://duckduckgo.com/?q=Learn",
+          "size": 34,
+          "color": "#4ECDC4",
+          "shape": "box"
+        },
+        {
+          "id": "node_20_39b8515c",
+          "label": "Learning",
+          "type": "concept",
+          "expandable": true,
+          "expanded": false,
+          "url": "https://duckduckgo.com/?q=Learning",
+          "size": 34,
+          "color": "#4ECDC4",
+          "shape": "box"
+        },
+        {
+          "id": "node_21_6549512a",
+          "label": "Machine",
+          "type": "concept",
+          "expandable": true,
+          "expanded": false,
+          "url": "https://duckduckgo.com/?q=Machine",
+          "size": 34,
+          "color": "#4ECDC4",
+          "shape": "box"
+        },
+        {
+          "id": "node_22_841895be",
+          "label": "Tutorial",
+          "type": "concept",
+          "expandable": true,
+          "expanded": false,
+          "url": "https://duckduckgo.com/?q=Tutorial",
+          "size": 34,
+          "color": "#4ECDC4",
+          "shape": "box"
+        },
+        {
+          "id": "node_23_f9d24207",
+          "label": "Algorithm",
+          "type": "concept",
+          "expandable": true,
+          "expanded": false,
+          "url": "https://duckduckgo.com/?q=Algorithm",
+          "size": 34,
+          "color": "#4ECDC4",
+          "shape": "box"
+        },
+        {
+          "id": "node_24_22fda924",
+          "label": "Analysis",
+          "type": "concept",
+          "expandable": true,
+          "expanded": false,
+          "url": "https://duckduckgo.com/?q=Analysis",
+          "size": 34,
+          "color": "#4ECDC4",
+          "shape": "box"
+        },
+        {
+          "id": "node_25_25d78c90",
+          "label": "Visualization",
+          "type": "concept",
+          "expandable": true,
+          "expanded": false,
+          "url": "https://duckduckgo.com/?q=Visualization",
+          "size": 34,
+          "color": "#4ECDC4",
+          "shape": "box"
+        },
+        {
+          "id": "node_26_a7421b2e",
+          "label": "Process",
+          "type": "concept",
+          "expandable": true,
+          "expanded": false,
+          "url": "https://duckduckgo.com/?q=Process",
+          "size": 34,
+          "color": "#4ECDC4",
+          "shape": "box"
+        }
+      ],
+      "edges": [
+        {
+          "from": "node_1_7c739575",
+          "to": "node_2_750375b9",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_1_7c739575",
+          "to": "node_17_e7a429ef",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_1_7c739575",
+          "to": "node_18_bb4d7b03",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_1_7c739575",
+          "to": "node_19_cfd143c7",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_1_7c739575",
+          "to": "node_20_39b8515c",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_1_7c739575",
+          "to": "node_21_6549512a",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_1_7c739575",
+          "to": "node_22_841895be",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_1_7c739575",
+          "to": "node_23_f9d24207",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_1_7c739575",
+          "to": "node_24_22fda924",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_1_7c739575",
+          "to": "node_25_25d78c90",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_1_7c739575",
+          "to": "node_26_a7421b2e",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_2_750375b9",
+          "to": "subsection_node_2_750375b9_0",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_2_750375b9",
+          "to": "subsection_node_2_750375b9_1",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_2_750375b9",
+          "to": "subsection_node_2_750375b9_2",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_2_750375b9",
+          "to": "link_node_2_750375b9_0",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_2_750375b9",
+          "to": "node_3_98520d64",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_2_750375b9",
+          "to": "node_4_e4ad6a87",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_2_750375b9",
+          "to": "node_5_0f7fc474",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_2_750375b9",
+          "to": "node_6_e1b8fa6a",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_2_750375b9",
+          "to": "node_7_a23a1b98",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_2_750375b9",
+          "to": "node_8_4f730d3b",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_2_750375b9",
+          "to": "node_10_29e4a643",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_2_750375b9",
+          "to": "node_11_ebb1eaf9",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_2_750375b9",
+          "to": "node_12_3738d3e0",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_2_750375b9",
+          "to": "node_13_daf8b99f",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_2_750375b9",
+          "to": "node_14_d2ad6f94",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_2_750375b9",
+          "to": "node_15_e5ffb64b",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_2_750375b9",
+          "to": "node_16_fc40686f",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_3_98520d64",
+          "to": "subsection_node_3_98520d64_0",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_3_98520d64",
+          "to": "subsection_node_3_98520d64_1",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_3_98520d64",
+          "to": "subsection_node_3_98520d64_2",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_3_98520d64",
+          "to": "link_node_3_98520d64_0",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_3_98520d64",
+          "to": "link_node_3_98520d64_1",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_3_98520d64",
+          "to": "link_node_3_98520d64_2",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_4_e4ad6a87",
+          "to": "subsection_node_4_e4ad6a87_0",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_4_e4ad6a87",
+          "to": "subsection_node_4_e4ad6a87_1",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_4_e4ad6a87",
+          "to": "subsection_node_4_e4ad6a87_2",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_4_e4ad6a87",
+          "to": "subsection_node_4_e4ad6a87_3",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_4_e4ad6a87",
+          "to": "link_node_4_e4ad6a87_0",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_4_e4ad6a87",
+          "to": "link_node_4_e4ad6a87_1",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_4_e4ad6a87",
+          "to": "link_node_4_e4ad6a87_2",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_4_e4ad6a87",
+          "to": "link_node_4_e4ad6a87_3",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_5_0f7fc474",
+          "to": "subsection_node_5_0f7fc474_0",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_5_0f7fc474",
+          "to": "subsection_node_5_0f7fc474_1",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_5_0f7fc474",
+          "to": "subsection_node_5_0f7fc474_2",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_5_0f7fc474",
+          "to": "subsection_node_5_0f7fc474_3",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_5_0f7fc474",
+          "to": "subsection_node_5_0f7fc474_4",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_5_0f7fc474",
+          "to": "subsection_node_5_0f7fc474_5",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_5_0f7fc474",
+          "to": "subsection_node_5_0f7fc474_6",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_5_0f7fc474",
+          "to": "link_node_5_0f7fc474_0",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_5_0f7fc474",
+          "to": "link_node_5_0f7fc474_1",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_5_0f7fc474",
+          "to": "link_node_5_0f7fc474_2",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_5_0f7fc474",
+          "to": "link_node_5_0f7fc474_3",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_5_0f7fc474",
+          "to": "link_node_5_0f7fc474_4",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_5_0f7fc474",
+          "to": "link_node_5_0f7fc474_5",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_5_0f7fc474",
+          "to": "link_node_5_0f7fc474_6",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_6_e1b8fa6a",
+          "to": "subsection_node_6_e1b8fa6a_0",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_6_e1b8fa6a",
+          "to": "subsection_node_6_e1b8fa6a_1",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_6_e1b8fa6a",
+          "to": "subsection_node_6_e1b8fa6a_2",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_6_e1b8fa6a",
+          "to": "subsection_node_6_e1b8fa6a_3",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_6_e1b8fa6a",
+          "to": "subsection_node_6_e1b8fa6a_4",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_6_e1b8fa6a",
+          "to": "link_node_6_e1b8fa6a_0",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_6_e1b8fa6a",
+          "to": "link_node_6_e1b8fa6a_1",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_6_e1b8fa6a",
+          "to": "link_node_6_e1b8fa6a_2",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_6_e1b8fa6a",
+          "to": "link_node_6_e1b8fa6a_3",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_6_e1b8fa6a",
+          "to": "link_node_6_e1b8fa6a_4",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_7_a23a1b98",
+          "to": "subsection_node_7_a23a1b98_0",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_7_a23a1b98",
+          "to": "subsection_node_7_a23a1b98_1",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_7_a23a1b98",
+          "to": "subsection_node_7_a23a1b98_2",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_7_a23a1b98",
+          "to": "subsection_node_7_a23a1b98_3",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_7_a23a1b98",
+          "to": "subsection_node_7_a23a1b98_4",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_7_a23a1b98",
+          "to": "subsection_node_7_a23a1b98_5",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_7_a23a1b98",
+          "to": "link_node_7_a23a1b98_0",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_7_a23a1b98",
+          "to": "link_node_7_a23a1b98_1",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_7_a23a1b98",
+          "to": "link_node_7_a23a1b98_2",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_7_a23a1b98",
+          "to": "link_node_7_a23a1b98_3",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_7_a23a1b98",
+          "to": "link_node_7_a23a1b98_4",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_7_a23a1b98",
+          "to": "link_node_7_a23a1b98_5",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_8_4f730d3b",
+          "to": "subsection_node_8_4f730d3b_0",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_8_4f730d3b",
+          "to": "subsection_node_8_4f730d3b_1",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_8_4f730d3b",
+          "to": "link_node_8_4f730d3b_0",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_8_4f730d3b",
+          "to": "link_node_8_4f730d3b_1",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_8_4f730d3b",
+          "to": "node_9_259ce20f",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_9_259ce20f",
+          "to": "link_node_9_259ce20f_0",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_10_29e4a643",
+          "to": "subsection_node_10_29e4a643_0",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_10_29e4a643",
+          "to": "subsection_node_10_29e4a643_1",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_10_29e4a643",
+          "to": "subsection_node_10_29e4a643_2",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_10_29e4a643",
+          "to": "subsection_node_10_29e4a643_3",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_10_29e4a643",
+          "to": "subsection_node_10_29e4a643_4",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_10_29e4a643",
+          "to": "link_node_10_29e4a643_0",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_10_29e4a643",
+          "to": "link_node_10_29e4a643_1",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_10_29e4a643",
+          "to": "link_node_10_29e4a643_2",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_10_29e4a643",
+          "to": "link_node_10_29e4a643_3",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_10_29e4a643",
+          "to": "link_node_10_29e4a643_4",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_16_fc40686f",
+          "to": "subsection_node_16_fc40686f_0",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_16_fc40686f",
+          "to": "subsection_node_16_fc40686f_1",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_16_fc40686f",
+          "to": "link_node_16_fc40686f_0",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_16_fc40686f",
+          "to": "link_node_16_fc40686f_1",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_16_fc40686f",
+          "to": "link_node_16_fc40686f_2",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_16_fc40686f",
+          "to": "link_node_16_fc40686f_3",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_16_fc40686f",
+          "to": "link_node_16_fc40686f_4",
+          "type": "hierarchy"
+        }
+      ],
+      "layout": "hierarchical",
+      "center_node": "node_1_7c739575"
+    },
+    "style_config": {
+      "layout": {
+        "hierarchical": {
+          "enabled": true,
+          "direction": "UD",
+          "sortMethod": "directed"
+        }
+      },
+      "interaction": {
+        "dragNodes": true,
+        "dragView": true,
+        "zoomView": true,
+        "selectConnectedEdges": false
+      },
+      "physics": {
+        "enabled": true,
+        "hierarchicalRepulsion": {
+          "nodeDistance": 140,
+          "centralGravity": 0.0,
+          "springLength": 120,
+          "springConstant": 0.01,
+          "damping": 0.09
+        }
+      },
+      "nodes": {
+        "borderWidth": 2,
+        "shadow": true,
+        "font": {
+          "size": 14,
+          "color": "#333333"
+        }
+      },
+      "edges": {
+        "width": 2,
+        "shadow": true,
+        "smooth": {
+          "type": "continuous"
+        }
+      }
+    }
+  },
+  "metadata": {
+    "total_links": 39,
+    "total_sections": 15,
+    "expandable_nodes": 25
+  }
+}

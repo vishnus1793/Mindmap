@@ -14,6 +14,29 @@ from sumy.nlp.tokenizers import Tokenizer
 from sumy.summarizers.lsa import LsaSummarizer
 from sumy.summarizers.text_rank import TextRankSummarizer
 
+
+# --- Abstractive Summarizer (HuggingFace) ---
+from transformers import pipeline
+
+# Load once at startup (BART or T5 works great)
+abstractive_summarizer = pipeline("summarization", model="facebook/bart-large-cnn")
+
+def abstractive_summary(text, max_length=200, min_length=60):
+    try:
+        # HuggingFace pipeline handles tokenization + generation
+        summary_list = abstractive_summarizer(
+            text[:3000],   # limit input size (models like BART/T5 have token limits ~1024-2048)
+            max_length=max_length,
+            min_length=min_length,
+            do_sample=False
+        )
+        return summary_list[0]["summary_text"]
+    except Exception as e:
+        logger.error(f"❌ Abstractive summarization failed: {e}")
+        return ""
+
+
+
 # ---------- Logging ----------
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -68,10 +91,19 @@ def algorithmic_summary(text, sentences=5, method="lsa"):
     return " ".join([str(s) for s in summary])
 
 def hybrid_summary(text):
-    """Combine LSA + TextRank for robustness"""
+    """Combine Extractive (LSA, TextRank) + Abstractive for robustness"""
     lsa_summary = algorithmic_summary(text, method="lsa")
     textrank_summary = algorithmic_summary(text, method="textrank")
-    return f"LSA: {lsa_summary}\n\nTextRank: {textrank_summary}"
+    abstractive = abstractive_summary(text)
+    
+    return f"""--- Hybrid Summary ---
+[LSA] {lsa_summary}
+
+[TextRank] {textrank_summary}
+
+[Abstractive] {abstractive}
+"""
+
 
 # ---------- API Models ----------
 class UpdateCellRequest(BaseModel):
