@@ -1,0 +1,2327 @@
+{
+  "scraped_content": {
+    "url": "https://overapi.com/",
+    "title": "OverAPI.com | Collecting all the cheat sheets",
+    "full_text": "OverAPI.com | Collecting all the cheat sheets OverAPI.com Collecting All Cheat Sheets Python jQuery NodeJS PHP Java Ruby JavaScript ActionScript CSS Git SVN MySQL RegExp Linux HTML HTML-DOM mod_rewrite Express Developer Tools >> About and Comments >> Get Chrome Extension >> A B C D E F G H I J L M N O P Q R S T U V W X Y Z A .NET ActionScript Ada ADO.NET Adobe Adobe Acrobat AJAX Algebra Apache Apache Ant Apache Camel Apache Cassandra Apache Solr apiOmat APT Arduino ASCII Astronomy ASP Assembly Language Atom AWK Azure B Bash Blender Bazaar BDB BGP Berkeley DB BIRT BlazeDS Blogger Blueprint Bowler Robotics BPEL BPM BPML Business Process Modeling C C C# C++ Calculus Camera Catalyst Characters Chef Chemistry chmod Clojure Cloud Computing CMake Cocoa ColdFusion Colour Computer Science Continuous Integration Countries CSS CUE CVS D Db2 db4o Debian Delphi Design Pattern Django Docker Doctrine Doctypes DOM DDD Domain-Driven Design DOT language Drupal Drush DTD E Eclipse Emmet Ed EJB Emacs Emoticon Encoding Erlang EIGRP Express F F# Facebook Fedora Feed File Firebug Firefox Firefox Add-ons FitNesse Flash Flash Catalyst Flex Fonts Fortran Freeware FTP First Hop Redundancy G GDB Geometry Gift Gimp Git GlassFish Gmail GoF Google Google Chrome Google Maps Google App Engine Grails Griffon Groovy Guitar GWT H Hardware Hadoop Haskell HBase Hibernate High Availability htaccess HTML HTTP I iOS7 Design Icons Illustrator IntelliJ IDEA Internet Explorer IRC IVR IEEE 802.11 IEEE 802.1X IPsec IPv4 Multicast IPv6 IS-IS J Java Java EE Java Persistence API JavaFX JavaScript JavaServer Faces JBoss JDBC Jetty jQuery JSF JSP JUnit L Languages LaTeX LaTeX-Suite less Linux Lisp Logic Lotus Domino Lua Lucene M Mac Mac OS X Machine Learning Maple Markdown Math Mathematica MathML Mathomatic MATLAB Maven Maxima MFC Microformats Microsoft Excel Microsoft Project Microsoft VS MIME mod_include mod_perl mod_rewrite Mongo Shell MooTools MSP Mule Music MVVM MySQL MediaWiki N NetBeans NMAP Node.js Numbers O Objective-C OCaml Open Source Media Framework OpenCL OpenCV OpenMP OpenSearch OpenSSH OpenVZ Oracle org-mode OS X OSPF P Perforce Perl Photoshop PHP PHP Frameworks Physics Play Framework PostgreSQL PowerShell Probability Theory Processing Prototype Python PPP Common Ports PhpStorm Q Qt Quicksilver R R Red Hat Regular Expressions Religion REST RichFaces RIP rpm RSS Ruby Ruby on Rails Rust S Sandcastle Scala Scalability Science Screen Seam Sed Selenium Sendmail ServiceMix Shell Script Silverlight Smile Social Bookmarks Solaris Spring Framework Spring Roo SQL SQL Server SQLite SSI SSL Statistics SVG SVN Sybase Symfony Symfony2 Spanning Tree Scapy T Tapestry Tcl/Tk TCP TeX Thunderbird TLDs TLS Trigonometry TTCN-3 Twitter Tcpdump U UML Ubuntu Unicode Unix UTF UnderscoreJS V Vaadin VB VBA VBScript Veritas Cluster Vi Vim VIM-LaTeX Virtualization Visual Basic VMware VoiceXML vvvv W WebGL WebMatrix Wicket Wikipedia Windows Windows Azure Windows Communication Foundation Windows Presentation Foundation Windows PowerShell WordPress World of Warcraft WS-BPEL Wireshark Display Filters X XHTML XML XML Schema XPath XSL XSLT XSS Y Yahoo Z Zen Coding (Emmet) ↑TOP",
+    "word_count": 491,
+    "sections": [],
+    "hierarchy_root": {
+      "title": "OverAPI.com | Collecting all the cheat sheets",
+      "level": 0,
+      "content": "OverAPI.com Collecting All Cheat Sheets ",
+      "subsections": [],
+      "links": [
+        {
+          "url": "https://overapi.com/python",
+          "text": "Python",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/jquery",
+          "text": "jQuery",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/nodejs",
+          "text": "NodeJS",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/php",
+          "text": "PHP",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/java",
+          "text": "Java",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/ruby",
+          "text": "Ruby",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/javascript",
+          "text": "JavaScript",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/actionscript",
+          "text": "ActionScript",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/css",
+          "text": "CSS",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/git",
+          "text": "Git",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/svn",
+          "text": "SVN",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/mysql",
+          "text": "MySQL",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/regex",
+          "text": "RegExp",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/linux",
+          "text": "Linux",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/html",
+          "text": "HTML",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/html-dom",
+          "text": "HTML-DOM",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/mod_rewrite",
+          "text": "mod_rewrite",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/express",
+          "text": "Express",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/developer-tools",
+          "text": "Developer Tools >>",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/about",
+          "text": "About and Comments >>",
+          "type": "general"
+        },
+        {
+          "url": "https://chrome.google.com/webstore/detail/all-cheat-sheets/oedodeocfdeegliepeeoieemhdgoijod",
+          "text": "Get Chrome Extension >>",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/",
+          "text": "A",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/",
+          "text": "B",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/",
+          "text": "C",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/",
+          "text": "D",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/",
+          "text": "E",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/",
+          "text": "F",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/",
+          "text": "G",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/",
+          "text": "H",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/",
+          "text": "I",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/",
+          "text": "J",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/",
+          "text": "L",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/",
+          "text": "M",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/",
+          "text": "N",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/",
+          "text": "O",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/",
+          "text": "P",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/",
+          "text": "Q",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/",
+          "text": "R",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/",
+          "text": "S",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/",
+          "text": "T",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/",
+          "text": "U",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/",
+          "text": "V",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/",
+          "text": "W",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/",
+          "text": "X",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/",
+          "text": "Y",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/",
+          "text": "Z",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/dotnet",
+          "text": ".NET",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/actionscript",
+          "text": "ActionScript",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/ada",
+          "text": "Ada",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/ado-net",
+          "text": "ADO.NET",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/adobe",
+          "text": "Adobe",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/adobe-acrobat",
+          "text": "Adobe Acrobat",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/ajax",
+          "text": "AJAX",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/algebra",
+          "text": "Algebra",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/apache",
+          "text": "Apache",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/apache-ant",
+          "text": "Apache Ant",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/apache-camel",
+          "text": "Apache Camel",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/apache-cassandra",
+          "text": "Apache Cassandra",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/apache-solr",
+          "text": "Apache Solr",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/apiomat",
+          "text": "apiOmat",
+          "type": "documentation"
+        },
+        {
+          "url": "https://overapi.com/apt",
+          "text": "APT",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/arduino",
+          "text": "Arduino",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/ascii",
+          "text": "ASCII",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/astronomy",
+          "text": "Astronomy",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/asp",
+          "text": "ASP",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/assembly",
+          "text": "Assembly Language",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/atom",
+          "text": "Atom",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/awk",
+          "text": "AWK",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/azure",
+          "text": "Azure",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/shellscript",
+          "text": "Bash",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/blender",
+          "text": "Blender",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/bazaar",
+          "text": "Bazaar",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/berkeley-db",
+          "text": "BDB",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/bgp",
+          "text": "BGP",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/berkeley-db",
+          "text": "Berkeley DB",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/birt",
+          "text": "BIRT",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/blazeds",
+          "text": "BlazeDS",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/blogger",
+          "text": "Blogger",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/blueprint",
+          "text": "Blueprint",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/bowler",
+          "text": "Bowler Robotics",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/bpel",
+          "text": "BPEL",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/bpm",
+          "text": "BPM",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/bpm",
+          "text": "BPML",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/bpm",
+          "text": "Business Process Modeling",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/c",
+          "text": "C",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/csharp",
+          "text": "C#",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/cpp",
+          "text": "C++",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/calculus",
+          "text": "Calculus",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/camera",
+          "text": "Camera",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/catalyst",
+          "text": "Catalyst",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/characters",
+          "text": "Characters",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/chef",
+          "text": "Chef",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/chemistry",
+          "text": "Chemistry",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/chmod",
+          "text": "chmod",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/clojure",
+          "text": "Clojure",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/cloud-computing",
+          "text": "Cloud Computing",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/cmake",
+          "text": "CMake",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/cocoa",
+          "text": "Cocoa",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/coldfusion",
+          "text": "ColdFusion",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/colour",
+          "text": "Colour",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/computer-science",
+          "text": "Computer Science",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/continuous-integration",
+          "text": "Continuous Integration",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/countries",
+          "text": "Countries",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/css",
+          "text": "CSS",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/cue",
+          "text": "CUE",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/cvs",
+          "text": "CVS",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/db2",
+          "text": "Db2",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/db4o",
+          "text": "db4o",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/debian",
+          "text": "Debian",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/delphi",
+          "text": "Delphi",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/design-pattern",
+          "text": "Design Pattern",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/django",
+          "text": "Django",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/docker",
+          "text": "Docker",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/doctrine",
+          "text": "Doctrine",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/doctypes",
+          "text": "Doctypes",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/html-dom",
+          "text": "DOM",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/ddd",
+          "text": "DDD",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/ddd",
+          "text": "Domain-Driven Design",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/dot-language",
+          "text": "DOT language",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/drupal",
+          "text": "Drupal",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/drush",
+          "text": "Drush",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/dtd",
+          "text": "DTD",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/eclipse",
+          "text": "Eclipse",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/emmet",
+          "text": "Emmet",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/ed",
+          "text": "Ed",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/ejb",
+          "text": "EJB",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/emacs",
+          "text": "Emacs",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/smile",
+          "text": "Emoticon",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/characters",
+          "text": "Encoding",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/erlang",
+          "text": "Erlang",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/eigrp",
+          "text": "EIGRP",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/express",
+          "text": "Express",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/fsharp",
+          "text": "F#",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/facebook",
+          "text": "Facebook",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/fedora",
+          "text": "Fedora",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/atom",
+          "text": "Feed",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/file",
+          "text": "File",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/firebug",
+          "text": "Firebug",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/firefox",
+          "text": "Firefox",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/firefox-add-ons",
+          "text": "Firefox Add-ons",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/fitnesse",
+          "text": "FitNesse",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/flash",
+          "text": "Flash",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/flash-catalyst",
+          "text": "Flash Catalyst",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/flex",
+          "text": "Flex",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/fonts",
+          "text": "Fonts",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/fortran",
+          "text": "Fortran",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/freeware",
+          "text": "Freeware",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/ftp",
+          "text": "FTP",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/first-hop-redundancy",
+          "text": "First Hop Redundancy",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/gdb",
+          "text": "GDB",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/geometry",
+          "text": "Geometry",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/gift",
+          "text": "Gift",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/gimp",
+          "text": "Gimp",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/git",
+          "text": "Git",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/glassfish",
+          "text": "GlassFish",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/gmail",
+          "text": "Gmail",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/design-pattern",
+          "text": "GoF",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/google",
+          "text": "Google",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/google-chrome",
+          "text": "Google Chrome",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/google-maps",
+          "text": "Google Maps",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/google-app-engine",
+          "text": "Google App Engine",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/grails",
+          "text": "Grails",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/griffon",
+          "text": "Griffon",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/groovy",
+          "text": "Groovy",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/guitar",
+          "text": "Guitar",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/gwt",
+          "text": "GWT",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/hardware",
+          "text": "Hardware",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/hadoop",
+          "text": "Hadoop",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/haskell",
+          "text": "Haskell",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/hbase",
+          "text": "HBase",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/hibernate",
+          "text": "Hibernate",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/scalability",
+          "text": "High Availability",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/htaccess",
+          "text": "htaccess",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/html",
+          "text": "HTML",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/http",
+          "text": "HTTP",
+          "type": "general"
+        },
+        {
+          "url": "http://ivomynttinen.com/blog/the-ios-7-design-cheat-sheet",
+          "text": "iOS7 Design",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/icons",
+          "text": "Icons",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/illustrator",
+          "text": "Illustrator",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/intellij-idea",
+          "text": "IntelliJ IDEA",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/ie",
+          "text": "Internet Explorer",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/irc",
+          "text": "IRC",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/ivr",
+          "text": "IVR",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/ieee80211",
+          "text": "IEEE 802.11",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/ieee8021x",
+          "text": "IEEE 802.1X",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/ipsec",
+          "text": "IPsec",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/ipv4",
+          "text": "IPv4 Multicast",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/ipv6",
+          "text": "IPv6",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/is-is",
+          "text": "IS-IS",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/java",
+          "text": "Java",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/javaee",
+          "text": "Java EE",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/jpa",
+          "text": "Java Persistence API",
+          "type": "documentation"
+        },
+        {
+          "url": "https://overapi.com/javafx",
+          "text": "JavaFX",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/javascript",
+          "text": "JavaScript",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/jsf",
+          "text": "JavaServer Faces",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/jboss",
+          "text": "JBoss",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/jdbc",
+          "text": "JDBC",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/jetty",
+          "text": "Jetty",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/jquery",
+          "text": "jQuery",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/jsf",
+          "text": "JSF",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/jsp",
+          "text": "JSP",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/junit",
+          "text": "JUnit",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/languages",
+          "text": "Languages",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/latex",
+          "text": "LaTeX",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/latex-suite",
+          "text": "LaTeX-Suite",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/less",
+          "text": "less",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/linux",
+          "text": "Linux",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/lisp",
+          "text": "Lisp",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/logic",
+          "text": "Logic",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/lotus-domino",
+          "text": "Lotus Domino",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/lua",
+          "text": "Lua",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/lucene",
+          "text": "Lucene",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/mac",
+          "text": "Mac",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/osx",
+          "text": "Mac OS X",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/machine-learning",
+          "text": "Machine Learning",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/maple",
+          "text": "Maple",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/markdown",
+          "text": "Markdown",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/math",
+          "text": "Math",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/mathematica",
+          "text": "Mathematica",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/mathml",
+          "text": "MathML",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/mathomatic",
+          "text": "Mathomatic",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/matlab",
+          "text": "MATLAB",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/maven",
+          "text": "Maven",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/maxima",
+          "text": "Maxima",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/mfc",
+          "text": "MFC",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/microformats",
+          "text": "Microformats",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/microsoft-excel",
+          "text": "Microsoft Excel",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/msp",
+          "text": "Microsoft Project",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/microsoft-visual-studio",
+          "text": "Microsoft VS",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/mime",
+          "text": "MIME",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/ssi",
+          "text": "mod_include",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/mod_perl",
+          "text": "mod_perl",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/mod_rewrite",
+          "text": "mod_rewrite",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/mongo-shell",
+          "text": "Mongo Shell",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/mootools",
+          "text": "MooTools",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/msp",
+          "text": "MSP",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/mule",
+          "text": "Mule",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/music",
+          "text": "Music",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/mvvm",
+          "text": "MVVM",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/mysql",
+          "text": "MySQL",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/mediawiki",
+          "text": "MediaWiki",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/netbeans",
+          "text": "NetBeans",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/nmap",
+          "text": "NMAP",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/nodejs",
+          "text": "Node.js",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/numbers",
+          "text": "Numbers",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/objective-c",
+          "text": "Objective-C",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/ocaml",
+          "text": "OCaml",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/osmf",
+          "text": "Open Source Media Framework",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/opencl",
+          "text": "OpenCL",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/opencv",
+          "text": "OpenCV",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/openmp",
+          "text": "OpenMP",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/opensearch",
+          "text": "OpenSearch",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/openssh",
+          "text": "OpenSSH",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/openvz",
+          "text": "OpenVZ",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/oracle",
+          "text": "Oracle",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/org-mode",
+          "text": "org-mode",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/osx",
+          "text": "OS X",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/ospf",
+          "text": "OSPF",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/perforce",
+          "text": "Perforce",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/perl",
+          "text": "Perl",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/photoshop",
+          "text": "Photoshop",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/php",
+          "text": "PHP",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/php-frameworks",
+          "text": "PHP Frameworks",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/physics",
+          "text": "Physics",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/play-framework",
+          "text": "Play Framework",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/postgresql",
+          "text": "PostgreSQL",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/windows-powershell",
+          "text": "PowerShell",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/probability-theory",
+          "text": "Probability Theory",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/processing",
+          "text": "Processing",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/prototype",
+          "text": "Prototype",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/python",
+          "text": "Python",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/ppp",
+          "text": "PPP",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/ports",
+          "text": "Common Ports",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/phpstorm",
+          "text": "PhpStorm",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/qt",
+          "text": "Qt",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/quicksilver",
+          "text": "Quicksilver",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/r",
+          "text": "R",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/redhat",
+          "text": "Red Hat",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/regex",
+          "text": "Regular Expressions",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/religion",
+          "text": "Religion",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/rest",
+          "text": "REST",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/richfaces",
+          "text": "RichFaces",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/rip",
+          "text": "RIP",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/rpm",
+          "text": "rpm",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/atom",
+          "text": "RSS",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/ruby",
+          "text": "Ruby",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/rubyrails",
+          "text": "Ruby on Rails",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/rust",
+          "text": "Rust",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/sandcastle",
+          "text": "Sandcastle",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/scala",
+          "text": "Scala",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/scalability",
+          "text": "Scalability",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/science",
+          "text": "Science",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/screen",
+          "text": "Screen",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/seam",
+          "text": "Seam",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/sed",
+          "text": "Sed",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/selenium",
+          "text": "Selenium",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/sendmail",
+          "text": "Sendmail",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/servicemix",
+          "text": "ServiceMix",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/shellscript",
+          "text": "Shell Script",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/silverlight",
+          "text": "Silverlight",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/smile",
+          "text": "Smile",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/social-bookmarks",
+          "text": "Social Bookmarks",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/solaris",
+          "text": "Solaris",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/spring",
+          "text": "Spring Framework",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/springroo",
+          "text": "Spring Roo",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/sql",
+          "text": "SQL",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/sqlserver",
+          "text": "SQL Server",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/sqlite",
+          "text": "SQLite",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/ssi",
+          "text": "SSI",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/tls",
+          "text": "SSL",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/statistics",
+          "text": "Statistics",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/svg",
+          "text": "SVG",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/svn",
+          "text": "SVN",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/sybase",
+          "text": "Sybase",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/symfony",
+          "text": "Symfony",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/symfony2",
+          "text": "Symfony2",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/spanning-tree",
+          "text": "Spanning Tree",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/scapy",
+          "text": "Scapy",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/tapestry",
+          "text": "Tapestry",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/tcltk",
+          "text": "Tcl/Tk",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/tcp",
+          "text": "TCP",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/tex",
+          "text": "TeX",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/thunderbird",
+          "text": "Thunderbird",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/tlds",
+          "text": "TLDs",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/tls",
+          "text": "TLS",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/trigonometry",
+          "text": "Trigonometry",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/ttcn-3",
+          "text": "TTCN-3",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/twitter",
+          "text": "Twitter",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/tcpdump",
+          "text": "Tcpdump",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/uml",
+          "text": "UML",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/ubuntu",
+          "text": "Ubuntu",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/unicode",
+          "text": "Unicode",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/unix",
+          "text": "Unix",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/unicode",
+          "text": "UTF",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/underscorejs",
+          "text": "UnderscoreJS",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/vaadin",
+          "text": "Vaadin",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/visualbasic",
+          "text": "VB",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/microsoft-excel",
+          "text": "VBA",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/vbscript",
+          "text": "VBScript",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/vcs",
+          "text": "Veritas Cluster",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/vi",
+          "text": "Vi",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/vim",
+          "text": "Vim",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/latex-suite",
+          "text": "VIM-LaTeX",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/virtualization",
+          "text": "Virtualization",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/visualbasic",
+          "text": "Visual Basic",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/vmware",
+          "text": "VMware",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/voicexml",
+          "text": "VoiceXML",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/vvvv",
+          "text": "vvvv",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/webgl",
+          "text": "WebGL",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/webmatrix",
+          "text": "WebMatrix",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/wicket",
+          "text": "Wicket",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/wikipedia",
+          "text": "Wikipedia",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/windows",
+          "text": "Windows",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/azure",
+          "text": "Windows Azure",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/wcf",
+          "text": "Windows Communication Foundation",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/wpf",
+          "text": "Windows Presentation Foundation",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/windows-powershell",
+          "text": "Windows PowerShell",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/wordpress",
+          "text": "WordPress",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/wow",
+          "text": "World of Warcraft",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/bpel",
+          "text": "WS-BPEL",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/wireshark-display-filters",
+          "text": "Wireshark Display Filters",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/xhtml",
+          "text": "XHTML",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/xml",
+          "text": "XML",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/xml-schema",
+          "text": "XML Schema",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/xpath",
+          "text": "XPath",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/xsl",
+          "text": "XSL",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/xslt",
+          "text": "XSLT",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/xss",
+          "text": "XSS",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/yahoo",
+          "text": "Yahoo",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/emmet",
+          "text": "Zen Coding (Emmet)",
+          "type": "general"
+        },
+        {
+          "url": "https://overapi.com/",
+          "text": "↑TOP",
+          "type": "general"
+        }
+      ],
+      "children": []
+    },
+    "links": [],
+    "images": []
+  },
+  "summary": {
+    "summary": "- OverAPI.com | Collecting all the cheat sheets OverAPI.com Collecting All Cheat Sheets Python jQuery NodeJS PHP Java Ruby JavaScript ActionScript CSS Git SVN MySQL RegExp Linux HTML HTML-DOM mod_rewrite Express Developer Tools >> About and C...",
+    "summary_bullets": [
+      "OverAPI.com | Collecting all the cheat sheets OverAPI.com Collecting All Cheat Sheets Python jQuery NodeJS PHP Java Ruby JavaScript ActionScript CSS Git SVN MySQL RegExp Linux HTML HTML-DOM mod_rewrite Express Developer Tools >> About and C..."
+    ],
+    "key_concepts": [
+      "Java",
+      "Sheets",
+      "Collecting",
+      "Cheat",
+      "Open",
+      "Overapi.Com",
+      "Overapi",
+      "Script",
+      "Windows",
+      "Apache",
+      "Shell"
+    ],
+    "method": "nltk_extractive_bullets"
+  },
+  "mind_maps": {
+    "visual": "\n                  ╔═════════════════════════════════════════════════╗\n                  ║ OVERAPI.COM | COLLECTING ALL THE CHEAT SHEETS ║\n                  ╚═════════════════════════════════════════════════╝\n\n                                        │\n                                   ┌─────┴─────┐\n├── 🔹 Java                          │\n│                                   ├── 🔹 Sheets\n├── 🔹 Collecting                    │\n│                                   ├── 🔹 Cheat\n├── 🔹 Open                          │\n│                                   ├── 🔹 Overapi.Com\n├── 🔹 Overapi                       │\n│                                   ├── 🔹 Script",
+    "network": "🌐 OverAPI.com | Collecting all the cheat sheets\n│\n├── 📊 Key Concepts\n│ ├── 🔸 Java\n│ ├── 🔸 Sheets\n│ ├── 🔸 Collecting\n│ ├── 🔸 Cheat\n│ ├── 🔸 Open\n│ ├── 🔸 Overapi.Com",
+    "hierarchical": "🌳 OverAPI.com | Collecting all the cheat sheets\n│\n├── 🍃 Java\n├── 🍃 Sheets\n├── 🍃 Collecting\n├── 🍃 Cheat\n├── 🍃 Open\n├── 🍃 Overapi.Com\n├── 🍃 Overapi\n├── 🍃 Script\n├── 🍃 Windows\n├── 🍃 Apache\n└── 🍃 Shell"
+  },
+  "interactive_mindmap": {
+    "root_node": {
+      "id": "node_1_b8d17927",
+      "title": "OverAPI.com | Collecting all the cheat sheets",
+      "content": "- OverAPI.com | Collecting all the cheat sheets OverAPI.com Collecting All Cheat Sheets Python jQuery NodeJS PHP Java Ruby JavaScript ActionScript CSS Git SVN MySQL RegExp Linux HTML HTML-DOM mod_rewrite Express Developer Tools >> About and C...",
+      "url": "https://overapi.com/",
+      "parent_id": null,
+      "children": [
+        "node_2_7a13457a",
+        "node_3_c10ea183",
+        "node_4_0d15b953",
+        "node_5_38ed7ce3",
+        "node_6_8d067590",
+        "node_7_38f9c8c3",
+        "node_8_5f7f4b3a",
+        "node_9_1061a25b",
+        "node_10_5de5f47c",
+        "node_11_56b9cbee"
+      ],
+      "expanded": false,
+      "node_type": "root",
+      "metadata": {
+        "word_count": 491,
+        "section_count": 0,
+        "link_count": 0,
+        "expandable": false
+      }
+    },
+    "nodes": {
+      "node_1_b8d17927": {
+        "id": "node_1_b8d17927",
+        "title": "OverAPI.com | Collecting all the cheat sheets",
+        "content": "- OverAPI.com | Collecting all the cheat sheets OverAPI.com Collecting All Cheat Sheets Python jQuery NodeJS PHP Java Ruby JavaScript ActionScript CSS Git SVN MySQL RegExp Linux HTML HTML-DOM mod_rewrite Express Developer Tools >> About and C...",
+        "url": "https://overapi.com/",
+        "parent_id": null,
+        "children": [
+          "node_2_7a13457a",
+          "node_3_c10ea183",
+          "node_4_0d15b953",
+          "node_5_38ed7ce3",
+          "node_6_8d067590",
+          "node_7_38f9c8c3",
+          "node_8_5f7f4b3a",
+          "node_9_1061a25b",
+          "node_10_5de5f47c",
+          "node_11_56b9cbee"
+        ],
+        "expanded": false,
+        "node_type": "root",
+        "metadata": {
+          "word_count": 491,
+          "section_count": 0,
+          "link_count": 0,
+          "expandable": false
+        }
+      },
+      "node_2_7a13457a": {
+        "id": "node_2_7a13457a",
+        "title": "Java",
+        "content": "Key concept: Java",
+        "url": "https://duckduckgo.com/?q=Java",
+        "parent_id": "node_1_b8d17927",
+        "children": [],
+        "expanded": false,
+        "node_type": "concept",
+        "metadata": {
+          "expandable": true,
+          "concept_type": "key_term",
+          "clickable": true
+        }
+      },
+      "node_3_c10ea183": {
+        "id": "node_3_c10ea183",
+        "title": "Sheets",
+        "content": "Key concept: Sheets",
+        "url": "https://duckduckgo.com/?q=Sheets",
+        "parent_id": "node_1_b8d17927",
+        "children": [],
+        "expanded": false,
+        "node_type": "concept",
+        "metadata": {
+          "expandable": true,
+          "concept_type": "key_term",
+          "clickable": true
+        }
+      },
+      "node_4_0d15b953": {
+        "id": "node_4_0d15b953",
+        "title": "Collecting",
+        "content": "Key concept: Collecting",
+        "url": "https://duckduckgo.com/?q=Collecting",
+        "parent_id": "node_1_b8d17927",
+        "children": [],
+        "expanded": false,
+        "node_type": "concept",
+        "metadata": {
+          "expandable": true,
+          "concept_type": "key_term",
+          "clickable": true
+        }
+      },
+      "node_5_38ed7ce3": {
+        "id": "node_5_38ed7ce3",
+        "title": "Cheat",
+        "content": "Key concept: Cheat",
+        "url": "https://duckduckgo.com/?q=Cheat",
+        "parent_id": "node_1_b8d17927",
+        "children": [],
+        "expanded": false,
+        "node_type": "concept",
+        "metadata": {
+          "expandable": true,
+          "concept_type": "key_term",
+          "clickable": true
+        }
+      },
+      "node_6_8d067590": {
+        "id": "node_6_8d067590",
+        "title": "Open",
+        "content": "Key concept: Open",
+        "url": "https://duckduckgo.com/?q=Open",
+        "parent_id": "node_1_b8d17927",
+        "children": [],
+        "expanded": false,
+        "node_type": "concept",
+        "metadata": {
+          "expandable": true,
+          "concept_type": "key_term",
+          "clickable": true
+        }
+      },
+      "node_7_38f9c8c3": {
+        "id": "node_7_38f9c8c3",
+        "title": "Overapi.Com",
+        "content": "Key concept: Overapi.Com",
+        "url": "https://duckduckgo.com/?q=Overapi.Com",
+        "parent_id": "node_1_b8d17927",
+        "children": [],
+        "expanded": false,
+        "node_type": "concept",
+        "metadata": {
+          "expandable": true,
+          "concept_type": "key_term",
+          "clickable": true
+        }
+      },
+      "node_8_5f7f4b3a": {
+        "id": "node_8_5f7f4b3a",
+        "title": "Overapi",
+        "content": "Key concept: Overapi",
+        "url": "https://duckduckgo.com/?q=Overapi",
+        "parent_id": "node_1_b8d17927",
+        "children": [],
+        "expanded": false,
+        "node_type": "concept",
+        "metadata": {
+          "expandable": true,
+          "concept_type": "key_term",
+          "clickable": true
+        }
+      },
+      "node_9_1061a25b": {
+        "id": "node_9_1061a25b",
+        "title": "Script",
+        "content": "Key concept: Script",
+        "url": "https://duckduckgo.com/?q=Script",
+        "parent_id": "node_1_b8d17927",
+        "children": [],
+        "expanded": false,
+        "node_type": "concept",
+        "metadata": {
+          "expandable": true,
+          "concept_type": "key_term",
+          "clickable": true
+        }
+      },
+      "node_10_5de5f47c": {
+        "id": "node_10_5de5f47c",
+        "title": "Windows",
+        "content": "Key concept: Windows",
+        "url": "https://duckduckgo.com/?q=Windows",
+        "parent_id": "node_1_b8d17927",
+        "children": [],
+        "expanded": false,
+        "node_type": "concept",
+        "metadata": {
+          "expandable": true,
+          "concept_type": "key_term",
+          "clickable": true
+        }
+      },
+      "node_11_56b9cbee": {
+        "id": "node_11_56b9cbee",
+        "title": "Apache",
+        "content": "Key concept: Apache",
+        "url": "https://duckduckgo.com/?q=Apache",
+        "parent_id": "node_1_b8d17927",
+        "children": [],
+        "expanded": false,
+        "node_type": "concept",
+        "metadata": {
+          "expandable": true,
+          "concept_type": "key_term",
+          "clickable": true
+        }
+      }
+    },
+    "visualization_data": {
+      "nodes": [
+        {
+          "id": "node_1_b8d17927",
+          "label": "OverAPI.com | Collecting all the cheat sheets",
+          "type": "root",
+          "expandable": false,
+          "expanded": false,
+          "url": "https://overapi.com/",
+          "size": 48,
+          "color": "#FF6B6B",
+          "shape": "circle"
+        },
+        {
+          "id": "node_2_7a13457a",
+          "label": "Java",
+          "type": "concept",
+          "expandable": true,
+          "expanded": false,
+          "url": "https://duckduckgo.com/?q=Java",
+          "size": 34,
+          "color": "#4ECDC4",
+          "shape": "box"
+        },
+        {
+          "id": "node_3_c10ea183",
+          "label": "Sheets",
+          "type": "concept",
+          "expandable": true,
+          "expanded": false,
+          "url": "https://duckduckgo.com/?q=Sheets",
+          "size": 34,
+          "color": "#4ECDC4",
+          "shape": "box"
+        },
+        {
+          "id": "node_4_0d15b953",
+          "label": "Collecting",
+          "type": "concept",
+          "expandable": true,
+          "expanded": false,
+          "url": "https://duckduckgo.com/?q=Collecting",
+          "size": 34,
+          "color": "#4ECDC4",
+          "shape": "box"
+        },
+        {
+          "id": "node_5_38ed7ce3",
+          "label": "Cheat",
+          "type": "concept",
+          "expandable": true,
+          "expanded": false,
+          "url": "https://duckduckgo.com/?q=Cheat",
+          "size": 34,
+          "color": "#4ECDC4",
+          "shape": "box"
+        },
+        {
+          "id": "node_6_8d067590",
+          "label": "Open",
+          "type": "concept",
+          "expandable": true,
+          "expanded": false,
+          "url": "https://duckduckgo.com/?q=Open",
+          "size": 34,
+          "color": "#4ECDC4",
+          "shape": "box"
+        },
+        {
+          "id": "node_7_38f9c8c3",
+          "label": "Overapi.Com",
+          "type": "concept",
+          "expandable": true,
+          "expanded": false,
+          "url": "https://duckduckgo.com/?q=Overapi.Com",
+          "size": 34,
+          "color": "#4ECDC4",
+          "shape": "box"
+        },
+        {
+          "id": "node_8_5f7f4b3a",
+          "label": "Overapi",
+          "type": "concept",
+          "expandable": true,
+          "expanded": false,
+          "url": "https://duckduckgo.com/?q=Overapi",
+          "size": 34,
+          "color": "#4ECDC4",
+          "shape": "box"
+        },
+        {
+          "id": "node_9_1061a25b",
+          "label": "Script",
+          "type": "concept",
+          "expandable": true,
+          "expanded": false,
+          "url": "https://duckduckgo.com/?q=Script",
+          "size": 34,
+          "color": "#4ECDC4",
+          "shape": "box"
+        },
+        {
+          "id": "node_10_5de5f47c",
+          "label": "Windows",
+          "type": "concept",
+          "expandable": true,
+          "expanded": false,
+          "url": "https://duckduckgo.com/?q=Windows",
+          "size": 34,
+          "color": "#4ECDC4",
+          "shape": "box"
+        },
+        {
+          "id": "node_11_56b9cbee",
+          "label": "Apache",
+          "type": "concept",
+          "expandable": true,
+          "expanded": false,
+          "url": "https://duckduckgo.com/?q=Apache",
+          "size": 34,
+          "color": "#4ECDC4",
+          "shape": "box"
+        }
+      ],
+      "edges": [
+        {
+          "from": "node_1_b8d17927",
+          "to": "node_2_7a13457a",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_1_b8d17927",
+          "to": "node_3_c10ea183",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_1_b8d17927",
+          "to": "node_4_0d15b953",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_1_b8d17927",
+          "to": "node_5_38ed7ce3",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_1_b8d17927",
+          "to": "node_6_8d067590",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_1_b8d17927",
+          "to": "node_7_38f9c8c3",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_1_b8d17927",
+          "to": "node_8_5f7f4b3a",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_1_b8d17927",
+          "to": "node_9_1061a25b",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_1_b8d17927",
+          "to": "node_10_5de5f47c",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_1_b8d17927",
+          "to": "node_11_56b9cbee",
+          "type": "hierarchy"
+        }
+      ],
+      "layout": "hierarchical",
+      "center_node": "node_1_b8d17927"
+    },
+    "style_config": {
+      "layout": {
+        "hierarchical": {
+          "enabled": true,
+          "direction": "UD",
+          "sortMethod": "directed"
+        }
+      },
+      "interaction": {
+        "dragNodes": true,
+        "dragView": true,
+        "zoomView": true,
+        "selectConnectedEdges": false
+      },
+      "physics": {
+        "enabled": true,
+        "hierarchicalRepulsion": {
+          "nodeDistance": 140,
+          "centralGravity": 0.0,
+          "springLength": 120,
+          "springConstant": 0.01,
+          "damping": 0.09
+        }
+      },
+      "nodes": {
+        "borderWidth": 2,
+        "shadow": true,
+        "font": {
+          "size": 14,
+          "color": "#333333"
+        }
+      },
+      "edges": {
+        "width": 2,
+        "shadow": true,
+        "smooth": {
+          "type": "continuous"
+        }
+      }
+    }
+  },
+  "metadata": {
+    "total_links": 0,
+    "total_sections": 0,
+    "expandable_nodes": 10
+  }
+}

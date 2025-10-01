@@ -1,0 +1,1378 @@
+{
+  "scraped_content": {
+    "url": "https://www.techtarget.com/searchnetworking/quiz/Study-for-the-CompTIA-Network-exam-with-this-practice-quiz",
+    "title": "Study for the CompTIA Network+ exam with this practice quiz | TechTarget",
+    "full_text": "Study for the CompTIA Network+ exam with this practice quiz | TechTarget Home Networking careers and certifications Getty Images/iStockphoto By Damon Garn, Cogspinner Coaction Published: 24 Sep 2025 CompTIA's Network+ certification is foundational for networking professionals. The N10-009 exam assesses a candidate's ability to identify common networking components, protocols and services. Test-takers have 90 minutes to complete the exam, which consists of a maximum of 90 questions. The current exam version is V9. CompTIA breaks the exam down into the following domains: Networking concepts (23%). Network implementation (20%). Network operations (19%). Network security (14%). Network troubleshooting (24%). Network concepts include the OSI model and elements of the TCP/IP stack. In addition, it covers IPv4 addressing and network appliances -- such as switches, routers, load balancers and more. It also introduces cloud models, network topologies, network media and traffic types. The network implementation domain focuses on switching and routing technologies, along with their physical installation and power requirements. It also defines wireless networking. Network operations is a broad topic that covers documentation, lifecycle management, change and configuration management, monitoring and disaster recovery. It also covers network services such as Dynamic Host Configuration Protocol, DNS and Network Time Protocol. Finally, candidates will face questions relating to secure access, such as Secure Shell (SSH) and VPNs. The exam pays significant attention to network security, with extensive focus on logical security, physical security, terminology and defense strategies. Network segmentation methods are also important to know. Finally, test-takers need to identify various types of attacks, including DDoS, virtual LAN (VLAN) hopping, MAC flooding, DNS poisoning and others. Network availability is essential in today's hybrid on-premises and cloud environments. Troubleshooting physical, media, and protocol issues is spotlighted in this domain. Candidates must also be ready to apply the CompTIA Troubleshooting Model to network service and performance issues. Ready to test your knowledge? Take the sample quiz below. Damon Garn owns Cogspinner Coaction and provides freelance IT writing and editing services. He has written multiple CompTIA study guides, including the Linux+, Cloud Essentials+ and Server+ guides, and contributes extensively to Informa TechTarget, The New Stack and CompTIA Blogs. Dig Deeper on Networking careers and certifications Prepare for the CompTIA CloudNetX certification By: Damon Garn Cisco CCNA practice test: Try these 20 exam questions By: Staff report Compare CompTIA Cloud+ vs Cloud Essentials+ certifications By: Damon Garn What to expect from CompTIA Cloud+ CV0-004 certification By: Damon Garn Search Unified Communications Redesigning workspaces for the return to office As more employees begin to trickle back to the office, it's time for companies to reassess their workspace and meeting room ... Avaya, Mitel bet on hybrid on-premises unified communications Avaya and Mitel's restructuring does not spell the end of on-premises unified communications. Hybrid models remain key for many ... Navigating 911 compliance in the hybrid workplace Companies find it challenging to comply with 911 regulations. Learn how you can minimize risk and ensure your workforce remains ... Search Mobile Computing Best mobile antivirus software for the enterprise Antivirus protection is a built-in feature on most desktop computers, but what about mobile devices? Many smartphones need the ... How to prevent and remove mobile spyware Mobile devices can store a lot of data, from sensitive user information to work apps and files. Mobile spyware gives bad actors ... What Android security threats should IT know about? IT must understand the nature of the most recent Android security issues to protect users. Learn the current top threats and ... Search Data Center Maximizing water recycling in modern data center design As water scarcity concerns rise, data centers are attempting to reduce their water footprint by recycling water through ... How to use Vim in Linux This tutorial explains basic functions and commands used in Vim to complete simple tasks. Follow along to learn some beginner ... How to use ChatGPT in mainframe modernization ChatGPT can help IT admins manage mainframe applications by converting, optimizing and improving code. It can also create ... Search ITChannel Geography, skills drive IT Services M&A for Presidio, Accenture Presidio has acquired transACT Technology Solutions, a digital transformation specialist based in the United Kingdom, while ... Consultants, SIs back AWS agentic AI marketplace launch Accenture, Cognizant and Deloitte are among the partners with offerings on AWS' AI Agents and Tools marketplace, which is ... Partners begin to target agentic AI marketplace platforms Cloud marketplaces are emerging as key venues for adoption of AI agents. Consultants and integrators aim to offer the technology ... Close",
+    "word_count": 747,
+    "sections": [
+      {
+        "title": "Dig Deeper on Networking careers and certifications",
+        "content": "",
+        "level": 4,
+        "subsections": [
+          "Prepare for the CompTIA CloudNetX certification\n\n\n\n\nBy: Damon Garn",
+          "Cisco CCNA practice test: Try these 20 exam questions\n\nBy: Staff report",
+          "Compare CompTIA Cloud+ vs Cloud Essentials+ certifications\n\n\n\n\nBy: Damon Garn",
+          "What to expect from CompTIA Cloud+ CV0-004 certification\n\n\n\n\nBy: Damon Garn"
+        ],
+        "links": [
+          {
+            "url": "https://www.techtarget.com/searchcloudcomputing/tip/Prepare-for-the-CompTIA-CloudNetX-certification",
+            "text": "Prepare for the CompTIA CloudNetX certification\n\n\n\n\nBy: Damon Garn",
+            "type": "general"
+          }
+        ]
+      },
+      {
+        "title": "Prepare for the CompTIA CloudNetX certification",
+        "content": "",
+        "level": 5,
+        "subsections": [],
+        "links": [
+          {
+            "url": "https://www.techtarget.com/searchnetworking/quiz/Cisco-CCNA-exam-Are-you-ready-Take-this-10-question-quiz-to-find-out",
+            "text": "Cisco CCNA practice test: Try these 20 exam questions\n\nBy: Staff report",
+            "type": "general"
+          }
+        ]
+      },
+      {
+        "title": "Cisco CCNA practice test: Try these 20 exam questions",
+        "content": "",
+        "level": 5,
+        "subsections": [],
+        "links": [
+          {
+            "url": "https://www.techtarget.com/searchcloudcomputing/tip/Compare-CompTIA-Cloud-vs-Cloud-Essentials-certifications",
+            "text": "Compare CompTIA Cloud+ vs Cloud Essentials+ certifications\n\n\n\n\nBy: Damon Garn",
+            "type": "general"
+          }
+        ]
+      },
+      {
+        "title": "Compare CompTIA Cloud+ vs Cloud Essentials+ certifications",
+        "content": "",
+        "level": 5,
+        "subsections": [],
+        "links": [
+          {
+            "url": "https://www.techtarget.com/searchcloudcomputing/tip/What-to-expect-from-CompTIA-Cloud-CV0-004-certification",
+            "text": "What to expect from CompTIA Cloud+ CV0-004 certification\n\n\n\n\nBy: Damon Garn",
+            "type": "general"
+          }
+        ]
+      },
+      {
+        "title": "What to expect from CompTIA Cloud+ CV0-004 certification",
+        "content": "",
+        "level": 5,
+        "subsections": [],
+        "links": []
+      }
+    ],
+    "hierarchy_root": {
+      "title": "Study for the CompTIA Network+ exam with this practice quiz | TechTarget",
+      "level": 0,
+      "content": "Getty Images/iStockphoto CompTIA's Network+ certification is foundational for networking professionals. The N10-009 exam assesses a candidate's ability to identify common networking components, protocols and services. Test-takers have 90 minutes to complete the exam, which consists of a maximum of 90 questions. The current exam version is V9. CompTIA breaks the exam down into the following domains: Network concepts include the OSI model and elements of the TCP/IP stack. In addition, it covers IPv4 addressing and network appliances -- such as switches, routers, load balancers and more. It also introduces cloud models, network topologies, network media and traffic types. The network implementation domain focuses on switching and routing technologies, along with their physical installation and power requirements. It also defines wireless networking. Network operations is a broad topic that covers documentation, lifecycle management, change and configuration management, monitoring and disaster recovery. It also covers network services such as Dynamic Host Configuration Protocol, DNS and Network Time Protocol. Finally, candidates will face questions relating to secure access, such as Secure Shell (SSH) and VPNs. The exam pays significant attention to network security, with extensive focus on logical security, physical security, terminology and defense strategies. Network segmentation methods are also important to know. Finally, test-takers need to identify various types of attacks, including DDoS, virtual LAN (VLAN) hopping, MAC flooding, DNS poisoning and others. Network availability is essential in today's hybrid on-premises and cloud environments. Troubleshooting physical, media, and protocol issues is spotlighted in this domain. Candidates must also be ready to apply the CompTIA Troubleshooting Model to network service and performance issues. Ready to test your knowledge? Take the sample quiz below. Damon Garn owns Cogspinner Coaction and provides freelance IT writing and editing services. He has written multiple CompTIA study guides, including the Linux+, Cloud Essentials+ and Server+ guides, and contributes extensively to Informa TechTarget, The New Stack and CompTIA Blogs. ",
+      "subsections": [
+        "",
+        "",
+        "",
+        "Damon Garn,\nCogspinner Coaction",
+        "Networking concepts (23%).",
+        "Network implementation (20%).",
+        "Network operations (19%).",
+        "Network security (14%).",
+        "Network troubleshooting (24%)."
+      ],
+      "links": [
+        {
+          "url": "https://www.techtarget.com/contributor/Damon-Garn",
+          "text": "Damon Garn,",
+          "type": "general"
+        },
+        {
+          "url": "https://www.comptia.org/en-us/certifications/network/",
+          "text": "N10-009 exam",
+          "type": "general"
+        },
+        {
+          "url": "https://www.techtarget.com/searchnetworking/tip/Introduction-to-IP-addressing-and-subnetting",
+          "text": "IPv4 addressing",
+          "type": "general"
+        },
+        {
+          "url": "https://www.techtarget.com/searchcloudcomputing/tip/What-to-expect-from-CompTIA-Cloud-CV0-004-certification",
+          "text": "cloud models",
+          "type": "general"
+        },
+        {
+          "url": "https://www.techtarget.com/searchsecurity/tip/DNS-security-best-practices-to-implement-now",
+          "text": "DNS",
+          "type": "general"
+        },
+        {
+          "url": "https://www.techtarget.com/searchsecurity/tutorial/Use-ssh-keygen-to-create-SSH-key-pairs-and-more",
+          "text": "SSH",
+          "type": "general"
+        },
+        {
+          "url": "https://www.techtarget.com/searchsecurity/answer/Comparing-network-segmentation-vs-microsegmentation",
+          "text": "Network segmentation methods",
+          "type": "general"
+        },
+        {
+          "url": "https://www.techtarget.com/whatis/post/CompTIA-troubleshooting-steps-and-solving-common-computer-problems",
+          "text": "CompTIA Troubleshooting Model",
+          "type": "general"
+        }
+      ],
+      "children": [
+        {
+          "title": "Dig Deeper on Networking careers and certifications",
+          "level": 4,
+          "content": "",
+          "subsections": [
+            "Prepare for the CompTIA CloudNetX certification\n\n\n\n\nBy: Damon Garn",
+            "Cisco CCNA practice test: Try these 20 exam questions\n\nBy: Staff report",
+            "Compare CompTIA Cloud+ vs Cloud Essentials+ certifications\n\n\n\n\nBy: Damon Garn",
+            "What to expect from CompTIA Cloud+ CV0-004 certification\n\n\n\n\nBy: Damon Garn"
+          ],
+          "links": [
+            {
+              "url": "https://www.techtarget.com/searchcloudcomputing/tip/Prepare-for-the-CompTIA-CloudNetX-certification",
+              "text": "Prepare for the CompTIA CloudNetX certification\n\n\n\n\nBy: Damon Garn",
+              "type": "general"
+            }
+          ],
+          "children": [
+            {
+              "title": "Prepare for the CompTIA CloudNetX certification",
+              "level": 5,
+              "content": "",
+              "subsections": [],
+              "links": [
+                {
+                  "url": "https://www.techtarget.com/searchnetworking/quiz/Cisco-CCNA-exam-Are-you-ready-Take-this-10-question-quiz-to-find-out",
+                  "text": "Cisco CCNA practice test: Try these 20 exam questions\n\nBy: Staff report",
+                  "type": "general"
+                }
+              ],
+              "children": []
+            },
+            {
+              "title": "Cisco CCNA practice test: Try these 20 exam questions",
+              "level": 5,
+              "content": "",
+              "subsections": [],
+              "links": [
+                {
+                  "url": "https://www.techtarget.com/searchcloudcomputing/tip/Compare-CompTIA-Cloud-vs-Cloud-Essentials-certifications",
+                  "text": "Compare CompTIA Cloud+ vs Cloud Essentials+ certifications\n\n\n\n\nBy: Damon Garn",
+                  "type": "general"
+                }
+              ],
+              "children": []
+            },
+            {
+              "title": "Compare CompTIA Cloud+ vs Cloud Essentials+ certifications",
+              "level": 5,
+              "content": "",
+              "subsections": [],
+              "links": [
+                {
+                  "url": "https://www.techtarget.com/searchcloudcomputing/tip/What-to-expect-from-CompTIA-Cloud-CV0-004-certification",
+                  "text": "What to expect from CompTIA Cloud+ CV0-004 certification\n\n\n\n\nBy: Damon Garn",
+                  "type": "general"
+                }
+              ],
+              "children": []
+            },
+            {
+              "title": "What to expect from CompTIA Cloud+ CV0-004 certification",
+              "level": 5,
+              "content": "",
+              "subsections": [],
+              "links": [],
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    "links": [
+      {
+        "url": "https://www.techtarget.com/searchcloudcomputing/tip/Prepare-for-the-CompTIA-CloudNetX-certification",
+        "text": "Prepare for the CompTIA CloudNetX certification\n\n\n\n\nBy: Damon Garn",
+        "type": "general"
+      },
+      {
+        "url": "https://www.techtarget.com/searchnetworking/quiz/Cisco-CCNA-exam-Are-you-ready-Take-this-10-question-quiz-to-find-out",
+        "text": "Cisco CCNA practice test: Try these 20 exam questions\n\nBy: Staff report",
+        "type": "general"
+      },
+      {
+        "url": "https://www.techtarget.com/searchcloudcomputing/tip/Compare-CompTIA-Cloud-vs-Cloud-Essentials-certifications",
+        "text": "Compare CompTIA Cloud+ vs Cloud Essentials+ certifications\n\n\n\n\nBy: Damon Garn",
+        "type": "general"
+      },
+      {
+        "url": "https://www.techtarget.com/searchcloudcomputing/tip/What-to-expect-from-CompTIA-Cloud-CV0-004-certification",
+        "text": "What to expect from CompTIA Cloud+ CV0-004 certification\n\n\n\n\nBy: Damon Garn",
+        "type": "general"
+      }
+    ],
+    "images": []
+  },
+  "summary": {
+    "summary": "- The N10-009 exam assesses a candidate's ability to identify common networking components, protocols and services.\n- Test-takers have 90 minutes to complete the exam, which consists of a maximum of 90 questions.\n- The current exam version is V9.\n- CompTIA breaks the exam down into the following domains: Networking concepts (23%).\n- Candidates must also be ready to apply the CompTIA Troubleshooting Model to network service and performance issues.\n- Ready to test your knowledge?\n- Take the sample quiz below.\n- He has written multiple CompTIA study guides, including the Linux+, Cloud Essentials+ and Server+ guides, and contributes extensively to Informa TechTarget, The New Stack and CompTIA Blogs.\n- Study for the CompTIA Network+ exam with this practice quiz | TechTarget Home Networking careers and certifications Getty Images/iStockphoto By Damon Garn, Cogspinner Coaction Published: 24 Sep 2025 CompTIA's Network+ certification is found...\n- Dig Deeper on Networking careers and certifications Prepare for the CompTIA CloudNetX certification By: Damon Garn Cisco CCNA practice test: Try these 20 exam questions By: Staff report Compare CompTIA Cloud+ vs Cloud Essentials+ certificat...",
+    "summary_bullets": [
+      "The N10-009 exam assesses a candidate's ability to identify common networking components, protocols and services.",
+      "Test-takers have 90 minutes to complete the exam, which consists of a maximum of 90 questions.",
+      "The current exam version is V9.",
+      "CompTIA breaks the exam down into the following domains: Networking concepts (23%).",
+      "Candidates must also be ready to apply the CompTIA Troubleshooting Model to network service and performance issues.",
+      "Ready to test your knowledge?",
+      "Take the sample quiz below.",
+      "He has written multiple CompTIA study guides, including the Linux+, Cloud Essentials+ and Server+ guides, and contributes extensively to Informa TechTarget, The New Stack and CompTIA Blogs.",
+      "Study for the CompTIA Network+ exam with this practice quiz | TechTarget Home Networking careers and certifications Getty Images/iStockphoto By Damon Garn, Cogspinner Coaction Published: 24 Sep 2025 CompTIA's Network+ certification is found...",
+      "Dig Deeper on Networking careers and certifications Prepare for the CompTIA CloudNetX certification By: Damon Garn Cisco CCNA practice test: Try these 20 exam questions By: Staff report Compare CompTIA Cloud+ vs Cloud Essentials+ certificat..."
+    ],
+    "key_concepts": [
+      "Work",
+      "Network",
+      "Comptia",
+      "Certification",
+      "Cloud",
+      "Exam",
+      "Practice",
+      "Certifications",
+      "Networking",
+      "Test",
+      "Target",
+      "Study",
+      "Techtarget",
+      "Quiz",
+      "Essential"
+    ],
+    "method": "nltk_extractive_bullets"
+  },
+  "questions": {
+    "questions": [
+      {
+        "question": "What is CompTIA's Network+ certification?",
+        "answer": "Study for the CompTIA Network+ exam with this practice quiz | TechTarget Home Networking careers and certifications Getty Images/iStockphoto By Damon Garn, Cogspinner Coaction Published: 24 Sep 2025 CompTIA's Network+ certification is foundational for networking professionals.",
+        "context": "Study for the CompTIA Network+ exam with this practice quiz | TechTarget Home Networking careers and certifications Getty Images/iStockphoto By Damon Garn, Cogspinner Coaction Published: 24 Sep 2025 C...",
+        "confidence": 0.5
+      },
+      {
+        "question": "What is CompTIA's network+ certification?",
+        "answer": "Study for the CompTIA Network+ exam with this practice quiz | TechTarget Home Networking careers and certifications Getty Images/iStockphoto By Damon Garn, Cogspinner Coaction Published: 24 Sep 2025 CompTIA's Network+ certification is foundational for networking professionals.",
+        "context": "Study for the CompTIA Network+ exam with this practice quiz | TechTarget Home Networking careers and certifications Getty Images/iStockphoto By Damon Garn, Cogspinner Coaction Published: 24 Sep 2025 C...",
+        "confidence": 0.5
+      },
+      {
+        "question": "What is CompTIA's Network+ exam?",
+        "answer": "Study for the CompTIA Network+ exam with this practice quiz | TechTarget Home Networking careers and certifications Getty Images/iStockphoto By Damon Garn, Cogspinner Coaction Published: 24 Sep 2025 CompTIA's Network+ certification is foundational for networking professionals.",
+        "context": "Study for the CompTIA Network+ exam with this practice quiz | TechTarget Home Networking careers and certifications Getty Images/iStockphoto By Damon Garn, Cogspinner Coaction Published: 24 Sep 2025 C...",
+        "confidence": 0.5
+      },
+      {
+        "question": "What is CompTIA's Network+ certification for networking professionals?",
+        "answer": "Study for the CompTIA Network+ exam with this practice quiz | TechTarget Home Networking careers and certifications Getty Images/iStockphoto By Damon Garn, Cogspinner Coaction Published: 24 Sep 2025 CompTIA's Network+ certification is foundational for networking professionals.",
+        "context": "Study for the CompTIA Network+ exam with this practice quiz | TechTarget Home Networking careers and certifications Getty Images/iStockphoto By Damon Garn, Cogspinner Coaction Published: 24 Sep 2025 C...",
+        "confidence": 0.5
+      },
+      {
+        "question": "What is CompTIA's Network+ Certification?",
+        "answer": "Study for the CompTIA Network+ exam with this practice quiz | TechTarget Home Networking careers and certifications Getty Images/iStockphoto By Damon Garn, Cogspinner Coaction Published: 24 Sep 2025 CompTIA's Network+ certification is foundational for networking professionals.",
+        "context": "Study for the CompTIA Network+ exam with this practice quiz | TechTarget Home Networking careers and certifications Getty Images/iStockphoto By Damon Garn, Cogspinner Coaction Published: 24 Sep 2025 C...",
+        "confidence": 0.5
+      }
+    ]
+  },
+  "mind_maps": {
+    "visual": "\n    ╔════════════════════════════════════════════════════════════════════════════╗\n    ║ STUDY FOR THE COMPTIA NETWORK+ EXAM WITH THIS PRACTICE QUIZ | TECHTARGET ║\n    ╚════════════════════════════════════════════════════════════════════════════╝\n\n                                        │\n                                   ┌─────┴─────┐\n├── 🔹 Work                          │\n│                                   ├── 🔹 Network\n├── 🔹 Comptia                       │\n│                                   ├── 🔹 Certification\n├── 🔹 Cloud                         │\n│                                   ├── 🔹 Exam\n├── 🔹 Practice                      │\n│                                   ├── 🔹 Certifications",
+    "network": "🌐 Study for the CompTIA Network+ exam with this practice quiz | TechTarget\n│\n├── 📊 Key Concepts\n│ ├── 🔸 Work\n│ ├── 🔸 Network\n│ ├── 🔸 Comptia\n│ ├── 🔸 Certification\n│ ├── 🔸 Cloud\n│ ├── 🔸 Exam",
+    "hierarchical": "🌳 Study for the CompTIA Network+ exam with this practice quiz | TechTarget\n│\n├── 🍃 Work\n├── 🍃 Network\n├── 🍃 Comptia\n├── 🍃 Certification\n├── 🍃 Cloud\n├── 🍃 Exam\n├── 🍃 Practice\n├── 🍃 Certifications\n├── 🍃 Networking\n├── 🍃 Test\n├── 🍃 Target\n├── 🍃 Study\n├── 🍃 Techtarget\n├── 🍃 Quiz\n└── 🍃 Essential"
+  },
+  "interactive_mindmap": {
+    "root_node": {
+      "id": "node_1_c42ec173",
+      "title": "Study for the CompTIA Network+ exam with this practice quiz | TechTarget",
+      "content": "- The N10-009 exam assesses a candidate's ability to identify common networking components, protocols and services.\n- Test-takers have 90 minutes to complete the exam, which consists of a maximum of 90 questions.\n- The current exam version is V9.\n- CompTIA breaks the exam down into the following dom...",
+      "url": "https://www.techtarget.com/searchnetworking/quiz/Study-for-the-CompTIA-Network-exam-with-this-practice-quiz",
+      "parent_id": null,
+      "children": [
+        "node_2_47fc0c5d",
+        "node_7_b7f4b8ed",
+        "node_8_638f2d08",
+        "node_9_b5745763",
+        "node_10_0bbf583a",
+        "node_11_25df250e",
+        "node_12_3438de11",
+        "node_13_f98964d2",
+        "node_14_a89b4280",
+        "node_15_622a1b23",
+        "node_16_00654196",
+        "node_17_fe152ad5",
+        "node_18_b414eb4a",
+        "node_19_1f46964c",
+        "node_20_96750ea0",
+        "node_21_6d2a1753"
+      ],
+      "expanded": false,
+      "node_type": "root",
+      "metadata": {
+        "word_count": 747,
+        "section_count": 5,
+        "link_count": 4,
+        "question_count": 5,
+        "expandable": true
+      }
+    },
+    "nodes": {
+      "node_1_c42ec173": {
+        "id": "node_1_c42ec173",
+        "title": "Study for the CompTIA Network+ exam with this practice quiz | TechTarget",
+        "content": "- The N10-009 exam assesses a candidate's ability to identify common networking components, protocols and services.\n- Test-takers have 90 minutes to complete the exam, which consists of a maximum of 90 questions.\n- The current exam version is V9.\n- CompTIA breaks the exam down into the following dom...",
+        "url": "https://www.techtarget.com/searchnetworking/quiz/Study-for-the-CompTIA-Network-exam-with-this-practice-quiz",
+        "parent_id": null,
+        "children": [
+          "node_2_47fc0c5d",
+          "node_7_b7f4b8ed",
+          "node_8_638f2d08",
+          "node_9_b5745763",
+          "node_10_0bbf583a",
+          "node_11_25df250e",
+          "node_12_3438de11",
+          "node_13_f98964d2",
+          "node_14_a89b4280",
+          "node_15_622a1b23",
+          "node_16_00654196",
+          "node_17_fe152ad5",
+          "node_18_b414eb4a",
+          "node_19_1f46964c",
+          "node_20_96750ea0",
+          "node_21_6d2a1753"
+        ],
+        "expanded": false,
+        "node_type": "root",
+        "metadata": {
+          "word_count": 747,
+          "section_count": 5,
+          "link_count": 4,
+          "question_count": 5,
+          "expandable": true
+        }
+      },
+      "node_2_47fc0c5d": {
+        "id": "node_2_47fc0c5d",
+        "title": "Dig Deeper on Networking careers and certifications",
+        "content": "",
+        "url": null,
+        "parent_id": "node_1_c42ec173",
+        "children": [
+          "subsection_node_2_47fc0c5d_0",
+          "subsection_node_2_47fc0c5d_1",
+          "subsection_node_2_47fc0c5d_2",
+          "subsection_node_2_47fc0c5d_3",
+          "link_node_2_47fc0c5d_0",
+          "node_3_cbfb5f68",
+          "node_4_5fb0645f",
+          "node_5_154bf803",
+          "node_6_6c02167b"
+        ],
+        "expanded": false,
+        "node_type": "section",
+        "metadata": {
+          "expandable": true,
+          "level": 4,
+          "full_content": "",
+          "subsections": [
+            "Prepare for the CompTIA CloudNetX certification\n\n\n\n\nBy: Damon Garn",
+            "Cisco CCNA practice test: Try these 20 exam questions\n\nBy: Staff report",
+            "Compare CompTIA Cloud+ vs Cloud Essentials+ certifications\n\n\n\n\nBy: Damon Garn",
+            "What to expect from CompTIA Cloud+ CV0-004 certification\n\n\n\n\nBy: Damon Garn"
+          ],
+          "links": [
+            {
+              "url": "https://www.techtarget.com/searchcloudcomputing/tip/Prepare-for-the-CompTIA-CloudNetX-certification",
+              "text": "Prepare for the CompTIA CloudNetX certification\n\n\n\n\nBy: Damon Garn",
+              "type": "general"
+            }
+          ]
+        }
+      },
+      "subsection_node_2_47fc0c5d_0": {
+        "id": "subsection_node_2_47fc0c5d_0",
+        "title": "Prepare for the CompTIA CloudNetX certification\n\n\n\n\nBy: Damo...",
+        "content": "Prepare for the CompTIA CloudNetX certification\n\n\n\n\nBy: Damon Garn",
+        "url": null,
+        "parent_id": "node_2_47fc0c5d",
+        "children": [],
+        "expanded": false,
+        "node_type": "subsection",
+        "metadata": {
+          "subsection_index": 0
+        }
+      },
+      "subsection_node_2_47fc0c5d_1": {
+        "id": "subsection_node_2_47fc0c5d_1",
+        "title": "Cisco CCNA practice test: Try these 20 exam questions\n\nBy: S...",
+        "content": "Cisco CCNA practice test: Try these 20 exam questions\n\nBy: Staff report",
+        "url": null,
+        "parent_id": "node_2_47fc0c5d",
+        "children": [],
+        "expanded": false,
+        "node_type": "subsection",
+        "metadata": {
+          "subsection_index": 1
+        }
+      },
+      "subsection_node_2_47fc0c5d_2": {
+        "id": "subsection_node_2_47fc0c5d_2",
+        "title": "Compare CompTIA Cloud+ vs Cloud Essentials+ certifications\n\n...",
+        "content": "Compare CompTIA Cloud+ vs Cloud Essentials+ certifications\n\n\n\n\nBy: Damon Garn",
+        "url": null,
+        "parent_id": "node_2_47fc0c5d",
+        "children": [],
+        "expanded": false,
+        "node_type": "subsection",
+        "metadata": {
+          "subsection_index": 2
+        }
+      },
+      "subsection_node_2_47fc0c5d_3": {
+        "id": "subsection_node_2_47fc0c5d_3",
+        "title": "What to expect from CompTIA Cloud+ CV0-004 certification\n\n\n\n...",
+        "content": "What to expect from CompTIA Cloud+ CV0-004 certification\n\n\n\n\nBy: Damon Garn",
+        "url": null,
+        "parent_id": "node_2_47fc0c5d",
+        "children": [],
+        "expanded": false,
+        "node_type": "subsection",
+        "metadata": {
+          "subsection_index": 3
+        }
+      },
+      "link_node_2_47fc0c5d_0": {
+        "id": "link_node_2_47fc0c5d_0",
+        "title": "Prepare for the CompTIA CloudNetX certification\n\n\n\n\nBy: Damon Garn",
+        "content": "Link to: Prepare for the CompTIA CloudNetX certification\n\n\n\n\nBy: Damon Garn",
+        "url": "https://www.techtarget.com/searchcloudcomputing/tip/Prepare-for-the-CompTIA-CloudNetX-certification",
+        "parent_id": "node_2_47fc0c5d",
+        "children": [],
+        "expanded": false,
+        "node_type": "link",
+        "metadata": {
+          "link_data": {
+            "url": "https://www.techtarget.com/searchcloudcomputing/tip/Prepare-for-the-CompTIA-CloudNetX-certification",
+            "text": "Prepare for the CompTIA CloudNetX certification\n\n\n\n\nBy: Damon Garn",
+            "type": "general"
+          },
+          "clickable": true
+        }
+      },
+      "node_3_cbfb5f68": {
+        "id": "node_3_cbfb5f68",
+        "title": "Prepare for the CompTIA CloudNetX certification",
+        "content": "",
+        "url": null,
+        "parent_id": "node_2_47fc0c5d",
+        "children": [
+          "link_node_3_cbfb5f68_0"
+        ],
+        "expanded": false,
+        "node_type": "section",
+        "metadata": {
+          "expandable": true,
+          "level": 5,
+          "full_content": "",
+          "subsections": [],
+          "links": [
+            {
+              "url": "https://www.techtarget.com/searchnetworking/quiz/Cisco-CCNA-exam-Are-you-ready-Take-this-10-question-quiz-to-find-out",
+              "text": "Cisco CCNA practice test: Try these 20 exam questions\n\nBy: Staff report",
+              "type": "general"
+            }
+          ]
+        }
+      },
+      "link_node_3_cbfb5f68_0": {
+        "id": "link_node_3_cbfb5f68_0",
+        "title": "Cisco CCNA practice test: Try these 20 exam questions\n\nBy: Staff repor...",
+        "content": "Link to: Cisco CCNA practice test: Try these 20 exam questions\n\nBy: Staff report",
+        "url": "https://www.techtarget.com/searchnetworking/quiz/Cisco-CCNA-exam-Are-you-ready-Take-this-10-question-quiz-to-find-out",
+        "parent_id": "node_3_cbfb5f68",
+        "children": [],
+        "expanded": false,
+        "node_type": "link",
+        "metadata": {
+          "link_data": {
+            "url": "https://www.techtarget.com/searchnetworking/quiz/Cisco-CCNA-exam-Are-you-ready-Take-this-10-question-quiz-to-find-out",
+            "text": "Cisco CCNA practice test: Try these 20 exam questions\n\nBy: Staff report",
+            "type": "general"
+          },
+          "clickable": true
+        }
+      },
+      "node_4_5fb0645f": {
+        "id": "node_4_5fb0645f",
+        "title": "Cisco CCNA practice test: Try these 20 exam questions",
+        "content": "",
+        "url": null,
+        "parent_id": "node_2_47fc0c5d",
+        "children": [
+          "link_node_4_5fb0645f_0"
+        ],
+        "expanded": false,
+        "node_type": "section",
+        "metadata": {
+          "expandable": true,
+          "level": 5,
+          "full_content": "",
+          "subsections": [],
+          "links": [
+            {
+              "url": "https://www.techtarget.com/searchcloudcomputing/tip/Compare-CompTIA-Cloud-vs-Cloud-Essentials-certifications",
+              "text": "Compare CompTIA Cloud+ vs Cloud Essentials+ certifications\n\n\n\n\nBy: Damon Garn",
+              "type": "general"
+            }
+          ]
+        }
+      },
+      "link_node_4_5fb0645f_0": {
+        "id": "link_node_4_5fb0645f_0",
+        "title": "Compare CompTIA Cloud+ vs Cloud Essentials+ certifications\n\n\n\n\nBy: Dam...",
+        "content": "Link to: Compare CompTIA Cloud+ vs Cloud Essentials+ certifications\n\n\n\n\nBy: Damon Garn",
+        "url": "https://www.techtarget.com/searchcloudcomputing/tip/Compare-CompTIA-Cloud-vs-Cloud-Essentials-certifications",
+        "parent_id": "node_4_5fb0645f",
+        "children": [],
+        "expanded": false,
+        "node_type": "link",
+        "metadata": {
+          "link_data": {
+            "url": "https://www.techtarget.com/searchcloudcomputing/tip/Compare-CompTIA-Cloud-vs-Cloud-Essentials-certifications",
+            "text": "Compare CompTIA Cloud+ vs Cloud Essentials+ certifications\n\n\n\n\nBy: Damon Garn",
+            "type": "general"
+          },
+          "clickable": true
+        }
+      },
+      "node_5_154bf803": {
+        "id": "node_5_154bf803",
+        "title": "Compare CompTIA Cloud+ vs Cloud Essentials+ certifications",
+        "content": "",
+        "url": null,
+        "parent_id": "node_2_47fc0c5d",
+        "children": [
+          "link_node_5_154bf803_0"
+        ],
+        "expanded": false,
+        "node_type": "section",
+        "metadata": {
+          "expandable": true,
+          "level": 5,
+          "full_content": "",
+          "subsections": [],
+          "links": [
+            {
+              "url": "https://www.techtarget.com/searchcloudcomputing/tip/What-to-expect-from-CompTIA-Cloud-CV0-004-certification",
+              "text": "What to expect from CompTIA Cloud+ CV0-004 certification\n\n\n\n\nBy: Damon Garn",
+              "type": "general"
+            }
+          ]
+        }
+      },
+      "link_node_5_154bf803_0": {
+        "id": "link_node_5_154bf803_0",
+        "title": "What to expect from CompTIA Cloud+ CV0-004 certification\n\n\n\n\nBy: Damon...",
+        "content": "Link to: What to expect from CompTIA Cloud+ CV0-004 certification\n\n\n\n\nBy: Damon Garn",
+        "url": "https://www.techtarget.com/searchcloudcomputing/tip/What-to-expect-from-CompTIA-Cloud-CV0-004-certification",
+        "parent_id": "node_5_154bf803",
+        "children": [],
+        "expanded": false,
+        "node_type": "link",
+        "metadata": {
+          "link_data": {
+            "url": "https://www.techtarget.com/searchcloudcomputing/tip/What-to-expect-from-CompTIA-Cloud-CV0-004-certification",
+            "text": "What to expect from CompTIA Cloud+ CV0-004 certification\n\n\n\n\nBy: Damon Garn",
+            "type": "general"
+          },
+          "clickable": true
+        }
+      },
+      "node_6_6c02167b": {
+        "id": "node_6_6c02167b",
+        "title": "What to expect from CompTIA Cloud+ CV0-004 certification",
+        "content": "",
+        "url": null,
+        "parent_id": "node_2_47fc0c5d",
+        "children": [],
+        "expanded": false,
+        "node_type": "section",
+        "metadata": {
+          "expandable": true,
+          "level": 5,
+          "full_content": "",
+          "subsections": [],
+          "links": []
+        }
+      },
+      "node_7_b7f4b8ed": {
+        "id": "node_7_b7f4b8ed",
+        "title": "Work",
+        "content": "Key concept: Work",
+        "url": "https://duckduckgo.com/?q=Work",
+        "parent_id": "node_1_c42ec173",
+        "children": [],
+        "expanded": false,
+        "node_type": "concept",
+        "metadata": {
+          "expandable": true,
+          "concept_type": "key_term",
+          "clickable": true
+        }
+      },
+      "node_8_638f2d08": {
+        "id": "node_8_638f2d08",
+        "title": "Network",
+        "content": "Key concept: Network",
+        "url": "https://duckduckgo.com/?q=Network",
+        "parent_id": "node_1_c42ec173",
+        "children": [],
+        "expanded": false,
+        "node_type": "concept",
+        "metadata": {
+          "expandable": true,
+          "concept_type": "key_term",
+          "clickable": true
+        }
+      },
+      "node_9_b5745763": {
+        "id": "node_9_b5745763",
+        "title": "Comptia",
+        "content": "Key concept: Comptia",
+        "url": "https://duckduckgo.com/?q=Comptia",
+        "parent_id": "node_1_c42ec173",
+        "children": [],
+        "expanded": false,
+        "node_type": "concept",
+        "metadata": {
+          "expandable": true,
+          "concept_type": "key_term",
+          "clickable": true
+        }
+      },
+      "node_10_0bbf583a": {
+        "id": "node_10_0bbf583a",
+        "title": "Certification",
+        "content": "Key concept: Certification",
+        "url": "https://duckduckgo.com/?q=Certification",
+        "parent_id": "node_1_c42ec173",
+        "children": [],
+        "expanded": false,
+        "node_type": "concept",
+        "metadata": {
+          "expandable": true,
+          "concept_type": "key_term",
+          "clickable": true
+        }
+      },
+      "node_11_25df250e": {
+        "id": "node_11_25df250e",
+        "title": "Cloud",
+        "content": "Key concept: Cloud",
+        "url": "https://duckduckgo.com/?q=Cloud",
+        "parent_id": "node_1_c42ec173",
+        "children": [],
+        "expanded": false,
+        "node_type": "concept",
+        "metadata": {
+          "expandable": true,
+          "concept_type": "key_term",
+          "clickable": true
+        }
+      },
+      "node_12_3438de11": {
+        "id": "node_12_3438de11",
+        "title": "Exam",
+        "content": "Key concept: Exam",
+        "url": "https://duckduckgo.com/?q=Exam",
+        "parent_id": "node_1_c42ec173",
+        "children": [],
+        "expanded": false,
+        "node_type": "concept",
+        "metadata": {
+          "expandable": true,
+          "concept_type": "key_term",
+          "clickable": true
+        }
+      },
+      "node_13_f98964d2": {
+        "id": "node_13_f98964d2",
+        "title": "Practice",
+        "content": "Key concept: Practice",
+        "url": "https://duckduckgo.com/?q=Practice",
+        "parent_id": "node_1_c42ec173",
+        "children": [],
+        "expanded": false,
+        "node_type": "concept",
+        "metadata": {
+          "expandable": true,
+          "concept_type": "key_term",
+          "clickable": true
+        }
+      },
+      "node_14_a89b4280": {
+        "id": "node_14_a89b4280",
+        "title": "Certifications",
+        "content": "Key concept: Certifications",
+        "url": "https://duckduckgo.com/?q=Certifications",
+        "parent_id": "node_1_c42ec173",
+        "children": [],
+        "expanded": false,
+        "node_type": "concept",
+        "metadata": {
+          "expandable": true,
+          "concept_type": "key_term",
+          "clickable": true
+        }
+      },
+      "node_15_622a1b23": {
+        "id": "node_15_622a1b23",
+        "title": "Networking",
+        "content": "Key concept: Networking",
+        "url": "https://duckduckgo.com/?q=Networking",
+        "parent_id": "node_1_c42ec173",
+        "children": [],
+        "expanded": false,
+        "node_type": "concept",
+        "metadata": {
+          "expandable": true,
+          "concept_type": "key_term",
+          "clickable": true
+        }
+      },
+      "node_16_00654196": {
+        "id": "node_16_00654196",
+        "title": "Test",
+        "content": "Key concept: Test",
+        "url": "https://duckduckgo.com/?q=Test",
+        "parent_id": "node_1_c42ec173",
+        "children": [],
+        "expanded": false,
+        "node_type": "concept",
+        "metadata": {
+          "expandable": true,
+          "concept_type": "key_term",
+          "clickable": true
+        }
+      },
+      "node_17_fe152ad5": {
+        "id": "node_17_fe152ad5",
+        "title": "Q: What is CompTIA's Network+ certification?",
+        "content": "Answer: Study for the CompTIA Network+ exam with this practice quiz | TechTarget Home Networking careers and...",
+        "url": null,
+        "parent_id": "node_1_c42ec173",
+        "children": [],
+        "expanded": false,
+        "node_type": "question",
+        "metadata": {
+          "full_question": "What is CompTIA's Network+ certification?",
+          "full_answer": "Study for the CompTIA Network+ exam with this practice quiz | TechTarget Home Networking careers and certifications Getty Images/iStockphoto By Damon Garn, Cogspinner Coaction Published: 24 Sep 2025 CompTIA's Network+ certification is foundational for networking professionals.",
+          "context": "Study for the CompTIA Network+ exam with this practice quiz | TechTarget Home Networking careers and certifications Getty Images/iStockphoto By Damon Garn, Cogspinner Coaction Published: 24 Sep 2025 C...",
+          "confidence": 0.5,
+          "expandable": false,
+          "clickable": false
+        }
+      },
+      "node_18_b414eb4a": {
+        "id": "node_18_b414eb4a",
+        "title": "Q: What is CompTIA's network+ certification?",
+        "content": "Answer: Study for the CompTIA Network+ exam with this practice quiz | TechTarget Home Networking careers and...",
+        "url": null,
+        "parent_id": "node_1_c42ec173",
+        "children": [],
+        "expanded": false,
+        "node_type": "question",
+        "metadata": {
+          "full_question": "What is CompTIA's network+ certification?",
+          "full_answer": "Study for the CompTIA Network+ exam with this practice quiz | TechTarget Home Networking careers and certifications Getty Images/iStockphoto By Damon Garn, Cogspinner Coaction Published: 24 Sep 2025 CompTIA's Network+ certification is foundational for networking professionals.",
+          "context": "Study for the CompTIA Network+ exam with this practice quiz | TechTarget Home Networking careers and certifications Getty Images/iStockphoto By Damon Garn, Cogspinner Coaction Published: 24 Sep 2025 C...",
+          "confidence": 0.5,
+          "expandable": false,
+          "clickable": false
+        }
+      },
+      "node_19_1f46964c": {
+        "id": "node_19_1f46964c",
+        "title": "Q: What is CompTIA's Network+ exam?",
+        "content": "Answer: Study for the CompTIA Network+ exam with this practice quiz | TechTarget Home Networking careers and...",
+        "url": null,
+        "parent_id": "node_1_c42ec173",
+        "children": [],
+        "expanded": false,
+        "node_type": "question",
+        "metadata": {
+          "full_question": "What is CompTIA's Network+ exam?",
+          "full_answer": "Study for the CompTIA Network+ exam with this practice quiz | TechTarget Home Networking careers and certifications Getty Images/iStockphoto By Damon Garn, Cogspinner Coaction Published: 24 Sep 2025 CompTIA's Network+ certification is foundational for networking professionals.",
+          "context": "Study for the CompTIA Network+ exam with this practice quiz | TechTarget Home Networking careers and certifications Getty Images/iStockphoto By Damon Garn, Cogspinner Coaction Published: 24 Sep 2025 C...",
+          "confidence": 0.5,
+          "expandable": false,
+          "clickable": false
+        }
+      },
+      "node_20_96750ea0": {
+        "id": "node_20_96750ea0",
+        "title": "Q: What is CompTIA's Network+ certification for networking professionals?",
+        "content": "Answer: Study for the CompTIA Network+ exam with this practice quiz | TechTarget Home Networking careers and...",
+        "url": null,
+        "parent_id": "node_1_c42ec173",
+        "children": [],
+        "expanded": false,
+        "node_type": "question",
+        "metadata": {
+          "full_question": "What is CompTIA's Network+ certification for networking professionals?",
+          "full_answer": "Study for the CompTIA Network+ exam with this practice quiz | TechTarget Home Networking careers and certifications Getty Images/iStockphoto By Damon Garn, Cogspinner Coaction Published: 24 Sep 2025 CompTIA's Network+ certification is foundational for networking professionals.",
+          "context": "Study for the CompTIA Network+ exam with this practice quiz | TechTarget Home Networking careers and certifications Getty Images/iStockphoto By Damon Garn, Cogspinner Coaction Published: 24 Sep 2025 C...",
+          "confidence": 0.5,
+          "expandable": false,
+          "clickable": false
+        }
+      },
+      "node_21_6d2a1753": {
+        "id": "node_21_6d2a1753",
+        "title": "Q: What is CompTIA's Network+ Certification?",
+        "content": "Answer: Study for the CompTIA Network+ exam with this practice quiz | TechTarget Home Networking careers and...",
+        "url": null,
+        "parent_id": "node_1_c42ec173",
+        "children": [],
+        "expanded": false,
+        "node_type": "question",
+        "metadata": {
+          "full_question": "What is CompTIA's Network+ Certification?",
+          "full_answer": "Study for the CompTIA Network+ exam with this practice quiz | TechTarget Home Networking careers and certifications Getty Images/iStockphoto By Damon Garn, Cogspinner Coaction Published: 24 Sep 2025 CompTIA's Network+ certification is foundational for networking professionals.",
+          "context": "Study for the CompTIA Network+ exam with this practice quiz | TechTarget Home Networking careers and certifications Getty Images/iStockphoto By Damon Garn, Cogspinner Coaction Published: 24 Sep 2025 C...",
+          "confidence": 0.5,
+          "expandable": false,
+          "clickable": false
+        }
+      }
+    },
+    "visualization_data": {
+      "nodes": [
+        {
+          "id": "node_1_c42ec173",
+          "label": "Study for the CompTIA Network+ exam with this practice quiz | TechTarget",
+          "type": "root",
+          "expandable": true,
+          "expanded": false,
+          "url": "https://www.techtarget.com/searchnetworking/quiz/Study-for-the-CompTIA-Network-exam-with-this-practice-quiz",
+          "size": 48,
+          "color": "#FF6B6B",
+          "shape": "circle"
+        },
+        {
+          "id": "node_2_47fc0c5d",
+          "label": "Dig Deeper on Networking careers and certifications",
+          "type": "section",
+          "expandable": true,
+          "expanded": false,
+          "url": null,
+          "size": 32,
+          "color": "#45B7D1",
+          "shape": "ellipse"
+        },
+        {
+          "id": "subsection_node_2_47fc0c5d_0",
+          "label": "Prepare for the CompTIA CloudNetX certification\n\n\n\n\nBy: Damo...",
+          "type": "subsection",
+          "expandable": false,
+          "expanded": false,
+          "url": null,
+          "size": 26,
+          "color": "#FFEAA7",
+          "shape": "triangle"
+        },
+        {
+          "id": "subsection_node_2_47fc0c5d_1",
+          "label": "Cisco CCNA practice test: Try these 20 exam questions\n\nBy: S...",
+          "type": "subsection",
+          "expandable": false,
+          "expanded": false,
+          "url": null,
+          "size": 26,
+          "color": "#FFEAA7",
+          "shape": "triangle"
+        },
+        {
+          "id": "subsection_node_2_47fc0c5d_2",
+          "label": "Compare CompTIA Cloud+ vs Cloud Essentials+ certifications\n\n...",
+          "type": "subsection",
+          "expandable": false,
+          "expanded": false,
+          "url": null,
+          "size": 26,
+          "color": "#FFEAA7",
+          "shape": "triangle"
+        },
+        {
+          "id": "subsection_node_2_47fc0c5d_3",
+          "label": "What to expect from CompTIA Cloud+ CV0-004 certification\n\n\n\n...",
+          "type": "subsection",
+          "expandable": false,
+          "expanded": false,
+          "url": null,
+          "size": 26,
+          "color": "#FFEAA7",
+          "shape": "triangle"
+        },
+        {
+          "id": "link_node_2_47fc0c5d_0",
+          "label": "Prepare for the CompTIA CloudNetX certification\n\n\n\n\nBy: Damon Garn",
+          "type": "link",
+          "expandable": false,
+          "expanded": false,
+          "url": "https://www.techtarget.com/searchcloudcomputing/tip/Prepare-for-the-CompTIA-CloudNetX-certification",
+          "size": 28,
+          "color": "#A8E6CF",
+          "shape": "square"
+        },
+        {
+          "id": "node_3_cbfb5f68",
+          "label": "Prepare for the CompTIA CloudNetX certification",
+          "type": "section",
+          "expandable": true,
+          "expanded": false,
+          "url": null,
+          "size": 30,
+          "color": "#45B7D1",
+          "shape": "ellipse"
+        },
+        {
+          "id": "link_node_3_cbfb5f68_0",
+          "label": "Cisco CCNA practice test: Try these 20 exam questions\n\nBy: Staff repor...",
+          "type": "link",
+          "expandable": false,
+          "expanded": false,
+          "url": "https://www.techtarget.com/searchnetworking/quiz/Cisco-CCNA-exam-Are-you-ready-Take-this-10-question-quiz-to-find-out",
+          "size": 28,
+          "color": "#A8E6CF",
+          "shape": "square"
+        },
+        {
+          "id": "node_4_5fb0645f",
+          "label": "Cisco CCNA practice test: Try these 20 exam questions",
+          "type": "section",
+          "expandable": true,
+          "expanded": false,
+          "url": null,
+          "size": 30,
+          "color": "#45B7D1",
+          "shape": "ellipse"
+        },
+        {
+          "id": "link_node_4_5fb0645f_0",
+          "label": "Compare CompTIA Cloud+ vs Cloud Essentials+ certifications\n\n\n\n\nBy: Dam...",
+          "type": "link",
+          "expandable": false,
+          "expanded": false,
+          "url": "https://www.techtarget.com/searchcloudcomputing/tip/Compare-CompTIA-Cloud-vs-Cloud-Essentials-certifications",
+          "size": 28,
+          "color": "#A8E6CF",
+          "shape": "square"
+        },
+        {
+          "id": "node_5_154bf803",
+          "label": "Compare CompTIA Cloud+ vs Cloud Essentials+ certifications",
+          "type": "section",
+          "expandable": true,
+          "expanded": false,
+          "url": null,
+          "size": 30,
+          "color": "#45B7D1",
+          "shape": "ellipse"
+        },
+        {
+          "id": "link_node_5_154bf803_0",
+          "label": "What to expect from CompTIA Cloud+ CV0-004 certification\n\n\n\n\nBy: Damon...",
+          "type": "link",
+          "expandable": false,
+          "expanded": false,
+          "url": "https://www.techtarget.com/searchcloudcomputing/tip/What-to-expect-from-CompTIA-Cloud-CV0-004-certification",
+          "size": 28,
+          "color": "#A8E6CF",
+          "shape": "square"
+        },
+        {
+          "id": "node_6_6c02167b",
+          "label": "What to expect from CompTIA Cloud+ CV0-004 certification",
+          "type": "section",
+          "expandable": true,
+          "expanded": false,
+          "url": null,
+          "size": 30,
+          "color": "#45B7D1",
+          "shape": "ellipse"
+        },
+        {
+          "id": "node_7_b7f4b8ed",
+          "label": "Work",
+          "type": "concept",
+          "expandable": true,
+          "expanded": false,
+          "url": "https://duckduckgo.com/?q=Work",
+          "size": 34,
+          "color": "#4ECDC4",
+          "shape": "box"
+        },
+        {
+          "id": "node_8_638f2d08",
+          "label": "Network",
+          "type": "concept",
+          "expandable": true,
+          "expanded": false,
+          "url": "https://duckduckgo.com/?q=Network",
+          "size": 34,
+          "color": "#4ECDC4",
+          "shape": "box"
+        },
+        {
+          "id": "node_9_b5745763",
+          "label": "Comptia",
+          "type": "concept",
+          "expandable": true,
+          "expanded": false,
+          "url": "https://duckduckgo.com/?q=Comptia",
+          "size": 34,
+          "color": "#4ECDC4",
+          "shape": "box"
+        },
+        {
+          "id": "node_10_0bbf583a",
+          "label": "Certification",
+          "type": "concept",
+          "expandable": true,
+          "expanded": false,
+          "url": "https://duckduckgo.com/?q=Certification",
+          "size": 34,
+          "color": "#4ECDC4",
+          "shape": "box"
+        },
+        {
+          "id": "node_11_25df250e",
+          "label": "Cloud",
+          "type": "concept",
+          "expandable": true,
+          "expanded": false,
+          "url": "https://duckduckgo.com/?q=Cloud",
+          "size": 34,
+          "color": "#4ECDC4",
+          "shape": "box"
+        },
+        {
+          "id": "node_12_3438de11",
+          "label": "Exam",
+          "type": "concept",
+          "expandable": true,
+          "expanded": false,
+          "url": "https://duckduckgo.com/?q=Exam",
+          "size": 34,
+          "color": "#4ECDC4",
+          "shape": "box"
+        },
+        {
+          "id": "node_13_f98964d2",
+          "label": "Practice",
+          "type": "concept",
+          "expandable": true,
+          "expanded": false,
+          "url": "https://duckduckgo.com/?q=Practice",
+          "size": 34,
+          "color": "#4ECDC4",
+          "shape": "box"
+        },
+        {
+          "id": "node_14_a89b4280",
+          "label": "Certifications",
+          "type": "concept",
+          "expandable": true,
+          "expanded": false,
+          "url": "https://duckduckgo.com/?q=Certifications",
+          "size": 34,
+          "color": "#4ECDC4",
+          "shape": "box"
+        },
+        {
+          "id": "node_15_622a1b23",
+          "label": "Networking",
+          "type": "concept",
+          "expandable": true,
+          "expanded": false,
+          "url": "https://duckduckgo.com/?q=Networking",
+          "size": 34,
+          "color": "#4ECDC4",
+          "shape": "box"
+        },
+        {
+          "id": "node_16_00654196",
+          "label": "Test",
+          "type": "concept",
+          "expandable": true,
+          "expanded": false,
+          "url": "https://duckduckgo.com/?q=Test",
+          "size": 34,
+          "color": "#4ECDC4",
+          "shape": "box"
+        },
+        {
+          "id": "node_17_fe152ad5",
+          "label": "Q: What is CompTIA's Network+ certification?",
+          "type": "question",
+          "expandable": false,
+          "expanded": false,
+          "url": null,
+          "size": 32,
+          "color": "#FFA726",
+          "shape": "database"
+        },
+        {
+          "id": "node_18_b414eb4a",
+          "label": "Q: What is CompTIA's network+ certification?",
+          "type": "question",
+          "expandable": false,
+          "expanded": false,
+          "url": null,
+          "size": 32,
+          "color": "#FFA726",
+          "shape": "database"
+        },
+        {
+          "id": "node_19_1f46964c",
+          "label": "Q: What is CompTIA's Network+ exam?",
+          "type": "question",
+          "expandable": false,
+          "expanded": false,
+          "url": null,
+          "size": 32,
+          "color": "#FFA726",
+          "shape": "database"
+        },
+        {
+          "id": "node_20_96750ea0",
+          "label": "Q: What is CompTIA's Network+ certification for networking professionals?",
+          "type": "question",
+          "expandable": false,
+          "expanded": false,
+          "url": null,
+          "size": 32,
+          "color": "#FFA726",
+          "shape": "database"
+        },
+        {
+          "id": "node_21_6d2a1753",
+          "label": "Q: What is CompTIA's Network+ Certification?",
+          "type": "question",
+          "expandable": false,
+          "expanded": false,
+          "url": null,
+          "size": 32,
+          "color": "#FFA726",
+          "shape": "database"
+        }
+      ],
+      "edges": [
+        {
+          "from": "node_1_c42ec173",
+          "to": "node_2_47fc0c5d",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_1_c42ec173",
+          "to": "node_7_b7f4b8ed",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_1_c42ec173",
+          "to": "node_8_638f2d08",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_1_c42ec173",
+          "to": "node_9_b5745763",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_1_c42ec173",
+          "to": "node_10_0bbf583a",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_1_c42ec173",
+          "to": "node_11_25df250e",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_1_c42ec173",
+          "to": "node_12_3438de11",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_1_c42ec173",
+          "to": "node_13_f98964d2",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_1_c42ec173",
+          "to": "node_14_a89b4280",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_1_c42ec173",
+          "to": "node_15_622a1b23",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_1_c42ec173",
+          "to": "node_16_00654196",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_1_c42ec173",
+          "to": "node_17_fe152ad5",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_1_c42ec173",
+          "to": "node_18_b414eb4a",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_1_c42ec173",
+          "to": "node_19_1f46964c",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_1_c42ec173",
+          "to": "node_20_96750ea0",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_1_c42ec173",
+          "to": "node_21_6d2a1753",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_2_47fc0c5d",
+          "to": "subsection_node_2_47fc0c5d_0",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_2_47fc0c5d",
+          "to": "subsection_node_2_47fc0c5d_1",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_2_47fc0c5d",
+          "to": "subsection_node_2_47fc0c5d_2",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_2_47fc0c5d",
+          "to": "subsection_node_2_47fc0c5d_3",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_2_47fc0c5d",
+          "to": "link_node_2_47fc0c5d_0",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_2_47fc0c5d",
+          "to": "node_3_cbfb5f68",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_2_47fc0c5d",
+          "to": "node_4_5fb0645f",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_2_47fc0c5d",
+          "to": "node_5_154bf803",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_2_47fc0c5d",
+          "to": "node_6_6c02167b",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_3_cbfb5f68",
+          "to": "link_node_3_cbfb5f68_0",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_4_5fb0645f",
+          "to": "link_node_4_5fb0645f_0",
+          "type": "hierarchy"
+        },
+        {
+          "from": "node_5_154bf803",
+          "to": "link_node_5_154bf803_0",
+          "type": "hierarchy"
+        }
+      ],
+      "layout": "hierarchical",
+      "center_node": "node_1_c42ec173"
+    },
+    "style_config": {
+      "layout": {
+        "hierarchical": {
+          "enabled": true,
+          "direction": "UD",
+          "sortMethod": "directed"
+        }
+      },
+      "interaction": {
+        "dragNodes": true,
+        "dragView": true,
+        "zoomView": true,
+        "selectConnectedEdges": false
+      },
+      "physics": {
+        "enabled": true,
+        "hierarchicalRepulsion": {
+          "nodeDistance": 140,
+          "centralGravity": 0.0,
+          "springLength": 120,
+          "springConstant": 0.01,
+          "damping": 0.09
+        }
+      },
+      "nodes": {
+        "borderWidth": 2,
+        "shadow": true,
+        "font": {
+          "size": 14,
+          "color": "#333333"
+        }
+      },
+      "edges": {
+        "width": 2,
+        "shadow": true,
+        "smooth": {
+          "type": "continuous"
+        }
+      }
+    }
+  },
+  "metadata": {
+    "total_links": 4,
+    "total_sections": 5,
+    "total_questions": 5,
+    "expandable_nodes": 16
+  }
+}

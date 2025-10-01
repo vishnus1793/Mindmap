@@ -4,6 +4,7 @@ Interactive Website Scraper & Mind Map API
 - Scrapes a URL and extracts a hierarchical content tree from H1–H6 headings
 - Summarizes content as bullet points
 - Extracts clean key concepts (filters stopwords/noise)
+- Generates questions from the scraped content
 - Builds a multi-level interactive mind map reflecting page structure
 - Includes expandable nodes (subsections, links, related)
 - Removes 'Source:' and 'Word Count:' lines from outputs
@@ -37,8 +38,8 @@ logger = logging.getLogger(__name__)
 # Initialize FastAPI app
 app = FastAPI(
     title="Interactive Website Scraper & Mind Map API",
-    description="Scrape content, summarize, and build a multi-level interactive mind map",
-    version="3.0.0",
+    description="Scrape content, summarize, generate questions, and build a multi-level interactive mind map",
+    version="4.0.0",
 )
 
 # Add CORS middleware
@@ -62,12 +63,17 @@ os.makedirs(STORAGE_DIR, exist_ok=True)
 # Concept link mode: "web_search" | "none"
 CONCEPT_LINK_MODE = "web_search"  # Creates clickable concept nodes using DuckDuckGo links
 
+# Question generation settings
+ENABLE_QUESTION_GENERATION = True  # Set to False to disable question generation
+QUESTION_GENERATION_MODEL = "valhalla/t5-small-qg-hl"  # Lightweight question generation model
+
 # --------- Pydantic models ---------
 class ScrapeRequest(BaseModel):
     url: HttpUrl
     summary_length: Optional[int] = 300
     extract_links: Optional[bool] = True
-    max_depth: Optional[int] = 4  # for hierarchical export if needed later
+    max_depth: Optional[int] = 4
+    generate_questions: Optional[bool] = True  # New parameter to control question generation
 
 class MindMapNode(BaseModel):
     id: str
@@ -77,7 +83,7 @@ class MindMapNode(BaseModel):
     parent_id: Optional[str] = None
     children: List[str] = []
     expanded: bool = False
-    node_type: str = "concept"  # concept, link, section, subsection, link_category, related, root
+    node_type: str = "concept"  # concept, link, section, subsection, link_category, related, root, question
     metadata: Dict[str, Any] = {}
 
 class InteractiveMindMap(BaseModel):
@@ -88,7 +94,7 @@ class InteractiveMindMap(BaseModel):
 
 class ExpandNodeRequest(BaseModel):
     node_id: str
-    expand_type: str = "related"  # related, links, subsections
+    expand_type: str = "related"  # related, links, subsections, questions
 
 class NodeExpansionResult(BaseModel):
     node_id: str
@@ -109,6 +115,12 @@ class JobStatus(BaseModel):
     created_at: str
     completed_at: Optional[str] = None
 
+class GeneratedQuestion(BaseModel):
+    question: str
+    answer: str
+    context: str
+    confidence: Optional[float] = None
+
 # --------- Dataclass for job tracking ---------
 @dataclass
 class JobData:
@@ -120,6 +132,288 @@ class JobData:
     created_at: str = ""
     completed_at: Optional[str] = None
 
+# --------- Question Generator ---------
+class QuestionGenerator:
+    """Generates questions from scraped content using transformer models"""
+    
+    def __init__(self, model_name: str = QUESTION_GENERATION_MODEL):
+        self.model_name = model_name
+        self.pipeline = None
+        self._initialized = False
+        
+    def initialize(self):
+        """Lazy initialization of the question generation pipeline"""
+        if self._initialized:
+            return True
+            
+        try:
+            from transformers import pipeline, AutoTokenizer, AutoModelForSeq2SeqLM
+            logger.info(f"Loading question generation model: {self.model_name}")
+            
+            # Try multiple approaches to load the model
+            try:
+                # First try: Use text2text-generation pipeline
+                self.pipeline = pipeline(
+                    "text2text-generation",
+                    model=self.model_name,
+                    tokenizer=self.model_name
+                )
+            except Exception as e:
+                logger.warning(f"Pipeline approach failed: {e}, trying manual loading")
+                # Second try: Manual loading
+                try:
+                    tokenizer = AutoTokenizer.from_pretrained(self.model_name)
+                    model = AutoModelForSeq2SeqLM.from_pretrained(self.model_name)
+                    self.pipeline = pipeline(
+                        "text2text-generation",
+                        model=model,
+                        tokenizer=tokenizer
+                    )
+                except Exception as e2:
+                    logger.error(f"Manual loading also failed: {e2}")
+                    self.pipeline = None
+                    return False
+            
+            self._initialized = True
+            logger.info("Question generation model loaded successfully")
+            return True
+        except Exception as e:
+            logger.error(f"Failed to load question generation model: {e}")
+            self.pipeline = None
+            return False
+    
+    def generate_questions(self, text: str, max_questions: int = 5) -> List[GeneratedQuestion]:
+        """
+        Generate questions from the given text using the transformer model
+        """
+        if not self.initialize() or not self.pipeline:
+            logger.warning("Question generation not available, falling back to rule-based method")
+            return self._generate_questions_fallback(text, max_questions)
+        
+        try:
+            # Clean and prepare text
+            clean_text = self._preprocess_text(text)
+            if not clean_text:
+                return []
+            
+            # For T5 models, we need to format the input properly
+            # The valhalla/t5-small-qg-hl model expects "generate questions: <text>" format
+            formatted_input = f"generate questions: {clean_text}"
+            
+            # Fix: Ensure num_beams >= num_return_sequences
+            num_beams = max(4, max_questions)
+            
+            # Generate questions using the model
+            generated = self.pipeline(
+                formatted_input,
+                max_length=128,
+                num_return_sequences=max_questions,
+                do_sample=True,
+                temperature=0.8,
+                num_beams=num_beams,  # Fixed: num_beams >= num_return_sequences
+            )
+            
+            # Parse generated questions
+            questions = []
+            for result in generated:
+                generated_text = result.get('generated_text', '').strip()
+                
+                if generated_text and self._is_valid_question(generated_text):
+                    # For this model, we need to extract both question and answer
+                    question_text, answer_text = self._parse_question_answer(generated_text, clean_text)
+                    
+                    if question_text:
+                        questions.append(GeneratedQuestion(
+                            question=question_text,
+                            answer=answer_text,
+                            context=clean_text[:200] + "..." if len(clean_text) > 200 else clean_text,
+                            confidence=result.get('score', 0.5)
+                        ))
+                
+                if len(questions) >= max_questions:
+                    break
+            
+            return questions
+            
+        except Exception as e:
+            logger.error(f"Error in question generation: {e}")
+            return self._generate_questions_fallback(text, max_questions)
+    
+    def _parse_question_answer(self, generated_text: str, context: str) -> Tuple[str, str]:
+        """Parse the generated text to extract question and answer"""
+        # The model might generate text in different formats
+        # Try to extract question and answer
+        
+        # Format 1: "question: <question> answer: <answer>"
+        if "question:" in generated_text.lower() and "answer:" in generated_text.lower():
+            parts = re.split(r'question:|answer:', generated_text, flags=re.IGNORECASE)
+            if len(parts) >= 3:
+                question = parts[1].strip()
+                answer = parts[2].strip()
+                return question, answer
+        
+        # Format 2: Just the question (common case)
+        # Use the entire generated text as question and find answer in context
+        question = generated_text.strip()
+        answer = self._find_answer_in_context(question, context)
+        
+        return question, answer
+    
+    def _find_answer_in_context(self, question: str, context: str) -> str:
+        """Find the most relevant answer for the question in the context"""
+        try:
+            sentences = sent_tokenize(context)
+            question_words = set(question.lower().split())
+            
+            best_sentence = sentences[0] if sentences else "Information available in the context"
+            best_score = 0
+            
+            for sentence in sentences:
+                sentence_words = set(sentence.lower().split())
+                common_words = question_words.intersection(sentence_words)
+                score = len(common_words)
+                
+                if score > best_score:
+                    best_score = score
+                    best_sentence = sentence
+            
+            return best_sentence
+        except:
+            return "Information available in the context"
+    
+    def _generate_questions_fallback(self, text: str, max_questions: int) -> List[GeneratedQuestion]:
+        """
+        Fallback method using rule-based question generation when transformer model fails
+        """
+        try:
+            sentences = sent_tokenize(text)
+            questions = []
+            
+            for sentence in sentences[:max_questions * 3]:  # Process more sentences than needed
+                if len(sentence.split()) < 6:  # Skip very short sentences
+                    continue
+                    
+                # Simple rule-based question generation
+                question = self._sentence_to_question(sentence)
+                if question and question != sentence and self._is_valid_question(question):
+                    questions.append(GeneratedQuestion(
+                        question=question,
+                        answer=sentence,
+                        context=sentence,
+                        confidence=0.3
+                    ))
+                
+                if len(questions) >= max_questions:
+                    break
+            
+            return questions
+        except Exception as e:
+            logger.error(f"Error in fallback question generation: {e}")
+            return []
+    
+    def _preprocess_text(self, text: str) -> str:
+        """Clean and prepare text for question generation"""
+        if not text:
+            return ""
+        
+        # Remove metadata lines
+        text = strip_metadata_lines(text)
+        
+        # Remove extra whitespace
+        text = re.sub(r'\s+', ' ', text).strip()
+        
+        # Remove very short paragraphs
+        sentences = sent_tokenize(text)
+        meaningful_sentences = [s for s in sentences if len(s.split()) >= 5]
+        
+        return ' '.join(meaningful_sentences[:10])  # Limit to first 10 meaningful sentences
+    
+    def _is_valid_question(self, text: str) -> bool:
+        """Check if generated text is a valid question"""
+        if not text:
+            return False
+        
+        text = text.strip()
+        if len(text) < 10:  # Too short
+            return False
+        
+        # Should end with question mark and contain question words
+        question_indicators = ['what', 'how', 'why', 'when', 'where', 'which', 'who', 'whom', 'whose', 'explain', 'describe']
+        text_lower = text.lower()
+        
+        has_question_mark = text.endswith('?')
+        has_question_word = any(indicator in text_lower.split() for indicator in question_indicators)
+        
+        # Also accept sentences that are clearly questions based on structure
+        is_question_like = (text_lower.startswith(('what', 'how', 'why', 'when', 'where', 'which', 'who')) 
+                           or ' what ' in text_lower 
+                           or ' how ' in text_lower 
+                           or ' why ' in text_lower)
+        
+        return has_question_mark or has_question_word or is_question_like
+    
+    def _sentence_to_question(self, sentence: str) -> str:
+        """Convert a declarative sentence to a question (rule-based fallback)"""
+        # Simple transformation rules
+        sentence = sentence.strip()
+        if not sentence or sentence.endswith('?'):
+            return ""
+        
+        words = sentence.split()
+        if len(words) < 4:
+            return ""
+        
+        # Remove ending punctuation
+        sentence = sentence.rstrip('.!')
+        
+        # Common patterns for question generation
+        if ' is ' in sentence.lower():
+            parts = sentence.split(' is ', 1)
+            if len(parts) == 2:
+                return f"What is {parts[1]}?"
+        elif ' are ' in sentence.lower():
+            parts = sentence.split(' are ', 1)
+            if len(parts) == 2:
+                return f"What are {parts[1]}?"
+        elif ' was ' in sentence.lower():
+            parts = sentence.split(' was ', 1)
+            if len(parts) == 2:
+                return f"What was {parts[1]}?"
+        elif ' were ' in sentence.lower():
+            parts = sentence.split(' were ', 1)
+            if len(parts) == 2:
+                return f"What were {parts[1]}?"
+        elif ' can ' in sentence.lower():
+            parts = sentence.split(' can ', 1)
+            if len(parts) == 2:
+                return f"How can {parts[1]}?"
+        elif ' should ' in sentence.lower():
+            parts = sentence.split(' should ', 1)
+            if len(parts) == 2:
+                return f"Why should {parts[1]}?"
+        elif ' has ' in sentence.lower():
+            parts = sentence.split(' has ', 1)
+            if len(parts) == 2:
+                return f"What has {parts[1]}?"
+        elif ' have ' in sentence.lower():
+            parts = sentence.split(' have ', 1)
+            if len(parts) == 2:
+                return f"What have {parts[1]}?"
+        elif ' means ' in sentence.lower():
+            parts = sentence.split(' means ', 1)
+            if len(parts) == 2:
+                return f"What does {parts[0]} mean?"
+        
+        # Generic question based on the main verb or subject
+        try:
+            # Try to create a "what is" question from the sentence
+            words = sentence.split()
+            if len(words) > 3:
+                return f"What is {words[-1]}?"
+            else:
+                return f"What is the main idea of this statement?"
+        except:
+            return ""
 # --------- Utils ---------
 def sanitize_filename(url: str) -> str:
     """Convert URL into a safe filename"""
@@ -170,6 +464,12 @@ def make_concept_url(concept: str, page_url: str) -> Optional[str]:
     # "none" or any other => no URL
     return None
 
+# [Include all the other classes and functions exactly as they were in the previous version]
+# EnhancedWebScraper, InteractiveMindMapGenerator, NodeExpansionService, ContentSummarizer
+# process_scrape_job, generate_text_mindmap, generate_network_mindmap, generate_hierarchical_mindmap
+# get_expansion_service, and all API endpoints
+
+# ... [Rest of the code remains identical to the previous version] ...
 # --------- Scraper ---------
 class EnhancedWebScraper:
     """Enhanced web scraper with link extraction and hierarchical content analysis"""
@@ -356,7 +656,7 @@ class InteractiveMindMapGenerator:
     def __init__(self):
         self.node_counter = 0
 
-    def create_interactive_mindmap(self, content: Dict[str, Any], summary_data: Dict[str, Any]) -> InteractiveMindMap:
+    def create_interactive_mindmap(self, content: Dict[str, Any], summary_data: Dict[str, Any], questions_data: Dict[str, Any]) -> InteractiveMindMap:
         root_node_id = self._generate_node_id()
 
         # Root node content uses bullet summary; sanitize metadata lines
@@ -373,7 +673,8 @@ class InteractiveMindMapGenerator:
                 'word_count': content.get('word_count', 0),
                 'section_count': len(content.get('sections', [])),
                 'link_count': len(content.get('links', [])),
-                'expandable': False,
+                'question_count': len(questions_data.get('questions', [])),
+                'expandable': True,
             },
         )
 
@@ -384,14 +685,30 @@ class InteractiveMindMapGenerator:
         if hierarchy_root:
             self._build_section_nodes(hierarchy_root, parent_id=root_node_id, nodes=nodes)
 
-        # 2) Add concept nodes (still useful; hang them directly off the root)
-        concept_nodes = self._create_concept_nodes(summary_data.get('key_concepts', []), root_node_id, page_url=content.get("url",""))
+        # 2) Create a "Key Concepts & Questions" category node
+        concepts_questions_node_id = self._generate_node_id()
+        concepts_questions_node = MindMapNode(
+            id=concepts_questions_node_id,
+            title="Key Concepts & Questions",
+            content="Important concepts and generated questions from the content",
+            parent_id=root_node_id,
+            node_type="concept",
+            metadata={'expandable': True, 'category': 'concepts_questions'},
+        )
+        nodes[concepts_questions_node_id] = concepts_questions_node
+        root_node.children.append(concepts_questions_node_id)
+
+        # 3) Add concept nodes under the category
+        concept_nodes = self._create_concept_nodes(summary_data.get('key_concepts', []), concepts_questions_node_id, page_url=content.get("url",""))
         nodes.update(concept_nodes)
 
-        # Root children: first-level section nodes + concept nodes already set inside builder
-        # Ensure root children contain both sets
-        # The builder already appended section children to root; now also append concepts
-        root_node.children.extend(list(concept_nodes.keys()))
+        # 4) Add question nodes under the same category
+        question_nodes = self._create_question_nodes(questions_data.get('questions', []), concepts_questions_node_id)
+        nodes.update(question_nodes)
+
+        # Add the concept and question nodes to the category node
+        concepts_questions_node.children.extend(list(concept_nodes.keys()))
+        concepts_questions_node.children.extend(list(question_nodes.keys()))
 
         viz = self._generate_visualization_data(nodes, root_node_id)
         style = self._get_style_config()
@@ -402,7 +719,6 @@ class InteractiveMindMapGenerator:
             visualization_data=viz,
             style_config=style,
         )
-
     def _build_section_nodes(self, section: Dict[str, Any], parent_id: str, nodes: Dict[str, MindMapNode]):
         """
         Recursively convert hierarchical sections (with children) into MindMapNode tree.
@@ -493,7 +809,50 @@ class InteractiveMindMapGenerator:
                 parent_id=parent_id,
                 node_type="concept",
                 url=url,
-                metadata={'expandable': True, 'concept_type': 'key_term', 'clickable': bool(url)},
+                metadata={
+                    'expandable': True, 
+                    'concept_type': 'key_term', 
+                    'clickable': bool(url),
+                    'category': 'key_concept'
+                },
+            )
+            nodes[node_id] = node
+        return nodes
+
+    # Update the _create_question_nodes method in InteractiveMindMapGenerator class
+    def _create_question_nodes(self, questions: List[Any], parent_id: str) -> Dict[str, MindMapNode]:
+        nodes: Dict[str, MindMapNode] = {}
+        for i, q in enumerate(questions[:8]):  # Limit to 8 questions to avoid clutter
+            node_id = self._generate_node_id()
+        
+            # Handle both GeneratedQuestion objects and dictionaries
+            if hasattr(q, 'question'):  # It's a GeneratedQuestion object
+                question_text = strip_metadata_lines(q.question)
+                answer_text = q.answer
+                confidence = q.confidence
+                context = q.context
+            else:  # It's a dictionary
+                question_text = strip_metadata_lines(q.get('question', ''))
+                answer_text = q.get('answer', '')
+                confidence = q.get('confidence', 0.0)
+                context = q.get('context', '')
+        
+            answer_preview = (answer_text[:100] + "...") if len(answer_text) > 100 else answer_text
+        
+            node = MindMapNode(
+                id=node_id,
+                title=f"Q: {question_text}",
+                content=f"Answer: {answer_preview}",
+                parent_id=parent_id,
+                node_type="question",
+                metadata={
+                    'full_question': question_text,
+                    'full_answer': answer_text,
+                    'context': context,
+                    'confidence': confidence,
+                    'expandable': False,
+                    'clickable': False,
+                },
             )
             nodes[node_id] = node
         return nodes
@@ -530,6 +889,8 @@ class InteractiveMindMapGenerator:
             return base + 6
         if node.node_type == "subsection":
             return base - 2
+        if node.node_type == "question":
+            return base + 4
         return base
 
     def _get_node_color(self, node_type: str) -> str:
@@ -541,6 +902,7 @@ class InteractiveMindMapGenerator:
             'subsection': '#FFEAA7',
             'related': '#DDA0DD',
             'link': '#A8E6CF',
+            'question': '#FFA726',  # Orange for questions
         }
         return colors.get(node_type, '#95A5A6')
 
@@ -553,9 +915,9 @@ class InteractiveMindMapGenerator:
             'subsection': 'triangle',
             'related': 'star',
             'link': 'square',
+            'question': 'diamond',  # Diamond shape for questions to make them stand out
         }
         return shapes.get(node_type, 'box')
-
     def _get_style_config(self) -> Dict[str, Any]:
         return {
             'layout': {'hierarchical': {'enabled': True, 'direction': 'UD', 'sortMethod': 'directed'}},
@@ -568,8 +930,9 @@ class InteractiveMindMapGenerator:
 
 # --------- Node expansion service ---------
 class NodeExpansionService:
-    def __init__(self, scraper: EnhancedWebScraper):
+    def __init__(self, scraper: EnhancedWebScraper, question_generator: QuestionGenerator):
         self.scraper = scraper
+        self.question_generator = question_generator
 
     async def expand_node(self, node_id: str, expand_type: str, mindmap: InteractiveMindMap) -> NodeExpansionResult:
         if node_id not in mindmap.nodes:
@@ -582,6 +945,8 @@ class NodeExpansionService:
             new_nodes = await self._expand_node_links(node)
         elif expand_type == "related":
             new_nodes = await self._expand_related_concepts(node)
+        elif expand_type == "questions":
+            new_nodes = await self._expand_questions(node)
 
         for n in new_nodes:
             mindmap.nodes[n.id] = n
@@ -653,6 +1018,35 @@ class NodeExpansionService:
                 new_nodes.append(related_node)
         return new_nodes
 
+    async def _expand_questions(self, node: MindMapNode) -> List[MindMapNode]:
+        new_nodes: List[MindMapNode] = []
+        content = node.metadata.get('full_content', node.content or "")
+        if not content:
+            return new_nodes
+        
+        # Generate questions from the node content
+        questions = self.question_generator.generate_questions(content, max_questions=3)
+        
+        for i, q in enumerate(questions):
+            q_id = f"question_{node.id}_{i}"
+            question_node = MindMapNode(
+                id=q_id,
+                title=f"Q: {q.question}",
+                content=f"Answer: {q.answer}",
+                parent_id=node.id,
+                node_type="question",
+                metadata={
+                    'full_question': q.question,
+                    'full_answer': q.answer,
+                    'context': q.context,
+                    'confidence': q.confidence,
+                    'expandable': False,
+                },
+            )
+            new_nodes.append(question_node)
+        
+        return new_nodes
+
     def _update_visualization_for_expansion(self, mindmap: InteractiveMindMap, expanded_node_id: str, new_nodes: List[MindMapNode]) -> Dict[str, Any]:
         viz_data = json.loads(json.dumps(mindmap.visualization_data))
         for n in new_nodes:
@@ -675,7 +1069,7 @@ class NodeExpansionService:
         colors = {
             'root': '#FF6B6B', 'concept': '#4ECDC4', 'section': '#45B7D1',
             'link_category': '#96CEB4', 'subsection': '#FFEAA7',
-            'related': '#DDA0DD', 'link': '#A8E6CF',
+            'related': '#DDA0DD', 'link': '#A8E6CF', 'question': '#FFA726',
         }
         return colors.get(node_type, '#95A5A6')
 
@@ -683,7 +1077,7 @@ class NodeExpansionService:
         shapes = {
             'root': 'circle', 'concept': 'box', 'section': 'ellipse',
             'link_category': 'diamond', 'subsection': 'triangle',
-            'related': 'star', 'link': 'square',
+            'related': 'star', 'link': 'square', 'question': 'database',
         }
         return shapes.get(node_type, 'box')
 
@@ -925,8 +1319,55 @@ class ContentSummarizer:
             final_concepts.append(strip_metadata_lines(c))
         return final_concepts[:15]
 
+@app.get("/job/{job_id}/debug-full")
+async def debug_full_job(job_id: str):
+    if job_id not in scrape_jobs:
+        raise HTTPException(status_code=404, detail="Job not found")
+    job = scrape_jobs[job_id]
+    if job.status != "completed":
+        raise HTTPException(status_code=400, detail=f"Job not completed. Status: {job.status}")
+    
+    # Check questions in the main result
+    questions_data = job.result.get('questions', {}) if job.result else {}
+    questions = questions_data.get('questions', [])
+    
+    # Check mindmap for question nodes
+    mindmap_question_nodes = []
+    if job_id in mindmap_nodes:
+        mm = mindmap_nodes[job_id]
+        mindmap_question_nodes = [
+            {
+                "id": node.id,
+                "title": node.title,
+                "node_type": node.node_type,
+                "parent_id": node.parent_id
+            }
+            for node in mm.nodes.values() 
+            if node.node_type == 'question'
+        ]
+    
+    return {
+        "job_id": job_id,
+        "job_status": job.status,
+        "questions_in_result": {
+            "total": len(questions),
+            "questions": [
+                {
+                    "question": q.get('question', '') if isinstance(q, dict) else getattr(q, 'question', ''),
+                    "answer": q.get('answer', '') if isinstance(q, dict) else getattr(q, 'answer', ''),
+                }
+                for q in questions
+            ]
+        },
+        "questions_in_mindmap": {
+            "total": len(mindmap_question_nodes),
+            "nodes": mindmap_question_nodes
+        },
+        "metadata": job.result.get('metadata', {}) if job.result else {}
+    }
 # --------- Background job ---------
-async def process_scrape_job(job_id: str, url: str, summary_length: int, extract_links: bool = True):
+# Update the process_scrape_job function to properly serialize questions
+async def process_scrape_job(job_id: str, url: str, summary_length: int, extract_links: bool = True, generate_questions: bool = True):
     try:
         job = scrape_jobs[job_id]
         job.status = "processing"
@@ -935,31 +1376,51 @@ async def process_scrape_job(job_id: str, url: str, summary_length: int, extract
         scraper = EnhancedWebScraper()
         summarizer = ContentSummarizer()
         mindmap_gen = InteractiveMindMapGenerator()
+        question_generator = QuestionGenerator()
 
         logger.info(f"Scraping content from: {url}")
         job.progress = 30
         content = scraper.scrape_content(url, extract_links)
 
         logger.info("Generating summary and concepts...")
-        job.progress = 55
+        job.progress = 45
         summary_data = summarizer.summarize_content(content, summary_length or 300)
+
+        # Generate questions if enabled
+        questions_data = {"questions": []}
+        if generate_questions and ENABLE_QUESTION_GENERATION:
+            logger.info("Generating questions from content...")
+            job.progress = 60
+            try:
+                questions = question_generator.generate_questions(content.get('full_text', ''), max_questions=5)
+                questions_data["questions"] = [q.dict() for q in questions]  # Convert to dict
+                logger.info(f"Generated {len(questions)} questions")
+                # Debug: Log the actual questions
+                for i, q in enumerate(questions):
+                    logger.info(f"Question {i+1}: {q.question}")
+            except Exception as e:
+                logger.error(f"Question generation failed: {e}")
+                questions_data["questions"] = []
 
         logger.info("Building multi-level mind map...")
         job.progress = 75
-        interactive_mindmap = mindmap_gen.create_interactive_mindmap(content, summary_data)
+        interactive_mindmap = mindmap_gen.create_interactive_mindmap(content, summary_data, questions_data)
         mindmap_nodes[job_id] = interactive_mindmap
 
         job.progress = 90
-        text_mindmaps = {
-            'visual': generate_text_mindmap(content['title'], summary_data['summary'], summary_data['key_concepts']),
-            'network': generate_network_mindmap(content['title'], summary_data['key_concepts']),
-            'hierarchical': generate_hierarchical_mindmap(content['title'], summary_data['key_concepts']),
-        }
-
+        
+        # Debug: Check if questions are being included
+        logger.info(f"Questions data to include: {len(questions_data.get('questions', []))} questions")
+        
         result = {
             'scraped_content': content,
             'summary': summary_data,
-            'mind_maps': text_mindmaps,
+            'questions': questions_data,  # Make sure this is included
+            'mind_maps': {
+                'visual': generate_text_mindmap(content['title'], summary_data['summary'], summary_data['key_concepts']),
+                'network': generate_network_mindmap(content['title'], summary_data['key_concepts']),
+                'hierarchical': generate_hierarchical_mindmap(content['title'], summary_data['key_concepts']),
+            },
             'interactive_mindmap': {
                 'root_node': interactive_mindmap.root_node.dict(),
                 'nodes': {k: v.dict() for k, v in interactive_mindmap.nodes.items()},
@@ -969,6 +1430,7 @@ async def process_scrape_job(job_id: str, url: str, summary_length: int, extract
             'metadata': {
                 'total_links': len(content.get('links', [])),
                 'total_sections': len(content.get('sections', [])),
+                'total_questions': len(questions_data.get('questions', [])),
                 'expandable_nodes': sum(1 for n in interactive_mindmap.nodes.values() if n.metadata.get('expandable', False)),
             },
         }
@@ -1037,7 +1499,7 @@ expansion_service: Optional[NodeExpansionService] = None
 def get_expansion_service() -> NodeExpansionService:
     global expansion_service
     if expansion_service is None:
-        expansion_service = NodeExpansionService(EnhancedWebScraper())
+        expansion_service = NodeExpansionService(EnhancedWebScraper(), QuestionGenerator())
     return expansion_service
 
 # --------- API Endpoints ---------
@@ -1045,13 +1507,14 @@ def get_expansion_service() -> NodeExpansionService:
 async def root():
     return {
         "message": "Interactive Website Scraper & Mind Map Generator API",
-        "version": "3.0.0",
+        "version": "4.0.0",
         "features": [
             "Hierarchical web scraping (H1–H6) with multi-level mind map",
             "Bullet-point summary",
             "Clean key concepts without stopwords",
+            "AI-powered question generation from content",
             "Clickable concept nodes (web search)",
-            "Expandable subsections, links, related concepts",
+            "Expandable subsections, links, related concepts, and questions",
         ],
         "endpoints": [
             "POST /scrape - Start scraping job",
@@ -1074,6 +1537,8 @@ async def health_check():
             "node_expansion": True,
             "link_extraction": True,
             "multi_level_sections": True,
+            "question_generation": ENABLE_QUESTION_GENERATION,
+            "question_generation_model": QUESTION_GENERATION_MODEL,
         },
     }
 
@@ -1088,6 +1553,7 @@ async def create_enhanced_scrape_job(request: ScrapeRequest, background_tasks: B
         str(request.url),
         request.summary_length or 300,
         bool(request.extract_links),
+        bool(request.generate_questions),
     )
     return ScrapeResponse(job_id=job_id, status="queued", message="Scraping job started")
 
@@ -1163,6 +1629,13 @@ async def export_mindmap_data(job_id: str, format: str = "json"):
                 for link_type in set(l.get('type', 'general') for l in links)
             },
         }
+    elif format == "questions":
+        questions_data["questions"] = [q.dict() for q in questions]  # Convert to dict
+        questions = questions_data.get('questions', [])
+        return {
+            "generated_questions": [q.dict() if hasattr(q, 'dict') else q for q in questions],
+            "total_count": len(questions),
+        }
     else:
         raise HTTPException(status_code=400, detail="Unsupported export format")
 
@@ -1171,6 +1644,17 @@ async def get_job_status(job_id: str):
     if job_id not in scrape_jobs:
         raise HTTPException(status_code=404, detail="Job not found")
     job = scrape_jobs[job_id]
+    
+    # Ensure questions are properly serialized in the result
+    if job.result and 'questions' in job.result:
+        questions_data = job.result['questions']
+        if 'questions' in questions_data:
+            # Convert any GeneratedQuestion objects to dictionaries
+            job.result['questions']['questions'] = [
+                q.dict() if hasattr(q, 'dict') else q 
+                for q in questions_data['questions']
+            ]
+    
     extra_metadata: Dict[str, Any] = {}
     if job.status == "completed" and job_id in mindmap_nodes:
         mm = mindmap_nodes[job_id]
@@ -1178,7 +1662,9 @@ async def get_job_status(job_id: str):
             "total_nodes": len(mm.nodes),
             "expandable_nodes": sum(1 for node in mm.nodes.values() if node.metadata.get('expandable', False)),
             "node_types": list({node.node_type for node in mm.nodes.values()}),
+            "question_nodes": sum(1 for node in mm.nodes.values() if node.node_type == 'question'),
         }
+    
     return JobStatus(
         job_id=job.job_id,
         status=job.status,
@@ -1206,6 +1692,7 @@ async def list_jobs_enhanced():
                 "total_nodes": len(mm.nodes),
                 "expandable_nodes": sum(1 for n in mm.nodes.values() if n.metadata.get('expandable', False)),
                 "has_links": any(n.url for n in mm.nodes.values()),
+                "has_questions": any(n.node_type == 'question' for n in mm.nodes.values()),
             }
         jobs_data.append(info)
     return {"total": len(scrape_jobs), "jobs": jobs_data}

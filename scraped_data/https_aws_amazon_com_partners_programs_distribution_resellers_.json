@@ -624,38 +624,38 @@
       "Start",
       "Service",
       "Help",
-      "Started",
-      "Country",
       "Services",
+      "Country",
+      "Started",
       "Identify",
-      "Stories"
+      "Success"
     ],
     "method": "nltk_extractive_bullets"
   },
   "mind_maps": {
     "visual": "\n                            ╔════════════════════════════╗\n                            ║ AWS DISTRIBUTION PROGRAM ║\n                            ╚════════════════════════════╝\n\n                                        │\n                                   ┌─────┴─────┐\n├── 🔹 Partner                       │\n│                                   ├── 🔹 Distributor\n├── 🔹 Resell                        │\n│                                   ├── 🔹 Program\n├── 🔹 Work                          │\n│                                   ├── 🔹 Distribution\n├── 🔹 Network                       │\n│                                   ├── 🔹 Start",
     "network": "🌐 AWS Distribution Program\n│\n├── 📊 Key Concepts\n│ ├── 🔸 Partner\n│ ├── 🔸 Distributor\n│ ├── 🔸 Resell\n│ ├── 🔸 Program\n│ ├── 🔸 Work\n│ ├── 🔸 Distribution",
-    "hierarchical": "🌳 AWS Distribution Program\n│\n├── 🍃 Partner\n├── 🍃 Distributor\n├── 🍃 Resell\n├── 🍃 Program\n├── 🍃 Work\n├── 🍃 Distribution\n├── 🍃 Network\n├── 🍃 Start\n├── 🍃 Service\n├── 🍃 Help\n├── 🍃 Started\n├── 🍃 Country\n├── 🍃 Services\n├── 🍃 Identify\n└── 🍃 Stories"
+    "hierarchical": "🌳 AWS Distribution Program\n│\n├── 🍃 Partner\n├── 🍃 Distributor\n├── 🍃 Resell\n├── 🍃 Program\n├── 🍃 Work\n├── 🍃 Distribution\n├── 🍃 Network\n├── 🍃 Start\n├── 🍃 Service\n├── 🍃 Help\n├── 🍃 Services\n├── 🍃 Country\n├── 🍃 Started\n├── 🍃 Identify\n└── 🍃 Success"
   },
   "interactive_mindmap": {
     "root_node": {
-      "id": "node_1_87ec1b94",
+      "id": "node_1_c49da51b",
       "title": "AWS Distribution Program",
       "content": "- Grow your cloud business with an AWS Distributor  The AWS Distribution Program enables AWS Partners to grow revenue opportunities by reselling AWS products and solutions.\n- AWS Partners work with AWS Distributors to leverage their go-to-market support, offload billing and operations, receive fundi...",
       "url": "https://aws.amazon.com/partners/programs/distribution-resellers/",
       "parent_id": null,
       "children": [
-        "node_2_f6449841",
-        "node_26_8d83a59b",
-        "node_27_08976bd7",
-        "node_28_4e343bc1",
-        "node_29_47ec5f16",
-        "node_30_7b5d5eac",
-        "node_31_4446424a",
-        "node_32_d8ea2828",
-        "node_33_ef5fff29",
-        "node_34_ba48049d",
-        "node_35_dbc85d88"
+        "node_2_27f4f96a",
+        "node_26_159a6949",
+        "node_27_5c18a2aa",
+        "node_28_9ff270ef",
+        "node_29_ce0a6292",
+        "node_30_758c01a5",
+        "node_31_ee74c2ff",
+        "node_32_53dc8fa5",
+        "node_33_1d4a9c31",
+        "node_34_7949291c",
+        "node_35_ff2ec117"
       ],
       "expanded": false,
       "node_type": "root",
@@ -667,24 +667,24 @@
       }
     },
     "nodes": {
-      "node_1_87ec1b94": {
-        "id": "node_1_87ec1b94",
+      "node_1_c49da51b": {
+        "id": "node_1_c49da51b",
         "title": "AWS Distribution Program",
         "content": "- Grow your cloud business with an AWS Distributor  The AWS Distribution Program enables AWS Partners to grow revenue opportunities by reselling AWS products and solutions.\n- AWS Partners work with AWS Distributors to leverage their go-to-market support, offload billing and operations, receive fundi...",
         "url": "https://aws.amazon.com/partners/programs/distribution-resellers/",
         "parent_id": null,
         "children": [
-          "node_2_f6449841",
-          "node_26_8d83a59b",
-          "node_27_08976bd7",
-          "node_28_4e343bc1",
-          "node_29_47ec5f16",
-          "node_30_7b5d5eac",
-          "node_31_4446424a",
-          "node_32_d8ea2828",
-          "node_33_ef5fff29",
-          "node_34_ba48049d",
-          "node_35_dbc85d88"
+          "node_2_27f4f96a",
+          "node_26_159a6949",
+          "node_27_5c18a2aa",
+          "node_28_9ff270ef",
+          "node_29_ce0a6292",
+          "node_30_758c01a5",
+          "node_31_ee74c2ff",
+          "node_32_53dc8fa5",
+          "node_33_1d4a9c31",
+          "node_34_7949291c",
+          "node_35_ff2ec117"
         ],
         "expanded": false,
         "node_type": "root",
@@ -695,21 +695,21 @@
           "expandable": false
         }
       },
-      "node_2_f6449841": {
-        "id": "node_2_f6449841",
+      "node_2_27f4f96a": {
+        "id": "node_2_27f4f96a",
         "title": "Resell with AWS",
         "content": "Grow your cloud business with an AWS Distributor ",
         "url": null,
-        "parent_id": "node_1_87ec1b94",
+        "parent_id": "node_1_c49da51b",
         "children": [
-          "link_node_2_f6449841_0",
-          "link_node_2_f6449841_1",
-          "node_3_82d6f869",
-          "node_4_a16f7611",
-          "node_9_60d9bd63",
-          "node_10_2a144f9a",
-          "node_19_5e81cf50",
-          "node_20_06f35956"
+          "link_node_2_27f4f96a_0",
+          "link_node_2_27f4f96a_1",
+          "node_3_b5537d15",
+          "node_4_37e2fbcf",
+          "node_9_0f1b3a74",
+          "node_10_dbc1770c",
+          "node_19_3b43b35d",
+          "node_20_bcbdd70f"
         ],
         "expanded": false,
         "node_type": "section",
@@ -732,12 +732,12 @@
           ]
         }
       },
-      "link_node_2_f6449841_0": {
-        "id": "link_node_2_f6449841_0",
+      "link_node_2_27f4f96a_0": {
+        "id": "link_node_2_27f4f96a_0",
         "title": "Become an AWS Partner",
         "content": "Link to: Become an AWS Partner",
         "url": "https://partnercentral.awspartner.com/APNSelfRegister",
-        "parent_id": "node_2_f6449841",
+        "parent_id": "node_2_27f4f96a",
         "children": [],
         "expanded": false,
         "node_type": "link",
@@ -750,12 +750,12 @@
           "clickable": true
         }
       },
-      "link_node_2_f6449841_1": {
-        "id": "link_node_2_f6449841_1",
+      "link_node_2_27f4f96a_1": {
+        "id": "link_node_2_27f4f96a_1",
         "title": "Log in to AWS Partner Central",
         "content": "Link to: Log in to AWS Partner Central",
         "url": "https://partnercentral.awspartner.com/APNLogin",
-        "parent_id": "node_2_f6449841",
+        "parent_id": "node_2_27f4f96a",
         "children": [],
         "expanded": false,
         "node_type": "link",
@@ -768,14 +768,14 @@
           "clickable": true
         }
       },
-      "node_3_82d6f869": {
-        "id": "node_3_82d6f869",
+      "node_3_b5537d15": {
+        "id": "node_3_b5537d15",
         "title": "Overview",
         "content": "The AWS Distribution Program enables AWS Partners to grow revenue opportunities by reselling AWS products and solutions. AWS Partners work with AWS Distributors to leverage their go-to-market support,...",
         "url": null,
-        "parent_id": "node_2_f6449841",
+        "parent_id": "node_2_27f4f96a",
         "children": [
-          "link_node_3_82d6f869_0"
+          "link_node_3_b5537d15_0"
         ],
         "expanded": false,
         "node_type": "section",
@@ -793,12 +793,12 @@
           ]
         }
       },
-      "link_node_3_82d6f869_0": {
-        "id": "link_node_3_82d6f869_0",
+      "link_node_3_b5537d15_0": {
+        "id": "link_node_3_b5537d15_0",
         "title": "Get Started",
         "content": "Link to: Get Started",
         "url": "https://aws.amazon.com/partners/programs/distribution-resellers/#Get_Started",
-        "parent_id": "node_3_82d6f869",
+        "parent_id": "node_3_b5537d15",
         "children": [],
         "expanded": false,
         "node_type": "link",
@@ -811,17 +811,17 @@
           "clickable": true
         }
       },
-      "node_4_a16f7611": {
-        "id": "node_4_a16f7611",
+      "node_4_37e2fbcf": {
+        "id": "node_4_37e2fbcf",
         "title": "Identify an AWS Distributor in your country to help you resell.",
         "content": "",
         "url": null,
-        "parent_id": "node_2_f6449841",
+        "parent_id": "node_2_27f4f96a",
         "children": [
-          "node_5_5fc38b16",
-          "node_6_52494f47",
-          "node_7_3c2d5581",
-          "node_8_d6fb8ee8"
+          "node_5_a909ac66",
+          "node_6_a80024ed",
+          "node_7_57aa6ee2",
+          "node_8_495fe8f5"
         ],
         "expanded": false,
         "node_type": "section",
@@ -833,12 +833,12 @@
           "links": []
         }
       },
-      "node_5_5fc38b16": {
-        "id": "node_5_5fc38b16",
+      "node_5_a909ac66": {
+        "id": "node_5_a909ac66",
         "title": "Gain go-to-market support",
         "content": "Receive pre-sales and post-sales support, training, marketing services, and enablement programs from your AWS Distributor to help you build and grow your AWS business. ",
         "url": null,
-        "parent_id": "node_4_a16f7611",
+        "parent_id": "node_4_37e2fbcf",
         "children": [],
         "expanded": false,
         "node_type": "section",
@@ -850,12 +850,12 @@
           "links": []
         }
       },
-      "node_6_52494f47": {
-        "id": "node_6_52494f47",
+      "node_6_a80024ed": {
+        "id": "node_6_a80024ed",
         "title": "Scale your technical expertise",
         "content": "Leverage AWS Distributors for their technical expertise with migrations, managed services, cloud optimization, and other complex initiatives. ",
         "url": null,
-        "parent_id": "node_4_a16f7611",
+        "parent_id": "node_4_37e2fbcf",
         "children": [],
         "expanded": false,
         "node_type": "section",
@@ -867,12 +867,12 @@
           "links": []
         }
       },
-      "node_7_3c2d5581": {
-        "id": "node_7_3c2d5581",
+      "node_7_57aa6ee2": {
+        "id": "node_7_57aa6ee2",
         "title": "Drive operational efficiency",
         "content": "Offload your billing and operations management to an AWS Distributor, enabling you to free up your teams to focus on positive customer experiences. ",
         "url": null,
-        "parent_id": "node_4_a16f7611",
+        "parent_id": "node_4_37e2fbcf",
         "children": [],
         "expanded": false,
         "node_type": "section",
@@ -884,14 +884,14 @@
           "links": []
         }
       },
-      "node_8_d6fb8ee8": {
-        "id": "node_8_d6fb8ee8",
+      "node_8_495fe8f5": {
+        "id": "node_8_495fe8f5",
         "title": "Maximize your AWS Partner experience",
         "content": "AWS Distributors help you progress as an AWS Partner and fully leverage all the Partner programs and benefits available to you. ",
         "url": null,
-        "parent_id": "node_4_a16f7611",
+        "parent_id": "node_4_37e2fbcf",
         "children": [
-          "link_node_8_d6fb8ee8_0"
+          "link_node_8_495fe8f5_0"
         ],
         "expanded": false,
         "node_type": "section",
@@ -909,12 +909,12 @@
           ]
         }
       },
-      "link_node_8_d6fb8ee8_0": {
-        "id": "link_node_8_d6fb8ee8_0",
+      "link_node_8_495fe8f5_0": {
+        "id": "link_node_8_495fe8f5_0",
         "title": "Find an AWS Distributor",
         "content": "Link to: Find an AWS Distributor",
         "url": "https://partners.amazonaws.com/search/partners?facets=Program%20%3A%20AWS%20Distributor",
-        "parent_id": "node_8_d6fb8ee8",
+        "parent_id": "node_8_495fe8f5",
         "children": [],
         "expanded": false,
         "node_type": "link",
@@ -927,12 +927,12 @@
           "clickable": true
         }
       },
-      "node_9_60d9bd63": {
-        "id": "node_9_60d9bd63",
+      "node_9_0f1b3a74": {
+        "id": "node_9_0f1b3a74",
         "title": "AWS Distribution Program Success Stories",
         "content": "",
         "url": null,
-        "parent_id": "node_2_f6449841",
+        "parent_id": "node_2_27f4f96a",
         "children": [],
         "expanded": false,
         "node_type": "section",
@@ -944,21 +944,21 @@
           "links": []
         }
       },
-      "node_10_2a144f9a": {
-        "id": "node_10_2a144f9a",
+      "node_10_dbc1770c": {
+        "id": "node_10_dbc1770c",
         "title": "Get Started",
         "content": "",
         "url": null,
-        "parent_id": "node_2_f6449841",
+        "parent_id": "node_2_27f4f96a",
         "children": [
-          "node_11_638b8b9c",
-          "node_12_5be72ab7",
-          "node_13_81288062",
-          "node_14_32d230d3",
-          "node_15_bf523304",
-          "node_16_167f328d",
-          "node_17_c76135c6",
-          "node_18_b56cf9dc"
+          "node_11_b09e395b",
+          "node_12_efa0f34d",
+          "node_13_f2a7b4e5",
+          "node_14_abdfb12e",
+          "node_15_6df915df",
+          "node_16_ea78e576",
+          "node_17_eba1cad5",
+          "node_18_9167d53b"
         ],
         "expanded": false,
         "node_type": "section",
@@ -970,12 +970,12 @@
           "links": []
         }
       },
-      "node_11_638b8b9c": {
-        "id": "node_11_638b8b9c",
+      "node_11_b09e395b": {
+        "id": "node_11_b09e395b",
         "title": "1",
         "content": "",
         "url": null,
-        "parent_id": "node_10_2a144f9a",
+        "parent_id": "node_10_dbc1770c",
         "children": [],
         "expanded": false,
         "node_type": "section",
@@ -987,14 +987,14 @@
           "links": []
         }
       },
-      "node_12_5be72ab7": {
-        "id": "node_12_5be72ab7",
+      "node_12_efa0f34d": {
+        "id": "node_12_efa0f34d",
         "title": "Join the AWS Partner Network",
         "content": "Join the AWS Partner Network (APN) at no cost by creating your AWS Partner Central account. ",
         "url": null,
-        "parent_id": "node_10_2a144f9a",
+        "parent_id": "node_10_dbc1770c",
         "children": [
-          "link_node_12_5be72ab7_0"
+          "link_node_12_efa0f34d_0"
         ],
         "expanded": false,
         "node_type": "section",
@@ -1012,12 +1012,12 @@
           ]
         }
       },
-      "link_node_12_5be72ab7_0": {
-        "id": "link_node_12_5be72ab7_0",
+      "link_node_12_efa0f34d_0": {
+        "id": "link_node_12_efa0f34d_0",
         "title": "Become an AWS Partner",
         "content": "Link to: Become an AWS Partner",
         "url": "https://partnercentral.awspartner.com/APNSelfRegister",
-        "parent_id": "node_12_5be72ab7",
+        "parent_id": "node_12_efa0f34d",
         "children": [],
         "expanded": false,
         "node_type": "link",
@@ -1030,12 +1030,12 @@
           "clickable": true
         }
       },
-      "node_13_81288062": {
-        "id": "node_13_81288062",
+      "node_13_f2a7b4e5": {
+        "id": "node_13_f2a7b4e5",
         "title": "2",
         "content": "",
         "url": null,
-        "parent_id": "node_10_2a144f9a",
+        "parent_id": "node_10_dbc1770c",
         "children": [],
         "expanded": false,
         "node_type": "section",
@@ -1047,14 +1047,14 @@
           "links": []
         }
       },
-      "node_14_32d230d3": {
-        "id": "node_14_32d230d3",
+      "node_14_abdfb12e": {
+        "id": "node_14_abdfb12e",
         "title": "Enroll in the Services Path",
         "content": "Enroll in the Services Path as a prerequisite to signing an AWS Distribution Seller Agreement. This Path is specifically designed for organizations that leverage AWS to deliver consulting, professiona...",
         "url": null,
-        "parent_id": "node_10_2a144f9a",
+        "parent_id": "node_10_dbc1770c",
         "children": [
-          "link_node_14_32d230d3_0"
+          "link_node_14_abdfb12e_0"
         ],
         "expanded": false,
         "node_type": "section",
@@ -1072,12 +1072,12 @@
           ]
         }
       },
-      "link_node_14_32d230d3_0": {
-        "id": "link_node_14_32d230d3_0",
+      "link_node_14_abdfb12e_0": {
+        "id": "link_node_14_abdfb12e_0",
         "title": "Learn more about AWS Partner Tier requirements",
         "content": "Link to: Learn more about AWS Partner Tier requirements",
         "url": "https://partnercentral.awspartner.com/ContentFolderPartner?id=0690h000004CJG9AAO",
-        "parent_id": "node_14_32d230d3",
+        "parent_id": "node_14_abdfb12e",
         "children": [],
         "expanded": false,
         "node_type": "link",
@@ -1090,12 +1090,12 @@
           "clickable": true
         }
       },
-      "node_15_bf523304": {
-        "id": "node_15_bf523304",
+      "node_15_6df915df": {
+        "id": "node_15_6df915df",
         "title": "3",
         "content": "",
         "url": null,
-        "parent_id": "node_10_2a144f9a",
+        "parent_id": "node_10_dbc1770c",
         "children": [],
         "expanded": false,
         "node_type": "section",
@@ -1107,14 +1107,14 @@
           "links": []
         }
       },
-      "node_16_167f328d": {
-        "id": "node_16_167f328d",
+      "node_16_ea78e576": {
+        "id": "node_16_ea78e576",
         "title": "Connect with an AWS Distributor",
         "content": "Find an AWS Distributor in your country. To join the program, directly contact the distributor that best supports your business needs and begin onboarding. Your AWS Distributor will work with you to c...",
         "url": null,
-        "parent_id": "node_10_2a144f9a",
+        "parent_id": "node_10_dbc1770c",
         "children": [
-          "link_node_16_167f328d_0"
+          "link_node_16_ea78e576_0"
         ],
         "expanded": false,
         "node_type": "section",
@@ -1132,12 +1132,12 @@
           ]
         }
       },
-      "link_node_16_167f328d_0": {
-        "id": "link_node_16_167f328d_0",
+      "link_node_16_ea78e576_0": {
+        "id": "link_node_16_ea78e576_0",
         "title": "Find an AWS Distributor",
         "content": "Link to: Find an AWS Distributor",
         "url": "https://partners.amazonaws.com/search/partners?facets=Program%20%3A%20AWS%20Distributor",
-        "parent_id": "node_16_167f328d",
+        "parent_id": "node_16_ea78e576",
         "children": [],
         "expanded": false,
         "node_type": "link",
@@ -1150,12 +1150,12 @@
           "clickable": true
         }
       },
-      "node_17_c76135c6": {
-        "id": "node_17_c76135c6",
+      "node_17_eba1cad5": {
+        "id": "node_17_eba1cad5",
         "title": "4",
         "content": "",
         "url": null,
-        "parent_id": "node_10_2a144f9a",
+        "parent_id": "node_10_dbc1770c",
         "children": [],
         "expanded": false,
         "node_type": "section",
@@ -1167,12 +1167,12 @@
           "links": []
         }
       },
-      "node_18_b56cf9dc": {
-        "id": "node_18_b56cf9dc",
+      "node_18_9167d53b": {
+        "id": "node_18_9167d53b",
         "title": "Start selling",
         "content": "Upon completing your onboarding with your selected AWS Distributor, you can start selling AWS solutions immediately. ",
         "url": null,
-        "parent_id": "node_10_2a144f9a",
+        "parent_id": "node_10_dbc1770c",
         "children": [],
         "expanded": false,
         "node_type": "section",
@@ -1184,12 +1184,12 @@
           "links": []
         }
       },
-      "node_19_5e81cf50": {
-        "id": "node_19_5e81cf50",
+      "node_19_3b43b35d": {
+        "id": "node_19_3b43b35d",
         "title": "Partner Testimonials",
         "content": "“When you combine forces—AWS working alongside an AWS Distributor working with a reseller—that’s when innovation peaks and customers win big.” Anas Homaidani, Chief Commercial Officer, KUWAITNET ",
         "url": null,
-        "parent_id": "node_2_f6449841",
+        "parent_id": "node_2_27f4f96a",
         "children": [],
         "expanded": false,
         "node_type": "section",
@@ -1201,19 +1201,19 @@
           "links": []
         }
       },
-      "node_20_06f35956": {
-        "id": "node_20_06f35956",
+      "node_20_bcbdd70f": {
+        "id": "node_20_bcbdd70f",
         "title": "Follow AWS Partner Network",
         "content": "",
         "url": null,
-        "parent_id": "node_2_f6449841",
+        "parent_id": "node_2_27f4f96a",
         "children": [
-          "link_node_20_06f35956_0",
-          "node_21_6c0fe576",
-          "node_22_1550b177",
-          "node_23_ea869dc6",
-          "node_24_aca04974",
-          "node_25_a9cdcab7"
+          "link_node_20_bcbdd70f_0",
+          "node_21_fb108c8d",
+          "node_22_4c2bf710",
+          "node_23_8bdcde25",
+          "node_24_cd854085",
+          "node_25_8575b8b5"
         ],
         "expanded": false,
         "node_type": "section",
@@ -1231,12 +1231,12 @@
           ]
         }
       },
-      "link_node_20_06f35956_0": {
-        "id": "link_node_20_06f35956_0",
+      "link_node_20_bcbdd70f_0": {
+        "id": "link_node_20_bcbdd70f_0",
         "title": "AWS Partner Newsletter\n\n\n\nLearn more",
         "content": "Link to: AWS Partner Newsletter\n\n\n\nLearn more",
         "url": "https://partners.awscloud.com/communication-preferences.html",
-        "parent_id": "node_20_06f35956",
+        "parent_id": "node_20_bcbdd70f",
         "children": [],
         "expanded": false,
         "node_type": "link",
@@ -1249,14 +1249,14 @@
           "clickable": true
         }
       },
-      "node_21_6c0fe576": {
-        "id": "node_21_6c0fe576",
+      "node_21_fb108c8d": {
+        "id": "node_21_fb108c8d",
         "title": "AWS Partner Newsletter",
         "content": "",
         "url": null,
-        "parent_id": "node_20_06f35956",
+        "parent_id": "node_20_bcbdd70f",
         "children": [
-          "link_node_21_6c0fe576_0"
+          "link_node_21_fb108c8d_0"
         ],
         "expanded": false,
         "node_type": "section",
@@ -1274,12 +1274,12 @@
           ]
         }
       },
-      "link_node_21_6c0fe576_0": {
-        "id": "link_node_21_6c0fe576_0",
+      "link_node_21_fb108c8d_0": {
+        "id": "link_node_21_fb108c8d_0",
         "title": "APN Blog\n\n\n\nLearn more",
         "content": "Link to: APN Blog\n\n\n\nLearn more",
         "url": "https://aws.amazon.com/blogs/apn/",
-        "parent_id": "node_21_6c0fe576",
+        "parent_id": "node_21_fb108c8d",
         "children": [],
         "expanded": false,
         "node_type": "link",
@@ -1292,14 +1292,14 @@
           "clickable": true
         }
       },
-      "node_22_1550b177": {
-        "id": "node_22_1550b177",
+      "node_22_4c2bf710": {
+        "id": "node_22_4c2bf710",
         "title": "APN Blog",
         "content": "",
         "url": null,
-        "parent_id": "node_20_06f35956",
+        "parent_id": "node_20_bcbdd70f",
         "children": [
-          "link_node_22_1550b177_0"
+          "link_node_22_4c2bf710_0"
         ],
         "expanded": false,
         "node_type": "section",
@@ -1317,12 +1317,12 @@
           ]
         }
       },
-      "link_node_22_1550b177_0": {
-        "id": "link_node_22_1550b177_0",
+      "link_node_22_4c2bf710_0": {
+        "id": "link_node_22_4c2bf710_0",
         "title": "Partner Webinars\n\n\n\nLearn more",
         "content": "Link to: Partner Webinars\n\n\n\nLearn more",
         "url": "https://aws.amazon.com/webinars/partner-webinars/",
-        "parent_id": "node_22_1550b177",
+        "parent_id": "node_22_4c2bf710",
         "children": [],
         "expanded": false,
         "node_type": "link",
@@ -1335,14 +1335,14 @@
           "clickable": true
         }
       },
-      "node_23_ea869dc6": {
-        "id": "node_23_ea869dc6",
+      "node_23_8bdcde25": {
+        "id": "node_23_8bdcde25",
         "title": "Partner Webinars",
         "content": "",
         "url": null,
-        "parent_id": "node_20_06f35956",
+        "parent_id": "node_20_bcbdd70f",
         "children": [
-          "link_node_23_ea869dc6_0"
+          "link_node_23_8bdcde25_0"
         ],
         "expanded": false,
         "node_type": "section",
@@ -1360,12 +1360,12 @@
           ]
         }
       },
-      "link_node_23_ea869dc6_0": {
-        "id": "link_node_23_ea869dc6_0",
+      "link_node_23_8bdcde25_0": {
+        "id": "link_node_23_8bdcde25_0",
         "title": "APN LinkedIn\n\n\n\nLearn more",
         "content": "Link to: APN LinkedIn\n\n\n\nLearn more",
         "url": "https://www.linkedin.com/showcase/scale-with-aws-partners/",
-        "parent_id": "node_23_ea869dc6",
+        "parent_id": "node_23_8bdcde25",
         "children": [],
         "expanded": false,
         "node_type": "link",
@@ -1378,14 +1378,14 @@
           "clickable": true
         }
       },
-      "node_24_aca04974": {
-        "id": "node_24_aca04974",
+      "node_24_cd854085": {
+        "id": "node_24_cd854085",
         "title": "APN LinkedIn",
         "content": "",
         "url": null,
-        "parent_id": "node_20_06f35956",
+        "parent_id": "node_20_bcbdd70f",
         "children": [
-          "link_node_24_aca04974_0"
+          "link_node_24_cd854085_0"
         ],
         "expanded": false,
         "node_type": "section",
@@ -1403,12 +1403,12 @@
           ]
         }
       },
-      "link_node_24_aca04974_0": {
-        "id": "link_node_24_aca04974_0",
+      "link_node_24_cd854085_0": {
+        "id": "link_node_24_cd854085_0",
         "title": "APN Twitter\n\n\n\nLearn more",
         "content": "Link to: APN Twitter\n\n\n\nLearn more",
         "url": "https://twitter.com/AWS_Partners/",
-        "parent_id": "node_24_aca04974",
+        "parent_id": "node_24_cd854085",
         "children": [],
         "expanded": false,
         "node_type": "link",
@@ -1421,12 +1421,12 @@
           "clickable": true
         }
       },
-      "node_25_a9cdcab7": {
-        "id": "node_25_a9cdcab7",
+      "node_25_8575b8b5": {
+        "id": "node_25_8575b8b5",
         "title": "APN Twitter",
         "content": "",
         "url": null,
-        "parent_id": "node_20_06f35956",
+        "parent_id": "node_20_bcbdd70f",
         "children": [],
         "expanded": false,
         "node_type": "section",
@@ -1438,12 +1438,12 @@
           "links": []
         }
       },
-      "node_26_8d83a59b": {
-        "id": "node_26_8d83a59b",
+      "node_26_159a6949": {
+        "id": "node_26_159a6949",
         "title": "Partner",
         "content": "Key concept: Partner",
         "url": "https://duckduckgo.com/?q=Partner",
-        "parent_id": "node_1_87ec1b94",
+        "parent_id": "node_1_c49da51b",
         "children": [],
         "expanded": false,
         "node_type": "concept",
@@ -1453,12 +1453,12 @@
           "clickable": true
         }
       },
-      "node_27_08976bd7": {
-        "id": "node_27_08976bd7",
+      "node_27_5c18a2aa": {
+        "id": "node_27_5c18a2aa",
         "title": "Distributor",
         "content": "Key concept: Distributor",
         "url": "https://duckduckgo.com/?q=Distributor",
-        "parent_id": "node_1_87ec1b94",
+        "parent_id": "node_1_c49da51b",
         "children": [],
         "expanded": false,
         "node_type": "concept",
@@ -1468,12 +1468,12 @@
           "clickable": true
         }
       },
-      "node_28_4e343bc1": {
-        "id": "node_28_4e343bc1",
+      "node_28_9ff270ef": {
+        "id": "node_28_9ff270ef",
         "title": "Resell",
         "content": "Key concept: Resell",
         "url": "https://duckduckgo.com/?q=Resell",
-        "parent_id": "node_1_87ec1b94",
+        "parent_id": "node_1_c49da51b",
         "children": [],
         "expanded": false,
         "node_type": "concept",
@@ -1483,12 +1483,12 @@
           "clickable": true
         }
       },
-      "node_29_47ec5f16": {
-        "id": "node_29_47ec5f16",
+      "node_29_ce0a6292": {
+        "id": "node_29_ce0a6292",
         "title": "Program",
         "content": "Key concept: Program",
         "url": "https://duckduckgo.com/?q=Program",
-        "parent_id": "node_1_87ec1b94",
+        "parent_id": "node_1_c49da51b",
         "children": [],
         "expanded": false,
         "node_type": "concept",
@@ -1498,12 +1498,12 @@
           "clickable": true
         }
       },
-      "node_30_7b5d5eac": {
-        "id": "node_30_7b5d5eac",
+      "node_30_758c01a5": {
+        "id": "node_30_758c01a5",
         "title": "Work",
         "content": "Key concept: Work",
         "url": "https://duckduckgo.com/?q=Work",
-        "parent_id": "node_1_87ec1b94",
+        "parent_id": "node_1_c49da51b",
         "children": [],
         "expanded": false,
         "node_type": "concept",
@@ -1513,12 +1513,12 @@
           "clickable": true
         }
       },
-      "node_31_4446424a": {
-        "id": "node_31_4446424a",
+      "node_31_ee74c2ff": {
+        "id": "node_31_ee74c2ff",
         "title": "Distribution",
         "content": "Key concept: Distribution",
         "url": "https://duckduckgo.com/?q=Distribution",
-        "parent_id": "node_1_87ec1b94",
+        "parent_id": "node_1_c49da51b",
         "children": [],
         "expanded": false,
         "node_type": "concept",
@@ -1528,12 +1528,12 @@
           "clickable": true
         }
       },
-      "node_32_d8ea2828": {
-        "id": "node_32_d8ea2828",
+      "node_32_53dc8fa5": {
+        "id": "node_32_53dc8fa5",
         "title": "Network",
         "content": "Key concept: Network",
         "url": "https://duckduckgo.com/?q=Network",
-        "parent_id": "node_1_87ec1b94",
+        "parent_id": "node_1_c49da51b",
         "children": [],
         "expanded": false,
         "node_type": "concept",
@@ -1543,12 +1543,12 @@
           "clickable": true
         }
       },
-      "node_33_ef5fff29": {
-        "id": "node_33_ef5fff29",
+      "node_33_1d4a9c31": {
+        "id": "node_33_1d4a9c31",
         "title": "Start",
         "content": "Key concept: Start",
         "url": "https://duckduckgo.com/?q=Start",
-        "parent_id": "node_1_87ec1b94",
+        "parent_id": "node_1_c49da51b",
         "children": [],
         "expanded": false,
         "node_type": "concept",
@@ -1558,12 +1558,12 @@
           "clickable": true
         }
       },
-      "node_34_ba48049d": {
-        "id": "node_34_ba48049d",
+      "node_34_7949291c": {
+        "id": "node_34_7949291c",
         "title": "Service",
         "content": "Key concept: Service",
         "url": "https://duckduckgo.com/?q=Service",
-        "parent_id": "node_1_87ec1b94",
+        "parent_id": "node_1_c49da51b",
         "children": [],
         "expanded": false,
         "node_type": "concept",
@@ -1573,12 +1573,12 @@
           "clickable": true
         }
       },
-      "node_35_dbc85d88": {
-        "id": "node_35_dbc85d88",
+      "node_35_ff2ec117": {
+        "id": "node_35_ff2ec117",
         "title": "Help",
         "content": "Key concept: Help",
         "url": "https://duckduckgo.com/?q=Help",
-        "parent_id": "node_1_87ec1b94",
+        "parent_id": "node_1_c49da51b",
         "children": [],
         "expanded": false,
         "node_type": "concept",
@@ -1592,7 +1592,7 @@
     "visualization_data": {
       "nodes": [
         {
-          "id": "node_1_87ec1b94",
+          "id": "node_1_c49da51b",
           "label": "AWS Distribution Program",
           "type": "root",
           "expandable": false,
@@ -1603,7 +1603,7 @@
           "shape": "circle"
         },
         {
-          "id": "node_2_f6449841",
+          "id": "node_2_27f4f96a",
           "label": "Resell with AWS",
           "type": "section",
           "expandable": true,
@@ -1614,7 +1614,7 @@
           "shape": "ellipse"
         },
         {
-          "id": "link_node_2_f6449841_0",
+          "id": "link_node_2_27f4f96a_0",
           "label": "Become an AWS Partner",
           "type": "link",
           "expandable": false,
@@ -1625,7 +1625,7 @@
           "shape": "square"
         },
         {
-          "id": "link_node_2_f6449841_1",
+          "id": "link_node_2_27f4f96a_1",
           "label": "Log in to AWS Partner Central",
           "type": "link",
           "expandable": false,
@@ -1636,7 +1636,7 @@
           "shape": "square"
         },
         {
-          "id": "node_3_82d6f869",
+          "id": "node_3_b5537d15",
           "label": "Overview",
           "type": "section",
           "expandable": true,
@@ -1647,7 +1647,7 @@
           "shape": "ellipse"
         },
         {
-          "id": "link_node_3_82d6f869_0",
+          "id": "link_node_3_b5537d15_0",
           "label": "Get Started",
           "type": "link",
           "expandable": false,
@@ -1658,7 +1658,7 @@
           "shape": "square"
         },
         {
-          "id": "node_4_a16f7611",
+          "id": "node_4_37e2fbcf",
           "label": "Identify an AWS Distributor in your country to help you resell.",
           "type": "section",
           "expandable": true,
@@ -1669,7 +1669,7 @@
           "shape": "ellipse"
         },
         {
-          "id": "node_5_5fc38b16",
+          "id": "node_5_a909ac66",
           "label": "Gain go-to-market support",
           "type": "section",
           "expandable": true,
@@ -1680,7 +1680,7 @@
           "shape": "ellipse"
         },
         {
-          "id": "node_6_52494f47",
+          "id": "node_6_a80024ed",
           "label": "Scale your technical expertise",
           "type": "section",
           "expandable": true,
@@ -1691,7 +1691,7 @@
           "shape": "ellipse"
         },
         {
-          "id": "node_7_3c2d5581",
+          "id": "node_7_57aa6ee2",
           "label": "Drive operational efficiency",
           "type": "section",
           "expandable": true,
@@ -1702,7 +1702,7 @@
           "shape": "ellipse"
         },
         {
-          "id": "node_8_d6fb8ee8",
+          "id": "node_8_495fe8f5",
           "label": "Maximize your AWS Partner experience",
           "type": "section",
           "expandable": true,
@@ -1713,7 +1713,7 @@
           "shape": "ellipse"
         },
         {
-          "id": "link_node_8_d6fb8ee8_0",
+          "id": "link_node_8_495fe8f5_0",
           "label": "Find an AWS Distributor",
           "type": "link",
           "expandable": false,
@@ -1724,7 +1724,7 @@
           "shape": "square"
         },
         {
-          "id": "node_9_60d9bd63",
+          "id": "node_9_0f1b3a74",
           "label": "AWS Distribution Program Success Stories",
           "type": "section",
           "expandable": true,
@@ -1735,7 +1735,7 @@
           "shape": "ellipse"
         },
         {
-          "id": "node_10_2a144f9a",
+          "id": "node_10_dbc1770c",
           "label": "Get Started",
           "type": "section",
           "expandable": true,
@@ -1746,7 +1746,7 @@
           "shape": "ellipse"
         },
         {
-          "id": "node_11_638b8b9c",
+          "id": "node_11_b09e395b",
           "label": "1",
           "type": "section",
           "expandable": true,
@@ -1757,7 +1757,7 @@
           "shape": "ellipse"
         },
         {
-          "id": "node_12_5be72ab7",
+          "id": "node_12_efa0f34d",
           "label": "Join the AWS Partner Network",
           "type": "section",
           "expandable": true,
@@ -1768,7 +1768,7 @@
           "shape": "ellipse"
         },
         {
-          "id": "link_node_12_5be72ab7_0",
+          "id": "link_node_12_efa0f34d_0",
           "label": "Become an AWS Partner",
           "type": "link",
           "expandable": false,
@@ -1779,7 +1779,7 @@
           "shape": "square"
         },
         {
-          "id": "node_13_81288062",
+          "id": "node_13_f2a7b4e5",
           "label": "2",
           "type": "section",
           "expandable": true,
@@ -1790,7 +1790,7 @@
           "shape": "ellipse"
         },
         {
-          "id": "node_14_32d230d3",
+          "id": "node_14_abdfb12e",
           "label": "Enroll in the Services Path",
           "type": "section",
           "expandable": true,
@@ -1801,7 +1801,7 @@
           "shape": "ellipse"
         },
         {
-          "id": "link_node_14_32d230d3_0",
+          "id": "link_node_14_abdfb12e_0",
           "label": "Learn more about AWS Partner Tier requirements",
           "type": "link",
           "expandable": false,
@@ -1812,7 +1812,7 @@
           "shape": "square"
         },
         {
-          "id": "node_15_bf523304",
+          "id": "node_15_6df915df",
           "label": "3",
           "type": "section",
           "expandable": true,
@@ -1823,7 +1823,7 @@
           "shape": "ellipse"
         },
         {
-          "id": "node_16_167f328d",
+          "id": "node_16_ea78e576",
           "label": "Connect with an AWS Distributor",
           "type": "section",
           "expandable": true,
@@ -1834,7 +1834,7 @@
           "shape": "ellipse"
         },
         {
-          "id": "link_node_16_167f328d_0",
+          "id": "link_node_16_ea78e576_0",
           "label": "Find an AWS Distributor",
           "type": "link",
           "expandable": false,
@@ -1845,7 +1845,7 @@
           "shape": "square"
         },
         {
-          "id": "node_17_c76135c6",
+          "id": "node_17_eba1cad5",
           "label": "4",
           "type": "section",
           "expandable": true,
@@ -1856,7 +1856,7 @@
           "shape": "ellipse"
         },
         {
-          "id": "node_18_b56cf9dc",
+          "id": "node_18_9167d53b",
           "label": "Start selling",
           "type": "section",
           "expandable": true,
@@ -1867,7 +1867,7 @@
           "shape": "ellipse"
         },
         {
-          "id": "node_19_5e81cf50",
+          "id": "node_19_3b43b35d",
           "label": "Partner Testimonials",
           "type": "section",
           "expandable": true,
@@ -1878,7 +1878,7 @@
           "shape": "ellipse"
         },
         {
-          "id": "node_20_06f35956",
+          "id": "node_20_bcbdd70f",
           "label": "Follow AWS Partner Network",
           "type": "section",
           "expandable": true,
@@ -1889,7 +1889,7 @@
           "shape": "ellipse"
         },
         {
-          "id": "link_node_20_06f35956_0",
+          "id": "link_node_20_bcbdd70f_0",
           "label": "AWS Partner Newsletter\n\n\n\nLearn more",
           "type": "link",
           "expandable": false,
@@ -1900,7 +1900,7 @@
           "shape": "square"
         },
         {
-          "id": "node_21_6c0fe576",
+          "id": "node_21_fb108c8d",
           "label": "AWS Partner Newsletter",
           "type": "section",
           "expandable": true,
@@ -1911,7 +1911,7 @@
           "shape": "ellipse"
         },
         {
-          "id": "link_node_21_6c0fe576_0",
+          "id": "link_node_21_fb108c8d_0",
           "label": "APN Blog\n\n\n\nLearn more",
           "type": "link",
           "expandable": false,
@@ -1922,7 +1922,7 @@
           "shape": "square"
         },
         {
-          "id": "node_22_1550b177",
+          "id": "node_22_4c2bf710",
           "label": "APN Blog",
           "type": "section",
           "expandable": true,
@@ -1933,7 +1933,7 @@
           "shape": "ellipse"
         },
         {
-          "id": "link_node_22_1550b177_0",
+          "id": "link_node_22_4c2bf710_0",
           "label": "Partner Webinars\n\n\n\nLearn more",
           "type": "link",
           "expandable": false,
@@ -1944,7 +1944,7 @@
           "shape": "square"
         },
         {
-          "id": "node_23_ea869dc6",
+          "id": "node_23_8bdcde25",
           "label": "Partner Webinars",
           "type": "section",
           "expandable": true,
@@ -1955,7 +1955,7 @@
           "shape": "ellipse"
         },
         {
-          "id": "link_node_23_ea869dc6_0",
+          "id": "link_node_23_8bdcde25_0",
           "label": "APN LinkedIn\n\n\n\nLearn more",
           "type": "link",
           "expandable": false,
@@ -1966,7 +1966,7 @@
           "shape": "square"
         },
         {
-          "id": "node_24_aca04974",
+          "id": "node_24_cd854085",
           "label": "APN LinkedIn",
           "type": "section",
           "expandable": true,
@@ -1977,7 +1977,7 @@
           "shape": "ellipse"
         },
         {
-          "id": "link_node_24_aca04974_0",
+          "id": "link_node_24_cd854085_0",
           "label": "APN Twitter\n\n\n\nLearn more",
           "type": "link",
           "expandable": false,
@@ -1988,7 +1988,7 @@
           "shape": "square"
         },
         {
-          "id": "node_25_a9cdcab7",
+          "id": "node_25_8575b8b5",
           "label": "APN Twitter",
           "type": "section",
           "expandable": true,
@@ -1999,7 +1999,7 @@
           "shape": "ellipse"
         },
         {
-          "id": "node_26_8d83a59b",
+          "id": "node_26_159a6949",
           "label": "Partner",
           "type": "concept",
           "expandable": true,
@@ -2010,7 +2010,7 @@
           "shape": "box"
         },
         {
-          "id": "node_27_08976bd7",
+          "id": "node_27_5c18a2aa",
           "label": "Distributor",
           "type": "concept",
           "expandable": true,
@@ -2021,7 +2021,7 @@
           "shape": "box"
         },
         {
-          "id": "node_28_4e343bc1",
+          "id": "node_28_9ff270ef",
           "label": "Resell",
           "type": "concept",
           "expandable": true,
@@ -2032,7 +2032,7 @@
           "shape": "box"
         },
         {
-          "id": "node_29_47ec5f16",
+          "id": "node_29_ce0a6292",
           "label": "Program",
           "type": "concept",
           "expandable": true,
@@ -2043,7 +2043,7 @@
           "shape": "box"
         },
         {
-          "id": "node_30_7b5d5eac",
+          "id": "node_30_758c01a5",
           "label": "Work",
           "type": "concept",
           "expandable": true,
@@ -2054,7 +2054,7 @@
           "shape": "box"
         },
         {
-          "id": "node_31_4446424a",
+          "id": "node_31_ee74c2ff",
           "label": "Distribution",
           "type": "concept",
           "expandable": true,
@@ -2065,7 +2065,7 @@
           "shape": "box"
         },
         {
-          "id": "node_32_d8ea2828",
+          "id": "node_32_53dc8fa5",
           "label": "Network",
           "type": "concept",
           "expandable": true,
@@ -2076,7 +2076,7 @@
           "shape": "box"
         },
         {
-          "id": "node_33_ef5fff29",
+          "id": "node_33_1d4a9c31",
           "label": "Start",
           "type": "concept",
           "expandable": true,
@@ -2087,7 +2087,7 @@
           "shape": "box"
         },
         {
-          "id": "node_34_ba48049d",
+          "id": "node_34_7949291c",
           "label": "Service",
           "type": "concept",
           "expandable": true,
@@ -2098,7 +2098,7 @@
           "shape": "box"
         },
         {
-          "id": "node_35_dbc85d88",
+          "id": "node_35_ff2ec117",
           "label": "Help",
           "type": "concept",
           "expandable": true,
@@ -2111,238 +2111,238 @@
       ],
       "edges": [
         {
-          "from": "node_1_87ec1b94",
-          "to": "node_2_f6449841",
+          "from": "node_1_c49da51b",
+          "to": "node_2_27f4f96a",
           "type": "hierarchy"
         },
         {
-          "from": "node_1_87ec1b94",
-          "to": "node_26_8d83a59b",
+          "from": "node_1_c49da51b",
+          "to": "node_26_159a6949",
           "type": "hierarchy"
         },
         {
-          "from": "node_1_87ec1b94",
-          "to": "node_27_08976bd7",
+          "from": "node_1_c49da51b",
+          "to": "node_27_5c18a2aa",
           "type": "hierarchy"
         },
         {
-          "from": "node_1_87ec1b94",
-          "to": "node_28_4e343bc1",
+          "from": "node_1_c49da51b",
+          "to": "node_28_9ff270ef",
           "type": "hierarchy"
         },
         {
-          "from": "node_1_87ec1b94",
-          "to": "node_29_47ec5f16",
+          "from": "node_1_c49da51b",
+          "to": "node_29_ce0a6292",
           "type": "hierarchy"
         },
         {
-          "from": "node_1_87ec1b94",
-          "to": "node_30_7b5d5eac",
+          "from": "node_1_c49da51b",
+          "to": "node_30_758c01a5",
           "type": "hierarchy"
         },
         {
-          "from": "node_1_87ec1b94",
-          "to": "node_31_4446424a",
+          "from": "node_1_c49da51b",
+          "to": "node_31_ee74c2ff",
           "type": "hierarchy"
         },
         {
-          "from": "node_1_87ec1b94",
-          "to": "node_32_d8ea2828",
+          "from": "node_1_c49da51b",
+          "to": "node_32_53dc8fa5",
           "type": "hierarchy"
         },
         {
-          "from": "node_1_87ec1b94",
-          "to": "node_33_ef5fff29",
+          "from": "node_1_c49da51b",
+          "to": "node_33_1d4a9c31",
           "type": "hierarchy"
         },
         {
-          "from": "node_1_87ec1b94",
-          "to": "node_34_ba48049d",
+          "from": "node_1_c49da51b",
+          "to": "node_34_7949291c",
           "type": "hierarchy"
         },
         {
-          "from": "node_1_87ec1b94",
-          "to": "node_35_dbc85d88",
+          "from": "node_1_c49da51b",
+          "to": "node_35_ff2ec117",
           "type": "hierarchy"
         },
         {
-          "from": "node_2_f6449841",
-          "to": "link_node_2_f6449841_0",
+          "from": "node_2_27f4f96a",
+          "to": "link_node_2_27f4f96a_0",
           "type": "hierarchy"
         },
         {
-          "from": "node_2_f6449841",
-          "to": "link_node_2_f6449841_1",
+          "from": "node_2_27f4f96a",
+          "to": "link_node_2_27f4f96a_1",
           "type": "hierarchy"
         },
         {
-          "from": "node_2_f6449841",
-          "to": "node_3_82d6f869",
+          "from": "node_2_27f4f96a",
+          "to": "node_3_b5537d15",
           "type": "hierarchy"
         },
         {
-          "from": "node_2_f6449841",
-          "to": "node_4_a16f7611",
+          "from": "node_2_27f4f96a",
+          "to": "node_4_37e2fbcf",
           "type": "hierarchy"
         },
         {
-          "from": "node_2_f6449841",
-          "to": "node_9_60d9bd63",
+          "from": "node_2_27f4f96a",
+          "to": "node_9_0f1b3a74",
           "type": "hierarchy"
         },
         {
-          "from": "node_2_f6449841",
-          "to": "node_10_2a144f9a",
+          "from": "node_2_27f4f96a",
+          "to": "node_10_dbc1770c",
           "type": "hierarchy"
         },
         {
-          "from": "node_2_f6449841",
-          "to": "node_19_5e81cf50",
+          "from": "node_2_27f4f96a",
+          "to": "node_19_3b43b35d",
           "type": "hierarchy"
         },
         {
-          "from": "node_2_f6449841",
-          "to": "node_20_06f35956",
+          "from": "node_2_27f4f96a",
+          "to": "node_20_bcbdd70f",
           "type": "hierarchy"
         },
         {
-          "from": "node_3_82d6f869",
-          "to": "link_node_3_82d6f869_0",
+          "from": "node_3_b5537d15",
+          "to": "link_node_3_b5537d15_0",
           "type": "hierarchy"
         },
         {
-          "from": "node_4_a16f7611",
-          "to": "node_5_5fc38b16",
+          "from": "node_4_37e2fbcf",
+          "to": "node_5_a909ac66",
           "type": "hierarchy"
         },
         {
-          "from": "node_4_a16f7611",
-          "to": "node_6_52494f47",
+          "from": "node_4_37e2fbcf",
+          "to": "node_6_a80024ed",
           "type": "hierarchy"
         },
         {
-          "from": "node_4_a16f7611",
-          "to": "node_7_3c2d5581",
+          "from": "node_4_37e2fbcf",
+          "to": "node_7_57aa6ee2",
           "type": "hierarchy"
         },
         {
-          "from": "node_4_a16f7611",
-          "to": "node_8_d6fb8ee8",
+          "from": "node_4_37e2fbcf",
+          "to": "node_8_495fe8f5",
           "type": "hierarchy"
         },
         {
-          "from": "node_8_d6fb8ee8",
-          "to": "link_node_8_d6fb8ee8_0",
+          "from": "node_8_495fe8f5",
+          "to": "link_node_8_495fe8f5_0",
           "type": "hierarchy"
         },
         {
-          "from": "node_10_2a144f9a",
-          "to": "node_11_638b8b9c",
+          "from": "node_10_dbc1770c",
+          "to": "node_11_b09e395b",
           "type": "hierarchy"
         },
         {
-          "from": "node_10_2a144f9a",
-          "to": "node_12_5be72ab7",
+          "from": "node_10_dbc1770c",
+          "to": "node_12_efa0f34d",
           "type": "hierarchy"
         },
         {
-          "from": "node_10_2a144f9a",
-          "to": "node_13_81288062",
+          "from": "node_10_dbc1770c",
+          "to": "node_13_f2a7b4e5",
           "type": "hierarchy"
         },
         {
-          "from": "node_10_2a144f9a",
-          "to": "node_14_32d230d3",
+          "from": "node_10_dbc1770c",
+          "to": "node_14_abdfb12e",
           "type": "hierarchy"
         },
         {
-          "from": "node_10_2a144f9a",
-          "to": "node_15_bf523304",
+          "from": "node_10_dbc1770c",
+          "to": "node_15_6df915df",
           "type": "hierarchy"
         },
         {
-          "from": "node_10_2a144f9a",
-          "to": "node_16_167f328d",
+          "from": "node_10_dbc1770c",
+          "to": "node_16_ea78e576",
           "type": "hierarchy"
         },
         {
-          "from": "node_10_2a144f9a",
-          "to": "node_17_c76135c6",
+          "from": "node_10_dbc1770c",
+          "to": "node_17_eba1cad5",
           "type": "hierarchy"
         },
         {
-          "from": "node_10_2a144f9a",
-          "to": "node_18_b56cf9dc",
+          "from": "node_10_dbc1770c",
+          "to": "node_18_9167d53b",
           "type": "hierarchy"
         },
         {
-          "from": "node_12_5be72ab7",
-          "to": "link_node_12_5be72ab7_0",
+          "from": "node_12_efa0f34d",
+          "to": "link_node_12_efa0f34d_0",
           "type": "hierarchy"
         },
         {
-          "from": "node_14_32d230d3",
-          "to": "link_node_14_32d230d3_0",
+          "from": "node_14_abdfb12e",
+          "to": "link_node_14_abdfb12e_0",
           "type": "hierarchy"
         },
         {
-          "from": "node_16_167f328d",
-          "to": "link_node_16_167f328d_0",
+          "from": "node_16_ea78e576",
+          "to": "link_node_16_ea78e576_0",
           "type": "hierarchy"
         },
         {
-          "from": "node_20_06f35956",
-          "to": "link_node_20_06f35956_0",
+          "from": "node_20_bcbdd70f",
+          "to": "link_node_20_bcbdd70f_0",
           "type": "hierarchy"
         },
         {
-          "from": "node_20_06f35956",
-          "to": "node_21_6c0fe576",
+          "from": "node_20_bcbdd70f",
+          "to": "node_21_fb108c8d",
           "type": "hierarchy"
         },
         {
-          "from": "node_20_06f35956",
-          "to": "node_22_1550b177",
+          "from": "node_20_bcbdd70f",
+          "to": "node_22_4c2bf710",
           "type": "hierarchy"
         },
         {
-          "from": "node_20_06f35956",
-          "to": "node_23_ea869dc6",
+          "from": "node_20_bcbdd70f",
+          "to": "node_23_8bdcde25",
           "type": "hierarchy"
         },
         {
-          "from": "node_20_06f35956",
-          "to": "node_24_aca04974",
+          "from": "node_20_bcbdd70f",
+          "to": "node_24_cd854085",
           "type": "hierarchy"
         },
         {
-          "from": "node_20_06f35956",
-          "to": "node_25_a9cdcab7",
+          "from": "node_20_bcbdd70f",
+          "to": "node_25_8575b8b5",
           "type": "hierarchy"
         },
         {
-          "from": "node_21_6c0fe576",
-          "to": "link_node_21_6c0fe576_0",
+          "from": "node_21_fb108c8d",
+          "to": "link_node_21_fb108c8d_0",
           "type": "hierarchy"
         },
         {
-          "from": "node_22_1550b177",
-          "to": "link_node_22_1550b177_0",
+          "from": "node_22_4c2bf710",
+          "to": "link_node_22_4c2bf710_0",
           "type": "hierarchy"
         },
         {
-          "from": "node_23_ea869dc6",
-          "to": "link_node_23_ea869dc6_0",
+          "from": "node_23_8bdcde25",
+          "to": "link_node_23_8bdcde25_0",
           "type": "hierarchy"
         },
         {
-          "from": "node_24_aca04974",
-          "to": "link_node_24_aca04974_0",
+          "from": "node_24_cd854085",
+          "to": "link_node_24_cd854085_0",
           "type": "hierarchy"
         }
       ],
       "layout": "hierarchical",
-      "center_node": "node_1_87ec1b94"
+      "center_node": "node_1_c49da51b"
     },
     "style_config": {
       "layout": {
