@@ -1402,6 +1402,22 @@ async def process_scrape_job(job_id: str, url: str, summary_length: int, extract
                 logger.error(f"Question generation failed: {e}")
                 questions_data["questions"] = []
 
+        # Insert generated questions into Key Concepts section of the output
+        try:
+            question_texts: List[str] = []
+            for q in questions_data.get('questions', []):
+                if isinstance(q, dict):
+                    qt = q.get('question', '')
+                else:
+                    qt = getattr(q, 'question', '')
+                if qt:
+                    question_texts.append(f"Q: {strip_metadata_lines(qt)}")
+            if question_texts:
+                summary_data.setdefault('key_concepts', [])
+                summary_data['key_concepts'].extend(question_texts)
+        except Exception as e:
+            logger.warning(f"Failed to append questions to key concepts: {e}")
+
         logger.info("Building multi-level mind map...")
         job.progress = 75
         interactive_mindmap = mindmap_gen.create_interactive_mindmap(content, summary_data, questions_data)
