@@ -65,7 +65,7 @@ CONCEPT_LINK_MODE = "web_search"  # Creates clickable concept nodes using DuckDu
 
 # Question generation settings
 ENABLE_QUESTION_GENERATION = True  # Set to False to disable question generation
-QUESTION_GENERATION_MODEL = "valhalla/t5-small-qg-hl"  # Lightweight question generation model
+QUESTION_GENERATION_MODEL = "google/flan-t5-large"
 
 # --------- Pydantic models ---------
 class ScrapeRequest(BaseModel):
@@ -206,7 +206,7 @@ class QuestionGenerator:
             # Generate questions using the model
             generated = self.pipeline(
                 formatted_input,
-                max_length=128,
+                max_length=512,
                 num_return_sequences=max_questions,
                 do_sample=True,
                 temperature=0.8,
@@ -241,8 +241,7 @@ class QuestionGenerator:
     
     def _parse_question_answer(self, generated_text: str, context: str) -> Tuple[str, str]:
         """Parse the generated text to extract question and answer"""
-        # The model might generate text in different formats
-        # Try to extract question and answer
+        # Enhanced parsing to handle different formats
         
         # Format 1: "question: <question> answer: <answer>"
         if "question:" in generated_text.lower() and "answer:" in generated_text.lower():
@@ -250,9 +249,22 @@ class QuestionGenerator:
             if len(parts) >= 3:
                 question = parts[1].strip()
                 answer = parts[2].strip()
+                # Clean up the answer - remove trailing punctuation if it's just the question repeated
+                if question in answer:
+                    answer = self._find_answer_in_context(question, context)
                 return question, answer
         
-        # Format 2: Just the question (common case)
+        # Format 2: "Q: <question> A: <answer>"
+        if re.match(r'^Q:\s*.+\s*A:\s*.+', generated_text, re.IGNORECASE):
+            parts = re.split(r'Q:\s*|A:\s*', generated_text, flags=re.IGNORECASE, maxsplit=2)
+            if len(parts) >= 3:
+                question = parts[1].strip()
+                answer = parts[2].strip()
+                if question in answer:
+                    answer = self._find_answer_in_context(question, context)
+                return question, answer
+        
+        # Format 3: Just the question (common case)
         # Use the entire generated text as question and find answer in context
         question = generated_text.strip()
         answer = self._find_answer_in_context(question, context)
@@ -277,7 +289,7 @@ class QuestionGenerator:
                     best_score = score
                     best_sentence = sentence
             
-            return best_sentence
+            return best_sentence.strip()
         except:
             return "Information available in the context"
     
@@ -298,7 +310,7 @@ class QuestionGenerator:
                 if question and question != sentence and self._is_valid_question(question):
                     questions.append(GeneratedQuestion(
                         question=question,
-                        answer=sentence,
+                        answer=sentence,  # Use the original sentence as answer
                         context=sentence,
                         confidence=0.3
                     ))
@@ -414,6 +426,7 @@ class QuestionGenerator:
                 return f"What is the main idea of this statement?"
         except:
             return ""
+
 # --------- Utils ---------
 def sanitize_filename(url: str) -> str:
     """Convert URL into a safe filename"""
@@ -464,12 +477,6 @@ def make_concept_url(concept: str, page_url: str) -> Optional[str]:
     # "none" or any other => no URL
     return None
 
-# [Include all the other classes and functions exactly as they were in the previous version]
-# EnhancedWebScraper, InteractiveMindMapGenerator, NodeExpansionService, ContentSummarizer
-# process_scrape_job, generate_text_mindmap, generate_network_mindmap, generate_hierarchical_mindmap
-# get_expansion_service, and all API endpoints
-
-# ... [Rest of the code remains identical to the previous version] ...
 # --------- Scraper ---------
 class EnhancedWebScraper:
     """Enhanced web scraper with link extraction and hierarchical content analysis"""
@@ -719,6 +726,7 @@ class InteractiveMindMapGenerator:
             visualization_data=viz,
             style_config=style,
         )
+
     def _build_section_nodes(self, section: Dict[str, Any], parent_id: str, nodes: Dict[str, MindMapNode]):
         """
         Recursively convert hierarchical sections (with children) into MindMapNode tree.
@@ -819,25 +827,26 @@ class InteractiveMindMapGenerator:
             nodes[node_id] = node
         return nodes
 
-    # Update the _create_question_nodes method in InteractiveMindMapGenerator class
     def _create_question_nodes(self, questions: List[Any], parent_id: str) -> Dict[str, MindMapNode]:
         nodes: Dict[str, MindMapNode] = {}
-        for i, q in enumerate(questions[:8]):  # Limit to 8 questions to avoid clutter
+        for i, q in enumerate(questions[:8]):
             node_id = self._generate_node_id()
         
             # Handle both GeneratedQuestion objects and dictionaries
             if hasattr(q, 'question'):  # It's a GeneratedQuestion object
                 question_text = strip_metadata_lines(q.question)
-                answer_text = q.answer
+                answer_text = strip_metadata_lines(q.answer)
                 confidence = q.confidence
                 context = q.context
             else:  # It's a dictionary
                 question_text = strip_metadata_lines(q.get('question', ''))
-                answer_text = q.get('answer', '')
+                answer_text = strip_metadata_lines(q.get('answer', ''))
                 confidence = q.get('confidence', 0.0)
                 context = q.get('context', '')
         
-            answer_preview = (answer_text[:100] + "...") if len(answer_text) > 100 else answer_text
+            # Create a more informative content that includes both question and answer
+            full_content = f"Question: {question_text}\n\nAnswer: {answer_text}"
+            answer_preview = (answer_text[:300] + "...") if len(answer_text) > 100 else answer_text
         
             node = MindMapNode(
                 id=node_id,
@@ -852,6 +861,7 @@ class InteractiveMindMapGenerator:
                     'confidence': confidence,
                     'expandable': False,
                     'clickable': False,
+                    'full_content': full_content,  # Store both question and answer
                 },
             )
             nodes[node_id] = node
@@ -918,6 +928,7 @@ class InteractiveMindMapGenerator:
             'question': 'diamond',  # Diamond shape for questions to make them stand out
         }
         return shapes.get(node_type, 'box')
+
     def _get_style_config(self) -> Dict[str, Any]:
         return {
             'layout': {'hierarchical': {'enabled': True, 'direction': 'UD', 'sortMethod': 'directed'}},
@@ -1326,54 +1337,7 @@ class ContentSummarizer:
             final_concepts.append(strip_metadata_lines(c))
         return final_concepts[:15]
 
-@app.get("/job/{job_id}/debug-full")
-async def debug_full_job(job_id: str):
-    if job_id not in scrape_jobs:
-        raise HTTPException(status_code=404, detail="Job not found")
-    job = scrape_jobs[job_id]
-    if job.status != "completed":
-        raise HTTPException(status_code=400, detail=f"Job not completed. Status: {job.status}")
-    
-    # Check questions in the main result
-    questions_data = job.result.get('questions', {}) if job.result else {}
-    questions = questions_data.get('questions', [])
-    
-    # Check mindmap for question nodes
-    mindmap_question_nodes = []
-    if job_id in mindmap_nodes:
-        mm = mindmap_nodes[job_id]
-        mindmap_question_nodes = [
-            {
-                "id": node.id,
-                "title": node.title,
-                "node_type": node.node_type,
-                "parent_id": node.parent_id
-            }
-            for node in mm.nodes.values() 
-            if node.node_type == 'question'
-        ]
-    
-    return {
-        "job_id": job_id,
-        "job_status": job.status,
-        "questions_in_result": {
-            "total": len(questions),
-            "questions": [
-                {
-                    "question": q.get('question', '') if isinstance(q, dict) else getattr(q, 'question', ''),
-                    "answer": q.get('answer', '') if isinstance(q, dict) else getattr(q, 'answer', ''),
-                }
-                for q in questions
-            ]
-        },
-        "questions_in_mindmap": {
-            "total": len(mindmap_question_nodes),
-            "nodes": mindmap_question_nodes
-        },
-        "metadata": job.result.get('metadata', {}) if job.result else {}
-    }
 # --------- Background job ---------
-# Update the process_scrape_job function to properly serialize questions
 async def process_scrape_job(job_id: str, url: str, summary_length: int, extract_links: bool = True, generate_questions: bool = True):
     try:
         job = scrape_jobs[job_id]
@@ -1400,28 +1364,45 @@ async def process_scrape_job(job_id: str, url: str, summary_length: int, extract
             job.progress = 60
             try:
                 questions = question_generator.generate_questions(content.get('full_text', ''), max_questions=10)
-                questions_data["questions"] = [q.dict() for q in questions]  # Convert to dict
-                logger.info(f"Generated {len(questions)} questions")
-                # Debug: Log the actual questions
+                # Convert to dict and ensure answers are included
+                questions_data["questions"] = []
+                for q in questions:
+                    q_dict = q.dict()
+                    # Ensure answer is not empty
+                    if not q_dict.get('answer') or q_dict.get('answer') == 'Information available in the context':
+                        # Try to find a better answer
+                        q_dict['answer'] = question_generator._find_answer_in_context(q_dict['question'], content.get('full_text', ''))
+                    questions_data["questions"].append(q_dict)
+                
+                logger.info(f"Generated {len(questions)} questions with answers")
+                # Debug: Log the actual questions and answers
                 for i, q in enumerate(questions):
                     logger.info(f"Question {i+1}: {q.question}")
+                    logger.info(f"Answer {i+1}: {q.answer}")
             except Exception as e:
                 logger.error(f"Question generation failed: {e}")
                 questions_data["questions"] = []
 
-        # Insert generated questions into Key Concepts section of the output
+        # Add questions to key concepts section for better visibility
         try:
-            question_texts: List[str] = []
+            question_concepts = []
             for q in questions_data.get('questions', []):
                 if isinstance(q, dict):
-                    qt = q.get('question', '')
+                    question_text = q.get('question', '')
+                    answer_text = q.get('answer', '')
                 else:
-                    qt = getattr(q, 'question', '')
-                if qt:
-                    question_texts.append(f"Q: {strip_metadata_lines(qt)}")
-            if question_texts:
+                    question_text = getattr(q, 'question', '')
+                    answer_text = getattr(q, 'answer', '')
+                
+                if question_text:
+                    # Create a combined concept that shows both Q&A
+                    qa_concept = f"Q: {strip_metadata_lines(question_text)} | A: {strip_metadata_lines(answer_text[:80])}{'...' if len(answer_text) > 80 else ''}"
+                    question_concepts.append(qa_concept)
+            
+            if question_concepts:
                 summary_data.setdefault('key_concepts', [])
-                summary_data['key_concepts'] = question_texts
+                # Add question concepts at the beginning
+                summary_data['key_concepts'] = question_concepts 
         except Exception as e:
             logger.warning(f"Failed to append questions to key concepts: {e}")
 
@@ -1432,13 +1413,11 @@ async def process_scrape_job(job_id: str, url: str, summary_length: int, extract
 
         job.progress = 90
         
-        # Debug: Check if questions are being included
-        logger.info(f"Questions data to include: {len(questions_data.get('questions', []))} questions")
-        
+        # Create enhanced output with questions and answers
         result = {
             'scraped_content': content,
             'summary': summary_data,
-            'questions': questions_data,  # Make sure this is included
+            'questions': questions_data,
             'mind_maps': {
                 'visual': generate_text_mindmap(content['title'], summary_data['summary'], summary_data['key_concepts']),
                 'network': generate_network_mindmap(content['title'], summary_data['key_concepts']),
@@ -1455,6 +1434,8 @@ async def process_scrape_job(job_id: str, url: str, summary_length: int, extract
                 'total_sections': len(content.get('sections', [])),
                 'total_questions': len(questions_data.get('questions', [])),
                 'expandable_nodes': sum(1 for n in interactive_mindmap.nodes.values() if n.metadata.get('expandable', False)),
+                'questions_with_answers': len([q for q in questions_data.get('questions', []) 
+                                            if q.get('answer') and q.get('answer') != 'Information available in the context']),
             },
         }
 
@@ -1467,7 +1448,7 @@ async def process_scrape_job(job_id: str, url: str, summary_length: int, extract
         job.status = "completed"
         job.progress = 100
         job.completed_at = datetime.now().isoformat()
-        logger.info(f"Job {job_id} completed successfully.")
+        logger.info(f"Job {job_id} completed successfully with {len(questions_data.get('questions', []))} questions.")
     except Exception as e:
         logger.exception(f"Job {job_id} failed: {str(e)}")
         job = scrape_jobs.get(job_id)
@@ -1555,197 +1536,234 @@ async def health_check():
     return {
         "status": "healthy",
         "timestamp": datetime.now().isoformat(),
-        "features": {
-            "interactive_mindmaps": True,
-            "node_expansion": True,
-            "link_extraction": True,
-            "multi_level_sections": True,
-            "question_generation": ENABLE_QUESTION_GENERATION,
-            "question_generation_model": QUESTION_GENERATION_MODEL,
-        },
+        "active_jobs": len([j for j in scrape_jobs.values() if j.status in ["processing", "pending"]]),
+        "completed_jobs": len([j for j in scrape_jobs.values() if j.status == "completed"]),
     }
 
 @app.post("/scrape", response_model=ScrapeResponse)
-async def create_enhanced_scrape_job(request: ScrapeRequest, background_tasks: BackgroundTasks):
+async def scrape_website(request: ScrapeRequest, background_tasks: BackgroundTasks):
     job_id = str(uuid.uuid4())
-    job = JobData(job_id=job_id, status="queued", progress=0, created_at=datetime.now().isoformat())
+    created_at = datetime.now().isoformat()
+    
+    job = JobData(
+        job_id=job_id,
+        status="pending",
+        progress=0,
+        created_at=created_at
+    )
     scrape_jobs[job_id] = job
+    
     background_tasks.add_task(
         process_scrape_job,
-        job_id,
-        str(request.url),
-        request.summary_length or 300,
-        bool(request.extract_links),
-        bool(request.generate_questions),
+        job_id=job_id,
+        url=str(request.url),
+        summary_length=request.summary_length,
+        extract_links=request.extract_links,
+        generate_questions=request.generate_questions
     )
-    return ScrapeResponse(job_id=job_id, status="queued", message="Scraping job started")
-
-@app.get("/job/{job_id}/mindmap")
-async def get_interactive_mindmap(job_id: str):
-    if job_id not in scrape_jobs:
-        raise HTTPException(status_code=404, detail="Job not found")
-    job = scrape_jobs[job_id]
-    if job.status != "completed":
-        raise HTTPException(status_code=400, detail=f"Job not completed. Status: {job.status}")
-    if job_id not in mindmap_nodes:
-        raise HTTPException(status_code=404, detail="Interactive mindmap not found")
-    mindmap = mindmap_nodes[job_id]
-    return {
-        "job_id": job_id,
-        "mindmap": {
-            "root_node": mindmap.root_node.dict(),
-            "nodes": {k: v.dict() for k, v in mindmap.nodes.items()},
-            "visualization_data": mindmap.visualization_data,
-            "style_config": mindmap.style_config,
-        },
-    }
-
-@app.post("/expand-node", response_model=NodeExpansionResult)
-async def expand_mindmap_node(request: ExpandNodeRequest):
-    target_job_id: Optional[str] = None
-    for job_id, mm in mindmap_nodes.items():
-        if request.node_id in mm.nodes:
-            target_job_id = job_id
-            break
-    if not target_job_id:
-        raise HTTPException(status_code=404, detail="Node not found in any mindmap")
-    mm = mindmap_nodes[target_job_id]
-    expansion_svc = get_expansion_service()
-    try:
-        result = await expansion_svc.expand_node(request.node_id, request.expand_type, mm)
-        mm.visualization_data = result.updated_visualization
-        return result
-    except ValueError as e:
-        raise HTTPException(status_code=400, detail=str(e))
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=f"Expansion failed: {str(e)}")
-
-@app.get("/job/{job_id}/export")
-async def export_mindmap_data(job_id: str, format: str = "json"):
-    if job_id not in scrape_jobs:
-        raise HTTPException(status_code=404, detail="Job not found")
-    job = scrape_jobs[job_id]
-    if job.status != "completed":
-        raise HTTPException(status_code=400, detail=f"Job not completed. Status: {job.status}")
-    if format == "json":
-        return job.result
-    elif format == "nodes":
-        if job_id in mindmap_nodes:
-            mm = mindmap_nodes[job_id]
-            return {
-                "nodes": [node.dict() for node in mm.nodes.values()],
-                "relationships": [
-                    {"parent": node.id, "children": node.children}
-                    for node in mm.nodes.values() if node.children
-                ],
-            }
-        else:
-            raise HTTPException(status_code=404, detail="Interactive mindmap not found")
-    elif format == "links":
-        content = job.result.get('scraped_content', {}) if job.result else {}
-        links = content.get('links', [])
-        return {
-            "extracted_links": links,
-            "total_count": len(links),
-            "categorized": {
-                link_type: [l for l in links if l.get('type') == link_type]
-                for link_type in set(l.get('type', 'general') for l in links)
-            },
-        }
-    elif format == "questions":
-        questions_data["questions"] = [q.dict() for q in questions]  # Convert to dict
-        questions = questions_data.get('questions', [])
-        return {
-            "generated_questions": [q.dict() if hasattr(q, 'dict') else q for q in questions],
-            "total_count": len(questions),
-        }
-    else:
-        raise HTTPException(status_code=400, detail="Unsupported export format")
+    
+    return ScrapeResponse(
+        job_id=job_id,
+        status="pending",
+        message="Scraping job started successfully"
+    )
 
 @app.get("/job/{job_id}", response_model=JobStatus)
 async def get_job_status(job_id: str):
     if job_id not in scrape_jobs:
         raise HTTPException(status_code=404, detail="Job not found")
+    
     job = scrape_jobs[job_id]
-    
-    # Ensure questions are properly serialized in the result
-    if job.result and 'questions' in job.result:
-        questions_data = job.result['questions']
-        if 'questions' in questions_data:
-            # Convert any GeneratedQuestion objects to dictionaries
-            job.result['questions']['questions'] = [
-                q.dict() if hasattr(q, 'dict') else q 
-                for q in questions_data['questions']
-            ]
-    
-    extra_metadata: Dict[str, Any] = {}
-    if job.status == "completed" and job_id in mindmap_nodes:
-        mm = mindmap_nodes[job_id]
-        extra_metadata = {
-            "total_nodes": len(mm.nodes),
-            "expandable_nodes": sum(1 for node in mm.nodes.values() if node.metadata.get('expandable', False)),
-            "node_types": list({node.node_type for node in mm.nodes.values()}),
-            "question_nodes": sum(1 for node in mm.nodes.values() if node.node_type == 'question'),
-        }
-    
     return JobStatus(
         job_id=job.job_id,
         status=job.status,
         progress=job.progress,
-        result={**(job.result or {}), "mindmap_metadata": extra_metadata} if job.result else None,
+        result=job.result,
         error=job.error,
         created_at=job.created_at,
-        completed_at=job.completed_at,
+        completed_at=job.completed_at
     )
 
+@app.get("/job/{job_id}/mindmap")
+async def get_mindmap(job_id: str):
+    if job_id not in scrape_jobs:
+        raise HTTPException(status_code=404, detail="Job not found")
+    
+    job = scrape_jobs[job_id]
+    if job.status != "completed":
+        raise HTTPException(status_code=400, detail=f"Job not completed. Status: {job.status}")
+    
+    if job_id not in mindmap_nodes:
+        raise HTTPException(status_code=404, detail="Mind map not found for this job")
+    
+    mindmap = mindmap_nodes[job_id]
+    return {
+        "job_id": job_id,
+        "mindmap": mindmap.dict(),
+        "metadata": {
+            "total_nodes": len(mindmap.nodes),
+            "question_nodes": len([n for n in mindmap.nodes.values() if n.node_type == "question"]),
+            "expandable_nodes": len([n for n in mindmap.nodes.values() if n.metadata.get("expandable", False)]),
+        }
+    }
+
+@app.post("/expand-node")
+async def expand_node(request: ExpandNodeRequest):
+    expansion_service = get_expansion_service()
+    
+    # Find which mindmap contains this node
+    target_job_id = None
+    target_mindmap = None
+    
+    for job_id, mindmap in mindmap_nodes.items():
+        if request.node_id in mindmap.nodes:
+            target_job_id = job_id
+            target_mindmap = mindmap
+            break
+    
+    if not target_mindmap:
+        raise HTTPException(status_code=404, detail="Node not found in any mindmap")
+    
+    try:
+        result = await expansion_service.expand_node(
+            request.node_id,
+            request.expand_type,
+            target_mindmap
+        )
+        return result
+    except Exception as e:
+        raise HTTPException(status_code=400, detail=str(e))
+
+@app.get("/job/{job_id}/export")
+async def export_job_data(job_id: str):
+    if job_id not in scrape_jobs:
+        raise HTTPException(status_code=404, detail="Job not found")
+    
+    job = scrape_jobs[job_id]
+    if job.status != "completed":
+        raise HTTPException(status_code=400, detail=f"Job not completed. Status: {job.status}")
+    
+    return job.result
+
 @app.get("/jobs")
-async def list_jobs_enhanced():
-    jobs_data: List[Dict[str, Any]] = []
-    for job in scrape_jobs.values():
-        info: Dict[str, Any] = {
-            "job_id": job.job_id,
+async def list_jobs():
+    jobs = []
+    for job_id, job in scrape_jobs.items():
+        jobs.append({
+            "job_id": job_id,
             "status": job.status,
             "progress": job.progress,
             "created_at": job.created_at,
             "completed_at": job.completed_at,
-        }
-        if job.status == "completed" and job.job_id in mindmap_nodes:
-            mm = mindmap_nodes[job.job_id]
-            info["mindmap_features"] = {
-                "total_nodes": len(mm.nodes),
-                "expandable_nodes": sum(1 for n in mm.nodes.values() if n.metadata.get('expandable', False)),
-                "has_links": any(n.url for n in mm.nodes.values()),
-                "has_questions": any(n.node_type == 'question' for n in mm.nodes.values()),
-            }
-        jobs_data.append(info)
-    return {"total": len(scrape_jobs), "jobs": jobs_data}
+        })
+    
+    return {
+        "total_jobs": len(jobs),
+        "jobs": sorted(jobs, key=lambda x: x["created_at"], reverse=True)
+    }
 
-@app.delete("/job/{job_id}")
-async def delete_job_enhanced(job_id: str):
+@app.get("/job/{job_id}/questions")
+async def get_job_questions(job_id: str):
+    """Get all generated questions and answers for a job"""
     if job_id not in scrape_jobs:
         raise HTTPException(status_code=404, detail="Job not found")
-    del scrape_jobs[job_id]
-    if job_id in mindmap_nodes:
-        del mindmap_nodes[job_id]
-    return {"message": f"Job {job_id} and associated data deleted successfully"}
+    
+    job = scrape_jobs[job_id]
+    if job.status != "completed":
+        raise HTTPException(status_code=400, detail=f"Job not completed. Status: {job.status}")
+    
+    questions_data = job.result.get('questions', {}) if job.result else {}
+    questions = questions_data.get('questions', [])
+    
+    # Format questions and answers for clean output
+    formatted_questions = []
+    for i, q in enumerate(questions):
+        if isinstance(q, dict):
+            question_text = q.get('question', '')
+            answer_text = q.get('answer', '')
+            confidence = q.get('confidence', 0.0)
+        else:
+            question_text = getattr(q, 'question', '')
+            answer_text = getattr(q, 'answer', '')
+            confidence = getattr(q, 'confidence', 0.0)
+        
+        formatted_questions.append({
+            'id': i + 1,
+            'question': strip_metadata_lines(question_text),
+            'answer': strip_metadata_lines(answer_text),
+            'confidence': confidence,
+            'has_answer': bool(answer_text and answer_text != 'Information available in the context')
+        })
+    
+    return {
+        "job_id": job_id,
+        "total_questions": len(formatted_questions),
+        "questions_with_answers": len([q for q in formatted_questions if q['has_answer']]),
+        "questions": formatted_questions
+    }
 
-# --------- App startup: ensure NLTK resources exist ---------
-@app.on_event("startup")
-async def ensure_nltk_resources():
-    resources = [
-        ('tokenizers/punkt', 'punkt'),
-        ('corpora/stopwords', 'stopwords'),
-        ('taggers/averaged_perceptron_tagger', 'averaged_perceptron_tagger'),
-    ]
-    for path, pkg in resources:
-        try:
-            nltk.data.find(path)
-        except LookupError:
-            try:
-                logger.info(f"Downloading NLTK resource: {pkg}")
-                nltk.download(pkg)
-            except Exception as e:
-                logger.warning(f"Failed to download NLTK resource {pkg}: {e}")
+@app.get("/job/{job_id}/debug-full")
+async def debug_full_job(job_id: str):
+    if job_id not in scrape_jobs:
+        raise HTTPException(status_code=404, detail="Job not found")
+    job = scrape_jobs[job_id]
+    if job.status != "completed":
+        raise HTTPException(status_code=400, detail=f"Job not completed. Status: {job.status}")
+    
+    # Check questions in the main result
+    questions_data = job.result.get('questions', {}) if job.result else {}
+    questions = questions_data.get('questions', [])
+    
+    # Check mindmap for question nodes
+    mindmap_question_nodes = []
+    if job_id in mindmap_nodes:
+        mm = mindmap_nodes[job_id]
+        mindmap_question_nodes = [
+            {
+                "id": node.id,
+                "title": node.title,
+                "node_type": node.node_type,
+                "parent_id": node.parent_id
+            }
+            for node in mm.nodes.values() 
+            if node.node_type == 'question'
+        ]
+    
+    return {
+        "job_id": job_id,
+        "job_status": job.status,
+        "questions_in_result": {
+            "total": len(questions),
+            "questions": [
+                {
+                    "question": q.get('question', '') if isinstance(q, dict) else getattr(q, 'question', ''),
+                    "answer": q.get('answer', '') if isinstance(q, dict) else getattr(q, 'answer', ''),
+                }
+                for q in questions
+            ]
+        },
+        "questions_in_mindmap": {
+            "total": len(mindmap_question_nodes),
+            "nodes": mindmap_question_nodes
+        },
+        "metadata": job.result.get('metadata', {}) if job.result else {}
+    }
+
+# Download NLTK data if missing
+try:
+    nltk.data.find('tokenizers/punkt')
+except LookupError:
+    nltk.download('punkt')
+
+try:
+    nltk.data.find('corpora/stopwords')
+except LookupError:
+    nltk.download('stopwords')
+
+try:
+    nltk.data.find('taggers/averaged_perceptron_tagger')
+except LookupError:
+    nltk.download('averaged_perceptron_tagger')
 
 if __name__ == "__main__":
     import uvicorn
