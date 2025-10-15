@@ -1101,10 +1101,16 @@ class ContentSummarizer:
             'conclusion','overview','table','figure','supplement','appendix'
         }
 
+    def remove_citation_markers(self, text):
+        return re.sub(r"(\[\d+\])+", "", text)
+
     def summarize_content(self, content: Dict[str, Any], max_length: int = 500) -> Dict[str, Any]:
         sentences, scores = self._rank_sentences(content)
         bullets = self._make_bullets(sentences, scores, max_length=max_length, max_bullets=10)
-        bullets = [strip_metadata_lines(b) for b in bullets if strip_metadata_lines(b).strip()]
+
+        # Strip metadata lines, remove empty, and REMOVE citation markers
+        bullets = [self.remove_citation_markers(strip_metadata_lines(b)) for b in bullets if strip_metadata_lines(b).strip()]
+
         key_concepts = self._extract_key_concepts_clean(content)
         return {
             'summary': "\n".join(f"- {b}" for b in bullets),
@@ -1112,6 +1118,7 @@ class ContentSummarizer:
             'key_concepts': key_concepts,
             'method': 'nltk_extractive_bullets',
         }
+
 
     def _rank_sentences(self, content: Dict[str, Any]):
         full_text = content.get('full_text', '')
@@ -1392,7 +1399,7 @@ async def process_scrape_job(job_id: str, url: str, summary_length: int, extract
             logger.info("Generating questions from content...")
             job.progress = 60
             try:
-                questions = question_generator.generate_questions(content.get('full_text', ''), max_questions=5)
+                questions = question_generator.generate_questions(content.get('full_text', ''), max_questions=10)
                 questions_data["questions"] = [q.dict() for q in questions]  # Convert to dict
                 logger.info(f"Generated {len(questions)} questions")
                 # Debug: Log the actual questions
@@ -1414,7 +1421,7 @@ async def process_scrape_job(job_id: str, url: str, summary_length: int, extract
                     question_texts.append(f"Q: {strip_metadata_lines(qt)}")
             if question_texts:
                 summary_data.setdefault('key_concepts', [])
-                summary_data['key_concepts'].extend(question_texts)
+                summary_data['key_concepts'] = question_texts
         except Exception as e:
             logger.warning(f"Failed to append questions to key concepts: {e}")
 
